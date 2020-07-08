@@ -28,7 +28,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
                 imageView.image = image
                 
                 gradientLayer.colors = [ctg.firstColor.cgColor, ctg.secondColor.cgColor]
-                gradientLayer.locations = [1, 1]
+                gradientLayer.locations = [0.5, 1]
             }
         }
     }

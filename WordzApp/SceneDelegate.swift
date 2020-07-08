@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        guard let _ = (scene as? UIWindowScene) else { return }
         
         let layout = UICollectionViewFlowLayout()
-        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
+//        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
+        let homeController = CardsViewController()
         
         let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
         

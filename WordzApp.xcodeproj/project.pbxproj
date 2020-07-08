@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
+		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
 		C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63A924B472560051FD7B /* AppDelegate.swift */; };
 		C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AB24B472560051FD7B /* SceneDelegate.swift */; };
 		C41F63AE24B472560051FD7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AD24B472560051FD7B /* ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
+		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
 				C41F63AD24B472560051FD7B /* ViewController.swift */,
+				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
+				77F02D6D24B639E600F15519 /* Word.swift */,
 				C44CF52724B4F09900B3B600 /* Categories */,
 				C41F63C624B49ADD0051FD7B /* Home */,
 				C41F63AF24B472560051FD7B /* Main.storyboard */,
@@ -198,12 +204,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
+				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
 				C41F63AE24B472560051FD7B /* ViewController.swift in Sources */,
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
+				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */,
