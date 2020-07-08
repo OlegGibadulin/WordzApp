@@ -11,8 +11,9 @@ import UIKit
 class HomeCollectionViewHeader: UICollectionViewCell {
     
     let logoView: UIImageView = {
-        let image = UIImage(named: "logo_extended")
+        let image = UIImage(named: "logo_black_small")
         let iv = UIImageView(image: image)
+        iv.contentMode = .left
         iv.heightAnchor.constraint(equalToConstant: 80).isActive = true
         return iv
     }()

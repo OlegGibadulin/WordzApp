@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let cellIdentifier = "CellId"
-private let headerIdentifier = "HeaderId"
+private let cellIdentifier = "HomeCellId"
+private let headerIdentifier = "HomeHeaderId"
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -19,9 +19,9 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         super.viewDidLoad()
         
         // Register cell classes
-        self.collectionView!.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView!.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
-        self.collectionView!.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        collectionView!.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         
         setupLayout()
     }
@@ -53,8 +53,8 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = (view.frame.width - margins * 3) / 2
-        return CGSize(width: cellWidth, height: cellWidth)
+        let width = (view.frame.width - margins * 3) / 2
+        return CGSize(width: width, height: width)
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

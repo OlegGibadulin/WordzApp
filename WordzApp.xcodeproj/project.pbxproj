@@ -19,6 +19,8 @@
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
+		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
+		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
+		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,7 @@
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
 				C41F63AD24B472560051FD7B /* ViewController.swift */,
+				C44CF52724B4F09900B3B600 /* Categories */,
 				C41F63C624B49ADD0051FD7B /* Home */,
 				C41F63AF24B472560051FD7B /* Main.storyboard */,
 				C41F63B224B472570051FD7B /* Assets.xcassets */,
@@ -107,6 +112,15 @@
 				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C44CF52724B4F09900B3B600 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,6 +198,8 @@
 				C41F63AE24B472560051FD7B /* ViewController.swift in Sources */,
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
+				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
+				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
