@@ -11,13 +11,27 @@ import UIKit
 class HomeCollectionViewCell: UICollectionViewCell {
     
     let imageView = UIImageView()
-    var backColor = UIColor()
+    let gradientLayer = CAGradientLayer()
     
     let titleLabel: UILabel = {
         let tl = UILabel()
-        tl.font = UIFont.systemFont(ofSize: 16, weight: .heavy)
+        tl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         return tl
     }()
+    
+    var category: Category? {
+        didSet {
+            if let ctg = category {
+                titleLabel.text = ctg.title
+                
+                let image = UIImage(named: ctg.imageName)
+                imageView.image = image
+                
+                gradientLayer.colors = [ctg.firstColor.cgColor, ctg.secondColor.cgColor]
+                gradientLayer.locations = [1, 1]
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,13 +42,15 @@ class HomeCollectionViewCell: UICollectionViewCell {
         
         titleLabel.text = "Computer"
         titleLabel.textAlignment = .center
-        backColor = .lightGray
-        backgroundColor = backColor
+        
+        backgroundColor = .lightGray
     }
     
     fileprivate func setupLayot() {
         layer.cornerRadius = 10
         clipsToBounds = true
+        
+        layer.addSublayer(gradientLayer)
         
         addSubview(imageView)
         let imagePadding = frame.height / 4
@@ -43,6 +59,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
         addSubview(titleLabel)
         let titleBottomPadding = frame.height / 12
         titleLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: titleBottomPadding, right: 0))
+    }
+    
+    override func layoutSubviews() {
+        gradientLayer.frame = self.bounds
     }
     
     required init?(coder: NSCoder) {

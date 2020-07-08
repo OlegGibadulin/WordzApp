@@ -11,6 +11,11 @@ import UIKit
 private let cellIdentifier = "HomeCellId"
 private let headerIdentifier = "HomeHeaderId"
 
+private let categories = [
+    Category(title: "Favorites", imageName: "favorites", firstColor: UIColor.yellow, secondColor: UIColor.brown),
+    Category(title: "Computer", imageName: "computer", firstColor: UIColor.yellow, secondColor: UIColor.brown)
+]
+
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
     fileprivate let margins = CGFloat(12)
@@ -28,6 +33,12 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     
     fileprivate func setupLayout() {
         collectionView.backgroundColor = .white
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let layout = UICollectionViewFlowLayout()
+        let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
+        present(categoryController, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -62,11 +73,13 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categories.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
+        
+        cell.category = categories[indexPath.row]
     
         return cell
     }

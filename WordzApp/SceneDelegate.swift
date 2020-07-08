@@ -23,9 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let layout = UICollectionViewFlowLayout()
         let homeController = HomeCollectionViewController(collectionViewLayout: layout)
         
-//        let categoryController = UINavigationController(rootViewController: CategoryTableViewController())
-        
-//        let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
+        let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

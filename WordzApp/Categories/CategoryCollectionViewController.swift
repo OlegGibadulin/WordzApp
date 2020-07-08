@@ -26,6 +26,16 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
         self.collectionView!.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
         setupLayout()
+        setupNavigationItems()
+    }
+    
+    fileprivate func setupNavigationItems() {
+        navigationItem.title = "Computer"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(handleOpenMenu))
+    }
+    
+    @objc fileprivate func handleOpenMenu() {
+        
     }
     
     fileprivate func setupLayout() {

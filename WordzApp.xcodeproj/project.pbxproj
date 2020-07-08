@@ -21,6 +21,7 @@
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
 		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
 		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
+		C4F37F3C24B5F68800D7807D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3B24B5F68800D7807D /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4F37F3B24B5F68800D7807D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		C41F63C624B49ADD0051FD7B /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C4F37F3B24B5F68800D7807D /* Category.swift */,
 				C41F63C724B49AF30051FD7B /* Views */,
 				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
 				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
@@ -205,6 +208,7 @@
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */,
 				C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */,
+				C4F37F3C24B5F68800D7807D /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
