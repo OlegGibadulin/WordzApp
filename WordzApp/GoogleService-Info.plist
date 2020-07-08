@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>592716068920-ql17krm5bthil2qqih525gklr67evdr7.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.592716068920-ql17krm5bthil2qqih525gklr67evdr7</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCv0ojKOittPR4HWZm_I_y0tS3ujQqX-8k</string>
+	<key>GCM_SENDER_ID</key>
+	<string>592716068920</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Program.WordzApp</string>
+	<key>PROJECT_ID</key>
+	<string>wordz-20d7b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wordz-20d7b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:592716068920:ios:b211874ff050a21fb78ecd</string>
+	<key>DATABASE_URL</key>
+	<string>https://wordz-20d7b.firebaseio.com</string>
+</dict>
+</plist>

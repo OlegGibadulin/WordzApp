@@ -30,12 +30,18 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         return width
     }()
     
+    var sentence: Sentence? {
+        didSet {
+            if let snt = sentence {
+                sentenceLabel.text = snt.text
+                translationLabel.text = snt.translation
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
-        
-        sentenceLabel.text = "Sentence"
-        translationLabel.text = "Выражение"
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {

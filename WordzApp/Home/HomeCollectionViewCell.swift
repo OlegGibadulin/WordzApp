@@ -16,6 +16,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     let titleLabel: UILabel = {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        tl.textAlignment = .center
         return tl
     }()
     
@@ -36,14 +37,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayot()
-        
-        let image = UIImage(named: "computer")
-        imageView.image = image
-        
-        titleLabel.text = "Computer"
-        titleLabel.textAlignment = .center
-        
-        backgroundColor = .lightGray
     }
     
     fileprivate func setupLayot() {

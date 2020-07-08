@@ -8,9 +8,22 @@
 
 import UIKit
 
+struct Sentence {
+    let text: String
+    let translation: String
+//    let isLearned: Bool
+}
+
 private let cellIdentifier = "CategoryCellId"
 
+private let sentences = [
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово")
+]
+
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+    var categoryTitle = String()
     
     var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -30,7 +43,7 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
     }
     
     fileprivate func setupNavigationItems() {
-        navigationItem.title = "Computer"
+        navigationItem.title = categoryTitle
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(handleOpenMenu))
     }
     
@@ -57,11 +70,13 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 11
+        return sentences.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! CategoryCollectionViewCell
+        
+        cell.sentence = sentences[indexPath.row]
     
         return cell
     }

@@ -41,7 +41,8 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     }
     
     fileprivate func setupLayout() {
-        let overallStackView = UIStackView(arrangedSubviews: [logoView, profileView, cardDeskView])
+//        let overallStackView = UIStackView(arrangedSubviews: [logoView, profileView, cardDeskView])
+        let overallStackView = UIStackView(arrangedSubviews: [logoView, cardDeskView])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
         overallStackView.spacing = 8

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -18,13 +18,17 @@
 		C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C424B4996C0051FD7B /* Extensions+UIView.swift */; };
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
+		C42EBA4824B6394100F20BB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C42EBA4724B6394100F20BB5 /* GoogleService-Info.plist */; };
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
 		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
 		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
 		C4F37F3C24B5F68800D7807D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3B24B5F68800D7807D /* Category.swift */; };
+		C7FBF5881BE7900F01175F49 /* Pods_WordzApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC287A4A4EE90E11FECA748D /* Pods_WordzApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
+		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,10 +42,12 @@
 		C41F63C424B4996C0051FD7B /* Extensions+UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		C42EBA4724B6394100F20BB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3B24B5F68800D7807D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		CC287A4A4EE90E11FECA748D /* Pods_WordzApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordzApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +55,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FBF5881BE7900F01175F49 /* Pods_WordzApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8731AAD67B7AA4F0907CFC77 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */,
+				4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		C41F639D24B472560051FD7B = {
 			isa = PBXGroup;
 			children = (
 				C41F63A824B472560051FD7B /* WordzApp */,
 				C41F63A724B472560051FD7B /* Products */,
+				8731AAD67B7AA4F0907CFC77 /* Pods */,
+				DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +102,7 @@
 				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C41F63B424B472570051FD7B /* LaunchScreen.storyboard */,
 				C41F63B724B472570051FD7B /* Info.plist */,
+				C42EBA4724B6394100F20BB5 /* GoogleService-Info.plist */,
 			);
 			path = WordzApp;
 			sourceTree = "<group>";
@@ -126,6 +145,14 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CC287A4A4EE90E11FECA748D /* Pods_WordzApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,9 +160,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C41F63BA24B472570051FD7B /* Build configuration list for PBXNativeTarget "WordzApp" */;
 			buildPhases = (
+				FC1AF8C19B2346545A376881 /* [CP] Check Pods Manifest.lock */,
 				C41F63A224B472560051FD7B /* Sources */,
 				C41F63A324B472560051FD7B /* Frameworks */,
 				C41F63A424B472560051FD7B /* Resources */,
+				A8D3AA526DDCBD1033E6E5C9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,12 +214,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F63B624B472570051FD7B /* LaunchScreen.storyboard in Resources */,
+				C42EBA4824B6394100F20BB5 /* GoogleService-Info.plist in Resources */,
 				C41F63B324B472570051FD7B /* Assets.xcassets in Resources */,
 				C41F63B124B472560051FD7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A8D3AA526DDCBD1033E6E5C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WordzApp/Pods-WordzApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WordzApp/Pods-WordzApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WordzApp/Pods-WordzApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FC1AF8C19B2346545A376881 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WordzApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C41F63A224B472560051FD7B /* Sources */ = {
@@ -350,6 +422,7 @@
 		};
 		C41F63BB24B472570051FD7B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -368,6 +441,7 @@
 		};
 		C41F63BC24B472570051FD7B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

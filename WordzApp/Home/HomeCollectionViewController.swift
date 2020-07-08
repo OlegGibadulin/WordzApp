@@ -12,6 +12,7 @@ private let cellIdentifier = "HomeCellId"
 private let headerIdentifier = "HomeHeaderId"
 
 private let categories = [
+    Category(title: "History", imageName: "calendar", firstColor: UIColor.yellow, secondColor: UIColor.brown),
     Category(title: "Favorites", imageName: "favorites", firstColor: UIColor.yellow, secondColor: UIColor.brown),
     Category(title: "Computer", imageName: "computer", firstColor: UIColor.yellow, secondColor: UIColor.brown)
 ]
@@ -37,8 +38,11 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let layout = UICollectionViewFlowLayout()
-        let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
-        present(categoryController, animated: true, completion: nil)
+        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
+        
+        categoryViewController.categoryTitle = categories[indexPath.row].title
+        
+        present(UINavigationController(rootViewController: categoryViewController), animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
