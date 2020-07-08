@@ -14,7 +14,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         sl.numberOfLines = 0
-        
         return sl
     }()
     
@@ -37,21 +36,18 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         
         sentenceLabel.text = "Sentence"
         translationLabel.text = "Выражение"
-        
-//        let attributedText = NSMutableAttributedString(string: "Sentence", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .medium)])
-//        attributedText.append(NSAttributedString(string: "\nВыражение", attributes: [.font: UIFont.systemFont(ofSize: 16, weight: .light)]))
-//        sentenceLabel.attributedText = attributedText
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+        width.constant = bounds.size.width
+        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
     }
     
     fileprivate func setupLayout() {
         backgroundColor = .lightGray
         layer.cornerRadius = 10
         clipsToBounds = true
-        
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        
-//        addSubview(sentenceLabel)
-//        sentenceLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor)
         
         let overallStackView = UIStackView(arrangedSubviews: [sentenceLabel, translationLabel])
         overallStackView.axis = .vertical
@@ -61,11 +57,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         addSubview(overallStackView)
         overallStackView.fillSuperview(padding: .init(top: 8, left: 16, bottom: 8, right: 16))
         widthAnchor.constraint(equalToConstant: frame.width - 16).isActive = true
-    }
-    
-    override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
-        width.constant = bounds.size.width
-        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
     }
     
     required init?(coder: NSCoder) {
