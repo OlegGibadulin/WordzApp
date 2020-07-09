@@ -13,7 +13,13 @@ class CardsViewController: UIViewController {
     var centerView: UIView!
     var bottomView: UIView!
     
-    let words = [Word(word: "develop", translate: "разрабатывать"), Word(word: "cat", translate: "кошка"), Word(word: "dog", translate: "собака"), Word(word: "book", translate: "книга")]
+    let words = [
+        Word(word: "develop", translate: "разрабатывать"),
+        Word(word: "cat", translate: "кошка"),
+        Word(word: "dog", translate: "собака"),
+        Word(word: "book", translate: "книга"),
+        Word(word: "bookbookbo okbookb ookbook", translate: "книгакнигакнигакнигакнига")
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()

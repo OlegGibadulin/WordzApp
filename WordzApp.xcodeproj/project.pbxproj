@@ -21,6 +21,7 @@
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
 		C42EBA4824B6394100F20BB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C42EBA4724B6394100F20BB5 /* GoogleService-Info.plist */; };
+		C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EBA4924B717B100F20BB5 /* Sentence.swift */; };
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
 		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
 		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
@@ -30,9 +31,9 @@
 
 /* Begin PBXFileReference section */
 		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
-		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C42EBA4724B6394100F20BB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C42EBA4924B717B100F20BB5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -99,11 +101,10 @@
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
-				C41F63AD24B472560051FD7B /* ViewController.swift */,
-				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
 				77F02D6D24B639E600F15519 /* Word.swift */,
-				C44CF52724B4F09900B3B600 /* Categories */,
-				C41F63C624B49ADD0051FD7B /* Home */,
+				C42EBA4B24B717B900F20BB5 /* Models */,
+				C41F63C724B49AF30051FD7B /* Views */,
+				C42EBA4C24B7185500F20BB5 /* Controllers */,
 				C41F63AF24B472560051FD7B /* Main.storyboard */,
 				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C41F63B424B472570051FD7B /* LaunchScreen.storyboard */,
@@ -124,8 +125,6 @@
 		C41F63C624B49ADD0051FD7B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C4F37F3B24B5F68800D7807D /* Category.swift */,
-				C41F63C724B49AF30051FD7B /* Views */,
 				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
 				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
 				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
@@ -140,6 +139,34 @@
 				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		C42EBA4B24B717B900F20BB5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C42EBA4924B717B100F20BB5 /* Sentence.swift */,
+				C4F37F3B24B5F68800D7807D /* Category.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C42EBA4C24B7185500F20BB5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C41F63AD24B472560051FD7B /* ViewController.swift */,
+				C42EBA4D24B7188700F20BB5 /* Cards */,
+				C44CF52724B4F09900B3B600 /* Categories */,
+				C41F63C624B49ADD0051FD7B /* Home */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C42EBA4D24B7188700F20BB5 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		C44CF52724B4F09900B3B600 /* Categories */ = {
@@ -282,6 +309,7 @@
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
+				C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,

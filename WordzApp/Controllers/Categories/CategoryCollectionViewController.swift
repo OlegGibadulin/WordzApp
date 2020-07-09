@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct Sentence {
-    let text: String
-    let translation: String
-//    let isLearned: Bool
-}
-
 private let cellIdentifier = "CategoryCellId"
 
 private let sentences = [
