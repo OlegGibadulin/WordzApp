@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>592716068920-ql17krm5bthil2qqih525gklr67evdr7.apps.googleusercontent.com</string>
+	<string>522399395270-89mnten887v7405fj9vk75m0n9jvfv5k.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.592716068920-ql17krm5bthil2qqih525gklr67evdr7</string>
+	<string>com.googleusercontent.apps.522399395270-89mnten887v7405fj9vk75m0n9jvfv5k</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCv0ojKOittPR4HWZm_I_y0tS3ujQqX-8k</string>
+	<string>AIzaSyDwNQ8P4_0ltgqQaZu-_hVDR8pKNy42Rl8</string>
 	<key>GCM_SENDER_ID</key>
-	<string>592716068920</string>
+	<string>522399395270</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>Program.WordzApp</string>
 	<key>PROJECT_ID</key>
-	<string>wordz-20d7b</string>
+	<string>wordz-564f6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>wordz-20d7b.appspot.com</string>
+	<string>wordz-564f6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:592716068920:ios:b211874ff050a21fb78ecd</string>
+	<string>1:522399395270:ios:2e96253b142abd744656c7</string>
 	<key>DATABASE_URL</key>
-	<string>https://wordz-20d7b.firebaseio.com</string>
+	<string>https://wordz-564f6.firebaseio.com</string>
 </dict>
 </plist>

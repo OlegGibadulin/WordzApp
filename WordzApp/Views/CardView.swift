@@ -9,6 +9,7 @@
 import UIKit
 
 class CardView: UIView {
+    
     var initialWidth: CGFloat = 0
     var initialHeight: CGFloat = 0
     

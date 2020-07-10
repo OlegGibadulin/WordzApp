@@ -13,3 +13,8 @@ struct Sentence {
     let translation: String
 //    let isLearned: Bool
 }
+
+struct TodayAlbum {
+    let sentences: [Sentence]
+//    let time
+}

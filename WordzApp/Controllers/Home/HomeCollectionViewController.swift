@@ -13,7 +13,7 @@ private let headerIdentifier = "HomeHeaderId"
 
 private let categories = [
     Category(title: "History", imageName: "calendar", firstColor: UIColor.yellow, secondColor: UIColor.brown),
-    Category(title: "Favorites", imageName: "favorites", firstColor: UIColor.yellow, secondColor: UIColor.brown),
+    Category(title: "Favourites", imageName: "favorites", firstColor: UIColor.yellow, secondColor: UIColor.brown),
     Category(title: "Computer", imageName: "computer", firstColor: UIColor.yellow, secondColor: UIColor.brown)
 ]
 
@@ -55,7 +55,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let height = view.frame.height / 1.5
+        let height = view.frame.height / 2
         return CGSize(width: view.frame.width, height: height)
     }
     

@@ -10,6 +10,28 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
+    var category: Category! {
+        didSet {
+            titleLabel.text = category.title
+            
+            let image = UIImage(named: category.imageName)
+            imageView.image = image
+            
+            gradientLayer.colors = [category.firstColor.cgColor, category.secondColor.cgColor]
+            gradientLayer.locations = [0.5, 1]
+            
+//            if let ctg = category {
+//                titleLabel.text = ctg.title
+//
+//                let image = UIImage(named: ctg.imageName)
+//                imageView.image = image
+//
+//                gradientLayer.colors = [ctg.firstColor.cgColor, ctg.secondColor.cgColor]
+//                gradientLayer.locations = [0.5, 1]
+//            }
+        }
+    }
+    
     let imageView = UIImageView()
     let gradientLayer = CAGradientLayer()
     
@@ -19,20 +41,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         tl.textAlignment = .center
         return tl
     }()
-    
-    var category: Category? {
-        didSet {
-            if let ctg = category {
-                titleLabel.text = ctg.title
-                
-                let image = UIImage(named: ctg.imageName)
-                imageView.image = image
-                
-                gradientLayer.colors = [ctg.firstColor.cgColor, ctg.secondColor.cgColor]
-                gradientLayer.locations = [0.5, 1]
-            }
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

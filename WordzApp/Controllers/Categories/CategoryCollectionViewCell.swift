@@ -10,6 +10,18 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
     
+    var sentence: Sentence! {
+        didSet {
+            sentenceLabel.text = sentence.text
+            translationLabel.text = sentence.translation
+            
+//            if let snt = sentence {
+//                sentenceLabel.text = snt.text
+//                translationLabel.text = snt.translation
+//            }
+        }
+    }
+    
     let sentenceLabel: UILabel = {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
@@ -29,15 +41,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         width.isActive = true
         return width
     }()
-    
-    var sentence: Sentence? {
-        didSet {
-            if let snt = sentence {
-                sentenceLabel.text = snt.text
-                translationLabel.text = snt.translation
-            }
-        }
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -8,13 +8,22 @@
 
 import UIKit
 
+private let sentences = [
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово")
+]
+
+private let todayAlbum = TodayAlbum(sentences: sentences)
+
 class HomeCollectionViewHeader: UICollectionViewCell {
     
     let logoView: UIImageView = {
-        let image = UIImage(named: "logo_black_small")
+        let image = UIImage(named: "wordz_black_extended")
         let iv = UIImageView(image: image)
         iv.contentMode = .left
-        iv.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        iv.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return iv
     }()
     
@@ -24,7 +33,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         return pv
     }()
     
-    let cardDeskView = UIView()
+    let cardsDeskView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,16 +42,16 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     }
     
     fileprivate func setupCards() {
-        (0..<4).forEach { (_) in
-            let cardView = CardView()
-            cardDeskView.addSubview(cardView)
-            cardView.fillSuperview()
-        }
+        let albumCardView = AlbumCardView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+        cardsDeskView.addSubview(albumCardView)
+        albumCardView.fillSuperView()
+        
+        albumCardView.album = todayAlbum
     }
     
     fileprivate func setupLayout() {
 //        let overallStackView = UIStackView(arrangedSubviews: [logoView, profileView, cardDeskView])
-        let overallStackView = UIStackView(arrangedSubviews: [logoView, cardDeskView])
+        let overallStackView = UIStackView(arrangedSubviews: [logoView, cardsDeskView])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
         overallStackView.spacing = 8

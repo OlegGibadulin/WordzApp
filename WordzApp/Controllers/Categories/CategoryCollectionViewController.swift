@@ -17,6 +17,17 @@ private let sentences = [
 
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
+    let toCardsButton: UIButton = {
+        let tcb = UIButton(type: .system)
+        tcb.backgroundColor = .brown
+        tcb.setTitle("Учить слова", for: .normal)
+        tcb.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        tcb.tintColor = UIColor.white
+        tcb.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        tcb.addTarget(self, action: #selector(handleToCards), for: .touchUpInside)
+        return tcb
+    }()
+    
     var categoryTitle = String()
     
     var layout: UICollectionViewFlowLayout = {
@@ -36,18 +47,25 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
         setupNavigationItems()
     }
     
-    fileprivate func setupNavigationItems() {
-        navigationItem.title = categoryTitle
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(handleOpenMenu))
+    @objc fileprivate func handleToCards() {
+        print("!")
     }
     
-    @objc fileprivate func handleOpenMenu() {
-        
+    fileprivate func setupNavigationItems() {
+        navigationItem.title = categoryTitle
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(handleOpenMenu))
     }
+    
+//    @objc fileprivate func handleOpenMenu() {
+//
+//    }
     
     fileprivate func setupLayout() {
         collectionView.collectionViewLayout = layout
         collectionView.backgroundColor = .white
+        
+        collectionView.addSubview(toCardsButton)
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
