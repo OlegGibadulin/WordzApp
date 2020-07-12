@@ -48,17 +48,13 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
     }
     
     @objc fileprivate func handleToCards() {
-        print("!")
+        let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        present(cardViewController, animated: true, completion: nil)
     }
     
     fileprivate func setupNavigationItems() {
         navigationItem.title = categoryTitle
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: .plain, target: self, action: #selector(handleOpenMenu))
     }
-    
-//    @objc fileprivate func handleOpenMenu() {
-//
-//    }
     
     fileprivate func setupLayout() {
         collectionView.collectionViewLayout = layout

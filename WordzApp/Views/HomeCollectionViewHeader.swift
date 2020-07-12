@@ -10,8 +10,6 @@ import UIKit
 
 private let sentences = [
     Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
     Sentence(text: "Word", translation: "Слово")
 ]
 
@@ -51,7 +49,11 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     
     fileprivate func setupLayout() {
 //        let overallStackView = UIStackView(arrangedSubviews: [logoView, profileView, cardDeskView])
-        let overallStackView = UIStackView(arrangedSubviews: [logoView, cardsDeskView])
+        
+        let gap = UIView()
+        gap.heightAnchor.constraint(equalToConstant: 16).isActive = true
+        
+        let overallStackView = UIStackView(arrangedSubviews: [logoView, gap, cardsDeskView])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
         overallStackView.spacing = 8

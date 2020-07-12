@@ -12,9 +12,9 @@ private let cellIdentifier = "HomeCellId"
 private let headerIdentifier = "HomeHeaderId"
 
 private let categories = [
-    Category(title: "History", imageName: "calendar", firstColor: UIColor.yellow, secondColor: UIColor.brown),
-    Category(title: "Favourites", imageName: "favorites", firstColor: UIColor.yellow, secondColor: UIColor.brown),
-    Category(title: "Computer", imageName: "computer", firstColor: UIColor.yellow, secondColor: UIColor.brown)
+    Category(title: "History", imageName: "calendar", firstColor: UIColor.gray, secondColor: UIColor.brown),
+    Category(title: "Favourites", imageName: "favorites", firstColor: UIColor.gray, secondColor: UIColor.brown),
+    Category(title: "Computer", imageName: "computer", firstColor: UIColor.gray, secondColor: UIColor.brown)
 ]
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {

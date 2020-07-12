@@ -26,9 +26,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
         
+        let mainTabBarController = MainTabBarController()
+        
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = homeController
+            window.rootViewController = mainTabBarController
             self.window = window
             window.makeKeyAndVisible()
         }

@@ -19,6 +19,8 @@ class AlbumCardView: UIView {
                 (0..<album.sentences.count).forEach { (_) in
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
+                    barView.layer.cornerRadius = 2
+                    barView.clipsToBounds = true
                     barsStackView.addArrangedSubview(barView)
                 }
                 barsStackView.arrangedSubviews.first?.backgroundColor = .white
@@ -49,6 +51,24 @@ class AlbumCardView: UIView {
         return tl
     }()
     
+    let toFavouritesButton: UIButton = {
+        let tfb = UIButton()
+        tfb.setImage(UIImage(named: "bookmark_white"), for: .normal)
+        tfb.setImage(UIImage(named: "bookmark_black"), for: .selected)
+        tfb.addTarget(self, action: #selector(handleToFavourites), for: .touchUpInside)
+        return tfb
+    }()
+    
+    @objc fileprivate func handleToFavourites() {
+        if toFavouritesButton.isSelected {
+            toFavouritesButton.isSelected = false
+            // delete from Favourites
+        } else {
+            toFavouritesButton.isSelected = true
+            // save to Favourites
+        }
+    }
+    
     fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)
     
     override init(frame: CGRect) {
@@ -76,9 +96,13 @@ class AlbumCardView: UIView {
         let tapLocation = gesture.location(in: nil)
         let shouldGoToNextCard = tapLocation.x > frame.width / 2 ? true : false
         if shouldGoToNextCard {
-            cardInd = min(cardInd + 1, album.sentences.count - 1)
+            cardInd = (cardInd + 1) % album.sentences.count
         } else {
-            cardInd = max(cardInd - 1, 0)
+            if cardInd == 0 {
+                cardInd = album.sentences.count - 1
+            } else {
+                cardInd -= 1
+            }
         }
     }
     
@@ -95,6 +119,9 @@ class AlbumCardView: UIView {
         
         addSubview(translationLabel)
         translationLabel.anchor(top: sentenceLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
+        
+        addSubview(toFavouritesButton)
+        toFavouritesButton.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 4))
     }
     
     fileprivate func setupBarsStackView() {

@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
 		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
+		C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401EA8D24BB580E00FB116F /* MainTabBarController.swift */; };
 		C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63A924B472560051FD7B /* AppDelegate.swift */; };
 		C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AB24B472560051FD7B /* SceneDelegate.swift */; };
-		C41F63AE24B472560051FD7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AD24B472560051FD7B /* ViewController.swift */; };
+		C41F63AE24B472560051FD7B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AD24B472560051FD7B /* SettingsViewController.swift */; };
 		C41F63B124B472560051FD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41F63AF24B472560051FD7B /* Main.storyboard */; };
 		C41F63B324B472570051FD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41F63B224B472570051FD7B /* Assets.xcassets */; };
 		C41F63B624B472570051FD7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41F63B424B472570051FD7B /* LaunchScreen.storyboard */; };
@@ -35,10 +36,11 @@
 		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
+		C401EA8D24BB580E00FB116F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C41F63AD24B472560051FD7B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C41F63AD24B472560051FD7B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C41F63B024B472560051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C41F63B224B472570051FD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41F63B524B472570051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -124,22 +126,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C41F63C624B49ADD0051FD7B /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
-				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
-				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
 		C41F63C724B49AF30051FD7B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
 				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
 				C473ECD024B85C4B00895008 /* AlbumCardView.swift */,
+				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
+				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
+				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -156,29 +151,13 @@
 		C42EBA4C24B7185500F20BB5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C41F63AD24B472560051FD7B /* ViewController.swift */,
-				C42EBA4D24B7188700F20BB5 /* Cards */,
-				C44CF52724B4F09900B3B600 /* Categories */,
-				C41F63C624B49ADD0051FD7B /* Home */,
+				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
+				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
+				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
+				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		C42EBA4D24B7188700F20BB5 /* Cards */ = {
-			isa = PBXGroup;
-			children = (
-				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
-			);
-			path = Cards;
-			sourceTree = "<group>";
-		};
-		C44CF52724B4F09900B3B600 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
-				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
-			);
-			path = Categories;
 			sourceTree = "<group>";
 		};
 		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
@@ -308,7 +287,7 @@
 				C473ECD124B85C4B00895008 /* AlbumCardView.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
 				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
-				C41F63AE24B472560051FD7B /* ViewController.swift in Sources */,
+				C41F63AE24B472560051FD7B /* SettingsViewController.swift in Sources */,
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
@@ -321,6 +300,7 @@
 				C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */,
 				C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */,
 				C4F37F3C24B5F68800D7807D /* Category.swift in Sources */,
+				C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
