@@ -13,22 +13,65 @@ class CardsViewController: UIViewController {
     var centerView: UIView!
     var bottomView: UIView!
     
+    var cardsView = [CardView]()
+    
     let words = [
         Word(word: "develop", translate: "разрабатывать"),
         Word(word: "cat", translate: "кошка"),
-        Word(word: "dog", translate: "собака"),
+        Word(word: "LOL KEK", translate: "собака"),
         Word(word: "book", translate: "книга"),
-        Word(word: "bookbookbo okbookb ookbook", translate: "книгакнигакнигакнигакнига")
+        Word(word: "Hellow haw rea ewfkjwejk wefjwelkfjwel wefkjlwefjlkew lryou, what u are doing here, i do not know man! Go out", translate: "книгакнигакнигакнигакнига"),
+        Word(word: "bookbookbo ejnrkjerngker okbookb ookbook", translate: "книгакнигакнигакнигакнига"),
+        Word(word: "Hellow haw rea lryou, what u are doing here, i do not know man! Go out", translate: "книгакнигакнигакнигакнига")
     ]
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.view.backgroundColor = .white
         
         setupDummyCards()
-//        setupLayout()
-//        setupDummyCards()
+        setupButtons()
+    }
+    
+    fileprivate func setupButtons() {
+        let swipeLeftButton = UIButton(frame: CGRect(x: 15, y: 570, width: 120, height: 70))
+        swipeLeftButton.setTitle("Не знаю", for: .normal)
+        swipeLeftButton.backgroundColor = .lightGray
+        swipeLeftButton.layer.cornerRadius = 10
+        swipeLeftButton.addTarget(self, action: #selector(swipeLeft(sender:)), for: .touchUpInside)
+        self.view.addSubview(swipeLeftButton)
+        
+        let swipeRightButton = UIButton(frame: CGRect(x: 240, y: 570, width: 120, height: 70))
+        swipeRightButton.setTitle("Знаю", for: .normal)
+        swipeRightButton.backgroundColor = .lightGray
+        swipeRightButton.layer.cornerRadius = 10
+        swipeRightButton.addTarget(self, action: #selector(swipeRight(sender:)), for: .touchUpInside)
+        
+        let rotateCardButton = UIButton(frame: CGRect(x: 147, y: 570, width: 80, height: 70))
+        rotateCardButton.setTitle("Перевод", for: .normal)
+        rotateCardButton.backgroundColor = .lightGray
+        rotateCardButton.layer.cornerRadius = 10
+        rotateCardButton.addTarget(self, action: #selector(rotateCard(sender:)), for: .touchUpInside)
+        
+        self.view.addSubview(swipeLeftButton)
+        self.view.addSubview(swipeRightButton)
+        self.view.addSubview(rotateCardButton)
+    }
+    
+    @objc func swipeLeft(sender: UIButton) {
+        let card = cardsView.popLast()
+        card?.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
+    }
+    
+    @objc func swipeRight(sender: UIButton) {
+        let card = cardsView.popLast()
+        card?.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
+    }
+    
+    @objc func rotateCard(sender: UIButton) {
+        let card = cardsView.last
+        card?.showAnotherTranslation()
     }
     
     func setupLayout() {
@@ -50,20 +93,21 @@ class CardsViewController: UIViewController {
         overallStackView.isLayoutMarginsRelativeArrangement = true
         overallStackView.layoutMargins = .init(top: 0, left: 8, bottom: 0, right: 8)
         
-        overallStackView.bringSubviewToFront(centerView)
+        //overallStackView.bringSubviewToFront(centerView)
     }
     
     func setupDummyCards() {
-        let width = self.view.frame.width / 1.1
+        let width = self.view.frame.width / 1.15
         let height = self.view.frame.height / 1.75
         
         words.forEach { (curWord) in
             let cardView = CardView(frame: CGRect(x: (self.view.frame.width - width) / 2,
-            y: self.view.frame.width - height / 2,
+                                                  y: self.view.frame.width - height / 1.5,
             width: width,
             height: height))
-            cardView.word = curWord
+            cardView.wordSelfCard = curWord
             cardView.setupLabels()
+            self.cardsView.append(cardView)
             self.view.addSubview(cardView)
         }
     }
