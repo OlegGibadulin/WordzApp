@@ -10,15 +10,15 @@ import UIKit
 
 class CardView: UIView {
     
-    var initialWidth: CGFloat = 0
-    var initialHeight: CGFloat = 0
+    static private let threshold: CGFloat = 125
     
-    let threshold: CGFloat = 125
+    private var initialWidth: CGFloat = 0
+    private var initialHeight: CGFloat = 0
     
-    var wordLabel: UILabel!
-    var translateLabel: UILabel!
+    private var isOpen = true
     
-    var word: Word!
+    private var textLabel: UILabel!
+    public var wordSelfCard: Word!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,8 +28,12 @@ class CardView: UIView {
         
         setupLayout()
         
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        addGestureRecognizer(panGesture)
+        let swipeGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
+        addGestureRecognizer(swipeGesture)
+        
+        let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleOneTapPan(gesture:)))
+        singleTapGesture.numberOfTapsRequired = 1
+        addGestureRecognizer(singleTapGesture)
     }
     
     fileprivate func setupLayout() {
@@ -39,19 +43,15 @@ class CardView: UIView {
     }
     
     public func setupLabels() {
-        wordLabel = UILabel(frame: CGRect(x: 0, y: self.initialHeight / 2, width: self.initialWidth, height: 40))
-        wordLabel.textColor = .white
-        wordLabel.font = UIFont.systemFont(ofSize: 34, weight: .semibold)
-        wordLabel.textAlignment = .center
-        wordLabel.text = self.word.word
-        self.addSubview(wordLabel)
-        
-        translateLabel = UILabel(frame: CGRect(x: 0, y: self.initialHeight / 2 + 40, width: self.initialWidth, height: 35))
-        translateLabel.textColor = .white
-        translateLabel.font = UIFont.systemFont(ofSize: 28, weight: .light)
-        translateLabel.textAlignment = .center
-        translateLabel.text = self.word.translate
-        self.addSubview(translateLabel)
+        textLabel = UILabel(frame: CGRect(x: 0, y: self.initialHeight / 2, width: self.initialWidth, height: 40))
+        textLabel.textColor = .white
+        textLabel.font = UIFont.systemFont(ofSize: 34, weight: .semibold)
+        textLabel.textAlignment = .center
+        textLabel.numberOfLines = 2
+        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.allowsDefaultTighteningForTruncation = true
+        textLabel.text = self.wordSelfCard.word
+        self.addSubview(textLabel)
     }
     
     @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
@@ -78,7 +78,7 @@ class CardView: UIView {
     
     fileprivate func handleEnded(_ gesture: UIPanGestureRecognizer) {
         let translationDirection: CGFloat = gesture.translation(in: nil).x > 0 ? 1: -1
-        let shouldDismissedCard = abs(gesture.translation(in: nil).x) > threshold
+        let shouldDismissedCard = abs(gesture.translation(in: nil).x) > CardView.threshold
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6,
                        initialSpringVelocity: 4, options: .curveEaseOut, animations: {
@@ -93,6 +93,32 @@ class CardView: UIView {
                 self.removeFromSuperview()
             }
         })
+    }
+    
+    public func swipeCard(IfPositiveNumberThenSwipeRightElseLeft translationDirection: CGFloat) {
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.6,
+                       initialSpringVelocity: 0.5, options: .curveEaseOut, animations: {
+                        self.frame = CGRect(x: 1000 * translationDirection, y: 0, width: self.initialWidth, height: self.initialHeight)
+        }, completion: { (_) in
+            self.transform = .identity
+            self.removeFromSuperview()
+        })
+    }
+    
+    @objc fileprivate func handleOneTapPan(gesture: UIPanGestureRecognizer) {
+        showAnotherTranslation()
+    }
+    
+    public func showAnotherTranslation() {
+        if isOpen {
+            isOpen = false
+            textLabel.text = wordSelfCard.translate
+            UIView.transition(with: self, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        } else {
+            isOpen = true
+            textLabel.text = wordSelfCard.word
+            UIView.transition(with: self, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
+        }
     }
     
     required init?(coder: NSCoder) {
