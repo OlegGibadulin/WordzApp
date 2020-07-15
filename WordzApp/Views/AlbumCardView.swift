@@ -10,13 +10,13 @@ import UIKit
 
 class AlbumCardView: UIView {
     
-    var album: TodayAlbum! {
+    var sentences: [Sentence]! {
         didSet {
-            if let sentence = album.sentences.first {
+            if let sentence = sentences.first {
                 sentenceLabel.text = sentence.text
                 translationLabel.text = sentence.translation
                 
-                (0..<album.sentences.count).forEach { (_) in
+                (0..<sentences.count).forEach { (_) in
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
                     barView.layer.cornerRadius = 2
@@ -81,7 +81,7 @@ class AlbumCardView: UIView {
     
     var cardInd = 0 {
         didSet {
-            let sentence = album.sentences[cardInd]
+            let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
             translationLabel.text = sentence.translation
             
@@ -96,10 +96,10 @@ class AlbumCardView: UIView {
         let tapLocation = gesture.location(in: nil)
         let shouldGoToNextCard = tapLocation.x > frame.width / 2 ? true : false
         if shouldGoToNextCard {
-            cardInd = (cardInd + 1) % album.sentences.count
+            cardInd = (cardInd + 1) % sentences.count
         } else {
             if cardInd == 0 {
-                cardInd = album.sentences.count - 1
+                cardInd = sentences.count - 1
             } else {
                 cardInd -= 1
             }

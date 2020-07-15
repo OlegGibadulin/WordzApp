@@ -7,13 +7,16 @@
 //
 
 import UIKit
+//import RealmSwift
+
+//private var sentences: Results<Sentence>!
 
 private let sentences = [
     Sentence(text: "Sentence", translation: "Выражение"),
     Sentence(text: "Word", translation: "Слово")
 ]
 
-private let todayAlbum = TodayAlbum(sentences: sentences)
+//private let todayAlbum = TodayAlbum(sentences: sentences)
 
 class HomeCollectionViewHeader: UICollectionViewCell {
     
@@ -44,7 +47,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         cardsDeskView.addSubview(albumCardView)
         albumCardView.fillSuperView()
         
-        albumCardView.album = todayAlbum
+        albumCardView.sentences = sentences
     }
     
     fileprivate func setupLayout() {

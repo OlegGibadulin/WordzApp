@@ -14,21 +14,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = category.title
             
-            let image = UIImage(named: category.imageName)
-            imageView.image = image
+//            let image = UIImage(named: category.imageName)
+//            imageView.image = image
             
             gradientLayer.colors = [category.firstColor.cgColor, category.secondColor.cgColor]
-            gradientLayer.locations = [0.5, 1]
-            
-//            if let ctg = category {
-//                titleLabel.text = ctg.title
-//
-//                let image = UIImage(named: ctg.imageName)
-//                imageView.image = image
-//
-//                gradientLayer.colors = [ctg.firstColor.cgColor, ctg.secondColor.cgColor]
-//                gradientLayer.locations = [0.5, 1]
-//            }
+            gradientLayer.locations = [0, 1]
         }
     }
     
@@ -39,6 +29,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         tl.textAlignment = .center
+        tl.textColor = .white
         return tl
     }()
     
@@ -48,7 +39,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     fileprivate func setupLayot() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = 5
         clipsToBounds = true
         
         layer.addSublayer(gradientLayer)

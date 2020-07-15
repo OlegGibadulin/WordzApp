@@ -7,14 +7,16 @@
 //
 
 import Foundation
+//import RealmSwift
 
 struct Sentence {
     let text: String
     let translation: String
-//    let isLearned: Bool
 }
 
-struct TodayAlbum {
-    let sentences: [Sentence]
-//    let time
-}
+//class Sentence: Object {
+//    @objc dynamic var text: String = ""
+//    @objc dynamic var translation: String = ""
+//    @objc dynamic var isLearned = false
+//    @objc dynamic var isFavourite = false
+//}

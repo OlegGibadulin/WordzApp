@@ -7,14 +7,35 @@
 //
 
 import UIKit
+//import DGCollectionViewLeftAlignFlowLayout
+import CollectionViewCenteredFlowLayout
 
 private let cellIdentifier = "HomeCellId"
 private let headerIdentifier = "HomeHeaderId"
 
 private let categories = [
-    Category(title: "History", imageName: "calendar", firstColor: UIColor.gray, secondColor: UIColor.brown),
     Category(title: "Favourites", imageName: "favorites", firstColor: UIColor.gray, secondColor: UIColor.brown),
-    Category(title: "Computer", imageName: "computer", firstColor: UIColor.gray, secondColor: UIColor.brown)
+    Category(title: "Computer", imageName: "computer", firstColor: UIColor.gray, secondColor: UIColor.brown),
+    Category(title: "Develop", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Sport", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Fitness", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Office", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Travel", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Cinema", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Food", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Fitness", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Office", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Travel", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Cinema", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Food", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Travel", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Cinema", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Food", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Fitness", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Office", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Travel", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Cinema", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue),
+    Category(title: "Food", imageName: "calendar", firstColor: UIColor.lightRed, secondColor: UIColor.darkBlue)
 ]
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
@@ -34,6 +55,10 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     
     fileprivate func setupLayout() {
         collectionView.backgroundColor = .white
+        
+//        self.collectionView.collectionViewLayout = DGCollectionViewLeftAlignFlowLayout()
+        
+        self.collectionView.collectionViewLayout = CollectionViewCenteredFlowLayout()
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -46,7 +71,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: margins * 2, left: margins, bottom: 0, right: margins)
+        return UIEdgeInsets(top: margins * 2, left: margins, bottom: margins * 2, right: margins)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -60,7 +85,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return margins
+        return margins * 1.5
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -68,8 +93,14 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (view.frame.width - margins * 3) / 2
-        return CGSize(width: width, height: width)
+        let title = categories[indexPath.row].title
+        let itemSize = title.size(withAttributes: [
+            NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 25)
+        ])
+        return itemSize
+        
+//        let width = (view.frame.width - margins * 3) / 2
+//        return CGSize(width: width, height: width)
     }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {

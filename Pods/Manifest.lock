@@ -158,12 +158,15 @@ PODS:
     - abseil/base/base_internal
     - abseil/base/config
     - abseil/meta/type_traits
+  - AlignedCollectionViewFlowLayout (1.1.2)
   - BoringSSL-GRPC (0.0.3):
     - BoringSSL-GRPC/Implementation (= 0.0.3)
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Implementation (0.0.3):
     - BoringSSL-GRPC/Interface (= 0.0.3)
   - BoringSSL-GRPC/Interface (0.0.3)
+  - CollectionViewCenteredFlowLayout (1.0.1)
+  - DGCollectionViewLeftAlignFlowLayout (1.0.4)
   - Firebase/Analytics (6.13.0):
     - Firebase/Core
   - Firebase/Auth (6.13.0):
@@ -275,17 +278,29 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - Realm (5.2.0):
+    - Realm/Headers (= 5.2.0)
+  - Realm/Headers (5.2.0)
+  - RealmSwift (5.2.0):
+    - Realm (= 5.2.0)
 
 DEPENDENCIES:
+  - AlignedCollectionViewFlowLayout
+  - CollectionViewCenteredFlowLayout
+  - DGCollectionViewLeftAlignFlowLayout
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - abseil
+    - AlignedCollectionViewFlowLayout
     - BoringSSL-GRPC
+    - CollectionViewCenteredFlowLayout
+    - DGCollectionViewLeftAlignFlowLayout
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -305,10 +320,15 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - Realm
+    - RealmSwift
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
+  AlignedCollectionViewFlowLayout: ee2ef451e741ec08f8e0967d828001e2f051c20a
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
+  CollectionViewCenteredFlowLayout: 339b935be4d8578c59e448c8906117a07c657d85
+  DGCollectionViewLeftAlignFlowLayout: a0fa58797373ded039cafba8133e79373d048399
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
@@ -328,7 +348,9 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
+  RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
 
-PODFILE CHECKSUM: b2ee9cce78d929ab6aa263dc2fd003e75edb0b12
+PODFILE CHECKSUM: bd28931bd734c44dd063f79a47cb4a69051f530d
 
 COCOAPODS: 1.8.4

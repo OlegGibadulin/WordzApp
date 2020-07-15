@@ -26,6 +26,9 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         sl.numberOfLines = 0
+//        sl.numberOfLines = 2
+//        sl.minimumScaleFactor = 0.7
+//        sl.adjustsFontSizeToFitWidth = true
         return sl
     }()
     

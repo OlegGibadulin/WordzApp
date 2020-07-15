@@ -7,15 +7,37 @@
 //
 
 import UIKit
+//import RealmSwift
 
 private let cellIdentifier = "CategoryCellId"
 
 private let sentences = [
     Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
+    Sentence(text: "Word", translation: "Слово"),
+    Sentence(text: "Sentence", translation: "Выражение"),
     Sentence(text: "Word", translation: "Слово")
 ]
 
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
+    
+//    let realm = try! Realm()
+//    lazy var sentences: Results<Sentence>! = {
+//        self.realm.objects(Sentence.self)
+//    }()
     
     let toCardsButton: UIButton = {
         let tcb = UIButton(type: .system)
@@ -45,6 +67,8 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
         
         setupLayout()
         setupNavigationItems()
+        
+        
     }
     
     @objc fileprivate func handleToCards() {
@@ -54,6 +78,21 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
     
     fileprivate func setupNavigationItems() {
         navigationItem.title = categoryTitle
+        
+////        navigationController?.navigationBar.isTranslucent = true
+//        navigationController?.navigationBar.barTintColor = .red
+//
+//        navigationController?.navigationBar.tintColor = .red
+//
+////        navigationController?.navigationBar.backgroundColor = .red
+//        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.barTintColor = .lightRed
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
     
     fileprivate func setupLayout() {

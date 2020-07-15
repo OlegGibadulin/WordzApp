@@ -7,11 +7,28 @@
 //
 
 import UIKit
+import RealmSwift
 
 class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let realm = try! Realm()
+        
+//        print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+//        var sentence = SentenceRealm()
+//        sentence.text = "Text"
+//        sentence.translation = "Текст"
+//
+//        try! realm.write {
+//            realm.add(sentence)
+//        }
+        
+//        let sentences = realm.objects(SentenceRealm.self)
+        
+//        print(sentences[0].text)
     }
 }
 

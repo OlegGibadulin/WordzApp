@@ -11,4 +11,9 @@ target 'WordzApp' do
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Auth'
 
+  pod 'RealmSwift'
+
+  pod 'CollectionViewCenteredFlowLayout'
+  pod 'DGCollectionViewLeftAlignFlowLayout'
+
 end

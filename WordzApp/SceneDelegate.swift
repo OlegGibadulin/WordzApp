@@ -8,25 +8,43 @@
 
 import UIKit
 
+class CustomNavigationController: UINavigationController {
+//    override var preferredStatusBarStyle: UIStatusBarStyle {
+//        return .darkContent
+//    }
+}
+
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-//        guard let _ = (scene as? UIWindowScene) else { return }
+//        UINavigationBar.appearance().tintColor = .white
+//        UINavigationBar.appearance().isTranslucent = false
+//        UINavigationBar.appearance().barTintColor = .lightRed
+//        UINavigationBar.appearance().prefersLargeTitles = true
+//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+//        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        let layout = UICollectionViewFlowLayout()
-        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
-//        let homeController = CardsViewController()
         
-        let categoryController = UINavigationController(rootViewController: CategoryCollectionViewController(collectionViewLayout: layout))
+//        let layout = UICollectionViewFlowLayout()
+//        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
+////        let homeController = CardsViewController()
+//
         
+//
         let mainTabBarController = MainTabBarController()
+        
+        let categoryViewController = CategoryTableViewController()
+        
+//        let layout = UICollectionViewFlowLayout()
+//        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
+        
+        categoryViewController.categoryTitle = "Favourites"
+        
+        let navController = CustomNavigationController(rootViewController: categoryViewController)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
