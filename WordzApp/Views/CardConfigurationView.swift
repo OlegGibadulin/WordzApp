@@ -64,8 +64,6 @@ class CardsConfigurationView: UIView {
         minusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         minusCardsCountButton.layer.cornerRadius = 8
         
-        
-        
         let view1 = UIView()
         
         firstLineStackView = UIStackView(arrangedSubviews: [сardsInPackLabel, view1, minusCardsCountButton, countCardsLabel, plusCardsCountButton])
@@ -110,33 +108,33 @@ class CardsConfigurationView: UIView {
     }
     
     func setupThirdLine() {
-        
-        let view = UIView()
         discardButton = UIButton()
         discardButton.setTitle("Сбросить прогресс", for: .normal)
         discardButton.backgroundColor = .clear
         discardButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
-        discardButton.setTitleColor(#colorLiteral(red: 0.7121704221, green: 0.1806949675, blue: 0.08742617816, alpha: 1), for: .highlighted)
+        discardButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.4008454623), for: .highlighted)
         discardButton.layer.cornerRadius = 8
+        discardButton.contentHorizontalAlignment = .left
         discardButton.titleLabel?.textAlignment = .left
         
-        thirdLineStackView = UIStackView(arrangedSubviews: [discardButton, view])
+        thirdLineStackView = UIStackView(arrangedSubviews: [discardButton])
         thirdLineStackView.axis = .horizontal
-//        thirdLineStackView.distribution = .fill
         thirdLineStackView.spacing = 10
     }
     
     func setupOverallStackview() {
-        let view = UIView()
+        let view1 = UIView()
+        let view2 = UIView()
+        let view3 = UIView()
         
-        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view, secondLineStackView, view, thirdLineStackView, view])
+        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view1, secondLineStackView, view2, thirdLineStackView, view3])
         overallStackView.spacing = 10
         overallStackView.axis = .vertical
-        overallStackView.distribution = .fillEqually
+        overallStackView.distribution = .fillProportionally
         
         self.addSubview(overallStackView)
         
-        overallStackView.fillSuperview(padding: .init(top: 15, left: 20, bottom: 95, right: 15))
+        overallStackView.fillSuperview(padding: .init(top: 15, left: 20, bottom: 100, right: 15))
     }
     
     func setupAnchors() {
