@@ -72,7 +72,11 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
     }
     
     @objc fileprivate func handleToCards() {
-        let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        //let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        let cardViewController = CardsViewController()
+//        cardViewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        cardViewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+
         present(cardViewController, animated: true, completion: nil)
     }
     
