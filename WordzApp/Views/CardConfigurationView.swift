@@ -33,6 +33,8 @@ class CardsConfigurationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        self.layer.cornerRadius = 8
+        
         setupFirstLine()
         setupSecondLine()
         setupThirdLine()
@@ -134,7 +136,7 @@ class CardsConfigurationView: UIView {
         
         self.addSubview(overallStackView)
         
-        overallStackView.fillSuperview(padding: .init(top: 15, left: 20, bottom: 100, right: 15))
+        overallStackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 100, right: 15))
     }
     
     func setupAnchors() {
