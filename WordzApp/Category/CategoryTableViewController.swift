@@ -14,8 +14,6 @@ private let cellIdentifier = "CategoryCellId"
 
 class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, UIEmptyStateDataSource {
     
-    var categoryTitle = String()
-    
     private var sentences = [Sentence]()
 
     override func viewDidLoad() {
@@ -29,7 +27,6 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         
         fetchSentences()
         setupLayout()
-        setupNavigationController()
         setupEmptyState()
     }
     
@@ -46,6 +43,11 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         }
     }
     
+    fileprivate func setupLayout() {
+        tableView.backgroundColor = .white
+        tableView.tableFooterView = UIView()
+    }
+    
     var emptyStateImage: UIImage? {
         return #imageLiteral(resourceName: "bookmark_white")
     }
@@ -60,17 +62,6 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         self.emptyStateDataSource = self
         self.emptyStateDelegate = self
         self.reloadEmptyState()
-    }
-    
-    fileprivate func setupLayout() {
-        tableView.backgroundColor = .white
-        tableView.tableFooterView = UIView()
-    }
-    
-    fileprivate func setupNavigationController() {
-        navigationItem.title = categoryTitle
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,5 +107,28 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
+    }
+    
+    var scrollDirectionObserver: ((Int) -> ())?
+
+    private var lastContentOffset: CGFloat = 0
+
+    private var direction = 0 {
+        didSet {
+            scrollDirectionObserver?(direction)
+        }
+    }
+
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+
+        if lastContentOffset > scrollView.contentOffset.y && lastContentOffset < scrollView.contentSize.height - scrollView.frame.height {
+            print("up")
+            direction = 0
+        } else if lastContentOffset < scrollView.contentOffset.y && scrollView.contentOffset.y > 0 {
+            print("down")
+            direction = 1
+        }
+
+        lastContentOffset = scrollView.contentOffset.y
     }
 }

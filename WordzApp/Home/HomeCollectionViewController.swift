@@ -65,7 +65,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
 //        let layout = UICollectionViewFlowLayout()
 //        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
         
-        let categoryViewController = CategoryTableViewController()
+        let categoryViewController = CategoryViewController()
         
         categoryViewController.categoryTitle = categories[indexPath.row].title
         

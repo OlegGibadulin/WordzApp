@@ -14,7 +14,17 @@ class CategoryViewController: UIViewController {
     
     lazy var categoryTableViewController: CategoryTableViewController! = {
         let ctvc = CategoryTableViewController()
-        ctvc.categoryTitle = self.categoryTitle
+        
+        ctvc.scrollDirectionObserver = { [weak self] (direction) in
+            if direction == 0 {
+                // UP
+                self?.toCardsButton.isHidden = false
+            } else {
+                // DOWN
+                self?.toCardsButton.isHidden = true
+            }
+        }
+        
         return ctvc
     }()
     
@@ -40,6 +50,7 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
+        setupNavigationController()
     }
     
     @objc fileprivate func handleToCards() {
@@ -54,6 +65,12 @@ class CategoryViewController: UIViewController {
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
         view.addSubview(toCardsButton)
-        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 32, right: 64))
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 0, right: 64))
+    }
+    
+    fileprivate func setupNavigationController() {
+        navigationItem.title = categoryTitle
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
