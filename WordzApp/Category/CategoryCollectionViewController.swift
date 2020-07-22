@@ -11,26 +11,28 @@ import UIKit
 
 private let cellIdentifier = "CategoryCellId"
 
-private let sentences = [
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово")
-]
+//private let sentences = [
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово"),
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово")
+//]
+
+private let sentences = [Sentence]()
 
 class CategoryCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     

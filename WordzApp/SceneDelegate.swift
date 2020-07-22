@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //
         let mainTabBarController = MainTabBarController()
         
-        let categoryViewController = CategoryTableViewController()
+        let categoryViewController = CategoryViewController()
         
 //        let layout = UICollectionViewFlowLayout()
 //        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)

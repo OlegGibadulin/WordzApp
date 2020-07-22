@@ -11,10 +11,12 @@ import UIKit
 
 //private var sentences: Results<Sentence>!
 
-private let sentences = [
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово")
-]
+//private let sentences = [
+//    Sentence(text: "Sentence", translation: "Выражение"),
+//    Sentence(text: "Word", translation: "Слово")
+//]
+
+private let sentences = [Sentence]()
 
 //private let todayAlbum = TodayAlbum(sentences: sentences)
 

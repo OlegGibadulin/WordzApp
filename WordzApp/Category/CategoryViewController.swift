@@ -1,0 +1,59 @@
+//
+//  CategoryViewController.swift
+//  WordzApp
+//
+//  Created by Mac-HOME on 22.07.2020.
+//  Copyright © 2020 Mac-HOME. All rights reserved.
+//
+
+import UIKit
+
+class CategoryViewController: UIViewController {
+    
+    var categoryTitle = String()
+    
+    lazy var categoryTableViewController: CategoryTableViewController! = {
+        let ctvc = CategoryTableViewController()
+        ctvc.categoryTitle = self.categoryTitle
+        return ctvc
+    }()
+    
+    lazy var tableView: UITableView! = {
+        let tv = self.categoryTableViewController.tableView
+        return tv
+    }()
+    
+    var safeArea: UILayoutGuide!
+    
+    let toCardsButton: UIButton = {
+        let tcb = UIButton(type: .system)
+        tcb.backgroundColor = .lightRed
+        tcb.setTitle("Учить слова", for: .normal)
+        tcb.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
+        tcb.tintColor = .white
+        tcb.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        tcb.addTarget(self, action: #selector(handleToCards), for: .touchUpInside)
+        return tcb
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setupLayout()
+    }
+    
+    @objc fileprivate func handleToCards() {
+        let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        present(cardViewController, animated: true, completion: nil)
+    }
+    
+    private func setupLayout() {
+        safeArea = view.layoutMarginsGuide
+        
+        view.addSubview(tableView)
+        tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
+        
+        view.addSubview(toCardsButton)
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 32, right: 64))
+    }
+}

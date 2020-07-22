@@ -7,66 +7,43 @@
 //
 
 import UIKit
-//import WLEmptyState
-//import EmptyDataSet_Swift
 import UIEmptyState
+import CoreData
 
 private let cellIdentifier = "CategoryCellId"
-
-private let sentences = [
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово"),
-    Sentence(text: "Sentence", translation: "Выражение"),
-    Sentence(text: "Word", translation: "Слово")
-]
-
-//private let sentences: [Sentence] = []
 
 class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, UIEmptyStateDataSource {
     
     var categoryTitle = String()
     
-    let toCardsButton: UIButton = {
-        let tcb = UIButton(type: .system)
-        tcb.backgroundColor = .lightRed
-        tcb.setTitle("Учить слова", for: .normal)
-        tcb.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
-        tcb.tintColor = .white
-        tcb.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        tcb.addTarget(self, action: #selector(handleToCards), for: .touchUpInside)
-        return tcb
-    }()
+    private var sentences = [Sentence]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
-        self.emptyStateDataSource = self
-        self.emptyStateDelegate = self
+//        CoreDataDB.addSentence(text: "Word", translation: "Слово")
+//        CoreDataDB.addSentence(text: "Translation", translation: "Перевод")
         
-        self.reloadEmptyState()
-        
-//        tableView.emptyStateDataSource = self
-//        tableView.emptyDataSetSource = self
-//        tableView.emptyDataSetDelegate = self
-        
+        fetchSentences()
         setupLayout()
         setupNavigationController()
+        setupEmptyState()
+    }
+    
+    fileprivate func fetchSentences() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Sentence>(entityName: "Sentence")
+        
+        do {
+            let sentences = try context.fetch(fetchRequest)
+            self.sentences = sentences
+            self.tableView.reloadData()
+        } catch let fetchErr {
+            print("Failed to fetch sentences:", fetchErr)
+        }
     }
     
     var emptyStateImage: UIImage? {
@@ -79,23 +56,21 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         return NSAttributedString(string: "Здесь пока пусто", attributes: attrs)
     }
     
+    fileprivate func setupEmptyState() {
+        self.emptyStateDataSource = self
+        self.emptyStateDelegate = self
+        self.reloadEmptyState()
+    }
+    
     fileprivate func setupLayout() {
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView()
-        
-        tableView.addSubview(toCardsButton)
-        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: 16, right: 16))
     }
     
     fileprivate func setupNavigationController() {
         navigationItem.title = categoryTitle
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.prefersLargeTitles = true
-    }
-    
-    @objc fileprivate func handleToCards() {
-        let cardViewController = UINavigationController(rootViewController: CardsViewController())
-        present(cardViewController, animated: true, completion: nil)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -112,5 +87,34 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         cell.sentence = sentences[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, complete) in
+            
+            let sentence = self.sentences[indexPath.row]
+            
+            // delete from tableview
+            self.sentences.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // delete from CoreData
+            let context = CoreDataManager.shared.persistentContainer.viewContext
+            context.delete(sentence)
+            
+            do {
+                try context.save()
+            } catch let saveErr {
+                print("Failed to delete sentence:", saveErr)
+            }
+            
+            self.reloadEmptyState()
+            complete(true)
+        }
+        
+        let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
+        configuration.performsFirstActionWithFullSwipe = true
+        return configuration
     }
 }

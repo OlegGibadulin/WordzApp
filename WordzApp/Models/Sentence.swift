@@ -9,10 +9,10 @@
 import Foundation
 //import RealmSwift
 
-struct Sentence {
-    let text: String
-    let translation: String
-}
+//struct Sentence {
+//    let text: String
+//    let translation: String
+//}
 
 //class Sentence: Object {
 //    @objc dynamic var text: String = ""
