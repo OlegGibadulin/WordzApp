@@ -13,7 +13,11 @@ target 'WordzApp' do
 
   pod 'RealmSwift'
 
+  # Collection view cells aligment
   pod 'CollectionViewCenteredFlowLayout'
   pod 'DGCollectionViewLeftAlignFlowLayout'
+
+  # For empty table view
+  pod 'UIEmptyState'
 
 end

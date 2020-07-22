@@ -112,9 +112,12 @@
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
 				77F02D6D24B639E600F15519 /* Word.swift */,
+				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
+				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
 				C42EBA4B24B717B900F20BB5 /* Models */,
-				C41F63C724B49AF30051FD7B /* Views */,
-				C42EBA4C24B7185500F20BB5 /* Controllers */,
+				C47585B924C844B8008199E2 /* Home */,
+				C47585BA24C844D3008199E2 /* Category */,
+				C47585BB24C844E1008199E2 /* Cards */,
 				C41F63AF24B472560051FD7B /* Main.storyboard */,
 				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C41F63B424B472570051FD7B /* LaunchScreen.storyboard */,
@@ -133,19 +136,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		C41F63C724B49AF30051FD7B /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
-				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
-				C473ECD024B85C4B00895008 /* AlbumCardView.swift */,
-				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
-				C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */,
-				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		C42EBA4B24B717B900F20BB5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,18 +145,36 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		C42EBA4C24B7185500F20BB5 /* Controllers */ = {
+		C47585B924C844B8008199E2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
-				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
-				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
+				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
+				C473ECD024B85C4B00895008 /* AlbumCardView.swift */,
+				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
+				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
+				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		C47585BA24C844D3008199E2 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
+				C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */,
 				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
 				C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */,
-				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
-				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
 			);
-			path = Controllers;
+			path = Category;
+			sourceTree = "<group>";
+		};
+		C47585BB24C844E1008199E2 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
+				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
+			);
+			path = Cards;
 			sourceTree = "<group>";
 		};
 		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
