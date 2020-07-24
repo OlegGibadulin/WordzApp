@@ -17,14 +17,14 @@ class CategoryTableViewCell: UITableViewCell {
         }
     }
     
-    let sentenceLabel: UILabel = {
+    fileprivate let sentenceLabel: UILabel = {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         sl.numberOfLines = 0
         return sl
     }()
     
-    let translationLabel: UILabel = {
+    fileprivate let translationLabel: UILabel = {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 16, weight: .light)
         tl.numberOfLines = 0
@@ -38,23 +38,13 @@ class CategoryTableViewCell: UITableViewCell {
     }
     
     fileprivate func setupLayout() {
-        backgroundColor = .lightGray
-        layer.cornerRadius = 10
-        clipsToBounds = true
-        backgroundColor = .lightBlue
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-        
         let overallStackView = UIStackView(arrangedSubviews: [sentenceLabel, translationLabel])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
         overallStackView.spacing = 4
-        
-        overallStackView.backgroundColor = .lightRed
-        overallStackView.layer.cornerRadius = 10
-        overallStackView.clipsToBounds = true
 
         addSubview(overallStackView)
-        overallStackView.fillSuperview(padding: .init(top: 40, left: 16, bottom: 40, right: 16))
+        overallStackView.fillSuperview(padding: .init(top: 16, left: 24, bottom: 16, right: 16))
     }
     
     required init?(coder: NSCoder) {

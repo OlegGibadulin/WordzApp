@@ -17,7 +17,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
 //            let image = UIImage(named: category.imageName)
 //            imageView.image = image
             
-            gradientLayer.colors = [category.firstColor.cgColor, category.secondColor.cgColor]
+            let firstColor = category?.firstColor as! UIColor
+            let secondColor = category?.secondColor as! UIColor
+            
+            gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
             gradientLayer.locations = [0, 1]
         }
     }

@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import UIEmptyState
 import CoreData
 
 private let cellIdentifier = "CategoryCellId"
 
-class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, UIEmptyStateDataSource {
+class CategoryTableViewController: UITableViewController {
+    
+    var category: Category?
     
     private var sentences = [Sentence]()
 
@@ -22,46 +23,17 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
-//        CoreDataDB.addSentence(text: "Word", translation: "Слово")
-//        CoreDataDB.addSentence(text: "Translation", translation: "Перевод")
+//        CoreDataManager.shared.addSentence(text: "Sentence", translation: "Предложение", category: category)
         
-        fetchSentences()
+        sentences = CoreDataManager.shared.fetchSentences(category: category)
+        
         setupLayout()
         setupEmptyState()
-    }
-    
-    fileprivate func fetchSentences() {
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Sentence>(entityName: "Sentence")
-        
-        do {
-            let sentences = try context.fetch(fetchRequest)
-            self.sentences = sentences
-            self.tableView.reloadData()
-        } catch let fetchErr {
-            print("Failed to fetch sentences:", fetchErr)
-        }
     }
     
     fileprivate func setupLayout() {
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView()
-    }
-    
-    var emptyStateImage: UIImage? {
-        return #imageLiteral(resourceName: "bookmark_white")
-    }
-
-    var emptyStateTitle: NSAttributedString {
-        let attrs = [NSAttributedString.Key.foregroundColor: UIColor(red: 0.882, green: 0.890, blue: 0.859, alpha: 1.00),
-                     NSAttributedString.Key.font: UIFont.systemFont(ofSize: 22)]
-        return NSAttributedString(string: "Здесь пока пусто", attributes: attrs)
-    }
-    
-    fileprivate func setupEmptyState() {
-        self.emptyStateDataSource = self
-        self.emptyStateDelegate = self
-        self.reloadEmptyState()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,6 +50,14 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
         cell.sentence = sentences[indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -103,32 +83,10 @@ class CategoryTableViewController: UITableViewController, UIEmptyStateDelegate, 
             self.reloadEmptyState()
             complete(true)
         }
+        deleteAction.backgroundColor = .lightRed
         
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
-    }
-    
-    var scrollDirectionObserver: ((Int) -> ())?
-
-    private var lastContentOffset: CGFloat = 0
-
-    private var direction = 0 {
-        didSet {
-            scrollDirectionObserver?(direction)
-        }
-    }
-
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-
-        if lastContentOffset > scrollView.contentOffset.y && lastContentOffset < scrollView.contentSize.height - scrollView.frame.height {
-            print("up")
-            direction = 0
-        } else if lastContentOffset < scrollView.contentOffset.y && scrollView.contentOffset.y > 0 {
-            print("down")
-            direction = 1
-        }
-
-        lastContentOffset = scrollView.contentOffset.y
     }
 }

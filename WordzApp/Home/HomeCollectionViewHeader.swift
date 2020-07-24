@@ -53,8 +53,6 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     }
     
     fileprivate func setupLayout() {
-//        let overallStackView = UIStackView(arrangedSubviews: [logoView, profileView, cardDeskView])
-        
         let gap = UIView()
         gap.heightAnchor.constraint(equalToConstant: 16).isActive = true
         

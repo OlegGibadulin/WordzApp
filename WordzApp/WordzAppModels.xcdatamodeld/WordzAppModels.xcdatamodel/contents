@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="19D76" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
+        <attribute name="firstColor" optional="YES" attributeType="Transformable"/>
+        <attribute name="secondColor" optional="YES" attributeType="Transformable"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="sentences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sentence" inverseName="category" inverseEntity="Sentence"/>
+    </entity>
     <entity name="Sentence" representedClassName="Sentence" syncable="YES" codeGenerationType="class">
         <attribute name="isFavourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isLearned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="sentences" inverseEntity="Category"/>
     </entity>
     <elements>
-        <element name="Sentence" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="Category" positionX="299.59375" positionY="30.16015625" width="160.20703125" height="103"/>
+        <element name="Sentence" positionX="-63" positionY="-18" width="128" height="118"/>
     </elements>
 </model>

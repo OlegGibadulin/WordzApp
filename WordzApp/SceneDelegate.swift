@@ -42,13 +42,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let layout = UICollectionViewFlowLayout()
 //        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
         
-        categoryViewController.categoryTitle = "Favourites"
+//        categoryViewController.categoryTitle = "Favourites"
         
         let navController = CustomNavigationController(rootViewController: categoryViewController)
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = navController
+            window.rootViewController = mainTabBarController
             self.window = window
             window.makeKeyAndVisible()
         }

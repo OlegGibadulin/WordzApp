@@ -25,10 +25,10 @@
 		C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */; };
 		C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */; };
 		C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */; };
+		C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */; };
 		C473ECCD24B8597500895008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C473ECCC24B8597500895008 /* GoogleService-Info.plist */; };
 		C473ECD124B85C4B00895008 /* AlbumCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473ECD024B85C4B00895008 /* AlbumCardView.swift */; };
 		C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */; };
-		C47585C024C84DBF008199E2 /* CoreDataDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47585BF24C84DBF008199E2 /* CoreDataDB.swift */; };
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
 		C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */; };
 		C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */; };
@@ -61,10 +61,10 @@
 		C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTableViewController+UIEmptyState.swift"; sourceTree = "<group>"; };
 		C473ECCC24B8597500895008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C473ECD024B85C4B00895008 /* AlbumCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCardView.swift; sourceTree = "<group>"; };
 		C47585BD24C84AE5008199E2 /* WordzAppModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordzAppModels.xcdatamodel; sourceTree = "<group>"; };
-		C47585BF24C84DBF008199E2 /* CoreDataDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataDB.swift; sourceTree = "<group>"; };
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -119,11 +119,7 @@
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
-				77F02D6D24B639E600F15519 /* Word.swift */,
-				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
-				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
-				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
-				C47585BF24C84DBF008199E2 /* CoreDataDB.swift */,
+				C4660C3224C99E5E00658073 /* Additional */,
 				C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */,
 				C42EBA4B24B717B900F20BB5 /* Models */,
 				C47585B924C844B8008199E2 /* Home */,
@@ -157,6 +153,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C4660C3224C99E5E00658073 /* Additional */ = {
+			isa = PBXGroup;
+			children = (
+				77F02D6D24B639E600F15519 /* Word.swift */,
+				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
+				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
+				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
+				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
+				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+			);
+			path = Additional;
+			sourceTree = "<group>";
+		};
 		C47585B924C844B8008199E2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,9 +180,8 @@
 		C47585BA24C844D3008199E2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
 				C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */,
-				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+				C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */,
 				C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */,
 				C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */,
 			);
@@ -322,6 +330,7 @@
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
+				C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
@@ -329,7 +338,6 @@
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
-				C47585C024C84DBF008199E2 /* CoreDataDB.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,

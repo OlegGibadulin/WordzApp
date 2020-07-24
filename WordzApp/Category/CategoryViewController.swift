@@ -10,32 +10,19 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
-    var categoryTitle = String()
+    var category: Category?
     
-    lazy var categoryTableViewController: CategoryTableViewController! = {
+    fileprivate lazy var categoryTableViewController: CategoryTableViewController = {
         let ctvc = CategoryTableViewController()
-        
-        ctvc.scrollDirectionObserver = { [weak self] (direction) in
-            if direction == 0 {
-                // UP
-                self?.toCardsButton.isHidden = false
-            } else {
-                // DOWN
-                self?.toCardsButton.isHidden = true
-            }
-        }
-        
+        ctvc.category = self.category
         return ctvc
     }()
     
-    lazy var tableView: UITableView! = {
-        let tv = self.categoryTableViewController.tableView
-        return tv
-    }()
+    fileprivate var safeArea: UILayoutGuide!
     
-    var safeArea: UILayoutGuide!
+    fileprivate lazy var tableView: UITableView = categoryTableViewController.tableView
     
-    let toCardsButton: UIButton = {
+    fileprivate let toCardsButton: UIButton = {
         let tcb = UIButton(type: .system)
         tcb.backgroundColor = .lightRed
         tcb.setTitle("Учить слова", for: .normal)
@@ -55,6 +42,7 @@ class CategoryViewController: UIViewController {
     
     @objc fileprivate func handleToCards() {
         let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        
         present(cardViewController, animated: true, completion: nil)
     }
     
@@ -65,12 +53,12 @@ class CategoryViewController: UIViewController {
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
         view.addSubview(toCardsButton)
-        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 0, right: 64))
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 16, right: 64))
     }
     
     fileprivate func setupNavigationController() {
-        navigationItem.title = categoryTitle
+        navigationItem.title = category?.title
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.prefersLargeTitles = true
     }
 }
