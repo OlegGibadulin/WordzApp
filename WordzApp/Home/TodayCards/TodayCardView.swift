@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlbumCardView: UIView {
+class TodayCardView: UIView {
     
     var sentences: [Sentence]! {
         didSet {
@@ -60,12 +60,16 @@ class AlbumCardView: UIView {
     }()
     
     @objc fileprivate func handleToFavourites() {
+        guard let sentence = sentenceLabel.text, let translation = translationLabel.text else { return }
+        
+        // Get Favourites category
+        
         if toFavouritesButton.isSelected {
             toFavouritesButton.isSelected = false
-            // delete from Favourites
+            // Delete sentence from Favourites
         } else {
             toFavouritesButton.isSelected = true
-            // save to Favourites
+            // Add sentence to Favourites
         }
     }
     
@@ -73,6 +77,7 @@ class AlbumCardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupLayout()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
@@ -109,7 +114,7 @@ class AlbumCardView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 10
         clipsToBounds = true
-        backgroundColor = .brown
+        backgroundColor = .lightBlue
         
         setupBarsStackView()
         

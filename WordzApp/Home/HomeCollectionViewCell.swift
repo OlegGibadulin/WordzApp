@@ -25,7 +25,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let imageView = UIImageView()
+//    let imageView = UIImageView()
     let gradientLayer = CAGradientLayer()
     
     let titleLabel: UILabel = {
@@ -47,9 +47,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
         
         layer.addSublayer(gradientLayer)
         
-        addSubview(imageView)
-        let imagePadding = frame.height / 4
-        imageView.fillSuperview(padding: .init(top: imagePadding, left: imagePadding, bottom: imagePadding, right: imagePadding))
+//        addSubview(imageView)
+//        let imagePadding = frame.height / 4
+//        imageView.fillSuperview(padding: .init(top: imagePadding, left: imagePadding, bottom: imagePadding, right: imagePadding))
         
         addSubview(titleLabel)
         let titleBottomPadding = frame.height / 12

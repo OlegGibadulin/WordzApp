@@ -6,15 +6,22 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="sentences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sentence" inverseName="category" inverseEntity="Sentence"/>
     </entity>
+    <entity name="Level" representedClassName="Level" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="uploadDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="sentences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sentence" inverseName="level" inverseEntity="Sentence"/>
+    </entity>
     <entity name="Sentence" representedClassName="Sentence" syncable="YES" codeGenerationType="class">
         <attribute name="isFavourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="isLearned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isLearned" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
         <attribute name="text" optional="YES" attributeType="String"/>
         <attribute name="translation" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="sentences" inverseEntity="Category"/>
+        <relationship name="level" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Level" inverseName="sentences" inverseEntity="Level"/>
     </entity>
     <elements>
-        <element name="Category" positionX="299.59375" positionY="30.16015625" width="160.20703125" height="103"/>
-        <element name="Sentence" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Category" positionX="228.29296875" positionY="-2.5" width="160.20703125" height="103"/>
+        <element name="Level" positionX="-4.43359375" positionY="239.30859375" width="128" height="88"/>
+        <element name="Sentence" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>
