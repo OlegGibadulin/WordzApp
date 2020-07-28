@@ -10,7 +10,7 @@ import UIKit
 
 class HomeCollectionViewHeader: UICollectionViewCell {
     
-    // user defaults ?
+    // TODO: user defaults
     fileprivate let levelTitle = "Beginner"
     
     fileprivate let logoView: UIImageView = {
@@ -46,39 +46,62 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     }
     
     fileprivate func fetchSentences() {
-        //        CoreDataManager.shared.addLevel(title: "Intermediate")
-                
-        //        CoreDataManager.shared.addSentence(text: "Word", translation: "Слово", level: levels[0])
-        //        CoreDataManager.shared.addSentence(text: "Sentence", translation: "Предложение", level: levels[0])
         
-        guard let level = fetchLevel() else { return }
-        // Fetch today category
-//        let sentences =
-        
-        let calender = Calendar.current
+//        Storage.deleteCategories()
+//        Storage.uploadsCategories()
+//
+//        let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle)
+//        Storage.deleteSentences(level: lvl!)
+//
+//        Storage.deleteLevels()
+//        Storage.uploadLevels()
+//
+//        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
+//
+//        guard let uploadDate = level.uploadDate else { return }
+//
+//        print(uploadDate)
+//
+//        Storage.uploadSentences(level: level)
+//
+//        return
+
+        // Fetch sentences from today category
+        guard let todayCategory = CoreDataManager.shared.fetchCategory(title: "Today") else { return }
+        var sentences = CoreDataManager.shared.fetchSentences(category: todayCategory)
+
+        // Fetch latest upload date of current level
+        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
         guard let uploadDate = level.uploadDate else { return }
-        
-        if calender.isDateInToday(uploadDate) {
-            // Get new sentences
-//            let sentences = CoreDataManager.shared.fetchSentences(level: level)
-            // Mark isLearned
-            // Delete sentences
-            // Add new sentences
-        }
-        
-//        cardsDeskView.sentences = sentences
-    }
-    
-    fileprivate func fetchLevel() -> Level? {
-        let levels = CoreDataManager.shared.fetchLevels()
-        var level: Level?
-        
-        levels.forEach { (lvl) in
-            if lvl.title == levelTitle {
-                level = lvl
+
+        // Check for need to update
+        if !Calendar.current.isDateInToday(uploadDate) {
+
+            // Update upload date
+            CoreDataManager.shared.updateDate(level: level)
+
+            // Delete sentences from today category
+            sentences.forEach { (sentence) in
+                CoreDataManager.shared.deleteSentence(sentence: sentence)
             }
+
+            // Get new set of sentences
+            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 10]
+
+            // Add new sentences to today category
+            newSentences.forEach { (sentence) in
+                guard let text = sentence.text, let translation = sentence.translation else { return }
+
+                CoreDataManager.shared.addSentence(text: text, translation: translation, category: todayCategory)
+
+                // Mark them isLearned
+                CoreDataManager.shared.learnSentence(sentence: sentence)
+            }
+
+            sentences = newSentences
         }
-        return level
+
+        cardsDeskView.sentences = sentences
     }
     
     required init?(coder: NSCoder) {

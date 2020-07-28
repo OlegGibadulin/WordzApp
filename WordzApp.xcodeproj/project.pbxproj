@@ -22,6 +22,9 @@
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
 		C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EBA4924B717B100F20BB5 /* Sentence.swift */; };
+		C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD624CECEDA0043D234 /* Extensions+Array.swift */; };
+		C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD824CEE4BC0043D234 /* Storage.swift */; };
+		C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */; };
 		C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */; };
 		C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */; };
 		C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */; };
@@ -60,6 +63,9 @@
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C42EBA4924B717B100F20BB5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		C438ABD624CECEDA0043D234 /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
+		C438ABD824CEE4BC0043D234 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Calendar.swift"; sourceTree = "<group>"; };
 		C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
+				C438ABD824CEE4BC0043D234 /* Storage.swift */,
 				C4660C3224C99E5E00658073 /* Additional */,
 				C4C3461624CB40D90030D8C3 /* CoreDataManager */,
 				C42EBA4B24B717B900F20BB5 /* Models */,
@@ -144,6 +151,8 @@
 			children = (
 				C41F63C424B4996C0051FD7B /* Extensions+UIView.swift */,
 				C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */,
+				C438ABD624CECEDA0043D234 /* Extensions+Array.swift */,
+				C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -343,7 +352,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */,
 				C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */,
+				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
 				C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */,
 				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
@@ -364,6 +375,7 @@
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
+				C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */,
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,
 				C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */,
 				C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */,
