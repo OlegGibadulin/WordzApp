@@ -104,8 +104,7 @@ class CardsViewController: UIViewController {
     }
     
     var transparentView = UIView()
-//    var tableView = CardsConfigurationView()
-    var tableView = UIView()
+    var tableView = CardsConfigurationView()
     let screenSize = UIScreen.main.bounds.size
     let heightTable: CGFloat = 250
     

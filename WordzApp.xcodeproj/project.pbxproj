@@ -25,6 +25,8 @@
 		C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD624CECEDA0043D234 /* Extensions+Array.swift */; };
 		C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD824CEE4BC0043D234 /* Storage.swift */; };
 		C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */; };
+		C438ABDD24CFFDBC0043D234 /* CardsConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDC24CFFDBC0043D234 /* CardsConfigurationView.swift */; };
+		C438ABDF24D00EEF0043D234 /* Extensions+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDE24D00EEF0043D234 /* Extensions+UIImage.swift */; };
 		C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */; };
 		C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */; };
 		C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */; };
@@ -66,6 +68,8 @@
 		C438ABD624CECEDA0043D234 /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
 		C438ABD824CEE4BC0043D234 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Calendar.swift"; sourceTree = "<group>"; };
+		C438ABDC24CFFDBC0043D234 /* CardsConfigurationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsConfigurationView.swift; sourceTree = "<group>"; };
+		C438ABDE24D00EEF0043D234 /* Extensions+UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIImage.swift"; sourceTree = "<group>"; };
 		C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 				C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */,
 				C438ABD624CECEDA0043D234 /* Extensions+Array.swift */,
 				C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */,
+				C438ABDE24D00EEF0043D234 /* Extensions+UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
+				C438ABDC24CFFDBC0043D234 /* CardsConfigurationView.swift */,
 				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
 			);
 			path = Cards;
@@ -361,8 +367,10 @@
 				C41F63AE24B472560051FD7B /* SettingsViewController.swift in Sources */,
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
+				C438ABDF24D00EEF0043D234 /* Extensions+UIImage.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
+				C438ABDD24CFFDBC0043D234 /* CardsConfigurationView.swift in Sources */,
 				C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
