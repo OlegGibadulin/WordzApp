@@ -24,18 +24,20 @@ class TodayCardView: UIView {
                     barsStackView.addArrangedSubview(barView)
                 }
                 barsStackView.arrangedSubviews.first?.backgroundColor = .white
+                
+                toFavouritesButton.isSelected = sentence.isFavourite
             }
         }
     }
     
-    let barsStackView: UIStackView = {
+    fileprivate let barsStackView: UIStackView = {
         let bsv = UIStackView()
         bsv.spacing = 4
         bsv.distribution = .fillEqually
         return bsv
     }()
     
-    let sentenceLabel: UILabel = {
+    fileprivate let sentenceLabel: UILabel = {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         sl.textAlignment = .center
@@ -43,7 +45,7 @@ class TodayCardView: UIView {
         return sl
     }()
     
-    let translationLabel: UILabel = {
+    fileprivate let translationLabel: UILabel = {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 20, weight: .light)
         tl.textAlignment = .center
@@ -51,7 +53,7 @@ class TodayCardView: UIView {
         return tl
     }()
     
-    let toFavouritesButton: UIButton = {
+    fileprivate let toFavouritesButton: UIButton = {
         let tfb = UIButton()
         tfb.setImage(UIImage(named: "bookmark_white"), for: .normal)
         tfb.setImage(UIImage(named: "bookmark_black"), for: .selected)
@@ -60,17 +62,12 @@ class TodayCardView: UIView {
     }()
     
     @objc fileprivate func handleToFavourites() {
-        guard let sentence = sentenceLabel.text, let translation = translationLabel.text else { return }
+        guard let sentences = sentences else { return }
         
-        // Get Favourites category
+        toFavouritesButton.isSelected = !toFavouritesButton.isSelected
+        CoreDataManager.shared.favouriteSentence(sentence: sentences[cardInd])
         
-        if toFavouritesButton.isSelected {
-            toFavouritesButton.isSelected = false
-            // Delete sentence from Favourites
-        } else {
-            toFavouritesButton.isSelected = true
-            // Add sentence to Favourites
-        }
+        guard let category = CoreDataManager.shared.fetchCategory(title: "Favourites") else { return }
     }
     
     fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)
@@ -84,7 +81,7 @@ class TodayCardView: UIView {
         addGestureRecognizer(tapGesture)
     }
     
-    var cardInd = 0 {
+    fileprivate var cardInd = 0 {
         didSet {
             let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
@@ -94,6 +91,8 @@ class TodayCardView: UIView {
                 v.backgroundColor = barDeselectedColor
             }
             barsStackView.arrangedSubviews[cardInd].backgroundColor = .white
+            
+            toFavouritesButton.isSelected = sentence.isFavourite
         }
     }
     

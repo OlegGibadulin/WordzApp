@@ -25,10 +25,19 @@ class CategoryTableViewController: UITableViewController {
         
 //        CoreDataManager.shared.addSentence(text: "Sentence", translation: "Предложение", category: category)
         
-        sentences = CoreDataManager.shared.fetchSentences(category: category)
-        
+        fetchSentences()
         setupLayout()
         setupEmptyState()
+    }
+    
+    fileprivate func fetchSentences() {
+        guard let title = category?.title else { return }
+        
+        if title == "Favourites" {
+            sentences = CoreDataManager.shared.fetchFavouritesSentences()
+            return
+        }
+        sentences = CoreDataManager.shared.fetchSentences(category: category)
     }
     
     fileprivate func setupLayout() {
@@ -71,14 +80,7 @@ class CategoryTableViewController: UITableViewController {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             // delete from CoreData
-            let context = CoreDataManager.shared.persistentContainer.viewContext
-            context.delete(sentence)
-            
-            do {
-                try context.save()
-            } catch let saveErr {
-                print("Failed to delete sentence:", saveErr)
-            }
+            CoreDataManager.shared.deleteSentence(sentence: sentence)
             
             self.reloadEmptyState()
             complete(true)
