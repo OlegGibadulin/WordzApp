@@ -41,9 +41,12 @@ class CategoryViewController: UIViewController {
     }
     
     @objc fileprivate func handleToCards() {
-        let cardViewController = UINavigationController(rootViewController: CardsViewController())
+        let cardViewController = CardsViewController()
+        cardViewController.category = category
         
-        present(cardViewController, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: cardViewController)
+        
+        present(navController, animated: true, completion: nil)
     }
     
     private func setupLayout() {

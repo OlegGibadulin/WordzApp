@@ -9,6 +9,11 @@
 import UIKit
 
 class CardsViewController: UIViewController {
+    
+    var category: Category?
+    
+    fileprivate var sentences = [Sentence]()
+    
     var topView: UIView!
     var centerView: UIView!
     var bottomView: UIView!
@@ -89,8 +94,18 @@ class CardsViewController: UIViewController {
         self.view.addSubview(backButton)
     }
     
+    fileprivate func fetchSentences() -> [Sentence] {
+        let sentences = CoreDataManager.shared.fetchNotLearnedSentences(category: category)
+        
+        // TODO: user defaults
+        let shuffledSentences = sentences[randomPick: 10]
+        
+        return shuffledSentences
+    }
+    
     var transparentView = UIView()
-    var tableView = CardsConfigurationView()
+//    var tableView = CardsConfigurationView()
+    var tableView = UIView()
     let screenSize = UIScreen.main.bounds.size
     let heightTable: CGFloat = 250
     
