@@ -12,3 +12,5 @@ struct Word {
     let word: String
     let translate: String
 }
+
+

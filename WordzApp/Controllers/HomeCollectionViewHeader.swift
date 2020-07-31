@@ -45,7 +45,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     fileprivate func setupCards() {
         let albumCardView = AlbumCardView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         cardsDeskView.addSubview(albumCardView)
-        albumCardView.fillSuperView()
+        albumCardView.fillSuperview()
         
         albumCardView.sentences = sentences
     }

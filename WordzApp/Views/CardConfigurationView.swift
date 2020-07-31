@@ -33,8 +33,7 @@ class CardsConfigurationView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.layer.cornerRadius = 8
-        
+        setupLayout()
         setupFirstLine()
         setupSecondLine()
         setupThirdLine()
@@ -42,19 +41,25 @@ class CardsConfigurationView: UIView {
         setupAnchors()
     }
     
+    func setupLayout() {
+        self.roundCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 12)
+    }
+    
     func setupFirstLine() {
         сardsInPackLabel = UILabel()
         сardsInPackLabel.text = "Слов в стопке: "
         сardsInPackLabel.textAlignment = .left
+        сardsInPackLabel.textColor = .black
         
         countCardsLabel = UILabel()
         countCardsLabel.text = "20"
         countCardsLabel.textAlignment = .center
+        countCardsLabel.textColor = .black
         
         
         plusCardsCountButton = UIButton()
         guard let plusImage = UIImage(named: "plusIcon") else { return }
-        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 20, height: 20))
+        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 15, height: 15))
         plusCardsCountButton.setImage(resizedImage, for: .normal)
         plusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         plusCardsCountButton.layer.cornerRadius = 8
@@ -79,15 +84,18 @@ class CardsConfigurationView: UIView {
     func setupSecondLine() {
         сardsRepeatsLabel = UILabel()
         сardsRepeatsLabel.text = "Повторов каждого слова: "
+        сardsRepeatsLabel.textColor = .black
         сardsRepeatsLabel.textAlignment = .left
         
         countRepeatsLabel = UILabel()
         countRepeatsLabel.text = "10"
+        countRepeatsLabel.textColor = .black
         countRepeatsLabel.textAlignment = .center
         
         plusCardsRepeatsButton = UIButton()
         guard let plusImage = UIImage(named: "plusIcon") else { return }
-        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 20, height: 20))
+//        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 17, height: 17))
+        var resizedImage: UIImage = plusImage
         plusCardsRepeatsButton.setImage(resizedImage, for: .normal)
         plusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         plusCardsRepeatsButton.layer.cornerRadius = 8
