@@ -59,15 +59,13 @@ class CardsConfigurationView: UIView {
         
         plusCardsCountButton = UIButton()
         guard let plusImage = UIImage(named: "plusIcon") else { return }
-        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 15, height: 15))
-        plusCardsCountButton.setImage(resizedImage, for: .normal)
+        plusCardsCountButton.setImage(plusImage, for: .normal)
         plusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         plusCardsCountButton.layer.cornerRadius = 8
         
         minusCardsCountButton = UIButton()
         guard let minusImage = UIImage(named: "minusIcon") else { return }
-        resizedImage = minusImage.resizeImage(image: minusImage, targetSize: CGSize(width: 20, height: 20))
-        minusCardsCountButton.setImage(resizedImage, for: .normal)
+        minusCardsCountButton.setImage(minusImage, for: .normal)
         minusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         minusCardsCountButton.layer.cornerRadius = 8
         
@@ -94,16 +92,13 @@ class CardsConfigurationView: UIView {
         
         plusCardsRepeatsButton = UIButton()
         guard let plusImage = UIImage(named: "plusIcon") else { return }
-//        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 17, height: 17))
-        var resizedImage: UIImage = plusImage
         plusCardsRepeatsButton.setImage(resizedImage, for: .normal)
         plusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         plusCardsRepeatsButton.layer.cornerRadius = 8
         
         minusCardsRepeatsButton = UIButton()
         guard let minusImage = UIImage(named: "minusIcon") else { return }
-        resizedImage = minusImage.resizeImage(image: minusImage, targetSize: CGSize(width: 20, height: 20))
-        minusCardsRepeatsButton.setImage(resizedImage, for: .normal)
+        minusCardsRepeatsButton.setImage(minusImage, for: .normal)
         minusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         minusCardsRepeatsButton.layer.cornerRadius = 8
         

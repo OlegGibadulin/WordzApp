@@ -25,9 +25,11 @@ final class CardResultView: UIView {
     private var familarLabel: UILabel!
     private var unfamilarLabel: UILabel!
     private var separatorLabel : UILabel!
-    private var finishButton : UIButton!
     
     private var view: CardReturnBack!
+    
+    
+    public var finishButton : UIButton!
     
     private override init(frame: CGRect) {
         super.init(frame: frame)

@@ -69,6 +69,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         let frame = cardContentStackView.frame
         
         oneCardView = CardResultView(frame: frame, view: self)
+        oneCardView.finishButton.isEnabled = false
         cardContentStackView.addSubview(oneCardView)
         
         words.forEach { (curWord) in
@@ -270,6 +271,11 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         }
         
         cardsView.popLast()
+        
+        if cardsView.count < 1 {
+            oneCardView.finishButton.isEnabled = true
+        }
+            
         oneCardView.updateLabel(message: result)
     }
     
