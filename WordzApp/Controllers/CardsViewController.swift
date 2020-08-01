@@ -35,7 +35,6 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         Word(word: "develop", translate: "разрабатывать"),
         Word(word: "imagine", translate: "воображать"),
         Word(word: "confirmation", translate: "подтверждение"),
-        Word(word: "callingbreakersatisbaker", translate: "вывести"),
         Word(word: "to go away", translate: "уходить"),
         Word(word: "calling", translate: "зовущий")
     ]
@@ -67,16 +66,33 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     
     func fillCards() {
         let frame = cardContentStackView.frame
+        let repeats = 2
         
         oneCardView = CardResultView(frame: frame, view: self)
         oneCardView.finishButton.isEnabled = false
         cardContentStackView.addSubview(oneCardView)
         
-        words.forEach { (curWord) in
-            let cardView = CardView(frame: frame, word: curWord, view: self)
-            cardView.setupLabels()
-            self.cardsView.append(cardView)
-            cardContentStackView.addSubview(cardView)
+        for _ in 0..<repeats {
+            for word in words {
+                let cardView = CardView(frame: frame, word: word, view: self)
+                cardView.setupLabels()
+                self.cardsView.append(cardView)
+            }
+        }
+        
+        let count = cardsView.count * cardsView.count
+        
+        for _ in 0..<count  {
+            let number1 = Int.random(in: 0..<cardsView.count)
+            let number2 = Int.random(in: 0..<cardsView.count)
+            
+            let tmp = cardsView[number1]
+            cardsView[number1] = cardsView[number2]
+            cardsView[number2] = tmp
+        }
+        
+        cardsView.forEach { (card) in
+            cardContentStackView.addSubview(card)
         }
     }
     

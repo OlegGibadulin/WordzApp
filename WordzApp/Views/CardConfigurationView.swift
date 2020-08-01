@@ -92,7 +92,7 @@ class CardsConfigurationView: UIView {
         
         plusCardsRepeatsButton = UIButton()
         guard let plusImage = UIImage(named: "plusIcon") else { return }
-        plusCardsRepeatsButton.setImage(resizedImage, for: .normal)
+        plusCardsRepeatsButton.setImage(plusImage, for: .normal)
         plusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         plusCardsRepeatsButton.layer.cornerRadius = 8
         
