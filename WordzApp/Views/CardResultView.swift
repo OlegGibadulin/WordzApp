@@ -8,15 +8,15 @@
 
 import UIKit
 
-class CardResultView: UIView {
-    var firstLineStackView: UIStackView!
-    var secondLineStackView: UIStackView!
-    var thirdLineStackView: UIStackView!
-    var overallStackView: UIStackView!
-    var tmp1StackView: UIStackView!
-    var tmp2StackView: UIStackView!
-    var tmp3StackView: UIStackView!
-    var tmp4StackView: UIStackView!
+final class CardResultView: UIView {
+    private var firstLineStackView: UIStackView!
+    private var secondLineStackView: UIStackView!
+    private var thirdLineStackView: UIStackView!
+    private var overallStackView: UIStackView!
+    private var tmp1StackView: UIStackView!
+    private var tmp2StackView: UIStackView!
+    private var tmp3StackView: UIStackView!
+    private var tmp4StackView: UIStackView!
     
     private var initialWidth: CGFloat = 0
     private var initialHeight: CGFloat = 0
@@ -27,7 +27,9 @@ class CardResultView: UIView {
     private var separatorLabel : UILabel!
     private var finishButton : UIButton!
     
-    override init(frame: CGRect) {
+    private var view: CardReturnBack!
+    
+    private override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.initialWidth = frame.width
@@ -39,6 +41,12 @@ class CardResultView: UIView {
         setupThirdLine()
         setupOverallStackView()
         setupAnchors()
+    }
+    
+    required convenience init(frame: CGRect, view: CardReturnBack) {
+        self.init(frame: frame)
+        
+        self.view = view
     }
     
     fileprivate func setupLayout() {
@@ -53,6 +61,12 @@ class CardResultView: UIView {
         self.layer.shadowOffset = CGSize(width: 0, height: 4)
     }
     
+    @objc
+    func backButtonTapped() {
+        if self.view != nil {
+            self.view.returnBack()
+        }
+    }
     
     public func updateLabel(message: (unfamilarWords: Int, familarWords: Int)) {
         //ᐊᐅ
@@ -127,6 +141,7 @@ class CardResultView: UIView {
         finishButton = UIButton()
         finishButton.backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
         finishButton.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .medium)
+        finishButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         finishButton.setTitleColor(#colorLiteral(red: 0.2548029721, green: 0.2934122682, blue: 0.6900398135, alpha: 1), for: .highlighted)
         finishButton.setTitle("Finish", for: .normal)
         finishButton.layer.cornerRadius = 10

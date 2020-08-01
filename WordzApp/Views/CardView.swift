@@ -8,21 +8,17 @@
 
 import UIKit
 
-class CardView: UIView {
-    
+final class CardView: UIView {
     static private let threshold: CGFloat = 100
     
     private var initialWidth: CGFloat = 0
     private var initialHeight: CGFloat = 0
-    
     private var isOpen = true
-    
     private var textLabel: UILabel!
-    public var wordSelfCard: Word!
+    private var wordSelfCard: Word!
+    private var view: CardSwipe!
     
-    public var view: CardSwipe!
-    
-    override init(frame: CGRect) {
+    private override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.initialWidth = frame.width
@@ -36,6 +32,13 @@ class CardView: UIView {
         let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleOneTapPan(gesture:)))
         singleTapGesture.numberOfTapsRequired = 1
         addGestureRecognizer(singleTapGesture)
+    }
+    
+    required convenience init(frame: CGRect, word: Word, view: CardSwipe) {
+        self.init(frame: frame)
+        
+        self.wordSelfCard = word
+        self.view = view
     }
     
     fileprivate func setupLayout() {
@@ -102,9 +105,9 @@ class CardView: UIView {
                         if shouldDismissedCard {
                             
                             if (self.view != nil && translationDirection > 0) {
-                                self.view.swipeRight()
+                                self.view.updateSwipedCard(isFamilarWordSwiped: true)
                             } else if (self.view != nil && translationDirection <= 0) {
-                                self.view.swipeLeft()
+                                self.view.updateSwipedCard(isFamilarWordSwiped: false)
                             }
                             self.frame = CGRect(x: 1000 * translationDirection, y: 0, width: self.initialWidth, height: self.initialHeight)
                         } else {

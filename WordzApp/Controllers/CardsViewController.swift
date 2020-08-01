@@ -8,12 +8,16 @@
 
 import UIKit
 
-protocol CardSwipe {
-    func swipeLeft()
-    func swipeRight()
+protocol CardSwipe: class {
+    func updateSwipedCard(isFamilarWordSwiped: Bool)
 }
 
-class CardsViewController: UIViewController, CardSwipe {
+protocol CardReturnBack: class {
+    // Dismiss
+    func returnBack()
+}
+
+final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     var topButtonStackView: UIStackView!
     var tmp1StackView: UIStackView!
     var cardContentStackView: UIStackView!
@@ -35,8 +39,6 @@ class CardsViewController: UIViewController, CardSwipe {
         Word(word: "to go away", translate: "уходить"),
         Word(word: "calling", translate: "зовущий")
     ]
-    
-//    let words: [Word] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,21 +68,16 @@ class CardsViewController: UIViewController, CardSwipe {
     func fillCards() {
         let frame = cardContentStackView.frame
         
-        oneCardView = CardResultView(frame: frame)
-//        oneCardView.setupLabel()
+        oneCardView = CardResultView(frame: frame, view: self)
         cardContentStackView.addSubview(oneCardView)
         
         words.forEach { (curWord) in
-            let cardView = CardView(frame: frame)
-            cardView.wordSelfCard = curWord
-            
-            cardView.view = self
+            let cardView = CardView(frame: frame, word: curWord, view: self)
             cardView.setupLabels()
             self.cardsView.append(cardView)
             cardContentStackView.addSubview(cardView)
         }
     }
-    
     
     func setupDummyCards() {
         let tmpCardResultView = CardResultView()
@@ -226,9 +223,13 @@ class CardsViewController: UIViewController, CardSwipe {
         }, completion: nil)
     }
     
+    public func returnBack() {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @objc
     private func backButtonTapped(sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+        returnBack()
     }
     
     func setupDesign() {
@@ -261,19 +262,28 @@ class CardsViewController: UIViewController, CardSwipe {
         self.view.addSubview(circle3)
     }
     
-    @objc func swipeLeft() {
-        if let card = cardsView.popLast() {
-            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
+    public func updateSwipedCard(isFamilarWordSwiped: Bool) {
+        if isFamilarWordSwiped == true {
+            result.familarWords += 1
+        } else {
             result.unfamilarWords += 1
-            oneCardView.updateLabel(message: result)
+        }
+        
+        cardsView.popLast()
+        oneCardView.updateLabel(message: result)
+    }
+    
+    @objc private func swipeLeft(isNeededAutoSwipe: Bool) {
+        if let card = cardsView.last {
+            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
+            updateSwipedCard(isFamilarWordSwiped: false)
         }
     }
     
-    @objc func swipeRight() {
-        if let card = cardsView.popLast() {
+    @objc private func swipeRight() {
+        if let card = cardsView.last {
             card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
-            result.familarWords += 1
-            oneCardView.updateLabel(message: result)
+            updateSwipedCard(isFamilarWordSwiped: true)
         }
     }
 }
