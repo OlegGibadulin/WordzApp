@@ -43,7 +43,8 @@ final class CardView: UIView {
     
     fileprivate func setupLayout() {
         backgroundColor = .white
-        self.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 23)
+        self.layer.cornerRadius = 23
+//        self.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 23)
         self.clipsToBounds = false
     }
     
@@ -55,13 +56,13 @@ final class CardView: UIView {
     }
     
     public func setupLabels() {
-        textLabel = UILabel(frame: CGRect(x: 5, y: self.initialHeight / 3.5, width: self.initialWidth - 10, height: self.initialHeight / 2.5))
+        textLabel = UILabel(frame: CGRect(x: 10, y: self.initialHeight / 3.5, width: self.initialWidth - 20, height: self.initialHeight / 2.5))
         textLabel.textColor = .white
         textLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
         textLabel.textAlignment = .center
-        textLabel.numberOfLines = 2
+        textLabel.numberOfLines = 3
         textLabel.textColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
-//        textLabel.adjustsFontSizeToFitWidth = true
+        textLabel.adjustsFontSizeToFitWidth = true
         textLabel.allowsDefaultTighteningForTruncation = true
         
         if wordSelfCard != nil {

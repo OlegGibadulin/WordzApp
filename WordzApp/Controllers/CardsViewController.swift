@@ -31,7 +31,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     var cardsView = [CardView]()
     var oneCardView: CardResultView!
     
-    let words = [
+    var words = [
         Word(word: "develop", translate: "разрабатывать"),
         Word(word: "imagine", translate: "воображать"),
         Word(word: "confirmation", translate: "подтверждение"),
@@ -66,33 +66,39 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     
     func fillCards() {
         let frame = cardContentStackView.frame
-        let repeats = 2
+        let repeats = 3
         
         oneCardView = CardResultView(frame: frame, view: self)
         oneCardView.finishButton.isEnabled = false
         cardContentStackView.addSubview(oneCardView)
         
+        var allWords = [Word]()
+        
         for _ in 0..<repeats {
-            for word in words {
-                let cardView = CardView(frame: frame, word: word, view: self)
-                cardView.setupLabels()
-                self.cardsView.append(cardView)
+            allWords += words
+        }
+        
+        for _ in 0..<repeats {
+            for i in 1..<allWords.count-1 {
+                var k = 0
+                while (k < 3) {
+                    let number1 = Int.random(in: 1..<allWords.count-1)
+                    if (allWords[i].word != allWords[number1-1].word && allWords[i].word != allWords[number1+1].word) {
+                        let tmp = allWords[number1]
+                        allWords[number1] = allWords[i]
+                        allWords[i] = tmp
+                    }
+                    
+                    k += 1
+                }
             }
         }
         
-        let count = cardsView.count * cardsView.count
-        
-        for _ in 0..<count  {
-            let number1 = Int.random(in: 0..<cardsView.count)
-            let number2 = Int.random(in: 0..<cardsView.count)
-            
-            let tmp = cardsView[number1]
-            cardsView[number1] = cardsView[number2]
-            cardsView[number2] = tmp
-        }
-        
-        cardsView.forEach { (card) in
-            cardContentStackView.addSubview(card)
+        allWords.forEach { (word) in
+            let cardView = CardView(frame: frame, word: word, view: self)
+            cardView.setupLabels()
+            self.cardsView.append(cardView)
+            cardContentStackView.addSubview(cardView)
         }
     }
     
@@ -142,11 +148,12 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         swipeLeftButton.setTitleColor(#colorLiteral(red: 0.006038194057, green: 0.06411762536, blue: 0.6732754707, alpha: 1), for: .highlighted)
         swipeLeftButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
         swipeLeftButton.addTarget(self, action: #selector(swipeLeft), for: .touchUpInside)
+        swipeLeftButton.clipsToBounds = false
+        swipeLeftButton.translatesAutoresizingMaskIntoConstraints = false
         swipeLeftButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
         swipeLeftButton.layer.shadowRadius = 5
-        swipeLeftButton.layer.shadowOpacity = 0.25
-        swipeLeftButton.layer.shadowOffset = CGSize(width: 4, height: 0)
-        swipeLeftButton.layer.masksToBounds = false
+        swipeLeftButton.layer.shadowOpacity = 0.2
+        swipeLeftButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         
         let swipeRightButton = UIButton()
         swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
@@ -156,7 +163,12 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
         swipeRightButton.backgroundColor = .white
         swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
+        swipeRightButton.clipsToBounds = false
         swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
+        swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        swipeRightButton.layer.shadowRadius = 5
+        swipeRightButton.layer.shadowOpacity = 0.2
+        swipeRightButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         
         cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
         cardButtonsStackView.axis = .horizontal

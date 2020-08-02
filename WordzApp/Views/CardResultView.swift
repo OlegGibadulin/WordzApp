@@ -187,8 +187,8 @@ final class CardResultView: UIView {
         secondLineStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         thirdLineStackView.heightAnchor.constraint(equalToConstant: 45).isActive = true
         thirdLineStackView.topAnchor.constraint(equalTo: secondLineStackView.bottomAnchor, constant: 20).isActive = true
-        unfamilarLabel.widthAnchor.constraint(equalToConstant: 44).isActive = true
-        familarLabel.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        unfamilarLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        familarLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
         finishButton.widthAnchor.constraint(equalToConstant: 102).isActive = true
         
         tmp2StackView.widthAnchor.constraint(equalTo: tmp1StackView.widthAnchor, multiplier: 1).isActive = true
