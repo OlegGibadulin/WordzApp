@@ -76,6 +76,7 @@ extension CoreDataManager {
         sentence.setValue(false, forKey: "isLearned")
         sentence.setValue(false, forKey: "isFavourite")
         sentence.setValue(0, forKey: "learned")
+        sentence.setValue(Calendar.current.today(), forKey: "date")
         
         do {
             try context.save()
@@ -85,7 +86,11 @@ extension CoreDataManager {
     }
     
     func fetchSentences(category: Category?) -> [Sentence] {
-        guard let categorySentences = category?.sentences?.allObjects as? [Sentence] else { return [] }
+        guard var categorySentences = category?.sentences?.allObjects as? [Sentence] else { return [] }
+        
+        categorySentences.sort { (first, second) -> Bool in
+            return first.date! < second.date!
+        }
         
         return categorySentences
     }
