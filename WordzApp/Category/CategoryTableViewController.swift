@@ -31,13 +31,13 @@ class CategoryTableViewController: UITableViewController {
     }
     
     fileprivate func fetchSentences() {
-        guard let title = category?.title else { return }
+        sentences = CoreDataManager.shared.fetchSentences(category: category)
         
+        guard let title = category?.title else { return }
         if title == "Favourites" {
-            sentences = CoreDataManager.shared.fetchFavouritesSentences()
+            sentences.reverse()
             return
         }
-        sentences = CoreDataManager.shared.fetchSentences(category: category)
     }
     
     fileprivate func setupLayout() {

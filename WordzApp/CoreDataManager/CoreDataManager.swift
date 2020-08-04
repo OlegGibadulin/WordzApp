@@ -62,6 +62,28 @@ struct CoreDataManager {
     
     func favouriteSentence(sentence: Sentence) {
         let context = persistentContainer.viewContext
+        
+        guard let category = CoreDataManager.shared.fetchCategory(title: "Favourites") else { return }
+        
+        guard let text = sentence.text, let translation = sentence.translation else { return }
+        
+        if !sentence.isFavourite {
+            // Add sentence to Favourites category
+            addSentence(text: text, translation: translation, category: category)
+        } else {
+            // Get sentences from Favourites category
+            let sentences = fetchSentences(category: category)
+            
+            // Find that sentences there
+            let favouritesSentences = sentences.filter { (sentence) -> Bool in
+                return sentence.text == text && sentence.translation == translation
+            }
+            guard let sentence = favouritesSentences.first else { return }
+            
+            // Delete it
+            deleteSentence(sentence: sentence)
+        }
+        
         sentence.isFavourite = !sentence.isFavourite
         
         do {

@@ -63,11 +63,10 @@ class TodayCardView: UIView {
     
     @objc fileprivate func handleToFavourites() {
         guard let sentences = sentences else { return }
+        let sentence = sentences[cardInd]
         
         toFavouritesButton.isSelected = !toFavouritesButton.isSelected
-        CoreDataManager.shared.favouriteSentence(sentence: sentences[cardInd])
-        
-        guard let category = CoreDataManager.shared.fetchCategory(title: "Favourites") else { return }
+        CoreDataManager.shared.favouriteSentence(sentence: sentence)
     }
     
     fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)

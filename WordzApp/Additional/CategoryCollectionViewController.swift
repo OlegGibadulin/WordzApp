@@ -69,8 +69,6 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
         
         setupLayout()
         setupNavigationItems()
-        
-        
     }
     
     @objc fileprivate func handleToCards() {

@@ -21,6 +21,22 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         return iv
     }()
     
+    fileprivate let settingsButton: UIButton = {
+        let sb = UIButton()
+        sb.setImage(#imageLiteral(resourceName: "settings_selected"), for: .normal)
+        sb.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        sb.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        sb.addTarget(self, action: #selector(handleToSettings), for: .touchUpInside)
+        return sb
+    }()
+    
+    @objc fileprivate func handleToSettings() {
+        // TODO: not working
+//        let settingsController = SettingsViewController()
+//        let viewForPresent = UIViewController()
+//        viewForPresent.present(settingsController, animated: true, completion: .none)
+    }
+    
     fileprivate lazy var cardsDeskView = TodayCardView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     
     override init(frame: CGRect) {
@@ -43,27 +59,33 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         overallStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         overallStackView.isLayoutMarginsRelativeArrangement = true
         overallStackView.layoutMargins = .init(top: 0, left: 12, bottom: 0, right: 12)
+        
+        addSubview(settingsButton)
+        settingsButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor, padding: .init(top: 12, left: 0, bottom: 0, right: 12))
+    }
+    
+    fileprivate func tododeletethisfunction() {
+        Storage.deleteCategories()
+        Storage.uploadsCategories()
+
+        let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle)
+        Storage.deleteSentences(level: lvl!)
+
+        Storage.deleteLevels()
+        Storage.uploadLevels()
+
+        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
+
+        guard let uploadDate = level.uploadDate else { return }
+
+        print(uploadDate)
+
+        Storage.uploadSentences(level: level)
     }
     
     fileprivate func fetchSentences() {
         
-//        Storage.deleteCategories()
-//        Storage.uploadsCategories()
-//
-//        let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle)
-//        Storage.deleteSentences(level: lvl!)
-//
-//        Storage.deleteLevels()
-//        Storage.uploadLevels()
-//
-//        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
-//
-//        guard let uploadDate = level.uploadDate else { return }
-//
-//        print(uploadDate)
-//
-//        Storage.uploadSentences(level: level)
-//
+//        tododeletethisfunction()
 //        return
 
         // Fetch sentences from today category
@@ -86,7 +108,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
             }
 
             // Get new set of sentences
-            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 10]
+            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 5]
 
             // Add new sentences to today category
             newSentences.forEach { (sentence) in
