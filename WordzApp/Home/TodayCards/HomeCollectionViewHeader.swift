@@ -68,17 +68,13 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         Storage.deleteCategories()
         Storage.uploadsCategories()
 
-        let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle)
-        Storage.deleteSentences(level: lvl!)
-
-        Storage.deleteLevels()
+        if let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle) {
+            Storage.deleteSentences(level: lvl)
+            Storage.deleteLevels()
+        }
         Storage.uploadLevels()
 
         guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
-
-        guard let uploadDate = level.uploadDate else { return }
-
-        print(uploadDate)
 
         Storage.uploadSentences(level: level)
     }
