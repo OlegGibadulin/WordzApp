@@ -26,14 +26,16 @@ struct Storage {
     static func uploadSentences(level: Level) {
         CoreDataManager.shared.addSentence(text: "Word", translation: ["Слово"], level: level)
         CoreDataManager.shared.addSentence(text: "Sentence", translation: ["Предложение"], level: level)
-        
+
         CoreDataManager.shared.addSentence(text: "Another word", translation: ["Другое слово"], level: level)
         CoreDataManager.shared.addSentence(text: "Another sentence", translation: ["Другое предложение"], level: level)
-        
+
         CoreDataManager.shared.addSentence(text: "appearance", translation: ["внешний вид", "появление"], level: level)
         CoreDataManager.shared.addSentence(text: "aggregate", translation: ["заполнитель (бетона)"], level: level)
         CoreDataManager.shared.addSentence(text: "conditioning", translation: ["регулирование влажности температуры"], level: level)
         CoreDataManager.shared.addSentence(text: "conduit", translation: ["водопроводная труба"], level: level)
+        
+        CoreDataManager.shared.addSentence(text: "Longsdjdskgdsldsgjdslgdsjsdgjdslsd", translation: ["Longsd jdskgd slds gjdsl gdsj sdgjds lsd kgsdg ldsgj dskg jsdg lsd asfsaf"], level: level)
     }
     
     static func deleteSentences(level: Level) {

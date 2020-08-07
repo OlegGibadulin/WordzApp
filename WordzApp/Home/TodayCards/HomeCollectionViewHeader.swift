@@ -34,25 +34,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         overallStackView.layoutMargins = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    fileprivate func tododeletethisfunction() {
-        Storage.deleteCategories()
-        Storage.uploadsCategories()
-
-        if let lvl = CoreDataManager.shared.fetchLevel(title: levelTitle) {
-            Storage.deleteSentences(level: lvl)
-            Storage.deleteLevels()
-        }
-        Storage.uploadLevels()
-
-        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle) else { return }
-
-        Storage.uploadSentences(level: level)
-    }
-    
     fileprivate func fetchSentences() {
-        
-//        tododeletethisfunction()
-
         // Fetch sentences from today category
         guard let todayCategory = CoreDataManager.shared.fetchCategory(title: "Today") else { return }
         var sentences = CoreDataManager.shared.fetchSentences(category: todayCategory)

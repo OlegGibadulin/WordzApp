@@ -17,7 +17,7 @@ class TodayCardView: UIView {
                 
                 var translations = ""
                 sentence.translation?.forEach({ (translation) in
-                     translations += translation + " "
+                     translations += translation + "\n"
                 })
                 translationLabel.text = translations
                 
@@ -46,7 +46,9 @@ class TodayCardView: UIView {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         sl.textAlignment = .center
-        sl.numberOfLines = 0
+        sl.numberOfLines = 3
+        sl.minimumScaleFactor = 0.3
+        sl.adjustsFontSizeToFitWidth = true
         return sl
     }()
     
@@ -54,7 +56,9 @@ class TodayCardView: UIView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 20, weight: .light)
         tl.textAlignment = .center
-        tl.numberOfLines = 0
+        tl.numberOfLines = 3
+        tl.minimumScaleFactor = 0.3
+        tl.adjustsFontSizeToFitWidth = true
         return tl
     }()
     

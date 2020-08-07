@@ -17,6 +17,21 @@ class CustomNavigationController: UINavigationController {
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    fileprivate func tododeletethisfunction() {
+        Storage.deleteCategories()
+        Storage.uploadsCategories()
+
+        if let lvl = CoreDataManager.shared.fetchLevel(title: "Beginner") {
+            Storage.deleteSentences(level: lvl)
+            Storage.deleteLevels()
+        }
+        Storage.uploadLevels()
+
+        guard let level = CoreDataManager.shared.fetchLevel(title: "Beginner") else { return }
+
+        Storage.uploadSentences(level: level)
+    }
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -45,6 +60,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        categoryViewController.categoryTitle = "Favourites"
         
 //        let navController = CustomNavigationController(rootViewController: categoryViewController)
+        
+        tododeletethisfunction()
         
         let homeViewController = HomeViewController()
         let categoryViewController = CategoryViewController()

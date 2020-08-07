@@ -40,10 +40,6 @@ class HomeViewController: UIViewController {
         sb.addTarget(self, action: #selector(handleToSettings), for: .touchUpInside)
         return sb
     }()
-        
-    @objc fileprivate func handleToSettings() {
-        // TODO:
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,14 +51,24 @@ class HomeViewController: UIViewController {
         safeArea = view.layoutMarginsGuide
         
         view.addSubview(collectionView)
-        collectionView?.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 60, left: 0, bottom: 0, right: 0))
+        collectionView?.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 80, left: 0, bottom: 0, right: 0))
         
         let topBarStackView = UIStackView(arrangedSubviews: [logoView, UIView(), settingsButton])
         topBarStackView.axis = .horizontal
         topBarStackView.distribution = .fill
         
         view.addSubview(topBarStackView)
-        topBarStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 0, left: .sideMargin, bottom: 0, right: .sideMargin))
+        topBarStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: .sideMargin, bottom: 0, right: .sideMargin))
+    }
+    
+    fileprivate lazy var settingsView: SettingsView = {
+        let sv = SettingsView()
+        sv.keyWindow = self.view.window
+        return sv
+    }()
+    
+    @objc fileprivate func handleToSettings() {
+        settingsView.show()
     }
     
 }

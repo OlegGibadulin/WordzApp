@@ -13,7 +13,6 @@
 		C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401EA8D24BB580E00FB116F /* MainTabBarController.swift */; };
 		C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63A924B472560051FD7B /* AppDelegate.swift */; };
 		C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AB24B472560051FD7B /* SceneDelegate.swift */; };
-		C41F63AE24B472560051FD7B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AD24B472560051FD7B /* SettingsViewController.swift */; };
 		C41F63B124B472560051FD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41F63AF24B472560051FD7B /* Main.storyboard */; };
 		C41F63B324B472570051FD7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C41F63B224B472570051FD7B /* Assets.xcassets */; };
 		C41F63B624B472570051FD7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41F63B424B472570051FD7B /* LaunchScreen.storyboard */; };
@@ -26,6 +25,8 @@
 		C4306D9C24DD6C4D00223561 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9B24DD6C4D00223561 /* HomeViewController.swift */; };
 		C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */; };
 		C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */; };
+		C4306DA624DDBDF100223561 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306DA524DDBDF100223561 /* SettingsView.swift */; };
+		C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306DA724DDF2F100223561 /* SettingsViewController.swift */; };
 		C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD624CECEDA0043D234 /* Extensions+Array.swift */; };
 		C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD824CEE4BC0043D234 /* Storage.swift */; };
 		C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */; };
@@ -60,7 +61,6 @@
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C41F63AD24B472560051FD7B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C41F63B024B472560051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C41F63B224B472570051FD7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C41F63B524B472570051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		C4306D9B24DD6C4D00223561 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Etensions+UIButton.swift"; sourceTree = "<group>"; };
 		C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+CGFloat.swift"; sourceTree = "<group>"; };
+		C4306DA524DDBDF100223561 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C4306DA724DDF2F100223561 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C438ABD624CECEDA0043D234 /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
 		C438ABD824CEE4BC0043D234 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Calendar.swift"; sourceTree = "<group>"; };
@@ -184,12 +186,20 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C4306DA224DDBAC300223561 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C4306DA524DDBDF100223561 /* SettingsView.swift */,
+				C4306DA724DDF2F100223561 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		C4660C3224C99E5E00658073 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
 				77F02D6D24B639E600F15519 /* Word.swift */,
 				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
-				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
 				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
 				773F32E224D01B1A006C8482 /* CardResultView.swift */,
 				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
@@ -201,6 +211,7 @@
 		C47585B924C844B8008199E2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C4306DA224DDBAC300223561 /* Settings */,
 				C4C44EDC24CB20260026EF92 /* TodayCards */,
 				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
 				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
@@ -378,9 +389,10 @@
 				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
 				C4306D9C24DD6C4D00223561 /* HomeViewController.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
+				C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */,
 				C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */,
+				C4306DA624DDBDF100223561 /* SettingsView.swift in Sources */,
 				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
-				C41F63AE24B472560051FD7B /* SettingsViewController.swift in Sources */,
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
 				C438ABDF24D00EEF0043D234 /* Extensions+UIImage.swift in Sources */,
