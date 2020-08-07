@@ -44,9 +44,7 @@ class CategoryViewController: UIViewController {
         let cardViewController = CardsViewController()
         cardViewController.category = category
         
-        let navController = UINavigationController(rootViewController: cardViewController)
-        
-        present(navController, animated: true, completion: nil)
+        present(cardViewController, animated: true, completion: nil)
     }
     
     private func setupLayout() {

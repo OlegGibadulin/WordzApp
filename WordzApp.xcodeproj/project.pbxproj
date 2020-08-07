@@ -23,6 +23,9 @@
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
 		C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EBA4924B717B100F20BB5 /* Sentence.swift */; };
+		C4306D9C24DD6C4D00223561 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9B24DD6C4D00223561 /* HomeViewController.swift */; };
+		C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */; };
+		C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */; };
 		C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD624CECEDA0043D234 /* Extensions+Array.swift */; };
 		C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABD824CEE4BC0043D234 /* Storage.swift */; };
 		C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */; };
@@ -68,6 +71,9 @@
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C42EBA4924B717B100F20BB5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		C4306D9B24DD6C4D00223561 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Etensions+UIButton.swift"; sourceTree = "<group>"; };
+		C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+CGFloat.swift"; sourceTree = "<group>"; };
 		C438ABD624CECEDA0043D234 /* Extensions+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Array.swift"; sourceTree = "<group>"; };
 		C438ABD824CEE4BC0043D234 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+Calendar.swift"; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 				C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */,
 				C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */,
 				C438ABDE24D00EEF0043D234 /* Extensions+UIImage.swift */,
+				C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */,
+				C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -196,6 +204,7 @@
 				C4C44EDC24CB20260026EF92 /* TodayCards */,
 				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
 				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
+				C4306D9B24DD6C4D00223561 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -367,6 +376,7 @@
 				C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */,
 				C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */,
 				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
+				C4306D9C24DD6C4D00223561 /* HomeViewController.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
 				C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */,
 				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
@@ -386,8 +396,10 @@
 				C4C3461824CB41120030D8C3 /* CoreDataManager+Category.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
+				C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */,
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
+				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,

@@ -31,24 +31,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let layout = UICollectionViewFlowLayout()
 //        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
-////        let homeController = CardsViewController()
+//        let homeController = CardsViewController()
 //
         
 //
-        let mainTabBarController = MainTabBarController()
-        
-        let categoryViewController = CategoryViewController()
+//        let mainTabBarController = MainTabBarController()
+//
+//        let categoryViewController = CategoryViewController()
         
 //        let layout = UICollectionViewFlowLayout()
 //        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
         
 //        categoryViewController.categoryTitle = "Favourites"
         
-        let navController = CustomNavigationController(rootViewController: categoryViewController)
+//        let navController = CustomNavigationController(rootViewController: categoryViewController)
+        
+        let homeViewController = HomeViewController()
+        let categoryViewController = CategoryViewController()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = mainTabBarController
+            window.rootViewController = homeViewController
             self.window = window
             window.makeKeyAndVisible()
         }
