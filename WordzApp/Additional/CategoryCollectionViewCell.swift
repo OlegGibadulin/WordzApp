@@ -13,12 +13,12 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     var sentence: Sentence! {
         didSet {
             sentenceLabel.text = sentence.text
-            translationLabel.text = sentence.translation
             
-//            if let snt = sentence {
-//                sentenceLabel.text = snt.text
-//                translationLabel.text = snt.translation
-//            }
+            var translations = ""
+            sentence.translation?.forEach({ (translation) in
+                 translations += translation + " "
+            })
+            translationLabel.text = translations
         }
     }
     

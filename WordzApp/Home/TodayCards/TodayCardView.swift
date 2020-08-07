@@ -14,7 +14,12 @@ class TodayCardView: UIView {
         didSet {
             if let sentence = sentences.first {
                 sentenceLabel.text = sentence.text
-                translationLabel.text = sentence.translation
+                
+                var translations = ""
+                sentence.translation?.forEach({ (translation) in
+                     translations += translation + " "
+                })
+                translationLabel.text = translations
                 
                 (0..<sentences.count).forEach { (_) in
                     let barView = UIView()
@@ -84,7 +89,12 @@ class TodayCardView: UIView {
         didSet {
             let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
-            translationLabel.text = sentence.translation
+            
+            var translations = ""
+            sentence.translation?.forEach({ (translation) in
+                 translations += translation + "\n"
+            })
+            translationLabel.text = translations
             
             barsStackView.arrangedSubviews.forEach { (v) in
                 v.backgroundColor = barDeselectedColor
