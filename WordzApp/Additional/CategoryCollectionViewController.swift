@@ -75,9 +75,8 @@ class CategoryCollectionViewController: UICollectionViewController, UICollection
         //let cardViewController = UINavigationController(rootViewController: CardsViewController())
         let cardViewController = CardsViewController()
 //        cardViewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        cardViewController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
 
-        present(cardViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(cardViewController, animated: true)
     }
     
     fileprivate func setupNavigationItems() {

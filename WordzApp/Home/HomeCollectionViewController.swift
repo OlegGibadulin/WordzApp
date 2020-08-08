@@ -43,7 +43,9 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         let categoryViewController = CategoryViewController()
         categoryViewController.category = categories[indexPath.row]
         
-        present(UINavigationController(rootViewController: categoryViewController), animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: categoryViewController)
+        navController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
+        present(navController, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

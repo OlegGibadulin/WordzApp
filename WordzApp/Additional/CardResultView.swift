@@ -43,11 +43,18 @@ final class CardResultView: UIView {
         setupThirdLine()
         setupOverallStackView()
         setupAnchors()
+        
+//        self.isHidden = true
+    }
+    
+    public func SetHideMode(isHidden: Bool) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.isHidden = isHidden
+        }, completion: nil)
     }
     
     required convenience init(frame: CGRect, view: CardReturnBack) {
         self.init(frame: frame)
-        
         self.view = view
     }
     
