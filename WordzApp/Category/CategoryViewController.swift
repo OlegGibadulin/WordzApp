@@ -43,7 +43,6 @@ class CategoryViewController: UIViewController {
     @objc fileprivate func handleToCards() {
         let cardViewController = CardsViewController()
         cardViewController.category = category
-        
         present(cardViewController, animated: true, completion: nil)
     }
     

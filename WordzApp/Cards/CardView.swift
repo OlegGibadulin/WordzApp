@@ -101,8 +101,8 @@ final class CardView: UIView {
         let translationDirection: CGFloat = gesture.translation(in: nil).x > 0 ? 1: -1
         let shouldDismissedCard = abs(gesture.translation(in: nil).x) > CardView.threshold
         
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 10,
-                       initialSpringVelocity: 5, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.01, usingSpringWithDamping: 10,
+                       initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
                         if shouldDismissedCard {
                             
                             if (self.view != nil && translationDirection > 0) {
@@ -130,14 +130,6 @@ final class CardView: UIView {
             self.transform = .identity
             self.removeFromSuperview()
         })
-    }
-    
-    @objc func swipeInLeftSide(sender: UIButton) {
-        swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
-    }
-    
-    @objc func swipeInRightSide(sender: UIButton) {
-        swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
     }
     
     @objc fileprivate func handleOneTapPan(gesture: UIPanGestureRecognizer) {

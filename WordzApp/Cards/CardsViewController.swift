@@ -13,7 +13,6 @@ protocol CardSwipe: class {
 }
 
 protocol CardReturnBack: class {
-    // Dismiss
     func returnBack()
 }
 
@@ -23,13 +22,14 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     
     fileprivate var sentences = [Sentence]()
 
-    var topButtonStackView: UIStackView!
     var tmp1StackView: UIStackView!
     var cardContentStackView: UIStackView!
     var cardButtonsStackView: UIStackView!
     var cardsStackView: UIStackView!
     var tmp2StackView: UIStackView!
     var overallStackView: UIStackView!
+    
+    var circle1 : UIView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
     
@@ -50,8 +50,8 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         self.view.backgroundColor = .white
         
         setupLayout()
+        setupNavigationBar()
         setupDesign()
-        setupSettingsButtons()
         setupMoveCardButtons()
         setupDummyCards()
         
@@ -61,7 +61,6 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         fillCards()
     }
     
@@ -69,13 +68,41 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         self.view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
     }
     
+    func setupNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
+        settingsButton.setImage(UIImage(named: "threePointsIcon"), for: .normal)
+        settingsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        settingsButton.layer.cornerRadius = 8
+        settingsButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        settingsButton.layer.shadowRadius = 3
+        settingsButton.layer.shadowOpacity = 0.5
+        settingsButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+        
+        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        backButton.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
+//        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        backButton.layer.cornerRadius = 8
+        backButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        backButton.layer.shadowRadius = 3
+        backButton.layer.shadowOpacity = 0.5
+        backButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        backButton.addTarget(self, action: #selector(backButtonTapped(sender:)), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
     func fillCards() {
         let frame = cardContentStackView.frame
         let repeats = 3
         
         oneCardView = CardResultView(frame: frame, view: self)
-        oneCardView.finishButton.isEnabled = false
         cardContentStackView.addSubview(oneCardView)
+        oneCardView.finishButton.isEnabled = false
         
         var allWords = [Word]()
         
@@ -102,8 +129,17 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         allWords.forEach { (word) in
             let cardView = CardView(frame: frame, word: word, view: self)
             cardView.setupLabels()
+            cardView.isHidden = true
             self.cardsView.append(cardView)
+            cardView.isUserInteractionEnabled = false
             cardContentStackView.addSubview(cardView)
+        }
+        
+        if cardsView.count > 2 {
+            cardsView[cardsView.count - 1].isHidden = false
+            cardsView[cardsView.count - 2].isHidden = false
+//            cardsView[cardsView.count - 3].isHidden = false
+            cardsView.last?.isUserInteractionEnabled = true
         }
     }
     
@@ -114,35 +150,6 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         tmpCardResultView.translatesAutoresizingMaskIntoConstraints = false
         cardContentStackView = UIStackView(arrangedSubviews: [tmpCardResultView])
         cardContentStackView.axis = .vertical
-    }
-    
-    func setupSettingsButtons() {
-        let settingsButton = UIButton()
-        settingsButton.setImage(UIImage(named: "threePointsIcon"), for: .normal)
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        settingsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        settingsButton.layer.cornerRadius = 8
-        settingsButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
-        settingsButton.layer.shadowRadius = 7
-        settingsButton.layer.shadowOpacity = 0.5
-        settingsButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
-        
-        let backButton = UIButton()
-        backButton.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        backButton.layer.cornerRadius = 8
-        backButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
-        backButton.layer.shadowRadius = 7
-        backButton.layer.shadowOpacity = 0.5
-        backButton.layer.shadowOffset = CGSize(width: 0, height: 4)
-        backButton.addTarget(self, action: #selector(backButtonTapped(sender:)), for: .touchUpInside)
-        
-        topButtonStackView = UIStackView(arrangedSubviews: [backButton, settingsButton])
-        topButtonStackView.axis = .horizontal
-        topButtonStackView.distribution = .equalCentering
-        topButtonStackView.spacing = 0
     }
     
     func setupMoveCardButtons() {
@@ -176,6 +183,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         swipeRightButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         
         cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
+
         cardButtonsStackView.axis = .horizontal
         cardButtonsStackView.distribution = .fillProportionally
         cardButtonsStackView.spacing = 0
@@ -189,7 +197,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         cardsStackView.translatesAutoresizingMaskIntoConstraints = false
         cardsStackView.axis = .vertical
         
-        overallStackView = UIStackView(arrangedSubviews: [topButtonStackView, tmp1StackView, cardsStackView, tmp2StackView])
+        overallStackView = UIStackView(arrangedSubviews: [tmp1StackView, cardsStackView, tmp2StackView])
         overallStackView.spacing = 0
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
@@ -200,16 +208,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     }
     
     func setupAnchors() {
-        topButtonStackView.translatesAutoresizingMaskIntoConstraints = false
-        topButtonStackView.arrangedSubviews.forEach { (view) in
-            view.widthAnchor.constraint(equalToConstant: 35).isActive = true
-        }
-        
-        topButtonStackView.rightAnchor.constraint(equalTo: view.safeRightAnchor, constant: -20).isActive = true
-        topButtonStackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
-        topButtonStackView.leftAnchor.constraint(equalTo: view.safeLeftAnchor, constant: 20).isActive = true
-        topButtonStackView.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        
+        tmp1StackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
         cardContentStackView.heightAnchor.constraint(equalToConstant: 460).isActive = true
         cardButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         cardButtonsStackView.heightAnchor.constraint(equalToConstant: 75).isActive = true
@@ -218,7 +217,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
             cardButtonsStackView.arrangedSubviews[1].widthAnchor.constraint(equalTo: cardButtonsStackView.arrangedSubviews[0].widthAnchor, multiplier: 1).isActive = true
         }
         
-        tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.25).isActive = true
+        tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
         
         cardsStackView.bringSubviewToFront(cardContentStackView)
     }
@@ -267,7 +266,8 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     }
     
     public func returnBack() {
-        self.dismiss(animated: true, completion: nil)
+        circle1.isHidden = true
+        self.navigationController?.popViewController(animated: true)
     }
     
     @objc
@@ -281,7 +281,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         
         let circle1Height = CGFloat(height / 2.5)
         
-        let circle1 = UIView(frame: CGRect(x: (-1 ) * circle1Height / 1.8, y: height * (1/5), width: circle1Height, height: circle1Height))
+        self.circle1 = UIView(frame: CGRect(x: (-1 ) * circle1Height / 1.8, y: height * (1/5), width: circle1Height, height: circle1Height))
         circle1.layer.cornerRadius = circle1Height / 2
         circle1.clipsToBounds = true
         circle1.backgroundColor = #colorLiteral(red: 0, green: 0.08235294118, blue: 1, alpha: 1)
@@ -312,7 +312,21 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
             result.unfamilarWords += 1
         }
         
+        if cardsView.count > 0 {
+            cardsView[cardsView.count - 1].isHidden = false
+        }
+        
+        if cardsView.count > 1 {
+            cardsView[cardsView.count - 2].isHidden = false
+        }
+        
+        if cardsView.count > 2 {
+            cardsView[cardsView.count - 3].isHidden = false
+        }
+        
         cardsView.popLast()
+        
+        cardsView.last?.isUserInteractionEnabled = true
         
         if cardsView.count < 1 {
             oneCardView.finishButton.isEnabled = true
@@ -321,14 +335,14 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         oneCardView.updateLabel(message: result)
     }
     
-    @objc private func swipeLeft(isNeededAutoSwipe: Bool) {
+    @objc internal func swipeLeft() {
         if let card = cardsView.last {
             card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
             updateSwipedCard(isFamilarWordSwiped: false)
         }
     }
     
-    @objc private func swipeRight() {
+    @objc internal func swipeRight() {
         if let card = cardsView.last {
             card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
             updateSwipedCard(isFamilarWordSwiped: true)
