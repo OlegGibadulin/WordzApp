@@ -61,14 +61,14 @@ class HomeViewController: UIViewController {
         topBarStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: .sideMargin, bottom: 0, right: .sideMargin))
     }
     
-    fileprivate lazy var settingsView: SettingsView = {
-        let sv = SettingsView()
-        sv.keyWindow = self.view.window
-        return sv
+    fileprivate lazy var settingsViewController: SettingsViewController = {
+        let svc = SettingsViewController()
+        svc.keyWindow = self.view.window
+        return svc
     }()
     
     @objc fileprivate func handleToSettings() {
-        settingsView.show()
+        settingsViewController.show()
     }
     
 }

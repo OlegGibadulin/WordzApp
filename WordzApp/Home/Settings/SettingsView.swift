@@ -8,86 +8,67 @@
 
 import UIKit
 
-extension UIWindow {
-    static var key: UIWindow? {
-        if #available(iOS 13, *) {
-            return UIApplication.shared.windows.first { $0.isKeyWindow }
-        } else {
-            return UIApplication.shared.keyWindow
-        }
-    }
-}
-
 class SettingsView: UIView {
     
-    var keyWindow: UIWindow? {
-        didSet {
-            guard let window = keyWindow else { return }
-
-            setupLayout()
-
-            frame = CGRect(x: 0, y: window.frame.height, width: window.frame.width, height: height * 2)
-            blackoutView.frame = window.frame
-
-            window.addSubview(blackoutView)
-            window.addSubview(self)
-        }
-    }
-
-    fileprivate let height: CGFloat = 200
-
-    fileprivate let collectionView: UICollectionView = {
-        let layout = UICollectionViewLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return cv
+    fileprivate let items = ["Beginner", "Intermediate", "Advanced"]
+    fileprivate let ru_items = ["Начинающий", "Средний", "Продвинутый"]
+    
+    fileprivate lazy var segmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: self.ru_items)
+        sc.addTarget(self, action: #selector(handleSegmentChange), for: .valueChanged)
+        sc.selectedSegmentIndex = 0
+        return sc
     }()
-
-    fileprivate let blackoutView: UIView = {
-        let bv = UIView()
-        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
-        return bv
+    
+    fileprivate let infoLabel: UILabel = {
+        let il = UILabel()
+        il.textAlignment = .center
+        il.textColor = .gray
+        il.text = "Выберите сложность ежедневных слов"
+        return il
     }()
-
-    func show() {
-        guard let window = keyWindow else { return }
-
-        let y = window.frame.height - height
-
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
-
-            self.blackoutView.alpha = 1
-            self.frame = CGRect(x: 0, y: y, width: self.frame.width, height: self.frame.height)
-        }, completion: nil)
+    
+    fileprivate let topBar: UIView = {
+        let tb = UIView()
+        tb.layer.cornerRadius = 2
+        tb.clipsToBounds = true
+        tb.backgroundColor = .lightGray
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        tb.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        tb.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        return tb
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
     }
 
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .darkBlue
-
-        addSubview(collectionView)
-        collectionView.fillSuperview(padding: .init(top: 30, left: 0, bottom: 0, right: 0))
-
-        blackoutView.alpha = 0
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDismiss))
-        blackoutView.addGestureRecognizer(tapGesture)
-
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
-        self.addGestureRecognizer(panGesture)
+        backgroundColor = .white
+        
+        addSubview(topBar)
+        topBar.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true
+        topBar.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        
+        let overallStackView = UIStackView(arrangedSubviews: [infoLabel, segmentedControl, UIView()])
+        overallStackView.axis = .vertical
+        overallStackView.distribution = .fill
+        overallStackView.spacing = 20
+        
+        addSubview(overallStackView)
+        overallStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 40, left: .sideMargin, bottom: 0, right: .sideMargin))
     }
-
-    @objc fileprivate func handleDismiss() {
-        guard let window = keyWindow else { return }
-
-        UIView.animate(withDuration: 0.5) {
-            self.blackoutView.alpha = 0
-            self.frame = CGRect(x: 0, y: window.frame.height, width: self.frame.width, height: self.frame.height)
-        }
+    
+    @objc fileprivate func handleSegmentChange() {
+        let defaults = UserDefaults.standard
+        defaults.set(segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
     }
-
-    @objc fileprivate func handlePan(gesture: UITapGestureRecognizer) {
-        // TODO:
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

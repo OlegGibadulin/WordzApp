@@ -148,7 +148,6 @@
 				C438ABD824CEE4BC0043D234 /* Storage.swift */,
 				C4660C3224C99E5E00658073 /* Additional */,
 				C4C3461624CB40D90030D8C3 /* CoreDataManager */,
-				C42EBA4B24B717B900F20BB5 /* Models */,
 				C47585B924C844B8008199E2 /* Home */,
 				C47585BA24C844D3008199E2 /* Category */,
 				C47585BB24C844E1008199E2 /* Cards */,
@@ -204,6 +203,7 @@
 				773F32E224D01B1A006C8482 /* CardResultView.swift */,
 				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
 				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+				C42EBA4B24B717B900F20BB5 /* Models */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
