@@ -10,13 +10,17 @@ import UIKit
 
 class SettingsView: UIView {
     
-    fileprivate let items = ["Beginner", "Intermediate", "Advanced"]
-    fileprivate let ru_items = ["Начинающий", "Средний", "Продвинутый"]
-    
-    fileprivate lazy var segmentedControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: self.ru_items)
+    fileprivate let segmentedControl: UISegmentedControl = {
+        let levels = CoreDataManager.shared.fetchLevels()
+        let levelsTitle = levels.compactMap { (level) -> String? in
+            return level.title
+        }
+        
+        let sc = UISegmentedControl(items: levelsTitle)
         sc.addTarget(self, action: #selector(handleSegmentChange), for: .valueChanged)
-        sc.selectedSegmentIndex = 0
+        
+        let defaults = UserDefaults.standard
+        sc.selectedSegmentIndex = defaults.integer(forKey: "LevelIndex")
         return sc
     }()
     
@@ -64,7 +68,9 @@ class SettingsView: UIView {
     
     @objc fileprivate func handleSegmentChange() {
         let defaults = UserDefaults.standard
-        defaults.set(segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
+        DispatchQueue.main.async {
+            defaults.set(self.segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
+        }
     }
     
     required init?(coder: NSCoder) {

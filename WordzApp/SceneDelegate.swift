@@ -19,18 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     fileprivate func tododeletethisfunction() {
-        Storage.deleteCategories()
-        Storage.uploadsCategories()
+        Storage.shared.deleteCategories()
+        Storage.shared.uploadsCategories()
 
-        if let lvl = CoreDataManager.shared.fetchLevel(title: "Beginner") {
-            Storage.deleteSentences(level: lvl)
-            Storage.deleteLevels()
+        if let lvl = CoreDataManager.shared.fetchLevel(title: "Начинающий") {
+            Storage.shared.deleteSentences(level: lvl)
         }
-        Storage.uploadLevels()
+        Storage.shared.deleteLevels()
+        Storage.shared.uploadLevels()
 
-        guard let level = CoreDataManager.shared.fetchLevel(title: "Beginner") else { return }
-
-        Storage.uploadSentences(level: level)
+        guard let level = CoreDataManager.shared.fetchLevel(title: "Начинающий") else { return }
+        Storage.shared.uploadSentences(level: level)
     }
 
 
@@ -61,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let navController = CustomNavigationController(rootViewController: categoryViewController)
         
-        tododeletethisfunction()
+//        tododeletethisfunction()
         
         let homeViewController = HomeViewController()
         let categoryViewController = CategoryViewController()

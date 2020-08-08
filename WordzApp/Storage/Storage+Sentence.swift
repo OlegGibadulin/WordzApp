@@ -1,29 +1,16 @@
 //
-//  Storage.swift
+//  Storage+Sentence.swift
 //  WordzApp
 //
-//  Created by Mac-HOME on 27.07.2020.
+//  Created by Mac-HOME on 09.08.2020.
 //  Copyright © 2020 Mac-HOME. All rights reserved.
 //
 
 import Foundation
 
-struct Storage {
+extension Storage {
     
-    static func uploadLevels() {
-        CoreDataManager.shared.addLevel(title: "Beginner")
-        CoreDataManager.shared.addLevel(title: "Intermediate")
-        CoreDataManager.shared.addLevel(title: "Advanced")
-    }
-    
-    static func deleteLevels() {
-        let levels = CoreDataManager.shared.fetchLevels()
-        levels.forEach { (level) in
-            CoreDataManager.shared.deleteLevel(level: level)
-        }
-    }
-    
-    static func uploadSentences(level: Level) {
+    func uploadSentences(level: Level) {
         CoreDataManager.shared.addSentence(text: "Word", translation: ["Слово"], level: level)
         CoreDataManager.shared.addSentence(text: "Sentence", translation: ["Предложение"], level: level)
 
@@ -38,24 +25,11 @@ struct Storage {
         CoreDataManager.shared.addSentence(text: "Longsdjdskgdsldsgjdslgdsjsdgjdslsd", translation: ["Longsd jdskgd slds gjdsl gdsj sdgjds lsd kgsdg ldsgj dskg jsdg lsd asfsaf"], level: level)
     }
     
-    static func deleteSentences(level: Level) {
+    func deleteSentences(level: Level) {
         let sentences = CoreDataManager.shared.fetchSentences(level: level)
         
         sentences.forEach { (sentence) in
             CoreDataManager.shared.deleteSentence(sentence: sentence)
-        }
-    }
-    
-    static func uploadsCategories() {
-        CoreDataManager.shared.addCategory(title: "Today", firstColor: .lightRed, secondColor: .lightBlue)
-        CoreDataManager.shared.addCategory(title: "Favourites", firstColor: .lightRed, secondColor: .lightBlue)
-        CoreDataManager.shared.addCategory(title: "Computer", firstColor: .lightRed, secondColor: .lightBlue)
-    }
-    
-    static func deleteCategories() {
-        let categories = CoreDataManager.shared.fetchCategories()
-        categories.forEach { (category) in
-            CoreDataManager.shared.deleteCategory(category: category)
         }
     }
     

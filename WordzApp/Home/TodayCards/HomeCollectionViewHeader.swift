@@ -10,8 +10,16 @@ import UIKit
 
 class HomeCollectionViewHeader: UICollectionViewCell {
     
-    // TODO: user defaults
-    fileprivate let levelTitle = "Beginner"
+    fileprivate let levelTitle: String = {
+        let defaults = UserDefaults.standard
+        let levelIndex = defaults.integer(forKey: "LevelIndex")
+        
+        let levels = CoreDataManager.shared.fetchLevels()
+        let levelsTitle = levels.compactMap { (level) -> String? in
+            return level.title
+        }
+        return levelsTitle[levelIndex]
+    }()
     
     fileprivate lazy var cardsDeskView = TodayCardView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     
