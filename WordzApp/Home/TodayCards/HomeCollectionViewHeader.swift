@@ -81,7 +81,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     
     fileprivate func fetchSentences() {
         
-//        tododeletethisfunction()
+        //tododeletethisfunction()
 
         // Fetch sentences from today category
         guard let todayCategory = CoreDataManager.shared.fetchCategory(title: "Today") else { return }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F32E224D01B1A006C8482 /* CardResultView.swift */; };
+		776968A824DF1DEC00910380 /* CardsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776968A724DF1DEC00910380 /* CardsUserDefaults.swift */; };
 		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
 		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
 		C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401EA8D24BB580E00FB116F /* MainTabBarController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
 		773F32E224D01B1A006C8482 /* CardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultView.swift; sourceTree = "<group>"; };
+		776968A724DF1DEC00910380 /* CardsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsUserDefaults.swift; sourceTree = "<group>"; };
 		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				C42EBA4924B717B100F20BB5 /* Sentence.swift */,
 				C4F37F3B24B5F68800D7807D /* Category.swift */,
+				77F02D6D24B639E600F15519 /* Word.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,13 +182,13 @@
 		C4660C3224C99E5E00658073 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
-				77F02D6D24B639E600F15519 /* Word.swift */,
 				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
 				C41F63AD24B472560051FD7B /* SettingsViewController.swift */,
 				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
 				773F32E224D01B1A006C8482 /* CardResultView.swift */,
 				C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */,
 				C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */,
+				776968A724DF1DEC00910380 /* CardsUserDefaults.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
 				C438ABDF24D00EEF0043D234 /* Extensions+UIImage.swift in Sources */,
+				776968A824DF1DEC00910380 /* CardsUserDefaults.swift in Sources */,
 				C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
