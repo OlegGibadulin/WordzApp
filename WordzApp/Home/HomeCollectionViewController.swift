@@ -14,9 +14,10 @@ private let headerIdentifier = "HomeHeaderId"
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    fileprivate var categories = [Category]()
+    // If this controller is used into another controller
+    var rootViewController: UIViewController?
     
-    fileprivate let margins = CGFloat(12)
+    fileprivate var categories = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,13 +44,12 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         let categoryViewController = CategoryViewController()
         categoryViewController.category = categories[indexPath.row]
         
-        let navController = UINavigationController(rootViewController: categoryViewController)
-        navController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
-        present(navController, animated: true, completion: nil)
+        let vc = rootViewController ?? self
+        vc.present(categoryViewController, animated: true, completion: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: margins * 2, left: margins, bottom: margins * 2, right: margins)
+        return UIEdgeInsets(top: 40, left: .sideMargin, bottom: 40, right: .sideMargin)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -63,11 +63,11 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return margins
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return margins
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

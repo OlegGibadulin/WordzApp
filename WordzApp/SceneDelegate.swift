@@ -17,6 +17,21 @@ class CustomNavigationController: UINavigationController {
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    fileprivate func tododeletethisfunction() {
+        Storage.deleteCategories()
+        Storage.uploadsCategories()
+
+        if let lvl = CoreDataManager.shared.fetchLevel(title: "Beginner") {
+            Storage.deleteSentences(level: lvl)
+            Storage.deleteLevels()
+        }
+        Storage.uploadLevels()
+
+        guard let level = CoreDataManager.shared.fetchLevel(title: "Beginner") else { return }
+
+        Storage.uploadSentences(level: level)
+    }
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -31,24 +46,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let layout = UICollectionViewFlowLayout()
 //        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
-////        let homeController = CardsViewController()
+//        let homeController = CardsViewController()
 //
         
 //
-        let mainTabBarController = MainTabBarController()
-        
-        let categoryViewController = CategoryViewController()
+//        let mainTabBarController = MainTabBarController()
+//
+//        let categoryViewController = CategoryViewController()
         
 //        let layout = UICollectionViewFlowLayout()
 //        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
         
 //        categoryViewController.categoryTitle = "Favourites"
         
-        let navController = CustomNavigationController(rootViewController: categoryViewController)
+//        let navController = CustomNavigationController(rootViewController: categoryViewController)
+        
+        tododeletethisfunction()
+        
+        let homeViewController = HomeViewController()
+        let categoryViewController = CategoryViewController()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = mainTabBarController
+            window.rootViewController = homeViewController
             self.window = window
             window.makeKeyAndVisible()
         }

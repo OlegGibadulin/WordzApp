@@ -14,7 +14,12 @@ class TodayCardView: UIView {
         didSet {
             if let sentence = sentences.first {
                 sentenceLabel.text = sentence.text
-                translationLabel.text = sentence.translation
+                
+                var translations = ""
+                sentence.translation?.forEach({ (translation) in
+                     translations += translation + "\n"
+                })
+                translationLabel.text = translations
                 
                 (0..<sentences.count).forEach { (_) in
                     let barView = UIView()
@@ -41,7 +46,9 @@ class TodayCardView: UIView {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         sl.textAlignment = .center
-        sl.numberOfLines = 0
+        sl.numberOfLines = 3
+        sl.minimumScaleFactor = 0.3
+        sl.adjustsFontSizeToFitWidth = true
         return sl
     }()
     
@@ -49,14 +56,20 @@ class TodayCardView: UIView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 20, weight: .light)
         tl.textAlignment = .center
-        tl.numberOfLines = 0
+        tl.numberOfLines = 3
+        tl.minimumScaleFactor = 0.3
+        tl.adjustsFontSizeToFitWidth = true
         return tl
     }()
     
     fileprivate let toFavouritesButton: UIButton = {
         let tfb = UIButton()
-        tfb.setImage(UIImage(named: "bookmark_white"), for: .normal)
-        tfb.setImage(UIImage(named: "bookmark_black"), for: .selected)
+        tfb.setImage(UIImage(named: "star")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        tfb.setImage(UIImage(named: "star_filled")?.withRenderingMode(.alwaysTemplate), for: .selected)
+        tfb.tintColor = .darkBlue
+        tfb.translatesAutoresizingMaskIntoConstraints = false
+        tfb.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        tfb.widthAnchor.constraint(equalToConstant: 30).isActive = true
         tfb.addTarget(self, action: #selector(handleToFavourites), for: .touchUpInside)
         return tfb
     }()
@@ -84,7 +97,12 @@ class TodayCardView: UIView {
         didSet {
             let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
-            translationLabel.text = sentence.translation
+            
+            var translations = ""
+            sentence.translation?.forEach({ (translation) in
+                 translations += translation + "\n"
+            })
+            translationLabel.text = translations
             
             barsStackView.arrangedSubviews.forEach { (v) in
                 v.backgroundColor = barDeselectedColor
@@ -110,26 +128,26 @@ class TodayCardView: UIView {
     }
     
     fileprivate func setupLayout() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = 23
         clipsToBounds = true
         backgroundColor = .lightBlue
         
         setupBarsStackView()
         
-        let topPadding = bounds.height / 3
         addSubview(sentenceLabel)
-        sentenceLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: topPadding, left: 16, bottom: 0, right: 16))
+        sentenceLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: bounds.height / 3, left: 16, bottom: 0, right: 16))
         
         addSubview(translationLabel)
         translationLabel.anchor(top: sentenceLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 16, left: 16, bottom: 0, right: 16))
         
         addSubview(toFavouritesButton)
-        toFavouritesButton.anchor(top: nil, leading: nil, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: 16, right: 4))
+        toFavouritesButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        toFavouritesButton.topAnchor.constraint(equalTo: topAnchor, constant: bounds.height / 5).isActive = true
     }
     
     fileprivate func setupBarsStackView() {
         addSubview(barsStackView)
-        barsStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 8, left: 8, bottom: 0, right: 8), size: .init(width: 0, height: 4))
+        barsStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 8, left: 40, bottom: 0, right: 40), size: .init(width: 0, height: 4))
     }
     
     required init?(coder: NSCoder) {

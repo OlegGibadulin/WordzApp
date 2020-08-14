@@ -13,7 +13,13 @@ class CategoryTableViewCell: UITableViewCell {
     var sentence: Sentence! {
         didSet {
             sentenceLabel.text = sentence.text
-            translationLabel.text = sentence.translation
+            
+            var translations = ""
+            sentence.translation?.forEach({ (translation) in
+                 translations += translation + "\n"
+            })
+            translations.remove(at: translations.index(before: translations.endIndex))
+            translationLabel.text = translations
         }
     }
     
