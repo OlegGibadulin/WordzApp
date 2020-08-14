@@ -71,7 +71,7 @@ extension CoreDataManager {
     
     // MARK: - Sentences
     
-    func addSentence(text: String, translation: [String], level: Level?) {
+    func addSentence(text: String, translation: String, level: Level?) {
         guard let level = level else { return }
         
         let context = persistentContainer.viewContext

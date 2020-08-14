@@ -16,8 +16,8 @@
         <attribute name="isFavourite" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isLearned" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="learned" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="text" optional="YES" attributeType="String" customClassName="[String]"/>
-        <attribute name="translation" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="translation" optional="YES" attributeType="String"/>
         <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="sentences" inverseEntity="Category"/>
         <relationship name="level" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Level" inverseName="sentences" inverseEntity="Level"/>
     </entity>

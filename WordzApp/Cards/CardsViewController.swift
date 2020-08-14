@@ -100,7 +100,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
         Word(word: "imagine", translate: "воображать"),
         Word(word: "confirmation", translate: "подтверждение"),
         Word(word: "to go away", translate: "уходить"),
-        Word(word: "calling", translate: "зовущий")
+        Word(word: "calling", translate: "зовущий"),
     ]
     
     override func viewDidLoad() {
