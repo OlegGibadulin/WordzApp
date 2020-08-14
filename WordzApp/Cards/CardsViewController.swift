@@ -87,6 +87,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
     }()
     
     var circle1 : UIView!
+    var loadingView: LoadingView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
     
@@ -107,11 +108,17 @@ final class CardsViewController: UIViewController, CardInteractionController {
         
         self.view.backgroundColor = .white
         
+        
         setupLayout()
         setupNavigationBar()
         setupDesign()
         setupMoveCardButtons()
         setupDummyCards()
+        
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+        window?.addSubview(loadingView)
+//        self.view.bringSubviewToFront(loadingView)
         
         setupOverallStackView()
         setupAnchors()
@@ -131,9 +138,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
-        
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
-        
         
         backButton.addTarget(self, action: #selector(backButtonTapped(sender:)), for: .touchUpInside)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
@@ -168,6 +173,22 @@ final class CardsViewController: UIViewController, CardInteractionController {
             cardsView[cardsView.count - 2].isHidden = false
             cardsView.last?.isUserInteractionEnabled = true
         }
+        
+        loadingView.stopLoading()
+        let duration: Double = 1
+        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.loadingView.alpha = 0
+            let queue = DispatchQueue.global()
+            queue.asyncAfter(deadline: .now() + .seconds(Int(duration))) {
+                DispatchQueue.main.async {
+                    self.loadingView.removeFromSuperview()
+                    self.loadingView = nil
+                }
+            }
+            
+        }, completion: nil)
+        
+//        loadingView.isHidden = true
     }
     
     func setupDummyCards() {
@@ -219,7 +240,8 @@ final class CardsViewController: UIViewController, CardInteractionController {
         
         tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
         
-        cardsStackView.bringSubviewToFront(cardContentStackView)
+        //cardsStackView.bringSubviewToFront(cardContentStackView)
+        cardsStackView.bringSubviewToFront(loadingView)
     }
     
     fileprivate func fetchSentences() -> [Sentence] {
