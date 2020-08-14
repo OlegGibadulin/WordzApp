@@ -16,7 +16,7 @@ final class CardView: UIView {
     private var isOpen = true
     private var textLabel: UILabel!
     private var wordSelfCard: Word!
-    private var view: CardSwipe!
+    private var view: CardInteractionController!
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,7 +34,7 @@ final class CardView: UIView {
         addGestureRecognizer(singleTapGesture)
     }
     
-    required convenience init(frame: CGRect, word: Word, view: CardSwipe) {
+    required convenience init(frame: CGRect, word: Word, view: CardInteractionController) {
         self.init(frame: frame)
         
         self.wordSelfCard = word
@@ -44,7 +44,6 @@ final class CardView: UIView {
     fileprivate func setupLayout() {
         backgroundColor = .white
         self.layer.cornerRadius = 23
-//        self.roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 23)
         self.clipsToBounds = false
     }
     
@@ -79,9 +78,11 @@ final class CardView: UIView {
     @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .changed:
+            view.EnableSwipeButtons(isEnabled: false)
             handleChanged(gesture)
         case .ended:
             handleEnded(gesture)
+            view.EnableSwipeButtons(isEnabled: true)
         default:
             ()
         }

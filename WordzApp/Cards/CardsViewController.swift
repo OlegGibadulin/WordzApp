@@ -8,15 +8,13 @@
 
 import UIKit
 
-protocol CardSwipe: class {
+protocol CardInteractionController: class {
+    func EnableSwipeButtons(isEnabled enabled: Bool)
     func updateSwipedCard(isFamilarWordSwiped: Bool)
-}
-
-protocol CardReturnBack: class {
     func returnBack()
 }
 
-final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
+final class CardsViewController: UIViewController, CardInteractionController {
     
     var category: Category?
     
@@ -54,6 +52,40 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         return settingsButton
     }()
     
+    let swipeLeftButton: UIButton = {
+        let swipeLeftButton = UIButton()
+        swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
+        swipeLeftButton.setTitle("I don't know\nthis word", for: .normal)
+        swipeLeftButton.titleLabel?.numberOfLines = 2
+        swipeLeftButton.setTitleColor(#colorLiteral(red: 0.006038194057, green: 0.06411762536, blue: 0.6732754707, alpha: 1), for: .highlighted)
+        swipeLeftButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
+        
+        swipeLeftButton.clipsToBounds = false
+        swipeLeftButton.translatesAutoresizingMaskIntoConstraints = false
+        swipeLeftButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        swipeLeftButton.layer.shadowRadius = 5
+        swipeLeftButton.layer.shadowOpacity = 0.2
+        swipeLeftButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        return swipeLeftButton
+    }()
+    
+    let swipeRightButton: UIButton = {
+        let swipeRightButton = UIButton()
+        swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
+        swipeRightButton.setTitle("I know\nthis word", for: .normal)
+        swipeRightButton.titleLabel?.numberOfLines = 2
+        swipeRightButton.setTitleColor(#colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1), for: .normal)
+        swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
+        swipeRightButton.backgroundColor = .white
+        swipeRightButton.clipsToBounds = false
+        swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
+        swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        swipeRightButton.layer.shadowRadius = 5
+        swipeRightButton.layer.shadowOpacity = 0.2
+        swipeRightButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        return swipeRightButton
+    }()
+    
     var circle1 : UIView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
@@ -62,6 +94,7 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     var oneCardView: CardResultView!
     
     var words = [
+        Word(word: "🌧", translate: "rain"),
         Word(word: "develop", translate: "разрабатывать"),
         Word(word: "imagine", translate: "воображать"),
         Word(word: "confirmation", translate: "подтверждение"),
@@ -146,34 +179,8 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
     }
     
     func setupMoveCardButtons() {
-        let swipeLeftButton = UIButton()
-        swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
-        swipeLeftButton.setTitle("I don't know\nthis word", for: .normal)
-        swipeLeftButton.titleLabel?.numberOfLines = 2
-        swipeLeftButton.setTitleColor(#colorLiteral(red: 0.006038194057, green: 0.06411762536, blue: 0.6732754707, alpha: 1), for: .highlighted)
-        swipeLeftButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
         swipeLeftButton.addTarget(self, action: #selector(swipeLeft), for: .touchUpInside)
-        swipeLeftButton.clipsToBounds = false
-        swipeLeftButton.translatesAutoresizingMaskIntoConstraints = false
-        swipeLeftButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
-        swipeLeftButton.layer.shadowRadius = 5
-        swipeLeftButton.layer.shadowOpacity = 0.2
-        swipeLeftButton.layer.shadowOffset = CGSize(width: 0, height: 5)
-        
-        let swipeRightButton = UIButton()
-        swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
-        swipeRightButton.setTitle("I know\nthis word", for: .normal)
-        swipeRightButton.titleLabel?.numberOfLines = 2
-        swipeRightButton.setTitleColor(#colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1), for: .normal)
-        swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
-        swipeRightButton.backgroundColor = .white
         swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
-        swipeRightButton.clipsToBounds = false
-        swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
-        swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
-        swipeRightButton.layer.shadowRadius = 5
-        swipeRightButton.layer.shadowOpacity = 0.2
-        swipeRightButton.layer.shadowOffset = CGSize(width: 0, height: 5)
         
         cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
 
@@ -326,6 +333,11 @@ final class CardsViewController: UIViewController, CardSwipe, CardReturnBack {
         }
             
         oneCardView.updateLabel(message: result)
+    }
+    
+    func EnableSwipeButtons(isEnabled enabled: Bool) {
+        swipeLeftButton.isEnabled = enabled
+        swipeRightButton.isEnabled = enabled
     }
     
     @objc internal func swipeLeft() {
