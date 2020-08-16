@@ -26,7 +26,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        fetchSentences()
+        fetchTodaySentences()
         setupLayout()
     }
     
@@ -42,9 +42,10 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         overallStackView.layoutMargins = .init(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    fileprivate func fetchSentences() {
+    // TODO: - Make it work again
+    fileprivate func fetchTodaySentences() {
         // Fetch sentences from today category
-        guard let todayCategory = CoreDataManager.shared.fetchCategory(title: "Today") else { return }
+        guard let todayCategory = CoreDataManager.shared.fetchCategory(title: Storage.shared.todayCardsTitle) else { return }
         var sentences = CoreDataManager.shared.fetchSentences(category: todayCategory)
 
         // Fetch latest upload date of current level
@@ -63,7 +64,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
             }
 
             // Get new set of sentences
-            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 5]
+            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 10]
 
             // Add new sentences to today category
             newSentences.forEach { (sentence) in

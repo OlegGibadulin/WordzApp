@@ -10,22 +10,25 @@ import UIKit
 
 struct CategoryStorage {
     let title: String
-    let localization: String
     let firstColor: UIColor
     let secondColor: UIColor
+    let sentences: [String:[String]]?
 }
 
 extension Storage {
     
-    func uploadsCategories() {
+    mutating func uploadsCategories() {
         categories.forEach { (category) in
             CoreDataManager.shared.addCategory(title: category.title, firstColor: category.firstColor, secondColor: category.secondColor)
+            
+            uploadSentences(categoryTitle: category.title, sentences: category.sentences)
         }
     }
     
     func deleteCategories() {
         let categories = CoreDataManager.shared.fetchCategories()
         categories.forEach { (category) in
+            deleteSentences(category: category)
             CoreDataManager.shared.deleteCategory(category: category)
         }
     }

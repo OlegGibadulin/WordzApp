@@ -34,7 +34,7 @@ class CategoryTableViewController: UITableViewController {
         sentences = CoreDataManager.shared.fetchSentences(category: category)
         
         guard let title = category?.title else { return }
-        if title == "Favourites" {
+        if title == Storage.shared.favouritesTitle {
             sentences.reverse()
             return
         }

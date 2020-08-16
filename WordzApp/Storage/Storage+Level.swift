@@ -10,7 +10,7 @@ import Foundation
 
 struct LevelStorage {
     let title: String
-    let localization: String
+    let sentences: [String:[String]]?
 }
 
 extension Storage {
@@ -18,12 +18,15 @@ extension Storage {
     func uploadLevels() {
         levels.forEach { (level) in
             CoreDataManager.shared.addLevel(title: level.title)
+            
+            uploadSentences(levelTitle: level.title, sentences: level.sentences)
         }
     }
     
     func deleteLevels() {
         let levels = CoreDataManager.shared.fetchLevels()
         levels.forEach { (level) in
+            deleteSentences(level: level)
             CoreDataManager.shared.deleteLevel(level: level)
         }
     }

@@ -63,7 +63,8 @@ struct CoreDataManager {
     func favouriteSentence(sentence: Sentence) {
         let context = persistentContainer.viewContext
         
-        guard let category = CoreDataManager.shared.fetchCategory(title: "Favourites") else { return }
+        let favouritesTitle = Storage.shared.favouritesTitle
+        guard let category = CoreDataManager.shared.fetchCategory(title: favouritesTitle) else { return }
         
         guard let text = sentence.text, let translation = sentence.translation else { return }
         
