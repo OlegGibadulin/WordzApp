@@ -23,6 +23,15 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     
     fileprivate lazy var cardsDeskView = TodayCardView(frame: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
     
+    fileprivate let cardsLogoView: UIImageView = {
+        let lv = UIImageView(image: #imageLiteral(resourceName: "cardz_orange"))
+        lv.translatesAutoresizingMaskIntoConstraints = false
+        lv.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        lv.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        lv.contentMode = .scaleAspectFill
+        return lv
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -31,10 +40,14 @@ class HomeCollectionViewHeader: UICollectionViewCell {
     }
     
     fileprivate func setupLayout() {
-        let overallStackView = UIStackView(arrangedSubviews: [cardsDeskView])
+        let cardsLogoStackView = UIStackView(arrangedSubviews: [cardsLogoView, UIView()])
+        cardsLogoStackView.axis = .horizontal
+        cardsLogoStackView.distribution = .fill
+        
+        let overallStackView = UIStackView(arrangedSubviews: [cardsDeskView, cardsLogoStackView])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
-        overallStackView.spacing = 8
+        overallStackView.spacing = 30
         
         addSubview(overallStackView)
         overallStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
