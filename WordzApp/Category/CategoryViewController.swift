@@ -43,11 +43,12 @@ class CategoryViewController: UIViewController {
     @objc fileprivate func handleToCards() {
         let cardViewController = CardsViewController()
         cardViewController.category = category
-        present(cardViewController, animated: true, completion: nil)
+        navigationController?.pushViewController(cardViewController, animated: true)
     }
     
     private func setupLayout() {
         safeArea = view.layoutMarginsGuide
+        view.backgroundColor = .white
         
         view.addSubview(tableView)
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
@@ -56,9 +57,23 @@ class CategoryViewController: UIViewController {
         toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 16, right: 64))
     }
     
+    // MARK: NavigationController
+    
+    fileprivate lazy var backButton: UIButton = {
+        let bb = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        bb.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
+        bb.setBlueStyle()
+        bb.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
+        return bb
+    }()
+    
     fileprivate func setupNavigationController() {
         navigationItem.title = category?.title
-        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
+
+    @objc fileprivate func handleBackButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }

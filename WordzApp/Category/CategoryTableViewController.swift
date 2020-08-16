@@ -23,8 +23,6 @@ class CategoryTableViewController: UITableViewController {
         // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         
-//        CoreDataManager.shared.addSentence(text: "Sentence", translation: "Предложение", category: category)
-        
         fetchSentences()
         setupLayout()
         setupEmptyState()
@@ -43,6 +41,7 @@ class CategoryTableViewController: UITableViewController {
     fileprivate func setupLayout() {
         tableView.backgroundColor = .white
         tableView.tableFooterView = UIView()
+        tableView.allowsSelection = false
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,6 +69,8 @@ class CategoryTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        guard let title = category?.title, title == Storage.shared.favouritesTitle else { return nil }
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, complete) in
             

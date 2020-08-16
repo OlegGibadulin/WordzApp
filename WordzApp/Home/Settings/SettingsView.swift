@@ -68,9 +68,7 @@ class SettingsView: UIView {
     
     @objc fileprivate func handleSegmentChange() {
         let defaults = UserDefaults.standard
-        DispatchQueue.main.async {
-            defaults.set(self.segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
-        }
+        defaults.set(self.segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
     }
     
     required init?(coder: NSCoder) {

@@ -42,6 +42,7 @@
 		C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473ECD024B85C4B00895008 /* TodayCardView.swift */; };
 		C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */; };
 		C47EF66824E9203C006F5971 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EF66724E9203C006F5971 /* Architecture.swift */; };
+		C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */; };
 		C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */; };
 		C4C3461824CB41120030D8C3 /* CoreDataManager+Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C3461724CB41120030D8C3 /* CoreDataManager+Category.swift */; };
 		C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C3461924CB41640030D8C3 /* CoreDataManager+Level.swift */; };
@@ -94,6 +95,7 @@
 		C473ECD024B85C4B00895008 /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
 		C47585BD24C84AE5008199E2 /* WordzAppModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordzAppModels.xcdatamodel; sourceTree = "<group>"; };
 		C47EF66724E9203C006F5971 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
+		C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UINavigationController.swift"; sourceTree = "<group>"; };
 		C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4C3461724CB41120030D8C3 /* CoreDataManager+Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Category.swift"; sourceTree = "<group>"; };
 		C4C3461924CB41640030D8C3 /* CoreDataManager+Level.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataManager+Level.swift"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */,
 				C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */,
 				C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */,
+				C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
+				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
 				C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */,
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,

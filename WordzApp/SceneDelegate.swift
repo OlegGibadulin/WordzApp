@@ -8,62 +8,40 @@
 
 import UIKit
 
-class CustomNavigationController: UINavigationController {
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        return .darkContent
-//    }
-}
-
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    
-    fileprivate func initCoreData() {
-        Storage.shared.deleteCategories()
-        Storage.shared.uploadsCategories()
-        
-        Storage.shared.deleteLevels()
-        Storage.shared.uploadLevels()
-    }
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-//        UINavigationBar.appearance().tintColor = .white
-//        UINavigationBar.appearance().isTranslucent = false
-//        UINavigationBar.appearance().barTintColor = .lightRed
-//        UINavigationBar.appearance().prefersLargeTitles = true
-//        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-//        UINavigationBar.appearance().largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
-        
-        
-//        let layout = UICollectionViewFlowLayout()
-//        let homeController = HomeCollectionViewController(collectionViewLayout: layout)
-//        let homeController = CardsViewController()
-//
-        
-//
-//        let mainTabBarController = MainTabBarController()
-//
-//        let categoryViewController = CategoryViewController()
-        
-//        let layout = UICollectionViewFlowLayout()
-//        let categoryViewController = CategoryCollectionViewController(collectionViewLayout: layout)
-        
-//        categoryViewController.categoryTitle = "Favourites"
-        
-//        let navController = CustomNavigationController(rootViewController: categoryViewController)
-        
-//        initCoreData()
+        // TODO: delete this
+        // defaults.set(false, forKey: "isFilledCoreData")
+        fillCoreData()
         
         let homeViewController = HomeViewController()
-        let categoryViewController = CategoryViewController()
+        let homeNavController = UINavigationController(rootViewController: homeViewController)
+        homeNavController.transparentNavigationBar()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = homeViewController
+            window.rootViewController = homeNavController
             self.window = window
             window.makeKeyAndVisible()
+        }
+    }
+    
+    fileprivate func fillCoreData() {
+        let defaults = UserDefaults.standard
+        let isFilled = defaults.bool(forKey: "isFilledCoreData")
+        
+        if !isFilled {
+            Storage.shared.deleteCategories()
+            Storage.shared.uploadsCategories()
+            
+            Storage.shared.deleteLevels()
+            Storage.shared.uploadLevels()
+            
+            defaults.set(true, forKey: "isFilledCoreData")
         }
     }
 
