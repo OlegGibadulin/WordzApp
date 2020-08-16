@@ -1,33 +1,25 @@
-//
-//  CardsViewController.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 08.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 protocol CardInteractionController: class {
-    func EnableSwipeButtons(isEnabled enabled: Bool)
+    func enableSwipeButtons(isEnabled enabled: Bool)
     func updateSwipedCard(isFamilarWordSwiped: Bool)
     func returnBack()
 }
 
-final class CardsViewController: UIViewController, CardInteractionController {
+final class CardsViewController: UIViewController {
+    // MARK:- Outlets
+    public var category: Category?
     
-    var category: Category?
-    
-    fileprivate var sentences = [Sentence]()
+    private var sentences = [Sentence]()
 
-    var tmp1StackView: UIStackView!
-    var cardContentStackView: UIStackView!
-    var cardButtonsStackView: UIStackView!
-    var cardsStackView: UIStackView!
-    var tmp2StackView: UIStackView!
-    var overallStackView: UIStackView!
+    private var tmp1StackView: UIStackView!
+    private var cardContentStackView: UIStackView!
+    private var cardButtonsStackView: UIStackView!
+    private var cardsStackView: UIStackView!
+    private var tmp2StackView: UIStackView!
+    private var overallStackView: UIStackView!
     
-    let backButton: UIButton = {
+    private let backButton: UIButton = {
         let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         backButton.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
         backButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
@@ -39,7 +31,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
         return backButton
     }()
     
-    let settingsButton: UIButton = {
+    private let settingsButton: UIButton = {
        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
         settingsButton.setImage(UIImage(named: "threePointsIcon"), for: .normal)
         settingsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
@@ -52,7 +44,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
         return settingsButton
     }()
     
-    let swipeLeftButton: UIButton = {
+    private let swipeLeftButton: UIButton = {
         let swipeLeftButton = UIButton()
         swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
         swipeLeftButton.setTitle("I don't know\nthis word", for: .normal)
@@ -69,7 +61,7 @@ final class CardsViewController: UIViewController, CardInteractionController {
         return swipeLeftButton
     }()
     
-    let swipeRightButton: UIButton = {
+    private let swipeRightButton: UIButton = {
         let swipeRightButton = UIButton()
         swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
         swipeRightButton.setTitle("I know\nthis word", for: .normal)
@@ -86,16 +78,15 @@ final class CardsViewController: UIViewController, CardInteractionController {
         return swipeRightButton
     }()
     
-    var circle1 : UIView!
-    var loadingView: LoadingView!
+    private var circle1 : UIView!
+    private var loadingView: LoadingView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
     
-    var cardsView = [CardView]()
-    var oneCardView: CardResultView!
+    private var cardsView = [CardView]()
+    private var oneCardView: CardResultView!
     
-    var words = [
-        Word(word: "🌧", translate: "rain"),
+    private var words = [
         Word(word: "develop", translate: "разрабатывать"),
         Word(word: "imagine", translate: "воображать"),
         Word(word: "confirmation", translate: "подтверждение"),
@@ -103,54 +94,30 @@ final class CardsViewController: UIViewController, CardInteractionController {
         Word(word: "calling", translate: "зовущий"),
     ]
     
+    //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .white
-        
+        performActionWithLoadingView(isNeedToShow: true)
         
         setupLayout()
         setupNavigationBar()
-        setupDesign()
-        setupMoveCardButtons()
-        setupDummyCards()
-        
-        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
-        window?.addSubview(loadingView)
-//        self.view.bringSubviewToFront(loadingView)
-        
-        setupOverallStackView()
-        setupAnchors()
+        setupStackViews()
     }
     
+    //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fillCards()
     }
     
-    func setupLayout() {
-        self.view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
-    }
-    
-    func setupNavigationBar() {
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        
-        settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
-        
-        backButton.addTarget(self, action: #selector(backButtonTapped(sender:)), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-    }
-    
-    func fillCards() {
+    //MARK:- Fill Cards Logic
+    private func fillCards() {
         let frame = cardContentStackView.frame
         
         oneCardView = CardResultView(frame: frame, view: self)
         cardContentStackView.addSubview(oneCardView)
         oneCardView.finishButton.isEnabled = false
-        
         
         for i in 1..<words.count-1 {
             let number1 = Int.random(in: 1..<words.count-1)
@@ -174,130 +141,45 @@ final class CardsViewController: UIViewController, CardInteractionController {
             cardsView.last?.isUserInteractionEnabled = true
         }
         
-        loadingView.stopLoading()
-        let duration: Double = 1
-        UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.loadingView.alpha = 0
-            let queue = DispatchQueue.global()
-            queue.asyncAfter(deadline: .now() + .seconds(Int(duration))) {
-                DispatchQueue.main.async {
-                    self.loadingView.removeFromSuperview()
-                    self.loadingView = nil
-                }
-            }
-            
-        }, completion: nil)
-        
-//        loadingView.isHidden = true
+        performActionWithLoadingView(isNeedToShow: false)
     }
     
-    func setupDummyCards() {
-        let tmpCardResultView = CardResultView()
-        tmpCardResultView.fillSuperview()
-        tmpCardResultView.translatesAutoresizingMaskIntoConstraints = false
-        cardContentStackView = UIStackView(arrangedSubviews: [tmpCardResultView])
-        cardContentStackView.axis = .vertical
-    }
-    
-    func setupMoveCardButtons() {
-        swipeLeftButton.addTarget(self, action: #selector(swipeLeft), for: .touchUpInside)
-        swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
-        
-        cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
-
-        cardButtonsStackView.axis = .horizontal
-        cardButtonsStackView.distribution = .fillProportionally
-        cardButtonsStackView.spacing = 0
-    }
-    
-    func setupOverallStackView() {
-        tmp1StackView = UIStackView(arrangedSubviews: [UIView()])
-        tmp2StackView = UIStackView(arrangedSubviews: [UIView()])
-        
-        cardsStackView = UIStackView(arrangedSubviews: [cardContentStackView, cardButtonsStackView])
-        cardsStackView.translatesAutoresizingMaskIntoConstraints = false
-        cardsStackView.axis = .vertical
-        
-        overallStackView = UIStackView(arrangedSubviews: [tmp1StackView, cardsStackView, tmp2StackView])
-        overallStackView.spacing = 0
-        overallStackView.axis = .vertical
-        overallStackView.distribution = .fill
-        
-        self.view.addSubview(overallStackView)
-        
-        overallStackView.fillSuperview(padding: .init(top: 0, left: 20, bottom: 0, right: 20))
-    }
-    
-    func setupAnchors() {
-        tmp1StackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
-        cardContentStackView.heightAnchor.constraint(equalToConstant: 460).isActive = true
-        cardButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
-        cardButtonsStackView.heightAnchor.constraint(equalToConstant: 75).isActive = true
-        
-        if cardButtonsStackView.arrangedSubviews.count > 1 {
-            cardButtonsStackView.arrangedSubviews[1].widthAnchor.constraint(equalTo: cardButtonsStackView.arrangedSubviews[0].widthAnchor, multiplier: 1).isActive = true
-        }
-        
-        tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
-        
-        //cardsStackView.bringSubviewToFront(cardContentStackView)
-        cardsStackView.bringSubviewToFront(loadingView)
-    }
-    
-    fileprivate func fetchSentences() -> [Sentence] {
+    //MARK:- Fetch Sentences
+    public func fetchSentences() -> [Sentence] {
         let sentences = CoreDataManager.shared.fetchNotLearnedSentences(category: category)
-        
-        // TODO: user defaults
-        let shuffledSentences = sentences[randomPick: 10]
-        
+        let shuffledSentences = sentences[randomPick: CardsSettings.сardsInPack as Int]
         return shuffledSentences
     }
     
-    var transparentView = UIView()
-    var tableView = CardsConfigurationView()
-    let screenSize = UIScreen.main.bounds.size
-    let heightTable: CGFloat = 250
-    
-    @objc
-    private func settingsButtonTapped(sender: UIButton) {
-        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        transparentView.frame = self.view.frame
-        transparentView.alpha = 0
-        tableView.backgroundColor = .white
-        window?.addSubview(transparentView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnTranspaerntView))
-        transparentView.addGestureRecognizer(tapGesture)
-        
-        tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
-        window?.addSubview(tableView)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
-        }, completion: nil)
+    // MARK:- LoadingView control method
+    private func performActionWithLoadingView(isNeedToShow state: Bool) {
+        if (state == true) {
+            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+            loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+            window?.addSubview(loadingView)
+        } else {
+            loadingView.stopLoading()
+            let duration: Int = 1
+            UIView.animate(withDuration: Double(duration) / 2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+                self.loadingView.alpha = 0
+                let queue = DispatchQueue.global()
+                queue.asyncAfter(deadline: .now() + .seconds(Int(duration))) {
+                    DispatchQueue.main.async {
+                        self.loadingView.removeFromSuperview()
+                        self.loadingView = nil
+                    }
+                }
+            }, completion: nil)
+        }
     }
     
-    @objc
-    func tapOnTranspaerntView() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
-        }, completion: nil)
+    // MARK:- Setups
+    private func setupLayout() {
+        self.view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        setupDesign()
     }
     
-    public func returnBack() {
-        circle1.isHidden = true
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc
-    private func backButtonTapped(sender: UIButton) {
-        returnBack()
-    }
-    
-    func setupDesign() {
+    private func setupDesign() {
         let width = self.view.frame.width
         let height = self.view.frame.height
         
@@ -327,7 +209,140 @@ final class CardsViewController: UIViewController, CardInteractionController {
         self.view.addSubview(circle3)
     }
     
-    public func updateSwipedCard(isFamilarWordSwiped: Bool) {
+    private func setupStackViews() {
+        setupMoveCardButtons()
+        setupDummyCards()
+        setupOverallStackView()
+        setupAnchors()
+    }
+    
+    private func setupNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+        
+        backButton.addTarget(self, action: #selector(backButtonTapped(sender:)), for: .touchUpInside)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
+    }
+    
+    private func setupDummyCards() {
+        let tmpCardResultView = CardResultView()
+        tmpCardResultView.fillSuperview()
+        tmpCardResultView.translatesAutoresizingMaskIntoConstraints = false
+        cardContentStackView = UIStackView(arrangedSubviews: [tmpCardResultView])
+        cardContentStackView.axis = .vertical
+    }
+    
+    private func setupMoveCardButtons() {
+        swipeLeftButton.addTarget(self, action: #selector(swipeLeft), for: .touchUpInside)
+        swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
+        
+        cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
+
+        cardButtonsStackView.axis = .horizontal
+        cardButtonsStackView.distribution = .fillProportionally
+        cardButtonsStackView.spacing = 0
+    }
+    
+    private func setupOverallStackView() {
+        tmp1StackView = UIStackView(arrangedSubviews: [UIView()])
+        tmp2StackView = UIStackView(arrangedSubviews: [UIView()])
+        
+        cardsStackView = UIStackView(arrangedSubviews: [cardContentStackView, cardButtonsStackView])
+        cardsStackView.translatesAutoresizingMaskIntoConstraints = false
+        cardsStackView.axis = .vertical
+        
+        overallStackView = UIStackView(arrangedSubviews: [tmp1StackView, cardsStackView, tmp2StackView])
+        overallStackView.spacing = 0
+        overallStackView.axis = .vertical
+        overallStackView.distribution = .fill
+        
+        self.view.addSubview(overallStackView)
+        
+        overallStackView.fillSuperview(padding: .init(top: 0, left: 20, bottom: 0, right: 20))
+    }
+    
+    private func setupAnchors() {
+        tmp1StackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
+        cardContentStackView.heightAnchor.constraint(equalToConstant: 460).isActive = true
+        cardButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        cardButtonsStackView.heightAnchor.constraint(equalToConstant: 75).isActive = true
+        
+        if cardButtonsStackView.arrangedSubviews.count > 1 {
+            cardButtonsStackView.arrangedSubviews[1].widthAnchor.constraint(equalTo: cardButtonsStackView.arrangedSubviews[0].widthAnchor, multiplier: 1).isActive = true
+        }
+        
+        tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
+        cardsStackView.bringSubviewToFront(cardContentStackView)
+    }
+    
+    // MARK:- OBJC methods
+    @objc
+    private func backButtonTapped(sender: UIButton) {
+        returnBack()
+    }
+    
+    @objc internal func swipeLeft() {
+        if let card = cardsView.last {
+            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
+            updateSwipedCard(isFamilarWordSwiped: false)
+        }
+    }
+    
+    @objc internal func swipeRight() {
+        if let card = cardsView.last {
+            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
+            updateSwipedCard(isFamilarWordSwiped: true)
+        }
+    }
+    
+    // MARK: Setting View Realization
+    private var transparentView = UIView()
+    private var tableView = CardsConfigurationView()
+    private let screenSize = UIScreen.main.bounds.size
+    private let heightTable: CGFloat = 250
+    
+    @objc
+    private func settingsButtonTapped(sender: UIButton) {
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
+        transparentView.frame = self.view.frame
+        transparentView.alpha = 0
+        tableView.backgroundColor = .white
+        window?.addSubview(transparentView)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnTranspaerntView))
+        transparentView.addGestureRecognizer(tapGesture)
+        
+        tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
+        window?.addSubview(tableView)
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.transparentView.alpha = 0.5
+            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
+        }, completion: nil)
+    }
+    
+    @objc
+    func tapOnTranspaerntView() {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.transparentView.alpha = 0
+            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
+        }, completion: nil)
+    }
+}
+
+
+// MARK:- CardInteractionController Protocol Realization
+extension CardsViewController: CardInteractionController {
+    internal func enableSwipeButtons(isEnabled enabled: Bool) {
+        swipeLeftButton.isEnabled = enabled
+        swipeRightButton.isEnabled = enabled
+    }
+    
+    internal func updateSwipedCard(isFamilarWordSwiped: Bool) {
         if isFamilarWordSwiped == true {
             result.familarWords += 1
         } else {
@@ -357,22 +372,8 @@ final class CardsViewController: UIViewController, CardInteractionController {
         oneCardView.updateLabel(message: result)
     }
     
-    func EnableSwipeButtons(isEnabled enabled: Bool) {
-        swipeLeftButton.isEnabled = enabled
-        swipeRightButton.isEnabled = enabled
-    }
-    
-    @objc internal func swipeLeft() {
-        if let card = cardsView.last {
-            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: -1)
-            updateSwipedCard(isFamilarWordSwiped: false)
-        }
-    }
-    
-    @objc internal func swipeRight() {
-        if let card = cardsView.last {
-            card.swipeCard(IfPositiveNumberThenSwipeRightElseLeft: 1)
-            updateSwipedCard(isFamilarWordSwiped: true)
-        }
+    internal func returnBack() {
+        circle1.isHidden = true
+        self.navigationController?.popViewController(animated: true)
     }
 }
