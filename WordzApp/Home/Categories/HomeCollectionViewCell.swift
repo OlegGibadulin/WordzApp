@@ -14,9 +14,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         didSet {
             titleLabel.text = category.title
             
-//            let image = UIImage(named: category.imageName)
-//            imageView.image = image
-            
             let firstColor = category?.firstColor as! UIColor
             let secondColor = category?.secondColor as! UIColor
             
@@ -25,7 +22,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-//    let imageView = UIImageView()
     let gradientLayer = CAGradientLayer()
     
     let titleLabel: UILabel = {
@@ -46,10 +42,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
         clipsToBounds = true
         
         layer.addSublayer(gradientLayer)
-        
-//        addSubview(imageView)
-//        let imagePadding = frame.height / 4
-//        imageView.fillSuperview(padding: .init(top: imagePadding, left: imagePadding, bottom: imagePadding, right: imagePadding))
         
         addSubview(titleLabel)
         let titleBottomPadding = frame.height / 12

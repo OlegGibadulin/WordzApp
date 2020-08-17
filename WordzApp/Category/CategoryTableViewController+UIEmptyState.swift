@@ -12,7 +12,7 @@ import UIEmptyState
 extension CategoryTableViewController: UIEmptyStateDelegate, UIEmptyStateDataSource {
     
     var emptyStateImage: UIImage? {
-        return #imageLiteral(resourceName: "bookmark_white")
+        return #imageLiteral(resourceName: "empty_state")
     }
 
     var emptyStateTitle: NSAttributedString {

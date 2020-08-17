@@ -19,4 +19,12 @@ extension UIButton {
         layer.shadowOffset = CGSize(width: 0, height: 2)
     }
     
+    func setRedStyle() {
+        backgroundColor = .lightRed
+        layer.shadowColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        layer.shadowRadius = 7
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 0, height: 2)
+    }
+    
 }

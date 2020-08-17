@@ -49,8 +49,6 @@ class HomeViewController: UIViewController {
         
         view.addSubview(wordsLogoStackView)
         wordsLogoStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: .sideMargin, bottom: 0, right: .sideMargin))
-        
-        
     }
     
     fileprivate lazy var settingsViewController: SettingsViewController = {
@@ -75,6 +73,17 @@ class HomeViewController: UIViewController {
 
     @objc fileprivate func handleSettingsButtonTapped() {
         settingsViewController.show()
+    }
+    
+    // Updating TodayCardsView to update favourite sentence state
+    override func viewWillAppear(_ animated: Bool) {
+        if collectionView.numberOfSections != 0 {
+            let indexPath = IndexPath(item: 0, section: 0)
+            let kind = "UICollectionElementKindSectionHeader"
+            let headerIdentifier = "HomeHeaderId"
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
+            header.setNeedsDisplay()
+        }
     }
     
 }

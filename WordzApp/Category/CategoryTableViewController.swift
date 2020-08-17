@@ -81,7 +81,7 @@ class CategoryTableViewController: UITableViewController {
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
             
             // delete from CoreData
-            CoreDataManager.shared.deleteSentence(sentence: sentence)
+            CoreDataManager.shared.deleteFavoriteSentence(sentence: sentence)
             
             self.reloadEmptyState()
             complete(true)

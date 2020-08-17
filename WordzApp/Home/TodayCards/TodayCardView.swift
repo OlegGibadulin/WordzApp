@@ -93,7 +93,7 @@ class TodayCardView: UIView {
         addGestureRecognizer(tapGesture)
     }
     
-    fileprivate var cardInd = 0 {
+    var cardInd = 0 {
         didSet {
             let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text

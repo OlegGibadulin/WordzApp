@@ -38,6 +38,27 @@ struct CoreDataManager {
         }
     }
     
+    func deleteFavoriteSentence(sentence: Sentence) {
+        let context = persistentContainer.viewContext
+        
+        let allSentences = fetchSentences()
+        let equalSentences = allSentences.filter { (probSentence) -> Bool in
+            return probSentence.isFavourite && probSentence.text == sentence.text && probSentence.translation == sentence.translation
+        }
+        
+        if let equalSentence = equalSentences.first {
+            equalSentence.isFavourite = false
+        }
+        
+        context.delete(sentence)
+        
+        do {
+            try context.save()
+        } catch let saveErr {
+            print("Failed to delete sentence:", saveErr)
+        }
+    }
+    
     func deleteSentence(sentence: Sentence) {
         let context = persistentContainer.viewContext
         context.delete(sentence)

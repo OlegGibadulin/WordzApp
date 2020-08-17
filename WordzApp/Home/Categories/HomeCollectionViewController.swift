@@ -27,8 +27,6 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         
         collectionView!.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         
-//        CoreDataManager.shared.addCategory(title: "Computer", firstColor: .darkBlue, secondColor: .lightRed)
-        
         categories = CoreDataManager.shared.fetchCategories()
         
         setupLayout()
@@ -43,13 +41,8 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         
         let categoryViewController = CategoryViewController()
         categoryViewController.category = categories[indexPath.row]
-//
-//        let categoryNavController = UINavigationController(rootViewController: categoryViewController)
-//        categoryNavController.modalPresentationStyle = .fullScreen
         
         let vc = rootViewController ?? self
-//        vc.present(categoryNavController, animated: true, completion: nil)
-        
         vc.navigationController?.pushViewController(categoryViewController, animated: true)
     }
     
