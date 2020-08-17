@@ -6,11 +6,14 @@ target 'WordzApp' do
   use_frameworks!
 
   # Pods for WordzApp
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
-  pod 'Firebase/Auth'
 
+  # Firebase
+  # pod 'Firebase/Analytics'
+  # pod 'Firebase/Firestore'
+  # pod 'FirebaseFirestoreSwift'
+  # pod 'Firebase/Auth'
+
+  # Realm
   # pod 'RealmSwift'
 
   # Collection view cells aligment

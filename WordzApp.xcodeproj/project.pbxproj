@@ -38,7 +38,6 @@
 		C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */; };
 		C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */; };
 		C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */; };
-		C473ECCD24B8597500895008 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C473ECCC24B8597500895008 /* GoogleService-Info.plist */; };
 		C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473ECD024B85C4B00895008 /* TodayCardView.swift */; };
 		C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */; };
 		C47EF66824E9203C006F5971 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EF66724E9203C006F5971 /* Architecture.swift */; };
@@ -91,7 +90,6 @@
 		C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTableViewController+UIEmptyState.swift"; sourceTree = "<group>"; };
-		C473ECCC24B8597500895008 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C473ECD024B85C4B00895008 /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
 		C47585BD24C84AE5008199E2 /* WordzAppModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordzAppModels.xcdatamodel; sourceTree = "<group>"; };
 		C47EF66724E9203C006F5971 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
@@ -184,7 +182,6 @@
 				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C41F63B424B472570051FD7B /* LaunchScreen.storyboard */,
 				C41F63B724B472570051FD7B /* Info.plist */,
-				C473ECCC24B8597500895008 /* GoogleService-Info.plist */,
 				C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */,
 			);
 			path = WordzApp;
@@ -365,7 +362,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F63B624B472570051FD7B /* LaunchScreen.storyboard in Resources */,
-				C473ECCD24B8597500895008 /* GoogleService-Info.plist in Resources */,
 				C41F63B324B472570051FD7B /* Assets.xcassets in Resources */,
 				C41F63B124B472560051FD7B /* Main.storyboard in Resources */,
 			);
