@@ -18,14 +18,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // defaults.set(false, forKey: "isFilledCoreData")
         fillCoreData()
         
-        let layout = UICollectionViewFlowLayout()
-        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: layout)
-        let homeNavController = UINavigationController(rootViewController: homeCollectionViewController)
-        homeNavController.transparentNavigationBar()
-        
-//        let homeViewController = HomeViewController()
-//        let homeNavController = UINavigationController(rootViewController: homeViewController)
+//        let layout = UICollectionViewFlowLayout()
+//        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: layout)
+//        let homeNavController = UINavigationController(rootViewController: homeCollectionViewController)
 //        homeNavController.transparentNavigationBar()
+        
+        let homeViewController = HomeViewController()
+        let homeNavController = UINavigationController(rootViewController: homeViewController)
+        homeNavController.transparentNavigationBar()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)

@@ -58,7 +58,7 @@ class HeaderView: UIView {
         
         self.addSubview(imageView)
         
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 23
         self.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
         self.layer.shadowRadius = 3
         self.layer.shadowOpacity = 0.5

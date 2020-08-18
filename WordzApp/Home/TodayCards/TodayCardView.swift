@@ -35,6 +35,11 @@ class TodayCardView: UIView {
         }
     }
     
+    func updateFavoriteState() {
+        let sentence = sentences[cardInd]
+        toFavouritesButton.isSelected = sentence.isFavourite
+    }
+    
     fileprivate let barsStackView: UIStackView = {
         let bsv = UIStackView()
         bsv.spacing = 4
@@ -86,14 +91,13 @@ class TodayCardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         setupLayout()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(tapGesture)
     }
     
-    var cardInd = 0 {
+    fileprivate var cardInd = 0 {
         didSet {
             let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
