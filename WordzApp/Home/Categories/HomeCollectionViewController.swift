@@ -30,6 +30,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         categories = CoreDataManager.shared.fetchCategories()
         
         setupLayout()
+        setupNavigationController()
     }
     
     fileprivate func setupLayout() {
@@ -92,6 +93,30 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         cell.category = categories[indexPath.row]
     
         return cell
+    }
+    
+    // MARK: NavigationController
+    
+    fileprivate lazy var settingsButton: UIButton = {
+        let sb = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        sb.setImage(#imageLiteral(resourceName: "settingsIcon"), for: .normal)
+        sb.setBlueStyle()
+        sb.addTarget(self, action: #selector(handleSettingsButtonTapped), for: .touchUpInside)
+        return sb
+    }()
+    
+    fileprivate func setupNavigationController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+    }
+    
+    fileprivate lazy var settingsViewController: SettingsViewController = {
+        let svc = SettingsViewController()
+        svc.keyWindow = self.view.window
+        return svc
+    }()
+
+    @objc fileprivate func handleSettingsButtonTapped() {
+        settingsViewController.show()
     }
 
 }

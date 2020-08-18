@@ -29,6 +29,8 @@ class HomeViewController: UIViewController {
         lv.contentMode = .scaleAspectFill
         return lv
     }()
+    
+    fileprivate lazy var headerView = HeaderView(frame: self.view.frame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,9 +38,22 @@ class HomeViewController: UIViewController {
         setupNavigationController()
     }
     
+    // Updating TodayCardsView to update favourite sentence state
+    override func viewWillAppear(_ animated: Bool) {
+        if collectionView.numberOfSections != 0 {
+            let indexPath = IndexPath(item: 0, section: 0)
+            let kind = "UICollectionElementKindSectionHeader"
+            let headerIdentifier = "HomeHeaderId"
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
+            header.setNeedsDisplay()
+        }
+    }
+    
     fileprivate func setupLayout() {
         view.backgroundColor = .white
         safeArea = view.layoutMarginsGuide
+        
+        view.addSubview(headerView)
         
         view.addSubview(collectionView)
         collectionView?.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: 0))
@@ -50,12 +65,6 @@ class HomeViewController: UIViewController {
         view.addSubview(wordsLogoStackView)
         wordsLogoStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: .sideMargin, bottom: 0, right: .sideMargin))
     }
-    
-    fileprivate lazy var settingsViewController: SettingsViewController = {
-        let svc = SettingsViewController()
-        svc.keyWindow = self.view.window
-        return svc
-    }()
     
     // MARK: NavigationController
     
@@ -70,20 +79,15 @@ class HomeViewController: UIViewController {
     fileprivate func setupNavigationController() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
     }
+    
+    fileprivate lazy var settingsViewController: SettingsViewController = {
+        let svc = SettingsViewController()
+        svc.keyWindow = self.view.window
+        return svc
+    }()
 
     @objc fileprivate func handleSettingsButtonTapped() {
         settingsViewController.show()
-    }
-    
-    // Updating TodayCardsView to update favourite sentence state
-    override func viewWillAppear(_ animated: Bool) {
-        if collectionView.numberOfSections != 0 {
-            let indexPath = IndexPath(item: 0, section: 0)
-            let kind = "UICollectionElementKindSectionHeader"
-            let headerIdentifier = "HomeHeaderId"
-            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
-            header.setNeedsDisplay()
-        }
     }
     
 }

@@ -11,6 +11,7 @@
 		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
 		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
 		C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C401EA8D24BB580E00FB116F /* MainTabBarController.swift */; };
+		C40384CA24EBCBF100675C08 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40384C924EBCBF100675C08 /* HeaderView.swift */; };
 		C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63A924B472560051FD7B /* AppDelegate.swift */; };
 		C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63AB24B472560051FD7B /* SceneDelegate.swift */; };
 		C41F63B124B472560051FD7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41F63AF24B472560051FD7B /* Main.storyboard */; };
@@ -61,6 +62,7 @@
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C401EA8D24BB580E00FB116F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		C40384C924EBCBF100675C08 /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 		C4660C3224C99E5E00658073 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
+				C4306D9B24DD6C4D00223561 /* HomeViewController.swift */,
 				77F02D6D24B639E600F15519 /* Word.swift */,
 				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
 				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
@@ -248,7 +251,6 @@
 				C4306DA224DDBAC300223561 /* Settings */,
 				C4C44EDC24CB20260026EF92 /* TodayCards */,
 				C41362C924DF335D0008CCD8 /* Categories */,
-				C4306D9B24DD6C4D00223561 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,6 +291,7 @@
 			children = (
 				C473ECD024B85C4B00895008 /* TodayCardView.swift */,
 				C41F63BF24B493AC0051FD7B /* HomeCollectionViewHeader.swift */,
+				C40384C924EBCBF100675C08 /* HeaderView.swift */,
 			);
 			path = TodayCards;
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				C41F63BE24B485FB0051FD7B /* HomeCollectionViewController.swift in Sources */,
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
 				C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */,
+				C40384CA24EBCBF100675C08 /* HeaderView.swift in Sources */,
 				C4348EED24DF4E9F00102967 /* Storage+Sentence.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
