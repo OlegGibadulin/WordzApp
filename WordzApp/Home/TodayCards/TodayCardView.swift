@@ -118,8 +118,20 @@ class TodayCardView: UIView {
     }
     
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer) {
+        
+        superview?.subviews.forEach({ (subview) in
+            subview.layer.removeAllAnimations()
+        })
+        
         let tapLocation = gesture.location(in: nil)
         let shouldGoToNextCard = tapLocation.x > frame.width / 2 ? true : false
+        let translation: CGFloat = shouldGoToNextCard ? -1000 : 1000
+        
+        UIView.animate(withDuration: 0.1) {
+            self.sentenceLabel.transform = CGAffineTransform(translationX: translation, y: 0)
+            self.translationLabel.transform = CGAffineTransform(translationX: translation, y: 0)
+        }
+        
         if shouldGoToNextCard {
             cardInd = (cardInd + 1) % sentences.count
         } else {
@@ -129,6 +141,9 @@ class TodayCardView: UIView {
                 cardInd -= 1
             }
         }
+        
+        self.sentenceLabel.transform = .identity
+        self.translationLabel.transform = .identity
     }
     
     fileprivate func setupLayout() {
