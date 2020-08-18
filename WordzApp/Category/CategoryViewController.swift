@@ -10,6 +10,17 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    internal var transparentView: UIView!
+    internal var popup: AddFavouriteWordView!
+    
+    let addButton : UIButton = {
+        let addButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
+        addButton.backgroundColor = .blue
+        addButton.layer.cornerRadius = 8
+        addButton.setTitle("Add", for: .normal)
+        return addButton
+    }()
+    
     var category: Category?
     
     fileprivate lazy var categoryTableViewController: CategoryTableViewController = {
@@ -37,13 +48,19 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayout()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         setupNavigationController()
+        navigationController?.navigationBar.shadowImage = nil
+        navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
     }
     
     @objc fileprivate func handleToCards() {
         let cardViewController = CardsViewController()
         cardViewController.category = category
-        
         navigationController?.pushViewController(cardViewController, animated: true)
     }
     
@@ -60,6 +77,9 @@ class CategoryViewController: UIViewController {
     fileprivate func setupNavigationController() {
         navigationItem.title = category?.title
         navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.prefersLargeTitles = true
+        addButton.addTarget(self, action: #selector(AddWordTapped(sender:)), for: .touchUpInside)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
     }
 }
+
+

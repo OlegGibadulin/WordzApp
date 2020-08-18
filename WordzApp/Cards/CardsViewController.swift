@@ -278,7 +278,7 @@ final class CardsViewController: UIViewController {
         cardsStackView.bringSubviewToFront(cardContentStackView)
     }
     
-    // MARK:- OBJC methods
+    // MARK:- Selectors
     @objc
     private func backButtonTapped(sender: UIButton) {
         returnBack()
@@ -300,7 +300,7 @@ final class CardsViewController: UIViewController {
     
     // MARK: Setting View Realization
     private var transparentView = UIView()
-    private var tableView = CardsConfigurationView()
+    private var cardsConfiguration = CardsConfigurationView()
     private let screenSize = UIScreen.main.bounds.size
     private let heightTable: CGFloat = 250
     
@@ -310,18 +310,18 @@ final class CardsViewController: UIViewController {
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
         transparentView.frame = self.view.frame
         transparentView.alpha = 0
-        tableView.backgroundColor = .white
+        cardsConfiguration.backgroundColor = .white
         window?.addSubview(transparentView)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnTranspaerntView))
         transparentView.addGestureRecognizer(tapGesture)
         
-        tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
-        window?.addSubview(tableView)
+        cardsConfiguration.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
+        window?.addSubview(cardsConfiguration)
         
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.transparentView.alpha = 0.5
-            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
+            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
         }, completion: nil)
     }
     
@@ -329,7 +329,7 @@ final class CardsViewController: UIViewController {
     func tapOnTranspaerntView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.transparentView.alpha = 0
-            self.tableView.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
+            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
         }, completion: nil)
     }
 }
@@ -338,6 +338,8 @@ final class CardsViewController: UIViewController {
 // MARK:- CardInteractionController Protocol Realization
 extension CardsViewController: CardInteractionController {
     internal func enableSwipeButtons(isEnabled enabled: Bool) {
+        backButton.isEnabled = enabled
+        settingsButton.isEnabled = enabled
         swipeLeftButton.isEnabled = enabled
         swipeRightButton.isEnabled = enabled
     }
