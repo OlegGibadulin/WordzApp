@@ -28,7 +28,7 @@ class TodayCardView: UIView {
                     barView.clipsToBounds = true
                     barsStackView.addArrangedSubview(barView)
                 }
-                barsStackView.arrangedSubviews.first?.backgroundColor = .white
+                barsStackView.arrangedSubviews.first?.backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
                 
                 toFavouritesButton.isSelected = sentence.isFavourite
             }
@@ -111,14 +111,13 @@ class TodayCardView: UIView {
             barsStackView.arrangedSubviews.forEach { (v) in
                 v.backgroundColor = barDeselectedColor
             }
-            barsStackView.arrangedSubviews[cardInd].backgroundColor = .white
+            barsStackView.arrangedSubviews[cardInd].backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
             
             toFavouritesButton.isSelected = sentence.isFavourite
         }
     }
     
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer) {
-        
         superview?.subviews.forEach({ (subview) in
             subview.layer.removeAllAnimations()
         })
@@ -130,7 +129,10 @@ class TodayCardView: UIView {
         UIView.animate(withDuration: 0.1) {
             self.sentenceLabel.transform = CGAffineTransform(translationX: translation, y: 0)
             self.translationLabel.transform = CGAffineTransform(translationX: translation, y: 0)
+            self.barsStackView.arrangedSubviews[self.cardInd].transform = CGAffineTransform(translationX: 0, y: -4)
         }
+        
+        self.barsStackView.arrangedSubviews[self.cardInd].transform = .identity
         
         if shouldGoToNextCard {
             cardInd = (cardInd + 1) % sentences.count
@@ -149,7 +151,7 @@ class TodayCardView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .lightBlue
+        backgroundColor = .white
         
         setupBarsStackView()
         

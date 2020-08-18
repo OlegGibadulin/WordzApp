@@ -30,7 +30,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     fileprivate func setupLayout() {
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
         collectionView.collectionViewLayout = CollectionViewCenteredFlowLayout()
     }
     
