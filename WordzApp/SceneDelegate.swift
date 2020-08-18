@@ -20,9 +20,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        
-//        UINavigationBar.appearance().tintColor = .white
 //        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().tintColor = .blue
 //        UINavigationBar.appearance().barTintColor = .lightRed
 //        UINavigationBar.appearance().prefersLargeTitles = true
 //        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]

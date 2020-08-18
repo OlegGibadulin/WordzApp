@@ -10,6 +10,7 @@ target 'WordzApp' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'Firebase/Auth'
+  pod 'lottie-ios'
 
   # pod 'RealmSwift'
 

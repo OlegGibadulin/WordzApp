@@ -166,7 +166,6 @@ PODS:
   - BoringSSL-GRPC/Interface (0.0.3)
   - CollectionViewCenteredFlowLayout (1.0.1)
   - DGCollectionViewLeftAlignFlowLayout (1.0.4)
-  - EmptyDataSet-Swift (5.0.0)
   - Firebase/Analytics (6.13.0):
     - Firebase/Core
   - Firebase/Auth (6.13.0):
@@ -273,30 +272,23 @@ PODS:
   - gRPC-Core/Interface (1.21.0)
   - GTMSessionFetcher/Core (1.3.0)
   - leveldb-library (1.22)
+  - lottie-ios (3.1.8)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
-  - Realm (5.2.0):
-    - Realm/Headers (= 5.2.0)
-  - Realm/Headers (5.2.0)
-  - RealmSwift (5.2.0):
-    - Realm (= 5.2.0)
   - UIEmptyState (4.0.1)
-  - WLEmptyState (3.1.0)
 
 DEPENDENCIES:
   - CollectionViewCenteredFlowLayout
   - DGCollectionViewLeftAlignFlowLayout
-  - EmptyDataSet-Swift (~> 5.0.0)
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Firestore
   - FirebaseFirestoreSwift
-  - RealmSwift
+  - lottie-ios
   - UIEmptyState
-  - WLEmptyState
 
 SPEC REPOS:
   trunk:
@@ -304,7 +296,6 @@ SPEC REPOS:
     - BoringSSL-GRPC
     - CollectionViewCenteredFlowLayout
     - DGCollectionViewLeftAlignFlowLayout
-    - EmptyDataSet-Swift
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -323,18 +314,15 @@ SPEC REPOS:
     - gRPC-Core
     - GTMSessionFetcher
     - leveldb-library
+    - lottie-ios
     - nanopb
-    - Realm
-    - RealmSwift
     - UIEmptyState
-    - WLEmptyState
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
   BoringSSL-GRPC: db8764df3204ccea016e1c8dd15d9a9ad63ff318
   CollectionViewCenteredFlowLayout: 339b935be4d8578c59e448c8906117a07c657d85
   DGCollectionViewLeftAlignFlowLayout: a0fa58797373ded039cafba8133e79373d048399
-  EmptyDataSet-Swift: eb382c0c87a2d9c678077385a595cec52da38171
   Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
   FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
   FirebaseAuth: 7d0f84873926f6648bbd1391a318dfb1a26b5e4f
@@ -353,12 +341,10 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   GTMSessionFetcher: 43b8b64263023d4f32caa0b40f4c8bfa3c5f36d8
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  Realm: f749c723e272f08fdf1939af5e61d2bd09b203e8
-  RealmSwift: bf0ab78b52c5bafba8b3ad73be8dfb4c1ea5cf01
   UIEmptyState: 767376694d9402452fb3c0a5a5283176c6a53c92
-  WLEmptyState: 2bbb3970f62c0b9252029d34a8f74cb3d436eeea
 
-PODFILE CHECKSUM: 8cd9ff09f28cdb39916f3306ee5337ac48cf903b
+PODFILE CHECKSUM: de225187f5ab6ece150a668a23834ae29ecf65d0
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1

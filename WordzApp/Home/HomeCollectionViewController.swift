@@ -44,6 +44,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         categoryViewController.category = categories[indexPath.row]
         
         let navController = UINavigationController(rootViewController: categoryViewController)
+        navigationController?.navigationBar.tintColor = .blue
         navController.modalPresentationStyle = UIModalPresentationStyle.overFullScreen
         present(navController, animated: true, completion: nil)
     }

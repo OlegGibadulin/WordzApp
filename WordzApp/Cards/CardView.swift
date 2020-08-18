@@ -78,11 +78,11 @@ final class CardView: UIView {
     @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .changed:
-            view.EnableSwipeButtons(isEnabled: false)
+            view.enableSwipeButtons(isEnabled: false)
             handleChanged(gesture)
         case .ended:
             handleEnded(gesture)
-            view.EnableSwipeButtons(isEnabled: true)
+            view.enableSwipeButtons(isEnabled: true)
         default:
             ()
         }

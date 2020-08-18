@@ -223,7 +223,7 @@ final class CardsConfigurationView: UIView {
         discardButton.addTarget(self, action: #selector(resetProgress(sender:)), for: .touchUpInside)
     }
     
-    // MARK:- Obj Methods
+    // MARK:- Selectors
     @objc func plusCardsCountTapped(sender: UIButton) {
         if (CardsSettings.сardsInPack < 25) {
             CardsSettings.сardsInPack += 5
