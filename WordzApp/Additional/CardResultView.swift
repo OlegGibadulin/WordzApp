@@ -26,7 +26,7 @@ final class CardResultView: UIView {
     private var unfamilarLabel: UILabel!
     private var separatorLabel : UILabel!
     
-    private var view: CardReturnBack!
+    private var view: CardInteractionController!
     
     
     public var finishButton : UIButton!
@@ -53,7 +53,7 @@ final class CardResultView: UIView {
         }, completion: nil)
     }
     
-    required convenience init(frame: CGRect, view: CardReturnBack) {
+    required convenience init(frame: CGRect, view: CardInteractionController) {
         self.init(frame: frame)
         self.view = view
     }

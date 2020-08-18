@@ -10,6 +10,18 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    internal var transparentView: UIView!
+    internal var popup: AddFavouriteWordView!
+    
+    let addButton : UIButton = {
+        let addButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 35))
+        addButton.setBlueStyle()
+        addButton.backgroundColor = .blue
+        addButton.layer.cornerRadius = 8
+        addButton.setTitle("Add", for: .normal)
+        return addButton
+    }()
+    
     var category: Category?
     
     fileprivate lazy var categoryTableViewController: CategoryTableViewController = {
@@ -62,7 +74,8 @@ class CategoryViewController: UIViewController {
     // MARK: NavigationController
     
     fileprivate lazy var backButton: UIButton = {
-        let bb = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        let bb = UIButton()
+        bb.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
         bb.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
         bb.setBlueStyle()
         bb.addTarget(self, action: #selector(handleBackButtonTapped), for: .touchUpInside)
@@ -71,7 +84,10 @@ class CategoryViewController: UIViewController {
     
     fileprivate func setupNavigationController() {
         navigationItem.title = category?.title
-        // navigationController?.navigationBar.prefersLargeTitles = true
+        
+        addButton.addTarget(self, action: #selector(AddWordTapped(sender:)), for: .touchUpInside)
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 
