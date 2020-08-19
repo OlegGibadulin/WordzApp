@@ -11,7 +11,7 @@ import CoreData
 
 extension CoreDataManager {
     
-    func addCategory(title: String, firstColor: UIColor, secondColor: UIColor) {
+    func addCategory(title: String, firstColor: UIColor, secondColor: UIColor, isHidden: Bool = false) {
         let context = persistentContainer.viewContext
 
         let category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: context)
@@ -19,6 +19,7 @@ extension CoreDataManager {
         category.setValue(title, forKey: "title")
         category.setValue(firstColor, forKey: "firstColor")
         category.setValue(secondColor, forKey: "secondColor")
+        category.setValue(isHidden, forKey: "isHidden")
 
         do {
             try context.save()
@@ -45,6 +46,22 @@ extension CoreDataManager {
         do {
             let categories = try context.fetch(fetchRequest)
             return categories
+        } catch let fetchErr {
+            print("Failed to fetch categories:", fetchErr)
+            return []
+        }
+    }
+    
+    func fetchNotHiddenCategories() -> [Category] {
+        let context = persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<Category>(entityName: "Category")
+        
+        do {
+            let categories = try context.fetch(fetchRequest)
+            let notHiddenCategories = categories.filter { (categorie) -> Bool in
+                return !categorie.isHidden
+            }
+            return notHiddenCategories
         } catch let fetchErr {
             print("Failed to fetch categories:", fetchErr)
             return []

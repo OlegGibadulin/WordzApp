@@ -15,13 +15,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         // TODO: delete this
-        // defaults.set(false, forKey: "isFilledCoreData")
+        let defaults = UserDefaults.standard
+        defaults.set(false, forKey: "isFilledCoreData")
         fillCoreData()
-        
-//        let layout = UICollectionViewFlowLayout()
-//        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: layout)
-//        let homeNavController = UINavigationController(rootViewController: homeCollectionViewController)
-//        homeNavController.transparentNavigationBar()
         
         let homeViewController = HomeViewController()
         let homeNavController = UINavigationController(rootViewController: homeViewController)

@@ -10,9 +10,9 @@ import UIKit
 
 class TodayCardView: UIView {
     
-    var sentences: [Sentence]! {
+    var sentences: [Sentence]? {
         didSet {
-            if let sentence = sentences.first {
+            if let sentence = sentences!.first {
                 sentenceLabel.text = sentence.text
                 
                 var translations = ""
@@ -21,7 +21,11 @@ class TodayCardView: UIView {
                 })
                 translationLabel.text = translations
                 
-                (0..<sentences.count).forEach { (_) in
+                barsStackView.arrangedSubviews.forEach { (bsv) in
+                    barsStackView.removeArrangedSubview(bsv)
+                }
+                
+                (0..<sentences!.count).forEach { (_) in
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
                     barView.layer.cornerRadius = 2
@@ -36,8 +40,10 @@ class TodayCardView: UIView {
     }
     
     func updateFavoriteState() {
-        let sentence = sentences[cardInd]
-        toFavouritesButton.isSelected = sentence.isFavourite
+        if let sentences = sentences {
+            let sentence = sentences[cardInd]
+            toFavouritesButton.isSelected = sentence.isFavourite
+        }
     }
     
     fileprivate let barsStackView: UIStackView = {
@@ -99,7 +105,7 @@ class TodayCardView: UIView {
     
     fileprivate var cardInd = 0 {
         didSet {
-            let sentence = sentences[cardInd]
+            let sentence = sentences![cardInd]
             sentenceLabel.text = sentence.text
             
             var translations = ""
@@ -135,10 +141,10 @@ class TodayCardView: UIView {
         self.barsStackView.arrangedSubviews[self.cardInd].transform = .identity
         
         if shouldGoToNextCard {
-            cardInd = (cardInd + 1) % sentences.count
+            cardInd = (cardInd + 1) % sentences!.count
         } else {
             if cardInd == 0 {
-                cardInd = sentences.count - 1
+                cardInd = sentences!.count - 1
             } else {
                 cardInd -= 1
             }

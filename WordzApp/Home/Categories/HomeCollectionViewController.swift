@@ -24,7 +24,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         // Register cells
         collectionView!.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
-        categories = CoreDataManager.shared.fetchCategories()
+        categories = CoreDataManager.shared.fetchNotHiddenCategories()
         
         setupLayout()
     }

@@ -22,6 +22,8 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    var delegate: SettingsViewDelegate?
+    
     fileprivate let height: CGFloat = 200
     
     fileprivate let settingsView = SettingsView()
@@ -56,6 +58,7 @@ class SettingsViewController: UIViewController {
             self.settingsView.frame = CGRect(x: 0, y: window.frame.height, width: self.settingsView.frame.width, height: self.settingsView.frame.height)
             
         }, completion: nil)
+        delegate?.settingsViewWillDisappear()
     }
     
     fileprivate func setInitialPosition() {

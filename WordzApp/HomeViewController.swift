@@ -8,9 +8,15 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+protocol SettingsViewDelegate {
+    func settingsViewWillDisappear()
+}
+
+class HomeViewController: UIViewController, SettingsViewDelegate {
     
-    fileprivate let todayCardsView: TodayCardView = TodayCardsViewController().view! as! TodayCardView
+    fileprivate let todayCardsViewController = TodayCardsViewController()
+    
+    fileprivate lazy var todayCardsView: TodayCardView = self.todayCardsViewController.view! as! TodayCardView
     
     fileprivate lazy var homeCollectionViewController: HomeCollectionViewController = {
         let layout = UICollectionViewFlowLayout()
@@ -50,10 +56,15 @@ class HomeViewController: UIViewController {
         collectionView?.anchor(top: todayCardsView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 40, left: 0, bottom: 0, right: 0))
     }
     
-    // Updating TodayCardsView to update favourite sentence state
+    // Update today sentences favourite state if it was deleted
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         todayCardsView.updateFavoriteState()
+    }
+    
+    // Update today sentences if level has been changed
+    func settingsViewWillDisappear() {
+        todayCardsViewController.updateTodaySentences()
     }
     
     // MARK: NavigationController
@@ -72,6 +83,7 @@ class HomeViewController: UIViewController {
     
     fileprivate lazy var settingsViewController: SettingsViewController = {
         let svc = SettingsViewController()
+        svc.delegate = self
         svc.keyWindow = self.view.window
         return svc
     }()
