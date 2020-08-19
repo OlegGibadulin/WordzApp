@@ -8,32 +8,126 @@
 
 import UIKit
 
-class CardsConfigurationView: UIView {
+final class CardsConfigurationView: UIView {
     
-    // 1 Line - count words in pack
-    var сardsInPackLabel : UILabel!
-    var countCardsLabel : UILabel!
-    var plusCardsCountButton: UIButton!
-    var minusCardsCountButton: UIButton!
-    var firstLineStackView: UIStackView!
+    // MARK:- Line 1 variables
+    fileprivate var firstLineStackView: UIStackView!
+    fileprivate let сardsInPackLabel : UILabel = {
+        let cinp = UILabel()
+        cinp.text = "Слов в стопке: "
+        cinp.textAlignment = .left
+        
+        return cinp
+    }()
     
-    // 2 Line - count repeats wordz
-    var сardsRepeatsLabel : UILabel!
-    var countRepeatsLabel : UILabel!
-    var plusCardsRepeatsButton: UIButton!
-    var minusCardsRepeatsButton: UIButton!
-    var secondLineStackView: UIStackView!
+    fileprivate var countCardsLabel : UILabel = {
+        let countCardsLabel = UILabel()
+        let count = CardsSettings.сardsInPack as Int
+        countCardsLabel.text = String(count)
+        countCardsLabel.textAlignment = .center
+        return countCardsLabel
+    }()
     
-    // 3 Line - discard all settings
-    var discardButton: UIButton!
-    var thirdLineStackView: UIStackView!
+    fileprivate var plusCardsCountButton: UIButton = {
+        let plusCardsCountButton = UIButton()
+        guard let plusImage = UIImage(named: "plusIcon") else { return UIButton() }
+        plusCardsCountButton.setImage(plusImage, for: .normal)
+        plusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        plusCardsCountButton.layer.cornerRadius = 8
+        return plusCardsCountButton
+    }()
     
-    var overallStackView: UIStackView!
+    fileprivate var minusCardsCountButton: UIButton = {
+        let minusCardsCountButton = UIButton()
+        guard let minusImage = UIImage(named: "minusIcon") else { return UIButton() }
+        minusCardsCountButton.setImage(minusImage, for: .normal)
+        minusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        minusCardsCountButton.layer.cornerRadius = 8
+        return minusCardsCountButton
+    }()
     
+    // MARK:- Line 2 variables
+    fileprivate var secondLineStackView: UIStackView!
+    fileprivate var сardsRepeatsLabel : UILabel = {
+        let сardsRepeatsLabel = UILabel()
+        сardsRepeatsLabel.text = "Повторов каждого слова: "
+        сardsRepeatsLabel.textAlignment = .left
+        return сardsRepeatsLabel
+    }()
+    
+    fileprivate var countRepeatsLabel : UILabel = {
+        let countRepeatsLabel = UILabel()
+        let count = CardsSettings.сardsRepeats as Int
+        countRepeatsLabel.text = String(count)
+        countRepeatsLabel.textAlignment = .center
+        return countRepeatsLabel
+    }()
+    
+    fileprivate var plusCardsRepeatsButton: UIButton! = {
+        let plusCardsRepeatsButton = UIButton()
+        guard let plusImage = UIImage(named: "plusIcon") else { return UIButton() }
+        plusCardsRepeatsButton.setImage(plusImage, for: .normal)
+        plusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        plusCardsRepeatsButton.layer.cornerRadius = 8
+        return plusCardsRepeatsButton
+    }()
+    
+    fileprivate var minusCardsRepeatsButton: UIButton = {
+        let minusCardsRepeatsButton = UIButton()
+        guard let minusImage = UIImage(named: "minusIcon") else { return UIButton() }
+        minusCardsRepeatsButton.setImage(minusImage, for: .normal)
+        minusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        minusCardsRepeatsButton.layer.cornerRadius = 8
+        return minusCardsRepeatsButton
+    }()
+    
+    // MARK:- Line 3 variable
+    fileprivate let discardButton: UIButton = {
+        let db: UIButton = UIButton()
+        db.setTitle("Сбросить прогресс", for: .normal)
+        db.backgroundColor = .clear
+        db.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
+        db.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.4008454623), for: .highlighted)
+        db.layer.cornerRadius = 8
+        db.contentHorizontalAlignment = .left
+        db.titleLabel?.textAlignment = .left
+        return db
+    }()
+    
+    fileprivate var thirdLineStackView: UIStackView!
+    
+    fileprivate var overallStackView: UIStackView!
+    
+    fileprivate let topBar: UIView = {
+        let tb = UIView()
+        tb.layer.cornerRadius = 2
+        tb.clipsToBounds = true
+        tb.backgroundColor = .lightGray
+        tb.translatesAutoresizingMaskIntoConstraints = false
+        tb.widthAnchor.constraint(equalToConstant: 30).isActive = true
+        tb.heightAnchor.constraint(equalToConstant: 4).isActive = true
+        return tb
+    }()
+    
+    // MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.layer.cornerRadius = 8
+        setupLayout()
+        setupLines()
+        setupTargetsForButtons()
+    }
+    
+    // MARK:- Setup layout
+    fileprivate func setupLayout() {
+        self.layer.cornerRadius = 23
+    }
+    
+    // MARK:- Setup Lines
+    fileprivate func setupLines() {
+        addSubview(topBar)
+        topBar.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true
+        topBar.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
         setupFirstLine()
         setupSecondLine()
@@ -42,89 +136,32 @@ class CardsConfigurationView: UIView {
         setupAnchors()
     }
     
-    func setupFirstLine() {
-        сardsInPackLabel = UILabel()
-        сardsInPackLabel.text = "Слов в стопке: "
-        сardsInPackLabel.textAlignment = .left
-        
-        countCardsLabel = UILabel()
-        countCardsLabel.text = "20"
-        countCardsLabel.textAlignment = .center
-        
-        
-        plusCardsCountButton = UIButton()
-        guard let plusImage = UIImage(named: "plusIcon") else { return }
-        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 20, height: 20))
-        plusCardsCountButton.setImage(resizedImage, for: .normal)
-        plusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        plusCardsCountButton.layer.cornerRadius = 8
-        
-        minusCardsCountButton = UIButton()
-        guard let minusImage = UIImage(named: "minusIcon") else { return }
-        resizedImage = minusImage.resizeImage(image: minusImage, targetSize: CGSize(width: 20, height: 20))
-        minusCardsCountButton.setImage(resizedImage, for: .normal)
-        minusCardsCountButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        minusCardsCountButton.layer.cornerRadius = 8
-        
+    fileprivate func setupFirstLine() {
         let view1 = UIView()
         
         firstLineStackView = UIStackView(arrangedSubviews: [сardsInPackLabel, view1, minusCardsCountButton, countCardsLabel, plusCardsCountButton])
-        
         firstLineStackView.axis = .horizontal
         firstLineStackView.distribution = .equalSpacing
         firstLineStackView.spacing = 10
-        widthAnchor.constraint(equalToConstant: frame.width - 100).isActive = true
+        //widthAnchor.constraint(equalToConstant: frame.width - 100).isActive = true
     }
     
-    func setupSecondLine() {
-        сardsRepeatsLabel = UILabel()
-        сardsRepeatsLabel.text = "Повторов каждого слова: "
-        сardsRepeatsLabel.textAlignment = .left
-        
-        countRepeatsLabel = UILabel()
-        countRepeatsLabel.text = "10"
-        countRepeatsLabel.textAlignment = .center
-        
-        plusCardsRepeatsButton = UIButton()
-        guard let plusImage = UIImage(named: "plusIcon") else { return }
-        var resizedImage: UIImage = plusImage.resizeImage(image: plusImage, targetSize: CGSize(width: 20, height: 20))
-        plusCardsRepeatsButton.setImage(resizedImage, for: .normal)
-        plusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        plusCardsRepeatsButton.layer.cornerRadius = 8
-        
-        minusCardsRepeatsButton = UIButton()
-        guard let minusImage = UIImage(named: "minusIcon") else { return }
-        resizedImage = minusImage.resizeImage(image: minusImage, targetSize: CGSize(width: 20, height: 20))
-        minusCardsRepeatsButton.setImage(resizedImage, for: .normal)
-        minusCardsRepeatsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
-        minusCardsRepeatsButton.layer.cornerRadius = 8
-        
+    fileprivate func setupSecondLine() {
         let view1 = UIView()
         
         secondLineStackView = UIStackView(arrangedSubviews: [сardsRepeatsLabel, view1, minusCardsRepeatsButton, countRepeatsLabel, plusCardsRepeatsButton, view1])
-        
         secondLineStackView.axis = .horizontal
         secondLineStackView.distribution = .equalCentering
         secondLineStackView.spacing = 10
-        
     }
     
-    func setupThirdLine() {
-        discardButton = UIButton()
-        discardButton.setTitle("Сбросить прогресс", for: .normal)
-        discardButton.backgroundColor = .clear
-        discardButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1), for: .normal)
-        discardButton.setTitleColor(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.4008454623), for: .highlighted)
-        discardButton.layer.cornerRadius = 8
-        discardButton.contentHorizontalAlignment = .left
-        discardButton.titleLabel?.textAlignment = .left
-        
+    fileprivate func setupThirdLine() {
         thirdLineStackView = UIStackView(arrangedSubviews: [discardButton])
         thirdLineStackView.axis = .horizontal
         thirdLineStackView.spacing = 10
     }
     
-    func setupOverallStackview() {
+    fileprivate func setupOverallStackview() {
         let view1 = UIView()
         let view2 = UIView()
         let view3 = UIView()
@@ -136,10 +173,10 @@ class CardsConfigurationView: UIView {
         
         self.addSubview(overallStackView)
         
-        overallStackView.fillSuperview(padding: .init(top: 20, left: 20, bottom: 100, right: 15))
+        overallStackView.fillSuperview(padding: .init(top: 30, left: 20, bottom: 100, right: 15))
     }
     
-    func setupAnchors() {
+    fileprivate func setupAnchors() {
         plusCardsCountButton.translatesAutoresizingMaskIntoConstraints = false
         countCardsLabel.translatesAutoresizingMaskIntoConstraints = false
         minusCardsCountButton.translatesAutoresizingMaskIntoConstraints = false
@@ -162,13 +199,10 @@ class CardsConfigurationView: UIView {
         countRepeatsLabel.rightAnchor.constraint(equalTo: plusCardsCountButton.leftAnchor, constant: -10).isActive = true
         minusCardsRepeatsButton.rightAnchor.constraint(equalTo: countCardsLabel.leftAnchor, constant: -10).isActive = true
         
-//        plusCardsRepeatsButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         plusCardsRepeatsButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        minusCardsRepeatsButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         minusCardsRepeatsButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-//        countRepeatsLabel
-//        plusCardsRepeatsButton
-//        minusCardsRepeatsButton
+        countRepeatsLabel.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        countCardsLabel.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
         firstLineStackView.translatesAutoresizingMaskIntoConstraints = false
         firstLineStackView.heightAnchor.constraint(equalToConstant: 25).isActive = true
@@ -178,6 +212,52 @@ class CardsConfigurationView: UIView {
         
         thirdLineStackView.translatesAutoresizingMaskIntoConstraints = false
         thirdLineStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    }
+    
+    // MARK:- Setup Targets For Buttons
+    fileprivate func setupTargetsForButtons() {
+        plusCardsCountButton.addTarget(self, action: #selector(plusCardsCountTapped(sender:)), for: .touchUpInside)
+        minusCardsCountButton.addTarget(self, action: #selector(minusCardsCountTapped(sender:)), for: .touchUpInside)
+        plusCardsRepeatsButton.addTarget(self, action: #selector(plusCardsRepeatsTapped(sender:)), for: .touchUpInside)
+        minusCardsRepeatsButton.addTarget(self, action: #selector(minusCardsRepeatsTapped(sender:)), for: .touchUpInside)
+        discardButton.addTarget(self, action: #selector(resetProgress(sender:)), for: .touchUpInside)
+    }
+    
+    // MARK:- Selectors
+    @objc func plusCardsCountTapped(sender: UIButton) {
+        if (CardsSettings.сardsInPack < 25) {
+            CardsSettings.сardsInPack += 5
+            let count = CardsSettings.сardsInPack as Int
+            countCardsLabel.text = String(count)
+        }
+    }
+    
+    @objc func minusCardsCountTapped(sender: UIButton) {
+        if (CardsSettings.сardsInPack > 10) {
+            CardsSettings.сardsInPack -= 5
+            let count = CardsSettings.сardsInPack as Int
+            countCardsLabel.text = String(count)
+        }
+    }
+    
+    @objc func plusCardsRepeatsTapped(sender: UIButton) {
+        if (CardsSettings.сardsRepeats < 5) {
+            CardsSettings.сardsRepeats += 1
+            let count = CardsSettings.сardsRepeats as Int
+            countRepeatsLabel.text = String(count)
+        }
+    }
+    
+    @objc func minusCardsRepeatsTapped(sender: UIButton) {
+        if (CardsSettings.сardsRepeats > 1) {
+            CardsSettings.сardsRepeats -= 1
+            let count = CardsSettings.сardsRepeats as Int
+            countRepeatsLabel.text = String(count)
+        }
+    }
+    
+    @objc func resetProgress(sender: UIButton) {
+        // TODO: :)
     }
     
     required init?(coder: NSCoder) {

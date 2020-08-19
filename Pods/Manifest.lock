@@ -1,24 +1,28 @@
 PODS:
   - CollectionViewCenteredFlowLayout (1.0.1)
   - DGCollectionViewLeftAlignFlowLayout (1.0.4)
+  - lottie-ios (3.1.8)
   - UIEmptyState (4.0.1)
 
 DEPENDENCIES:
   - CollectionViewCenteredFlowLayout
   - DGCollectionViewLeftAlignFlowLayout
+  - lottie-ios
   - UIEmptyState
 
 SPEC REPOS:
   trunk:
     - CollectionViewCenteredFlowLayout
     - DGCollectionViewLeftAlignFlowLayout
+    - lottie-ios
     - UIEmptyState
 
 SPEC CHECKSUMS:
   CollectionViewCenteredFlowLayout: 339b935be4d8578c59e448c8906117a07c657d85
   DGCollectionViewLeftAlignFlowLayout: a0fa58797373ded039cafba8133e79373d048399
+  lottie-ios: 48fac6be217c76937e36e340e2d09cf7b10b7f5f
   UIEmptyState: 767376694d9402452fb3c0a5a5283176c6a53c92
 
-PODFILE CHECKSUM: 48f1e41b1940d2cf5cf319b1d9e6168be6132662
+PODFILE CHECKSUM: 5821c846bbb35e7aa4acbb8f36f7ee3f0bd7aa47
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

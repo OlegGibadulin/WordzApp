@@ -14,9 +14,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        // TODO: delete this
+        // MARK: uncomment this if you want to update CoreData
         let defaults = UserDefaults.standard
         defaults.set(false, forKey: "isFilledCoreData")
+        
         fillCoreData()
         
         let homeViewController = HomeViewController()
