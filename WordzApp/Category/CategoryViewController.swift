@@ -24,7 +24,7 @@ class CategoryViewController: UIViewController {
     
     var category: Category?
     
-    fileprivate lazy var categoryTableViewController: CategoryTableViewController = {
+    internal lazy var categoryTableViewController: CategoryTableViewController = {
         let ctvc = CategoryTableViewController()
         ctvc.category = self.category
         return ctvc
@@ -34,7 +34,7 @@ class CategoryViewController: UIViewController {
     
     fileprivate lazy var tableView: UITableView = categoryTableViewController.tableView
     
-    fileprivate let toCardsButton: UIButton = {
+    internal let toCardsButton: UIButton = {
         let tcb = UIButton(type: .system)
         tcb.setRedStyle()
         tcb.setTitle("Учить слова", for: .normal)
@@ -65,9 +65,25 @@ class CategoryViewController: UIViewController {
         view.addSubview(tableView)
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
-        if !tableView.visibleCells.isEmpty {
-            view.addSubview(toCardsButton)
-            toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 16, right: 64))
+        view.addSubview(toCardsButton)
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 16, right: 64))
+        
+//        updateToCardsButton(isHidden: false)
+        if categoryTableViewController.tableView.visibleCells.isEmpty {
+            toCardsButton.alpha = 0
+        }
+    }
+    
+    internal func updateToCardsButton(isHidden: Bool) {
+        UIView.animate(withDuration: 0.5, animations: {
+            self.toCardsButton.alpha = isHidden ? 0 : 1
+        }, completion: nil)
+    }
+    
+    internal func checkEmptyTableView() {
+        if (toCardsButton.alpha < 1 &&
+            categoryTableViewController.tableView.visibleCells.count > 0) {
+            updateToCardsButton(isHidden: false)
         }
     }
     
@@ -83,11 +99,14 @@ class CategoryViewController: UIViewController {
     }()
     
     fileprivate func setupNavigationController() {
-        navigationItem.title = category?.title
+        let title = category?.title
+        navigationItem.title = title
         
-        addButton.addTarget(self, action: #selector(AddWordTapped(sender:)), for: .touchUpInside)
+        if title == Storage.shared.favouritesTitle {
+            addButton.addTarget(self, action: #selector(AddWordTapped(sender:)), for: .touchUpInside)
+            navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
+        }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: addButton)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
     }
 

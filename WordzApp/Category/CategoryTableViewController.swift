@@ -22,10 +22,15 @@ class CategoryTableViewController: UITableViewController {
         
         // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
         fetchSentences()
         setupLayout()
         setupEmptyState()
+        
+    }
+    
+    func updateData() {
+        fetchSentences()
+        self.tableView.reloadData()
     }
     
     fileprivate func fetchSentences() {

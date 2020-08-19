@@ -64,11 +64,17 @@ extension CategoryViewController: PopUpDelegate {
         }) { (_) in
             self.transparentView.removeFromSuperview()
             self.popup.removeFromSuperview()
+            self.categoryTableViewController.updateData()
+            self.checkEmptyTableView()
         }
     }
     
     @objc
     func tapOnTranspaerntView() {
         handleDismissal()
+    }
+    
+    func showAlert(alert: UIAlertController) {
+        present(alert, animated: true, completion: nil)
     }
 }

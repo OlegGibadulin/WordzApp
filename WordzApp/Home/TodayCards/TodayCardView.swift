@@ -10,9 +10,9 @@ import UIKit
 
 class TodayCardView: UIView {
     
-    var sentences: [Sentence]? {
+    var sentences: [Sentence]! {
         didSet {
-            if let sentence = sentences!.first {
+            if let sentence = sentences.first {
                 sentenceLabel.text = sentence.text
                 
                 var translations = ""
@@ -21,28 +21,17 @@ class TodayCardView: UIView {
                 })
                 translationLabel.text = translations
                 
-                barsStackView.arrangedSubviews.forEach { (bsv) in
-                    barsStackView.removeArrangedSubview(bsv)
-                }
-                
-                (0..<sentences!.count).forEach { (_) in
+                (0..<sentences.count).forEach { (_) in
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
                     barView.layer.cornerRadius = 2
                     barView.clipsToBounds = true
                     barsStackView.addArrangedSubview(barView)
                 }
-                barsStackView.arrangedSubviews.first?.backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
+                barsStackView.arrangedSubviews.first?.backgroundColor = .white
                 
                 toFavouritesButton.isSelected = sentence.isFavourite
             }
-        }
-    }
-    
-    func updateFavoriteState() {
-        if let sentences = sentences {
-            let sentence = sentences[cardInd]
-            toFavouritesButton.isSelected = sentence.isFavourite
         }
     }
     
@@ -97,15 +86,16 @@ class TodayCardView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         setupLayout()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         addGestureRecognizer(tapGesture)
     }
     
-    fileprivate var cardInd = 0 {
+    var cardInd = 0 {
         didSet {
-            let sentence = sentences![cardInd]
+            let sentence = sentences[cardInd]
             sentenceLabel.text = sentence.text
             
             var translations = ""
@@ -117,47 +107,30 @@ class TodayCardView: UIView {
             barsStackView.arrangedSubviews.forEach { (v) in
                 v.backgroundColor = barDeselectedColor
             }
-            barsStackView.arrangedSubviews[cardInd].backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
+            barsStackView.arrangedSubviews[cardInd].backgroundColor = .white
             
             toFavouritesButton.isSelected = sentence.isFavourite
         }
     }
     
     @objc fileprivate func handleTap(gesture: UITapGestureRecognizer) {
-        superview?.subviews.forEach({ (subview) in
-            subview.layer.removeAllAnimations()
-        })
-        
         let tapLocation = gesture.location(in: nil)
         let shouldGoToNextCard = tapLocation.x > frame.width / 2 ? true : false
-        let translation: CGFloat = shouldGoToNextCard ? -1000 : 1000
-        
-        UIView.animate(withDuration: 0.1) {
-            self.sentenceLabel.transform = CGAffineTransform(translationX: translation, y: 0)
-            self.translationLabel.transform = CGAffineTransform(translationX: translation, y: 0)
-            self.barsStackView.arrangedSubviews[self.cardInd].transform = CGAffineTransform(translationX: 0, y: -4)
-        }
-        
-        self.barsStackView.arrangedSubviews[self.cardInd].transform = .identity
-        
         if shouldGoToNextCard {
-            cardInd = (cardInd + 1) % sentences!.count
+            cardInd = (cardInd + 1) % sentences.count
         } else {
             if cardInd == 0 {
-                cardInd = sentences!.count - 1
+                cardInd = sentences.count - 1
             } else {
                 cardInd -= 1
             }
         }
-        
-        self.sentenceLabel.transform = .identity
-        self.translationLabel.transform = .identity
     }
     
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .white
+        backgroundColor = .lightBlue
         
         setupBarsStackView()
         

@@ -16,8 +16,8 @@ struct Storage {
     
     let levels = [
         LevelStorage(title: "Начинающий", sentences: Architecture),
-        LevelStorage(title: "Средний", sentences: Architecture),
-        LevelStorage(title: "Продвинутый", sentences: Architecture),
+        LevelStorage(title: "Средний", sentences: nil),
+        LevelStorage(title: "Продвинутый", sentences: nil),
     ]
     
     // MARK: - Categories
@@ -26,19 +26,11 @@ struct Storage {
     let favouritesTitle = "Избранное"
     
     lazy var categories: [CategoryStorage] = [
-        CategoryStorage(title: todayCardsTitle, firstColor: .lightRed, secondColor: .lightGray),
-        CategoryStorage(title: favouritesTitle, firstColor: .lightRed, secondColor: .lightGray),
+        CategoryStorage(title: todayCardsTitle, firstColor: .lightRed, secondColor: .lightGray, sentences: nil),
+        CategoryStorage(title: favouritesTitle, firstColor: .lightRed, secondColor: .lightGray, sentences: nil),
         CategoryStorage(title: "Архитектура", firstColor: .lightRed, secondColor: .cyan, sentences: Architecture),
     ]
     
-    let levelsTitle = [
-        "Начинающий": "TodayBegginer",
-        "Средний": "TodayIntermediate",
-        "Продвинутый": "TodayAdvanced",
-    ]
-    
-    lazy var categoriesForLevels: [CategoryStorage] = self.levels.map { (level) -> CategoryStorage in
-        return CategoryStorage(title: levelsTitle[level.title]!, isHidden: true)
-    }
+    // MARK: - Sentences
     
 }

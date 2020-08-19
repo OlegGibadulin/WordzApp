@@ -1,15 +1,7 @@
-//
-//  CardLoadingView.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 14.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 import Lottie
 
-final class LoadingView: UIView {
+final class CardLoadingView: UIView {
     private var animationView: AnimationView!
     
     public override init(frame: CGRect) {

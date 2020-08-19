@@ -81,6 +81,14 @@ struct CoreDataManager {
         }
     }
     
+    func addFavouriteSentence(text: String, translation: [String]) -> Bool {
+        guard let category = CoreDataManager.shared.fetchCategory(title: Storage.shared.favouritesTitle) else {
+            return false
+        }
+        CoreDataManager.shared.addSentence(text: text, translation: translation, category: category)
+        return true
+    }
+    
     func favouriteSentence(sentence: Sentence) {
         let context = persistentContainer.viewContext
         

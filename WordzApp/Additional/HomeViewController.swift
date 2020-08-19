@@ -8,15 +8,7 @@
 
 import UIKit
 
-protocol SettingsViewDelegate {
-    func settingsViewWillDisappear()
-}
-
-class HomeViewController: UIViewController, SettingsViewDelegate {
-    
-    fileprivate let todayCardsViewController = TodayCardsViewController()
-    
-    fileprivate lazy var todayCardsView: TodayCardView = self.todayCardsViewController.view! as! TodayCardView
+class HomeViewController: UIViewController {
     
     fileprivate lazy var homeCollectionViewController: HomeCollectionViewController = {
         let layout = UICollectionViewFlowLayout()
@@ -27,6 +19,8 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     
     fileprivate lazy var collectionView: UICollectionView! = homeCollectionViewController.collectionView
     
+    fileprivate var safeArea: UILayoutGuide!
+    
     fileprivate let wordsLogoView: UIImageView = {
         let lv = UIImageView(image: #imageLiteral(resourceName: "wordz_gray"))
         lv.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +30,7 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
         return lv
     }()
     
-    fileprivate lazy var homeBackgroundHeaderView = HomeBackgroundHeaderView(frame: self.view.frame)
+    fileprivate lazy var headerView = HeaderView(frame: self.view.frame)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,27 +38,32 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
         setupNavigationController()
     }
     
+    // Updating TodayCardsView to update favourite sentence state
+    override func viewWillAppear(_ animated: Bool) {
+        if collectionView.numberOfSections != 0 {
+            let indexPath = IndexPath(item: 0, section: 0)
+            let kind = "UICollectionElementKindSectionHeader"
+            let headerIdentifier = "HomeHeaderId"
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
+            header.setNeedsDisplay()
+        }
+    }
+    
     fileprivate func setupLayout() {
-        view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        view.backgroundColor = .white
+        safeArea = view.layoutMarginsGuide
         
-        view.addSubview(homeBackgroundHeaderView)
-        
-        view.addSubview(todayCardsView)
-        todayCardsView.anchor(top: view.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 120, left: .sideMargin * 2, bottom: 0, right: .sideMargin * 2), size: .init(width: 0, height: .todayCardHeight))
+        view.addSubview(headerView)
         
         view.addSubview(collectionView)
-        collectionView?.anchor(top: todayCardsView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 40, left: 0, bottom: 0, right: 0))
-    }
-    
-    // Update today sentences favourite state if it was deleted
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        todayCardsView.updateFavoriteState()
-    }
-    
-    // Update today sentences if level has been changed
-    func settingsViewWillDisappear() {
-        todayCardsViewController.updateTodaySentences()
+        collectionView?.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 50, left: 0, bottom: 0, right: 0))
+        
+        let wordsLogoStackView = UIStackView(arrangedSubviews: [wordsLogoView, UIView()])
+        wordsLogoStackView.axis = .horizontal
+        wordsLogoStackView.distribution = .fill
+        
+        view.addSubview(wordsLogoStackView)
+        wordsLogoStackView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 12, left: .sideMargin, bottom: 0, right: .sideMargin))
     }
     
     // MARK: NavigationController
@@ -83,7 +82,6 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     
     fileprivate lazy var settingsViewController: SettingsViewController = {
         let svc = SettingsViewController()
-        svc.delegate = self
         svc.keyWindow = self.view.window
         return svc
     }()

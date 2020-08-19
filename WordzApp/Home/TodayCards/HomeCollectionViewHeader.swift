@@ -39,7 +39,12 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         setupLayout()
     }
     
+    fileprivate lazy var headerView = HeaderView(frame: self.frame)
+    
     fileprivate func setupLayout() {
+        addSubview(headerView)
+        headerView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: -90, left: 0, bottom: 0, right: 0), size: .init(width: 0, height: 220))
+        
         let cardsLogoStackView = UIStackView(arrangedSubviews: [cardsLogoView, UIView()])
         cardsLogoStackView.axis = .horizontal
         cardsLogoStackView.distribution = .fill
@@ -55,6 +60,7 @@ class HomeCollectionViewHeader: UICollectionViewCell {
         overallStackView.layoutMargins = .init(top: 85, left: 20, bottom: 0, right: 20)
     }
     
+    // TODO: - Make it work again
     fileprivate func fetchTodaySentences() {
         // Fetch sentences from today category
         guard let todayCategory = CoreDataManager.shared.fetchCategory(title: Storage.shared.todayCardsTitle) else { return }

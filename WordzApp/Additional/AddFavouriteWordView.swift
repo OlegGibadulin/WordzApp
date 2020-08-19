@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreData
 
 protocol PopUpDelegate {
     func handleDismissal()
+    func showAlert(alert: UIAlertController)
 }
 
 final class AddFavouriteWordView: UIView {
@@ -181,6 +183,15 @@ final class AddFavouriteWordView: UIView {
     
     @objc
     private func addButtonTapped(sedner: UIButton) {
+        //CoreDataManager.shared.favouriteSentence(sentence: sentence)
+        if (wordTextField.text!.count > 1 && translateTextField.text!.count > 1) {
+            let word = wordTextField.text!
+            let translation = [translateTextField.text!]
+            
+            if CoreDataManager.shared.addFavouriteSentence(text: word, translation: translation) == false {
+                showAlert(title: "Не удалось добавить слово", message: "Непрафильный формат ввода")
+            }
+        }
         delegate?.handleDismissal()
     }
     
@@ -199,5 +210,12 @@ final class AddFavouriteWordView: UIView {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+        alert.addAction(action)
+        delegate?.showAlert(alert: alert)
     }
 }

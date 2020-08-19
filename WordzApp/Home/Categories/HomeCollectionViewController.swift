@@ -10,6 +10,7 @@ import UIKit
 import CollectionViewCenteredFlowLayout
 
 private let cellIdentifier = "HomeCellId"
+private let headerIdentifier = "HomeHeaderId"
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
@@ -21,16 +22,19 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Register cells
+        // Register cell classes
         collectionView!.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
         
-        categories = CoreDataManager.shared.fetchNotHiddenCategories()
+        collectionView!.register(HomeCollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
+        
+        categories = CoreDataManager.shared.fetchCategories()
         
         setupLayout()
+        setupNavigationController()
     }
     
     fileprivate func setupLayout() {
-        collectionView.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        collectionView.backgroundColor = .white
         collectionView.collectionViewLayout = CollectionViewCenteredFlowLayout()
     }
     
@@ -44,7 +48,17 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: .sideMargin, bottom: 40, right: .sideMargin)
+        return UIEdgeInsets(top: 20, left: .sideMargin, bottom: 40, right: .sideMargin)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath)
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let height = view.frame.height / 2
+        return CGSize(width: view.frame.width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -79,6 +93,30 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         cell.category = categories[indexPath.row]
     
         return cell
+    }
+    
+    // MARK: NavigationController
+    
+    fileprivate lazy var settingsButton: UIButton = {
+        let sb = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
+        sb.setImage(#imageLiteral(resourceName: "settingsIcon"), for: .normal)
+        sb.setBlueStyle()
+        sb.addTarget(self, action: #selector(handleSettingsButtonTapped), for: .touchUpInside)
+        return sb
+    }()
+    
+    fileprivate func setupNavigationController() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: settingsButton)
+    }
+    
+    fileprivate lazy var settingsViewController: SettingsViewController = {
+        let svc = SettingsViewController()
+        svc.keyWindow = self.view.window
+        return svc
+    }()
+
+    @objc fileprivate func handleSettingsButtonTapped() {
+        settingsViewController.show()
     }
 
 }

@@ -13,27 +13,13 @@ struct CategoryStorage {
     let firstColor: UIColor
     let secondColor: UIColor
     let sentences: [String:[String]]?
-    let isHidden: Bool
-    
-    init(title: String, firstColor: UIColor = .white, secondColor: UIColor = .white, sentences: [String:[String]]? = nil, isHidden: Bool = false) {
-        self.title = title
-        self.firstColor = firstColor
-        self.secondColor = secondColor
-        self.sentences = sentences
-        self.isHidden = isHidden
-    }
 }
 
 extension Storage {
     
     mutating func uploadsCategories() {
-        uploadsCategories(categories: categories)
-        uploadsCategories(categories: categoriesForLevels)
-    }
-    
-    mutating fileprivate func uploadsCategories(categories: [CategoryStorage]) {
         categories.forEach { (category) in
-            CoreDataManager.shared.addCategory(title: category.title, firstColor: category.firstColor, secondColor: category.secondColor, isHidden: category.isHidden)
+            CoreDataManager.shared.addCategory(title: category.title, firstColor: category.firstColor, secondColor: category.secondColor)
             
             uploadSentences(categoryTitle: category.title, sentences: category.sentences)
         }

@@ -79,7 +79,7 @@ final class CardsViewController: UIViewController {
     }()
     
     private var circle1 : UIView!
-    private var loadingView: LoadingView!
+    private var loadingView: CardLoadingView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
     
@@ -155,7 +155,7 @@ final class CardsViewController: UIViewController {
     private func performActionWithLoadingView(isNeedToShow state: Bool) {
         if (state == true) {
             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+            loadingView = CardLoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
             window?.addSubview(loadingView)
         } else {
             loadingView.stopLoading()

@@ -11,6 +11,5 @@ import UIKit
 extension CGFloat {
     
     static let sideMargin = CGFloat(20)
-    static let todayCardHeight = UIScreen.main.bounds.height / 2.5
     
 }

@@ -14,15 +14,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        // MARK: uncomment this if you want to update CoreData
-        let defaults = UserDefaults.standard
-        defaults.set(false, forKey: "isFilledCoreData")
-        
+        // TODO: delete this
+        // defaults.set(false, forKey: "isFilledCoreData")
         fillCoreData()
         
-        let homeViewController = HomeViewController()
-        let homeNavController = UINavigationController(rootViewController: homeViewController)
+        let layout = UICollectionViewFlowLayout()
+        let homeCollectionViewController = HomeCollectionViewController(collectionViewLayout: layout)
+        let homeNavController = UINavigationController(rootViewController: homeCollectionViewController)
         homeNavController.transparentNavigationBar()
+        
+//        let homeViewController = HomeViewController()
+//        let homeNavController = UINavigationController(rootViewController: homeViewController)
+//        homeNavController.transparentNavigationBar()
         
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
