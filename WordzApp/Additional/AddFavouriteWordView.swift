@@ -18,7 +18,7 @@ final class AddFavouriteWordView: UIView {
     
     var delegate: PopUpDelegate?
     
-    var enteredWord: Word! = Word(word: "", translate: "")
+    var enteredWord: Word! = Word(word: "", translate: [""])
     
     let addButton: UIButton = {
         let addButton = UIButton()

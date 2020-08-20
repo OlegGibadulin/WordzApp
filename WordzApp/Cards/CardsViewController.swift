@@ -86,13 +86,7 @@ final class CardsViewController: UIViewController {
     private var cardsView = [CardView]()
     private var oneCardView: CardResultView!
     
-    private var words = [
-        Word(word: "develop", translate: "разрабатывать"),
-        Word(word: "imagine", translate: "воображать"),
-        Word(word: "confirmation", translate: "подтверждение"),
-        Word(word: "to go away", translate: "уходить"),
-        Word(word: "calling", translate: "зовущий"),
-    ]
+    public var words = [Word]()
     
     //MARK:- viewDidLoad
     override func viewDidLoad() {
@@ -119,8 +113,8 @@ final class CardsViewController: UIViewController {
         cardContentStackView.addSubview(oneCardView)
         oneCardView.finishButton.isEnabled = false
         
-        for i in 1..<words.count-1 {
-            let number1 = Int.random(in: 1..<words.count-1)
+        for i in 0..<words.count-1 {
+            let number1 = Int.random(in: 0..<words.count-1)
             let tmp = words[i]
             words[i] = words[number1]
             words[number1] = tmp
@@ -308,40 +302,6 @@ final class CardsViewController: UIViewController {
         settingsViewController.show()
     }
     private let screenSize = UIScreen.main.bounds.size
-//
-//    // MARK: Setting View Realization
-//    private var transparentView = UIView()
-//    private var cardsConfiguration = CardsSettingsView()
-//    private let heightTable: CGFloat = 250
-//
-//    @objc
-//    private func settingsButtonTapped(sender: UIButton) {
-//        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-//        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-//        transparentView.frame = self.view.frame
-//        transparentView.alpha = 0
-//        cardsConfiguration.backgroundColor = .white
-//        window?.addSubview(transparentView)
-//
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnTranspaerntView))
-//        transparentView.addGestureRecognizer(tapGesture)
-//
-//        cardsConfiguration.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
-//        window?.addSubview(cardsConfiguration)
-//
-//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//            self.transparentView.alpha = 0.5
-//            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
-//        }, completion: nil)
-//    }
-//
-//    @objc
-//    func tapOnTranspaerntView() {
-//        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-//            self.transparentView.alpha = 0
-//            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
-//        }, completion: nil)
-//    }
 }
 
 

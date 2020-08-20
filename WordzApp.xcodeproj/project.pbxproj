@@ -229,6 +229,7 @@
 		C42EBA4B24B717B900F20BB5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				77F02D6D24B639E600F15519 /* Word.swift */,
 				C42EBA4924B717B100F20BB5 /* Sentence.swift */,
 				C4F37F3B24B5F68800D7807D /* Category.swift */,
 			);
@@ -256,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				C4306D9B24DD6C4D00223561 /* HomeViewController.swift */,
-				77F02D6D24B639E600F15519 /* Word.swift */,
 				C401EA8D24BB580E00FB116F /* MainTabBarController.swift */,
 				C41F63C824B4A68C0051FD7B /* UserProfileView.swift */,
 				773F32E224D01B1A006C8482 /* CardResultView.swift */,

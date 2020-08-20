@@ -15,7 +15,7 @@ class CategoryTableViewController: UITableViewController {
     
     var category: Category?
     
-    private var sentences = [Sentence]()
+    public var sentences = [Sentence]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

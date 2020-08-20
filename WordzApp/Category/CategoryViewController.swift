@@ -55,6 +55,39 @@ class CategoryViewController: UIViewController {
     @objc fileprivate func handleToCards() {
         let cardViewController = CardsViewController()
         cardViewController.category = category
+        
+        let countOfWords = CardsSettings.сardsInPack as Int
+        var array = [Word]()
+        
+        // When count of words do not enough to equal User Defaults
+        if (categoryTableViewController.sentences.count <= countOfWords) {
+            categoryTableViewController.sentences.forEach { (sentence) in
+                guard let text = sentence.text, let translate = sentence.translation else {
+                    return
+                }
+                array.append(Word(word: text, translate: translate))
+            }
+        }
+        // When enough count
+        else {
+            let categoryCount = categoryTableViewController.sentences.count
+            for _ in 0..<countOfWords {
+                while(true) {
+                    let sentence = categoryTableViewController.sentences[Int.random(in: 0..<categoryCount)]
+                    guard let text = sentence.text, let translate = sentence.translation else {
+                        return
+                    }
+                    let word = Word(word: text, translate: translate)
+                    
+                    if array.contains(word) == false {
+                        array.append(word)
+                        break
+                    }
+                }
+            }
+        }
+        
+        cardViewController.words = array
         navigationController?.pushViewController(cardViewController, animated: true)
     }
     

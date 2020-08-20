@@ -59,7 +59,7 @@ final class CardView: UIView {
         textLabel.textColor = .white
         textLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
         textLabel.textAlignment = .center
-        textLabel.numberOfLines = 3
+        textLabel.numberOfLines = 5
         textLabel.textColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.allowsDefaultTighteningForTruncation = true
@@ -140,7 +140,9 @@ final class CardView: UIView {
     public func showAnotherTranslation() {
         if isOpen {
             isOpen = false
-            textLabel.text = wordSelfCard.translate
+            
+            textLabel.text = wordSelfCard.toStringTranslate
+//            textLabel.text = wordSelfCard.translate
             UIView.transition(with: self, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         } else {
             isOpen = true
