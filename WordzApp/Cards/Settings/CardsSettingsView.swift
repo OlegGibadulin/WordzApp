@@ -8,12 +8,13 @@
 
 import UIKit
 
-final class CardsConfigurationView: UIView {
+final class CardsSettingsView: UIView {
     
     // MARK:- Line 1 variables
     fileprivate var firstLineStackView: UIStackView!
     fileprivate let сardsInPackLabel : UILabel = {
         let cinp = UILabel()
+        cinp.textColor = .black
         cinp.text = "Слов в стопке: "
         cinp.textAlignment = .left
         
@@ -24,6 +25,7 @@ final class CardsConfigurationView: UIView {
         let countCardsLabel = UILabel()
         let count = CardsSettings.сardsInPack as Int
         countCardsLabel.text = String(count)
+        countCardsLabel.textColor = .black
         countCardsLabel.textAlignment = .center
         return countCardsLabel
     }()
@@ -50,6 +52,7 @@ final class CardsConfigurationView: UIView {
     fileprivate var secondLineStackView: UIStackView!
     fileprivate var сardsRepeatsLabel : UILabel = {
         let сardsRepeatsLabel = UILabel()
+        сardsRepeatsLabel.textColor = .black
         сardsRepeatsLabel.text = "Повторов каждого слова: "
         сardsRepeatsLabel.textAlignment = .left
         return сardsRepeatsLabel
@@ -58,6 +61,7 @@ final class CardsConfigurationView: UIView {
     fileprivate var countRepeatsLabel : UILabel = {
         let countRepeatsLabel = UILabel()
         let count = CardsSettings.сardsRepeats as Int
+        countRepeatsLabel.textColor = .black
         countRepeatsLabel.text = String(count)
         countRepeatsLabel.textAlignment = .center
         return countRepeatsLabel
@@ -120,6 +124,7 @@ final class CardsConfigurationView: UIView {
     
     // MARK:- Setup layout
     fileprivate func setupLayout() {
+        self.backgroundColor = .white
         self.layer.cornerRadius = 23
     }
     
@@ -163,17 +168,19 @@ final class CardsConfigurationView: UIView {
     
     fileprivate func setupOverallStackview() {
         let view1 = UIView()
+//        view1.backgroundColor = .green
         let view2 = UIView()
-        let view3 = UIView()
+//        let view3 = UIView()
+//        view2.backgroundColor = .yellow
         
-        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view1, secondLineStackView, view2, thirdLineStackView, view3])
+        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view1, secondLineStackView, view2, thirdLineStackView])
         overallStackView.spacing = 10
         overallStackView.axis = .vertical
         overallStackView.distribution = .fillProportionally
         
         self.addSubview(overallStackView)
         
-        overallStackView.fillSuperview(padding: .init(top: 30, left: 20, bottom: 100, right: 15))
+        overallStackView.fillSuperview(padding: .init(top: 30, left: 20, bottom: 355, right: 15))
     }
     
     fileprivate func setupAnchors() {
@@ -212,6 +219,7 @@ final class CardsConfigurationView: UIView {
         
         thirdLineStackView.translatesAutoresizingMaskIntoConstraints = false
         thirdLineStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        thirdLineStackView.topAnchor.constraint(equalTo: secondLineStackView.bottomAnchor, constant: -10)
     }
     
     // MARK:- Setup Targets For Buttons
