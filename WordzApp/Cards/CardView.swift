@@ -8,6 +8,15 @@
 
 import UIKit
 
+func toWordModel(sentence: Sentence) -> Word {
+    guard let text = sentence.text, let translates = sentence.translation else  {
+        return Word(word: "word", translate: ["слово"])
+    }
+    
+    let word = Word(word: text, translate: translates)
+    return word
+}
+
 final class CardView: UIView {
     static private let threshold: CGFloat = 100
     
@@ -16,6 +25,7 @@ final class CardView: UIView {
     private var isOpen = true
     private var textLabel: UILabel!
     private var wordSelfCard: Word!
+    private var sentence: Sentence!
     private var view: CardInteractionController!
     
     private override init(frame: CGRect) {
@@ -34,11 +44,14 @@ final class CardView: UIView {
         addGestureRecognizer(singleTapGesture)
     }
     
-    required convenience init(frame: CGRect, word: Word, view: CardInteractionController) {
+    required convenience init(frame: CGRect, sentence: Sentence, view: CardInteractionController) {
         self.init(frame: frame)
         
-        self.wordSelfCard = word
+        self.sentence = sentence
+        self.wordSelfCard = toWordModel(sentence: sentence)
         self.view = view
+        
+        print("\(sentence.text) \(sentence.translation) \(sentence.learned) \(sentence.level)")
     }
     
     fileprivate func setupLayout() {

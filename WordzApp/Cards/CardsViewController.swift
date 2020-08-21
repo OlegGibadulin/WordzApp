@@ -10,7 +10,7 @@ final class CardsViewController: UIViewController {
     // MARK:- Outlets
     public var category: Category?
     
-    private var sentences = [Sentence]()
+    public var sentences = [Sentence]()
 
     private var tmp1StackView: UIStackView!
     private var cardContentStackView: UIStackView!
@@ -113,15 +113,15 @@ final class CardsViewController: UIViewController {
         cardContentStackView.addSubview(oneCardView)
         oneCardView.finishButton.isEnabled = false
         
-        for i in 0..<words.count-1 {
-            let number1 = Int.random(in: 0..<words.count-1)
-            let tmp = words[i]
-            words[i] = words[number1]
-            words[number1] = tmp
+        for i in 0..<sentences.count-1 {
+            let number1 = Int.random(in: 0..<sentences.count-1)
+            let tmp = sentences[i]
+            sentences[i] = sentences[number1]
+            sentences[number1] = tmp
         }
         
-        words.forEach { (word) in
-            let cardView = CardView(frame: frame, word: word, view: self)
+        sentences.forEach { (sentence) in
+            let cardView = CardView(frame: frame, sentence: sentence, view: self)
             cardView.setupLabels()
             cardView.isHidden = true
             self.cardsView.append(cardView)

@@ -56,39 +56,57 @@ class CategoryViewController: UIViewController {
         let cardViewController = CardsViewController()
         cardViewController.category = category
         
+        // Sentences taken from table view
+        var sentencesInTableView = categoryTableViewController.sentences
+        
+        // Variables to pass to Card View
         let countOfWords = CardsSettings.сardsInPack as Int
-        var array = [Word]()
+        let countOfRepeats = CardsSettings.сardsRepeats as Int
+        var arrayOfSentences = [Sentence]()
+        
+        // Filter by sentences from table view by learned parameter
+        sentencesInTableView = sentencesInTableView.filter({ (sentence) -> Bool in
+            if sentence.learned <= countOfRepeats {
+                return true
+            } else {
+                return false
+            }
+        })
         
         // When count of words do not enough to equal User Defaults
-        if (categoryTableViewController.sentences.count <= countOfWords) {
-            categoryTableViewController.sentences.forEach { (sentence) in
-                guard let text = sentence.text, let translate = sentence.translation else {
-                    return
-                }
-                array.append(Word(word: text, translate: translate))
+        if (sentencesInTableView.count <= countOfWords) {
+            sentencesInTableView.forEach { (sentence) in
+                arrayOfSentences.append(sentence)
             }
         }
         // When enough count
         else {
-            let categoryCount = categoryTableViewController.sentences.count
+            let categoryCount = sentencesInTableView.count
             for _ in 0..<countOfWords {
                 while(true) {
-                    let sentence = categoryTableViewController.sentences[Int.random(in: 0..<categoryCount)]
-                    guard let text = sentence.text, let translate = sentence.translation else {
-                        return
-                    }
-                    let word = Word(word: text, translate: translate)
-                    
-                    if array.contains(word) == false {
-                        array.append(word)
+                    let sentence = sentencesInTableView[Int.random(in: 0..<categoryCount)]
+                    if arrayOfSentences.contains(sentence) == false {
+                        arrayOfSentences.append(sentence)
                         break
                     }
                 }
             }
         }
         
-        cardViewController.words = array
-        navigationController?.pushViewController(cardViewController, animated: true)
+        if arrayOfSentences.count >= 5 {
+            cardViewController.sentences = arrayOfSentences
+            navigationController?.pushViewController(cardViewController, animated: true)
+        } else {
+            let title = navigationItem.title
+            if title == Storage.shared.favouritesTitle && sentencesInTableView.count < 5 {
+                presentAlert(title: "Информация", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
+            } else {
+                let additionalAction = UIAlertAction(title: "Сбросить", style: .destructive) { (alert) in
+                    print("Сброс статистики")
+                }
+                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили все слова категории \(title ?? "")\nВам доступна возможность сбросить статистику по словам данной категории, чтобы вы могли повторить их", additionalAction: additionalAction)
+            }
+        }
     }
     
     private func setupLayout() {
@@ -147,4 +165,13 @@ class CategoryViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    private func presentAlert(title: String, text: String, additionalAction: UIAlertAction?) {
+        let alert = UIAlertController(title: title, message: text, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ок", style: .cancel, handler: nil)
+        alert.addAction(action)
+        if let addAction = additionalAction {
+            alert.addAction(addAction)
+        }
+        self.present(alert, animated: true, completion: nil)
+    }
 }
