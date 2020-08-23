@@ -28,6 +28,10 @@ final class CardView: UIView {
     private var sentence: Sentence!
     private var view: CardInteractionController!
     
+    public var Sentence: Sentence {
+        sentence
+    }
+    
     private override init(frame: CGRect) {
         super.init(frame: frame)
         

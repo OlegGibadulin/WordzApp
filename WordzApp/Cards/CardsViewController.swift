@@ -11,7 +11,8 @@ final class CardsViewController: UIViewController {
     public var category: Category?
     
     public var sentences = [Sentence]()
-
+    public var learnedSentences = [Sentence]()
+    
     private var tmp1StackView: UIStackView!
     private var cardContentStackView: UIStackView!
     private var cardButtonsStackView: UIStackView!
@@ -32,7 +33,7 @@ final class CardsViewController: UIViewController {
     }()
     
     private let settingsButton: UIButton = {
-       let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
+        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
         settingsButton.setImage(UIImage(named: "threePointsIcon"), for: .normal)
         settingsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         settingsButton.layer.cornerRadius = 8
@@ -234,7 +235,7 @@ final class CardsViewController: UIViewController {
         swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
         
         cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
-
+        
         cardButtonsStackView.axis = .horizontal
         cardButtonsStackView.distribution = .fillProportionally
         cardButtonsStackView.spacing = 0
@@ -297,7 +298,7 @@ final class CardsViewController: UIViewController {
         svc.keyWindow = self.view.window
         return svc
     }()
-
+    
     @objc fileprivate func settingsButtonTapped(sender: UIButton) {
         settingsViewController.show()
     }
@@ -315,11 +316,7 @@ extension CardsViewController: CardInteractionController {
     }
     
     internal func updateSwipedCard(isFamilarWordSwiped: Bool) {
-        if isFamilarWordSwiped == true {
-            result.familarWords += 1
-        } else {
-            result.unfamilarWords += 1
-        }
+        
         
         if cardsView.count > 0 {
             cardsView[cardsView.count - 1].isHidden = false
@@ -333,14 +330,26 @@ extension CardsViewController: CardInteractionController {
             cardsView[cardsView.count - 3].isHidden = false
         }
         
-        cardsView.popLast()
+        let card = cardsView.popLast()
         
-        cardsView.last?.isUserInteractionEnabled = true
+        if isFamilarWordSwiped == true {
+            result.familarWords += 1
+            if let card = card {
+                learnedSentences.append(card.Sentence)
+            }
+        } else {
+            result.unfamilarWords += 1
+        }
         
         if cardsView.count < 1 {
             oneCardView.finishButton.isEnabled = true
+            CoreDataManager.shared.learnSentences(sentences: learnedSentences)
+            print(learnedSentences)
         }
-            
+        
+        cardsView.last?.isUserInteractionEnabled = true
+        
+        
         oneCardView.updateLabel(message: result)
     }
     

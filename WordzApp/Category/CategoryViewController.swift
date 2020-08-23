@@ -58,6 +58,7 @@ class CategoryViewController: UIViewController {
         
         // Sentences taken from table view
         var sentencesInTableView = categoryTableViewController.sentences
+        let sentencesInTableViewCount = sentencesInTableView.count
         
         // Variables to pass to Card View
         let countOfWords = CardsSettings.сardsInPack as Int
@@ -66,7 +67,7 @@ class CategoryViewController: UIViewController {
         
         // Filter by sentences from table view by learned parameter
         sentencesInTableView = sentencesInTableView.filter({ (sentence) -> Bool in
-            if sentence.learned <= countOfRepeats {
+            if sentence.learned < countOfRepeats {
                 return true
             } else {
                 return false
@@ -98,13 +99,16 @@ class CategoryViewController: UIViewController {
             navigationController?.pushViewController(cardViewController, animated: true)
         } else {
             let title = navigationItem.title
-            if title == Storage.shared.favouritesTitle && sentencesInTableView.count < 5 {
+            if title == Storage.shared.favouritesTitle && sentencesInTableViewCount < 5 {
                 presentAlert(title: "Информация", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
             } else {
                 let additionalAction = UIAlertAction(title: "Сбросить", style: .destructive) { (alert) in
+                    print("\n\n\n\n\(sentencesInTableView)")
+                    CoreDataManager.shared.resetStatisticSentences(category: self.category)
+                    print("\n\n\n\n\(sentencesInTableView)")
                     print("Сброс статистики")
                 }
-                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили все слова категории \(title ?? "")\nВам доступна возможность сбросить статистику по словам данной категории, чтобы вы могли повторить их", additionalAction: additionalAction)
+                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили большинство слов из категории \(title ?? "")\nВам доступна возможность сбросить статистику по словам данной категории, чтобы вы могли повторить их", additionalAction: additionalAction)
             }
         }
     }

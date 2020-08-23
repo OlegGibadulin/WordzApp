@@ -71,10 +71,16 @@ extension CoreDataManager {
         
         sentence.category = category
         
+        
+        
         sentence.setValue(text, forKey: "text")
         sentence.setValue(translation, forKey: "translation")
         sentence.setValue(false, forKey: "isLearned")
-        sentence.setValue(false, forKey: "isFavourite")
+        if Storage.shared.favouritesTitle == category.title {
+            sentence.setValue(true, forKey: "isFavourite")
+        } else {
+            sentence.setValue(false, forKey: "isFavourite")
+        }
         sentence.setValue(0, forKey: "learned")
         sentence.setValue(Calendar.current.today(), forKey: "date")
         
