@@ -39,7 +39,7 @@ class CardSettingsViewController: UIViewController {
     }
     
     func show() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
             self.blackoutView.alpha = 1
             self.setInitialPosition()
@@ -50,7 +50,7 @@ class CardSettingsViewController: UIViewController {
     @objc fileprivate func hide() {
         guard let window = keyWindow else { return }
         
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
             self.blackoutView.alpha = 0
             self.settingsView.frame = CGRect(x: 0, y: window.frame.height, width: self.settingsView.frame.width, height: self.settingsView.frame.height)
@@ -109,7 +109,7 @@ class CardSettingsViewController: UIViewController {
         if shouldHide {
             hide()
         } else {
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
                 
                 // Sometimes it also does not work because of the same issue
                 // self.settingsView.transform = .identity

@@ -108,7 +108,7 @@ class CategoryViewController: UIViewController {
                     print("\n\n\n\n\(sentencesInTableView)")
                     print("Сброс статистики")
                 }
-                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили большинство слов из категории \(title ?? "")\nВам доступна возможность сбросить статистику по словам данной категории, чтобы вы могли повторить их", additionalAction: additionalAction)
+                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили почти все слова из выбранной категории\nВы можете сбросить статистику по словам из данной категории, чтобы вы могли повторить снова", additionalAction: additionalAction)
             }
         }
     }

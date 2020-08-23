@@ -37,7 +37,7 @@ final class CardsSettings {
     static var сardsRepeats: Int {
         get {
             if (UserDefaults.standard.integer(forKey: CardSettings.сardsRepeats.rawValue) == 0) {
-                return 1
+                return 3
             }
             return UserDefaults.standard.integer(forKey: CardSettings.сardsRepeats.rawValue)
         }

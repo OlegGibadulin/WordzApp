@@ -13,13 +13,13 @@ extension CoreDataManager {
     
     func addCategory(title: String, firstColor: UIColor, secondColor: UIColor) {
         let context = persistentContainer.viewContext
-
+        
         let category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: context)
-
+        
         category.setValue(title, forKey: "title")
         category.setValue(firstColor, forKey: "firstColor")
         category.setValue(secondColor, forKey: "secondColor")
-
+        
         do {
             try context.save()
         } catch let saveErr {
@@ -71,16 +71,10 @@ extension CoreDataManager {
         
         sentence.category = category
         
-        
-        
         sentence.setValue(text, forKey: "text")
         sentence.setValue(translation, forKey: "translation")
         sentence.setValue(false, forKey: "isLearned")
-        if Storage.shared.favouritesTitle == category.title {
-            sentence.setValue(true, forKey: "isFavourite")
-        } else {
-            sentence.setValue(false, forKey: "isFavourite")
-        }
+        sentence.setValue(false, forKey: "isFavourite")
         sentence.setValue(0, forKey: "learned")
         sentence.setValue(Calendar.current.today(), forKey: "date")
         
