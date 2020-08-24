@@ -25,7 +25,7 @@ final class CardsViewController: UIViewController {
         backButton.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
         backButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         backButton.layer.cornerRadius = 8
-        backButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        backButton.layer.shadowColor = UIColor.appColor(.buttonShadow_purple_darkpurple)?.cgColor
         backButton.layer.shadowRadius = 3
         backButton.layer.shadowOpacity = 0.5
         backButton.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -67,9 +67,9 @@ final class CardsViewController: UIViewController {
         swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
         swipeRightButton.setTitle("I know\nthis word", for: .normal)
         swipeRightButton.titleLabel?.numberOfLines = 2
-        swipeRightButton.setTitleColor(#colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1), for: .normal)
+        swipeRightButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
-        swipeRightButton.backgroundColor = .white
+        swipeRightButton.backgroundColor = UIColor.appColor(.button_white_lightgray)
         swipeRightButton.clipsToBounds = false
         swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
         swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
@@ -170,7 +170,7 @@ final class CardsViewController: UIViewController {
     
     // MARK:- Setups
     private func setupLayout() {
-        self.view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        self.view.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         setupDesign()
     }
     

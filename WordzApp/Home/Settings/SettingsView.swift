@@ -27,7 +27,8 @@ class SettingsView: UIView {
     fileprivate let infoLabel: UILabel = {
         let il = UILabel()
         il.textAlignment = .center
-        il.textColor = .gray
+        il.textColor = UIColor.appColor(.text_darkgray_lightgray)
+
         il.text = "Выберите сложность ежедневных слов"
         return il
     }()
@@ -51,7 +52,7 @@ class SettingsView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         
         addSubview(topBar)
         topBar.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true

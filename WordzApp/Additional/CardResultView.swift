@@ -59,7 +59,7 @@ final class CardResultView: UIView {
     }
     
     fileprivate func setupLayout() {
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         self.roundCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 23)
     }
     

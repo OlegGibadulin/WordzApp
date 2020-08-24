@@ -17,7 +17,7 @@ final class CardsSettingsView: UIView {
         cinp.textColor = .black
         cinp.text = "Слов в стопке: "
         cinp.textAlignment = .left
-        
+        cinp.textColor = UIColor.appColor(.text_black_white)
         return cinp
     }()
     
@@ -25,7 +25,7 @@ final class CardsSettingsView: UIView {
         let countCardsLabel = UILabel()
         let count = CardsSettings.сardsInPack as Int
         countCardsLabel.text = String(count)
-        countCardsLabel.textColor = .black
+        countCardsLabel.textColor = UIColor.appColor(.text_black_white)
         countCardsLabel.textAlignment = .center
         return countCardsLabel
     }()
@@ -52,7 +52,7 @@ final class CardsSettingsView: UIView {
     fileprivate var secondLineStackView: UIStackView!
     fileprivate var сardsRepeatsLabel : UILabel = {
         let сardsRepeatsLabel = UILabel()
-        сardsRepeatsLabel.textColor = .black
+        сardsRepeatsLabel.textColor = UIColor.appColor(.text_black_white)
         сardsRepeatsLabel.text = "Повторов каждого слова: "
         сardsRepeatsLabel.textAlignment = .left
         return сardsRepeatsLabel
@@ -61,7 +61,7 @@ final class CardsSettingsView: UIView {
     fileprivate var countRepeatsLabel : UILabel = {
         let countRepeatsLabel = UILabel()
         let count = CardsSettings.сardsRepeats as Int
-        countRepeatsLabel.textColor = .black
+        countRepeatsLabel.textColor = UIColor.appColor(.text_black_white)
         countRepeatsLabel.text = String(count)
         countRepeatsLabel.textAlignment = .center
         return countRepeatsLabel
@@ -124,7 +124,8 @@ final class CardsSettingsView: UIView {
     
     // MARK:- Setup layout
     fileprivate func setupLayout() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor.appColor(.white_lightgray)
+//        self.backgroundColor = .white
         self.layer.cornerRadius = 23
     }
     

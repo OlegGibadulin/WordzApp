@@ -13,23 +13,32 @@ final class CardLoadingView: UIView {
     }
     
     fileprivate func setupLayout() {
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         self.layer.cornerRadius = 23
     }
     
     fileprivate func setupAnimationView() {
         let width: CGFloat = self.frame.width
         let height: CGFloat = self.frame.height
-        let activitySide: CGFloat = width / 2
+        let activitySide: CGFloat = width / 1.15
         
-        animationView = .init(name: "loading_animation")
+        if (traitCollection.userInterfaceStyle == .dark) {
+            animationView = .init(name: "loading_animation_dark")
+        } else {
+            animationView = .init(name: "loading_animation")
+        }
+        
         animationView.frame = CGRect(x: (width - activitySide) / 2 , y: (height - activitySide) / 2.25, width: activitySide, height: activitySide)
         animationView.contentMode = .scaleAspectFit
+        animationView.backgroundColor = UIColor.appColor(.white_lightgray)
         animationView.loopMode = .loop
         animationView.animationSpeed = 1
         animationView.play()
         self.addSubview(animationView)
         startLoading()
+        if traitCollection.userInterfaceStyle == .dark {
+            print("kek")
+        }
     }
     
     fileprivate func setupImage() {

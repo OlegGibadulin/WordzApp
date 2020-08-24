@@ -28,7 +28,8 @@ class CardSettingsViewController: UIViewController {
     
     fileprivate let blackoutView: UIView = {
         let bv = UIView()
-        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        bv.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+//        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
         bv.alpha = 0
         return bv
     }()

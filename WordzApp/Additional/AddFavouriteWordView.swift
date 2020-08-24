@@ -34,9 +34,9 @@ final class AddFavouriteWordView: UIView {
     let cancelButton: UIButton = {
         let cancelButton = UIButton()
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        cancelButton.backgroundColor = .white
+        cancelButton.backgroundColor = UIColor.appColor(.button_white_lightgray)
         cancelButton.setTitle("Cancel", for: .normal)
-        cancelButton.setTitleColor(#colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1), for: .normal)
+        cancelButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         cancelButton.setTitleColor(#colorLiteral(red: 0.4800369955, green: 0.4956656678, blue: 1, alpha: 1), for: .highlighted)
         return cancelButton
     }()
@@ -44,6 +44,7 @@ final class AddFavouriteWordView: UIView {
     let wordTextField: UITextField = {
        let wordTextField = UITextField()
         wordTextField.placeholder = "Слово"
+        wordTextField.backgroundColor = UIColor.appColor(.white_lightgray)
         wordTextField.borderStyle = .roundedRect
         wordTextField.translatesAutoresizingMaskIntoConstraints = false
         return wordTextField
@@ -53,6 +54,7 @@ final class AddFavouriteWordView: UIView {
        let translateTextField = UITextField()
         translateTextField.placeholder = "Перевод"
         translateTextField.borderStyle = .roundedRect
+        translateTextField.backgroundColor = UIColor.appColor(.white_lightgray)
         translateTextField.translatesAutoresizingMaskIntoConstraints = false
         return translateTextField
     }()
@@ -83,7 +85,7 @@ final class AddFavouriteWordView: UIView {
     }
     
     private func setupLayout() {
-        self.backgroundColor = .white
+        self.backgroundColor = UIColor.appColor(.white_lightgray)
         self.layer.cornerRadius = 23
         self.clipsToBounds = true
     }
@@ -105,7 +107,8 @@ final class AddFavouriteWordView: UIView {
         titleLabel.adjustsFontSizeToFitWidth = true
         titleLabel.font = UIFont.systemFont(ofSize: 24, weight: .light)
         titleLabel.textAlignment = .center
-        titleLabel.backgroundColor = .white
+        titleLabel.textColor = UIColor.appColor(.text_darkgrayX2_lightgray)
+        titleLabel.backgroundColor = UIColor.appColor(.button_white_lightgray)
         
         titleStackView = UIStackView(arrangedSubviews: [titleLabel])
         titleStackView.translatesAutoresizingMaskIntoConstraints = false

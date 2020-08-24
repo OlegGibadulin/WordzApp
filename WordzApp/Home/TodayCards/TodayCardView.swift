@@ -130,7 +130,7 @@ class TodayCardView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .lightBlue
+        backgroundColor = UIColor.appColor(.lightblue_darkblue)
         
         setupBarsStackView()
         

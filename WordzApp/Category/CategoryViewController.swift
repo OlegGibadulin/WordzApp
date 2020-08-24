@@ -103,9 +103,7 @@ class CategoryViewController: UIViewController {
                 presentAlert(title: "Информация", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
             } else {
                 let additionalAction = UIAlertAction(title: "Сбросить", style: .destructive) { (alert) in
-                    print("\n\n\n\n\(sentencesInTableView)")
                     CoreDataManager.shared.resetStatisticSentences(category: self.category)
-                    print("\n\n\n\n\(sentencesInTableView)")
                     print("Сброс статистики")
                 }
                 presentAlert(title: "Информация", text: "Поздравляем! Вы выучили почти все слова из выбранной категории\nВы можете сбросить статистику по словам из данной категории, чтобы вы могли повторить снова", additionalAction: additionalAction)
@@ -115,7 +113,7 @@ class CategoryViewController: UIViewController {
     
     private func setupLayout() {
         safeArea = view.layoutMarginsGuide
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor.appColor(.white_lightgray)
         
         view.addSubview(tableView)
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)

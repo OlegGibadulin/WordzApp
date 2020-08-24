@@ -59,7 +59,7 @@ final class CardView: UIView {
     }
     
     fileprivate func setupLayout() {
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         self.layer.cornerRadius = 23
         self.clipsToBounds = false
     }
