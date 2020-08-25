@@ -1,8 +1,10 @@
 import UIKit
 
 class CardSettingsViewController: UIViewController {
-
-   var keyWindow: UIWindow? {
+    
+    public var category: Category?
+    
+    var keyWindow: UIWindow? {
         didSet {
             guard let window = keyWindow else { return }
             
@@ -21,13 +23,14 @@ class CardSettingsViewController: UIViewController {
     fileprivate let blackoutView: UIView = {
         let bv = UIView()
         bv.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-//        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        //        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
         bv.alpha = 0
         return bv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsView.category = category
         setupGestures()
     }
     
@@ -71,7 +74,7 @@ class CardSettingsViewController: UIViewController {
     fileprivate func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hide))
         blackoutView.addGestureRecognizer(tapGesture)
-
+        
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         settingsView.addGestureRecognizer(panGesture)
     }
@@ -120,5 +123,5 @@ class CardSettingsViewController: UIViewController {
             }, completion: nil)
         }
     }
-
+    
 }

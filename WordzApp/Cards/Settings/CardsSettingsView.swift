@@ -10,6 +10,8 @@ import UIKit
 
 final class CardsSettingsView: UIView {
     
+    public var category: Category?
+    
     // MARK:- Line 1 variables
     fileprivate var firstLineStackView: UIStackView!
     fileprivate let сardsInPackLabel : UILabel = {
@@ -266,7 +268,7 @@ final class CardsSettingsView: UIView {
     }
     
     @objc func resetProgress(sender: UIButton) {
-        // TODO: :)
+        CoreDataManager.shared.resetStatisticSentences(category: self.category)
     }
     
     required init?(coder: NSCoder) {

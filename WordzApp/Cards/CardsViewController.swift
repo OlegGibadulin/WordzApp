@@ -295,6 +295,7 @@ final class CardsViewController: UIViewController {
     
     fileprivate lazy var settingsViewController: CardSettingsViewController = {
         let svc = CardSettingsViewController()
+        svc.category = category
         svc.keyWindow = self.view.window
         return svc
     }()
