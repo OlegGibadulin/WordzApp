@@ -48,7 +48,7 @@ final class CardsViewController: UIViewController {
     private let swipeLeftButton: UIButton = {
         let swipeLeftButton = UIButton()
         swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
-        swipeLeftButton.setTitle("I don't know\nthis word", for: .normal)
+        swipeLeftButton.setTitle("Я не знаю\nэто слово", for: .normal)
         swipeLeftButton.titleLabel?.numberOfLines = 2
         swipeLeftButton.setTitleColor(#colorLiteral(red: 0.006038194057, green: 0.06411762536, blue: 0.6732754707, alpha: 1), for: .highlighted)
         swipeLeftButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
@@ -65,7 +65,7 @@ final class CardsViewController: UIViewController {
     private let swipeRightButton: UIButton = {
         let swipeRightButton = UIButton()
         swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
-        swipeRightButton.setTitle("I know\nthis word", for: .normal)
+        swipeRightButton.setTitle("Я знаю\nэто слово", for: .normal)
         swipeRightButton.titleLabel?.numberOfLines = 2
         swipeRightButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)

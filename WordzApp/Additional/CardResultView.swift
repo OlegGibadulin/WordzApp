@@ -109,7 +109,7 @@ final class CardResultView: UIView {
         unfamilarLabel.text = "0"
         unfamilarLabel.textAlignment = .right
         unfamilarLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
-        unfamilarLabel.textColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
+        unfamilarLabel.textColor = UIColor.appColor(.red)
         unfamilarLabel.layer.shadowColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.7484749572)
         unfamilarLabel.layer.shadowRadius = 17
         unfamilarLabel.layer.shadowOpacity = 0.4
@@ -130,7 +130,7 @@ final class CardResultView: UIView {
         familarLabel.text = "0"
         familarLabel.textAlignment = .left
         familarLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
-        familarLabel.textColor = #colorLiteral(red: 0, green: 0.9494715333, blue: 0.02646498196, alpha: 1)
+        familarLabel.textColor = UIColor.appColor(.green)
         familarLabel.layer.shadowColor = #colorLiteral(red: 0.2941176471, green: 0.6235294342, blue: 0.1686274558, alpha: 0.75)
         familarLabel.layer.shadowRadius = 17
         familarLabel.layer.shadowOpacity = 0.4
@@ -151,8 +151,9 @@ final class CardResultView: UIView {
         finishButton.backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
         finishButton.titleLabel?.font = UIFont.systemFont(ofSize: 22, weight: .medium)
         finishButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        finishButton.setTitleColor(UIColor.appColor(.white_lightgray), for: .normal)
         finishButton.setTitleColor(#colorLiteral(red: 0.2548029721, green: 0.2934122682, blue: 0.6900398135, alpha: 1), for: .highlighted)
-        finishButton.setTitle("Finish", for: .normal)
+        finishButton.setTitle("Завершить", for: .normal)
         finishButton.layer.cornerRadius = 10
         finishButton.clipsToBounds = true
         
@@ -196,7 +197,7 @@ final class CardResultView: UIView {
         thirdLineStackView.topAnchor.constraint(equalTo: secondLineStackView.bottomAnchor, constant: 20).isActive = true
         unfamilarLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
         familarLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
-        finishButton.widthAnchor.constraint(equalToConstant: 102).isActive = true
+        finishButton.widthAnchor.constraint(equalToConstant: 130).isActive = true
         
         tmp2StackView.widthAnchor.constraint(equalTo: tmp1StackView.widthAnchor, multiplier: 1).isActive = true
         tmp4StackView.widthAnchor.constraint(equalTo: tmp3StackView.widthAnchor, multiplier: 1).isActive = true

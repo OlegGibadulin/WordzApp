@@ -15,7 +15,7 @@ final class CardsSettingsView: UIView {
     fileprivate let сardsInPackLabel : UILabel = {
         let cinp = UILabel()
         cinp.textColor = .black
-        cinp.text = "Слов в стопке: "
+        cinp.text = "Слов в стопке:"
         cinp.textAlignment = .left
         cinp.textColor = UIColor.appColor(.text_black_white)
         return cinp
@@ -53,7 +53,7 @@ final class CardsSettingsView: UIView {
     fileprivate var сardsRepeatsLabel : UILabel = {
         let сardsRepeatsLabel = UILabel()
         сardsRepeatsLabel.textColor = UIColor.appColor(.text_black_white)
-        сardsRepeatsLabel.text = "Повторов каждого слова: "
+        сardsRepeatsLabel.text = "Повторов усвоенного слова:"
         сardsRepeatsLabel.textAlignment = .left
         return сardsRepeatsLabel
     }()
@@ -189,7 +189,7 @@ final class CardsSettingsView: UIView {
         countCardsLabel.translatesAutoresizingMaskIntoConstraints = false
         minusCardsCountButton.translatesAutoresizingMaskIntoConstraints = false
         
-        plusCardsCountButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
+        plusCardsCountButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         countCardsLabel.rightAnchor.constraint(equalTo: plusCardsCountButton.leftAnchor, constant: -10).isActive = true
         minusCardsCountButton.rightAnchor.constraint(equalTo: countCardsLabel.leftAnchor, constant: -10).isActive = true
         plusCardsCountButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
@@ -203,7 +203,7 @@ final class CardsSettingsView: UIView {
         plusCardsRepeatsButton.translatesAutoresizingMaskIntoConstraints = false
         minusCardsRepeatsButton.translatesAutoresizingMaskIntoConstraints = false
         
-        plusCardsRepeatsButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
+        plusCardsRepeatsButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         countRepeatsLabel.rightAnchor.constraint(equalTo: plusCardsCountButton.leftAnchor, constant: -10).isActive = true
         minusCardsRepeatsButton.rightAnchor.constraint(equalTo: countCardsLabel.leftAnchor, constant: -10).isActive = true
         

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F32E224D01B1A006C8482 /* CardResultView.swift */; };
-		774AB98E24F418BC006EA997 /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 774AB98D24F418BC006EA997 /* loading_animation.json */; };
+		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
 		774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 774AB98F24F41963006EA997 /* loading_animation_dark.json */; };
 		776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C28CC24F40D5D00556AE2 /* SchemeColor.swift */; };
 		777251AC24EEA69100A8697D /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777251AB24EEA69100A8697D /* CardSettingsViewController.swift */; };
@@ -66,7 +66,7 @@
 /* Begin PBXFileReference section */
 		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
 		773F32E224D01B1A006C8482 /* CardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultView.swift; sourceTree = "<group>"; };
-		774AB98D24F418BC006EA997 /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = loading_animation.json; path = ../../../Downloads/loading_animation.json; sourceTree = "<group>"; };
+		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		774AB98F24F41963006EA997 /* loading_animation_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation_dark.json; sourceTree = "<group>"; };
 		776C28CC24F40D5D00556AE2 /* SchemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeColor.swift; sourceTree = "<group>"; };
 		777251AB24EEA69100A8697D /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
@@ -196,7 +196,7 @@
 		C41F63A824B472560051FD7B /* WordzApp */ = {
 			isa = PBXGroup;
 			children = (
-				774AB98D24F418BC006EA997 /* loading_animation.json */,
+				7746EBEE24F4F52800084A2F /* loading_animation.json */,
 				774AB98F24F41963006EA997 /* loading_animation_dark.json */,
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
@@ -401,7 +401,7 @@
 				C41F63B324B472570051FD7B /* Assets.xcassets in Resources */,
 				C41F63B124B472560051FD7B /* Main.storyboard in Resources */,
 				774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */,
-				774AB98E24F418BC006EA997 /* loading_animation.json in Resources */,
+				7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
