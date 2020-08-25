@@ -39,23 +39,30 @@ class SettingsViewController: UIViewController {
     }
     
     func show() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+        self.settingsView.isHidden = false
+        
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
             self.blackoutView.alpha = 1
             self.setInitialPosition()
             
-        }, completion: nil)
+        }, completion: { (_) in
+            self.blackoutView.isUserInteractionEnabled = true
+        })
     }
     
     @objc fileprivate func hide() {
         guard let window = keyWindow else { return }
         
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
             self.blackoutView.alpha = 0
             self.settingsView.frame = CGRect(x: 0, y: window.frame.height, width: self.settingsView.frame.width, height: self.settingsView.frame.height)
             
-        }, completion: nil)
+        }, completion: { (_) in
+            self.blackoutView.isUserInteractionEnabled = false
+            self.settingsView.isHidden = true
+        })
     }
     
     fileprivate func setInitialPosition() {
