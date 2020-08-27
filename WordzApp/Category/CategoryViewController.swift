@@ -19,6 +19,7 @@ class CategoryViewController: UIViewController {
         addButton.backgroundColor = .blue
         addButton.layer.cornerRadius = 8
         addButton.setTitle("Add", for: .normal)
+        addButton.setTitleColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), for: .highlighted)
         return addButton
     }()
     
