@@ -355,6 +355,10 @@ extension CardsViewController: CardInteractionController {
     }
     
     internal func returnBack() {
+        DispatchQueue.global(qos: .utility).async {
+            StatisticCollector.addToStatistic(unfamilarWords: self.result.unfamilarWords,
+                                              familarWords: self.result.familarWords)
+        }
         circle1.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }

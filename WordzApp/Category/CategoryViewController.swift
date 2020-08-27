@@ -54,6 +54,7 @@ class CategoryViewController: UIViewController {
     }
     
     @objc fileprivate func handleToCards() {
+        print("\(StatisticCollector.swipesToLeft!) \(StatisticCollector.swipesToRight!) \(StatisticCollector.totalSwipes!)")
         let cardViewController = CardsViewController()
         cardViewController.category = category
         
