@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -55,6 +55,10 @@
 		C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */; };
 		C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */; };
 		C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */; };
+		C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215124F6B924009D0947 /* PurchasesViewController.swift */; };
+		C4F2215524F946EA009D0947 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4F2215424F946EA009D0947 /* SwiftyStoreKit */; };
+		C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */; };
+		C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */; };
 		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
 		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
 		C4F37F3C24B5F68800D7807D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3B24B5F68800D7807D /* Category.swift */; };
@@ -114,6 +118,9 @@
 		C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIImage.swift"; sourceTree = "<group>"; };
 		C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		C4F2215124F6B924009D0947 /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
+		C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
+		C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchasesViewController+Alert.swift"; sourceTree = "<group>"; };
 		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3B24B5F68800D7807D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -126,6 +133,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7FBF5881BE7900F01175F49 /* Pods_WordzApp.framework in Frameworks */,
+				C4F2215524F946EA009D0947 /* SwiftyStoreKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,16 +195,17 @@
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
+				C4F2215024F6B81B009D0947 /* In-App Purchases */,
 				C4660C3224C99E5E00658073 /* Additional */,
 				C41362C824DEDBF10008CCD8 /* Storage */,
 				C4C3461624CB40D90030D8C3 /* CoreDataManager */,
 				C47585B924C844B8008199E2 /* Home */,
 				C40384C924EBCBF100675C08 /* HomeBackgroundHeaderView.swift */,
 				C4306D9B24DD6C4D00223561 /* HomeViewController.swift */,
+				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C47585BA24C844D3008199E2 /* Category */,
 				C47585BB24C844E1008199E2 /* Cards */,
 				C41F63AF24B472560051FD7B /* Main.storyboard */,
-				C41F63B224B472570051FD7B /* Assets.xcassets */,
 				C41F63B424B472570051FD7B /* LaunchScreen.storyboard */,
 				C41F63B724B472570051FD7B /* Info.plist */,
 				C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */,
@@ -314,6 +323,16 @@
 			path = TodayCards;
 			sourceTree = "<group>";
 		};
+		C4F2215024F6B81B009D0947 /* In-App Purchases */ = {
+			isa = PBXGroup;
+			children = (
+				C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */,
+				C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */,
+				C4F2215124F6B924009D0947 /* PurchasesViewController.swift */,
+			);
+			path = "In-App Purchases";
+			sourceTree = "<group>";
+		};
 		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +359,9 @@
 			dependencies = (
 			);
 			name = WordzApp;
+			packageProductDependencies = (
+				C4F2215424F946EA009D0947 /* SwiftyStoreKit */,
+			);
 			productName = WordzApp;
 			productReference = C41F63A624B472560051FD7B /* WordzApp.app */;
 			productType = "com.apple.product-type.application";
@@ -368,6 +390,9 @@
 				Base,
 			);
 			mainGroup = C41F639D24B472560051FD7B;
+			packageReferences = (
+				C4F2215324F946EA009D0947 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */,
+			);
 			productRefGroup = C41F63A724B472560051FD7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -453,7 +478,7 @@
 				C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */,
 				C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */,
 				C40384CA24EBCBF100675C08 /* HomeBackgroundHeaderView.swift in Sources */,
-				C40384CA24EBCBF100675C08 /* HeaderView.swift in Sources */,
+				C40384CA24EBCBF100675C08 /* HomeBackgroundHeaderView.swift in Sources */,
 				7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */,
 				C4348EED24DF4E9F00102967 /* Storage+Sentence.swift in Sources */,
 				C40384CD24EBFD1000675C08 /* TodayCardsViewController.swift in Sources */,
@@ -462,11 +487,13 @@
 				C438ABDD24CFFDBC0043D234 /* CardsConfigurationView.swift in Sources */,
 				C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* LoadingView.swift in Sources */,
+				C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
 				C4348EEA24DF4C8600102967 /* Storage+Level.swift in Sources */,
 				C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */,
+				C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */,
 				C4C3461824CB41120030D8C3 /* CoreDataManager+Category.swift in Sources */,
 				7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */,
 				C47EF66824E9203C006F5971 /* Architecture.swift in Sources */,
@@ -476,6 +503,7 @@
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
+				C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C41F63C024B493AC0051FD7B /* HomeCollectionViewHeader.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
@@ -687,6 +715,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C4F2215324F946EA009D0947 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/bizz84/SwiftyStoreKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.16.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C4F2215424F946EA009D0947 /* SwiftyStoreKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4F2215324F946EA009D0947 /* XCRemoteSwiftPackageReference "SwiftyStoreKit" */;
+			productName = SwiftyStoreKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */ = {
