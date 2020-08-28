@@ -46,6 +46,8 @@ class SettingsView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
+        
+//        segmentedControl.isEnabledForSegment(at: 2) = true
     }
 
     fileprivate func setupLayout() {
@@ -66,9 +68,19 @@ class SettingsView: UIView {
         overallStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 40, left: .sideMargin, bottom: 0, right: .sideMargin))
     }
     
+    fileprivate lazy var purchaseViewController: ProVersionPurchaseViewController = {
+        let pvc = ProVersionPurchaseViewController()
+        pvc.keyWindow = self.window
+        return pvc
+    }()
+    
     @objc fileprivate func handleSegmentChange() {
         let defaults = UserDefaults.standard
         defaults.set(self.segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
+        
+        if segmentedControl.selectedSegmentIndex == 2 {
+            purchaseViewController.show()
+        }
     }
     
     required init?(coder: NSCoder) {

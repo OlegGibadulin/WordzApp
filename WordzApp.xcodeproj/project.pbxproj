@@ -59,6 +59,9 @@
 		C4F2215524F946EA009D0947 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4F2215424F946EA009D0947 /* SwiftyStoreKit */; };
 		C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */; };
 		C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */; };
+		C4F2215C24F96494009D0947 /* ProVersionPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215B24F96494009D0947 /* ProVersionPurchaseView.swift */; };
+		C4F2216024F99345009D0947 /* ProVersionPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215F24F99345009D0947 /* ProVersionPurchaseViewController.swift */; };
+		C4F2216224F9AF60009D0947 /* BenefitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2216124F9AF60009D0947 /* BenefitsTableViewCell.swift */; };
 		C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */; };
 		C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */; };
 		C4F37F3C24B5F68800D7807D /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F37F3B24B5F68800D7807D /* Category.swift */; };
@@ -121,6 +124,9 @@
 		C4F2215124F6B924009D0947 /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
 		C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
 		C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchasesViewController+Alert.swift"; sourceTree = "<group>"; };
+		C4F2215B24F96494009D0947 /* ProVersionPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVersionPurchaseView.swift; sourceTree = "<group>"; };
+		C4F2215F24F99345009D0947 /* ProVersionPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVersionPurchaseViewController.swift; sourceTree = "<group>"; };
+		C4F2216124F9AF60009D0947 /* BenefitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsTableViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3724B5048500D7807D /* CategoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewController.swift; sourceTree = "<group>"; };
 		C4F37F3924B5051600D7807D /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C4F37F3B24B5F68800D7807D /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -195,8 +201,8 @@
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
-				C4F2215024F6B81B009D0947 /* In-App Purchases */,
 				C4660C3224C99E5E00658073 /* Additional */,
+				C4F2215024F6B81B009D0947 /* In-App Purchases */,
 				C41362C824DEDBF10008CCD8 /* Storage */,
 				C4C3461624CB40D90030D8C3 /* CoreDataManager */,
 				C47585B924C844B8008199E2 /* Home */,
@@ -326,11 +332,22 @@
 		C4F2215024F6B81B009D0947 /* In-App Purchases */ = {
 			isa = PBXGroup;
 			children = (
+				C4F2215A24F9643B009D0947 /* ProVersionPurchase */,
 				C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */,
 				C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */,
 				C4F2215124F6B924009D0947 /* PurchasesViewController.swift */,
 			);
 			path = "In-App Purchases";
+			sourceTree = "<group>";
+		};
+		C4F2215A24F9643B009D0947 /* ProVersionPurchase */ = {
+			isa = PBXGroup;
+			children = (
+				C4F2216124F9AF60009D0947 /* BenefitsTableViewCell.swift */,
+				C4F2215B24F96494009D0947 /* ProVersionPurchaseView.swift */,
+				C4F2215F24F99345009D0947 /* ProVersionPurchaseViewController.swift */,
+			);
+			path = ProVersionPurchase;
 			sourceTree = "<group>";
 		};
 		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
@@ -471,6 +488,7 @@
 				C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */,
 				C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */,
 				C4306DA624DDBDF100223561 /* SettingsView.swift in Sources */,
+				C4F2215C24F96494009D0947 /* ProVersionPurchaseView.swift in Sources */,
 				7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */,
 				77F02D6E24B639E600F15519 /* Word.swift in Sources */,
 				C4348EE824DF4C3300102967 /* Storage+Category.swift in Sources */,
@@ -501,6 +519,7 @@
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */,
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
+				C4F2216024F99345009D0947 /* ProVersionPurchaseViewController.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */,
@@ -512,6 +531,7 @@
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,
 				C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */,
 				C41F63AC24B472560051FD7B /* SceneDelegate.swift in Sources */,
+				C4F2216224F9AF60009D0947 /* BenefitsTableViewCell.swift in Sources */,
 				C4F37F3C24B5F68800D7807D /* Category.swift in Sources */,
 				C401EA8E24BB580E00FB116F /* MainTabBarController.swift in Sources */,
 			);

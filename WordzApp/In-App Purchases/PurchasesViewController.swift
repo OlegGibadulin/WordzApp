@@ -20,9 +20,9 @@ enum RegisteredPurchase: String {
 
 class PurchasesViewController: UIViewController {
     
-    let appBundleId = "bundle id of project"
+    fileprivate let appBundleId = "bundle id of project"
     
-    var ProVersion = RegisteredPurchase.ProVersion
+    fileprivate var ProVersion = RegisteredPurchase.ProVersion
 
     override func viewDidLoad() {
         super.viewDidLoad()
