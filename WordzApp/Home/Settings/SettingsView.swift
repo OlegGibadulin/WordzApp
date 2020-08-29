@@ -74,12 +74,20 @@ class SettingsView: UIView {
         return pvc
     }()
     
-    @objc fileprivate func handleSegmentChange() {
+    fileprivate var prevSegmentIndex: Int = {
         let defaults = UserDefaults.standard
-        defaults.set(self.segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
-        
+        return defaults.integer(forKey: "LevelIndex")
+    }()
+    
+    @objc fileprivate func handleSegmentChange() {
         if segmentedControl.selectedSegmentIndex == 2 {
+            // Advanced level is in pro version of app
+            segmentedControl.selectedSegmentIndex = prevSegmentIndex
             purchaseViewController.show()
+        } else {
+            prevSegmentIndex = segmentedControl.selectedSegmentIndex
+            let defaults = UserDefaults.standard
+            defaults.set(segmentedControl.selectedSegmentIndex, forKey: "LevelIndex")
         }
     }
     
