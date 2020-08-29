@@ -10,8 +10,9 @@ final class CardsViewController: UIViewController {
     // MARK:- Outlets
     public var category: Category?
     
-    private var sentences = [Sentence]()
-
+    public var sentences = [Sentence]()
+    public var learnedSentences = [Sentence]()
+    
     private var tmp1StackView: UIStackView!
     private var cardContentStackView: UIStackView!
     private var cardButtonsStackView: UIStackView!
@@ -24,7 +25,7 @@ final class CardsViewController: UIViewController {
         backButton.setImage(UIImage(named: "leftArrowFatIcon"), for: .normal)
         backButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         backButton.layer.cornerRadius = 8
-        backButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
+        backButton.layer.shadowColor = UIColor.appColor(.buttonShadow_purple_darkpurple)?.cgColor
         backButton.layer.shadowRadius = 3
         backButton.layer.shadowOpacity = 0.5
         backButton.layer.shadowOffset = CGSize(width: 0, height: 2)
@@ -32,7 +33,7 @@ final class CardsViewController: UIViewController {
     }()
     
     private let settingsButton: UIButton = {
-       let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
+        let settingsButton = UIButton(frame: CGRect(x: 0, y: 0, width: 33, height: 33))
         settingsButton.setImage(UIImage(named: "threePointsIcon"), for: .normal)
         settingsButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         settingsButton.layer.cornerRadius = 8
@@ -47,7 +48,7 @@ final class CardsViewController: UIViewController {
     private let swipeLeftButton: UIButton = {
         let swipeLeftButton = UIButton()
         swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
-        swipeLeftButton.setTitle("I don't know\nthis word", for: .normal)
+        swipeLeftButton.setTitle("Я не знаю\nэто слово", for: .normal)
         swipeLeftButton.titleLabel?.numberOfLines = 2
         swipeLeftButton.setTitleColor(#colorLiteral(red: 0.006038194057, green: 0.06411762536, blue: 0.6732754707, alpha: 1), for: .highlighted)
         swipeLeftButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
@@ -64,11 +65,11 @@ final class CardsViewController: UIViewController {
     private let swipeRightButton: UIButton = {
         let swipeRightButton = UIButton()
         swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
-        swipeRightButton.setTitle("I know\nthis word", for: .normal)
+        swipeRightButton.setTitle("Я знаю\nэто слово", for: .normal)
         swipeRightButton.titleLabel?.numberOfLines = 2
-        swipeRightButton.setTitleColor(#colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1), for: .normal)
+        swipeRightButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
-        swipeRightButton.backgroundColor = .white
+        swipeRightButton.backgroundColor = UIColor.appColor(.button_white_lightgray)
         swipeRightButton.clipsToBounds = false
         swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
         swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
@@ -79,20 +80,14 @@ final class CardsViewController: UIViewController {
     }()
     
     private var circle1 : UIView!
-    private var loadingView: LoadingView!
+    private var loadingView: CardLoadingView!
     
     private var result = (unfamilarWords: 0, familarWords: 0)
     
     private var cardsView = [CardView]()
     private var oneCardView: CardResultView!
     
-    private var words = [
-        Word(word: "develop", translate: "разрабатывать"),
-        Word(word: "imagine", translate: "воображать"),
-        Word(word: "confirmation", translate: "подтверждение"),
-        Word(word: "to go away", translate: "уходить"),
-        Word(word: "calling", translate: "зовущий"),
-    ]
+    public var words = [Word]()
     
     //MARK:- viewDidLoad
     override func viewDidLoad() {
@@ -119,15 +114,15 @@ final class CardsViewController: UIViewController {
         cardContentStackView.addSubview(oneCardView)
         oneCardView.finishButton.isEnabled = false
         
-        for i in 1..<words.count-1 {
-            let number1 = Int.random(in: 1..<words.count-1)
-            let tmp = words[i]
-            words[i] = words[number1]
-            words[number1] = tmp
+        for i in 0..<sentences.count-1 {
+            let number1 = Int.random(in: 0..<sentences.count-1)
+            let tmp = sentences[i]
+            sentences[i] = sentences[number1]
+            sentences[number1] = tmp
         }
         
-        words.forEach { (word) in
-            let cardView = CardView(frame: frame, word: word, view: self)
+        sentences.forEach { (sentence) in
+            let cardView = CardView(frame: frame, sentence: sentence, view: self)
             cardView.setupLabels()
             cardView.isHidden = true
             self.cardsView.append(cardView)
@@ -155,7 +150,7 @@ final class CardsViewController: UIViewController {
     private func performActionWithLoadingView(isNeedToShow state: Bool) {
         if (state == true) {
             let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            loadingView = LoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
+            loadingView = CardLoadingView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height))
             window?.addSubview(loadingView)
         } else {
             loadingView.stopLoading()
@@ -175,7 +170,7 @@ final class CardsViewController: UIViewController {
     
     // MARK:- Setups
     private func setupLayout() {
-        self.view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        self.view.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         setupDesign()
     }
     
@@ -240,7 +235,7 @@ final class CardsViewController: UIViewController {
         swipeRightButton.addTarget(self, action: #selector(swipeRight), for: .touchUpInside)
         
         cardButtonsStackView = UIStackView(arrangedSubviews: [swipeLeftButton, swipeRightButton])
-
+        
         cardButtonsStackView.axis = .horizontal
         cardButtonsStackView.distribution = .fillProportionally
         cardButtonsStackView.spacing = 0
@@ -298,40 +293,17 @@ final class CardsViewController: UIViewController {
         }
     }
     
-    // MARK: Setting View Realization
-    private var transparentView = UIView()
-    private var cardsConfiguration = CardsConfigurationView()
+    fileprivate lazy var settingsViewController: CardSettingsViewController = {
+        let svc = CardSettingsViewController()
+        svc.category = category
+        svc.keyWindow = self.view.window
+        return svc
+    }()
+    
+    @objc fileprivate func settingsButtonTapped(sender: UIButton) {
+        settingsViewController.show()
+    }
     private let screenSize = UIScreen.main.bounds.size
-    private let heightTable: CGFloat = 250
-    
-    @objc
-    private func settingsButtonTapped(sender: UIButton) {
-        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        transparentView.frame = self.view.frame
-        transparentView.alpha = 0
-        cardsConfiguration.backgroundColor = .white
-        window?.addSubview(transparentView)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOnTranspaerntView))
-        transparentView.addGestureRecognizer(tapGesture)
-        
-        cardsConfiguration.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: heightTable)
-        window?.addSubview(cardsConfiguration)
-        
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height - self.heightTable, width: self.screenSize.width, height: self.heightTable)
-        }, completion: nil)
-    }
-    
-    @objc
-    func tapOnTranspaerntView() {
-        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.transparentView.alpha = 0
-            self.cardsConfiguration.frame = CGRect(x: 0, y: self.screenSize.height, width: self.screenSize.width, height: self.heightTable)
-        }, completion: nil)
-    }
 }
 
 
@@ -345,11 +317,7 @@ extension CardsViewController: CardInteractionController {
     }
     
     internal func updateSwipedCard(isFamilarWordSwiped: Bool) {
-        if isFamilarWordSwiped == true {
-            result.familarWords += 1
-        } else {
-            result.unfamilarWords += 1
-        }
+        
         
         if cardsView.count > 0 {
             cardsView[cardsView.count - 1].isHidden = false
@@ -363,18 +331,34 @@ extension CardsViewController: CardInteractionController {
             cardsView[cardsView.count - 3].isHidden = false
         }
         
-        cardsView.popLast()
+        let card = cardsView.popLast()
         
-        cardsView.last?.isUserInteractionEnabled = true
+        if isFamilarWordSwiped == true {
+            result.familarWords += 1
+            if let card = card {
+                learnedSentences.append(card.Sentence)
+            }
+        } else {
+            result.unfamilarWords += 1
+        }
         
         if cardsView.count < 1 {
             oneCardView.finishButton.isEnabled = true
+            CoreDataManager.shared.learnSentences(sentences: learnedSentences)
+            print(learnedSentences)
         }
-            
+        
+        cardsView.last?.isUserInteractionEnabled = true
+        
+        
         oneCardView.updateLabel(message: result)
     }
     
     internal func returnBack() {
+        DispatchQueue.global(qos: .utility).async {
+            StatisticCollector.addToStatistic(unfamilarWords: self.result.unfamilarWords,
+                                              familarWords: self.result.familarWords)
+        }
         circle1.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }

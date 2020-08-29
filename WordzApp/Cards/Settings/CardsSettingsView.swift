@@ -8,15 +8,18 @@
 
 import UIKit
 
-final class CardsConfigurationView: UIView {
+final class CardsSettingsView: UIView {
+    
+    public var category: Category?
     
     // MARK:- Line 1 variables
     fileprivate var firstLineStackView: UIStackView!
     fileprivate let сardsInPackLabel : UILabel = {
         let cinp = UILabel()
-        cinp.text = "Слов в стопке: "
+        cinp.textColor = .black
+        cinp.text = "Количество карточек"
         cinp.textAlignment = .left
-        
+        cinp.textColor = UIColor.appColor(.text_black_white)
         return cinp
     }()
     
@@ -24,6 +27,7 @@ final class CardsConfigurationView: UIView {
         let countCardsLabel = UILabel()
         let count = CardsSettings.сardsInPack as Int
         countCardsLabel.text = String(count)
+        countCardsLabel.textColor = UIColor.appColor(.text_black_white)
         countCardsLabel.textAlignment = .center
         return countCardsLabel
     }()
@@ -50,7 +54,8 @@ final class CardsConfigurationView: UIView {
     fileprivate var secondLineStackView: UIStackView!
     fileprivate var сardsRepeatsLabel : UILabel = {
         let сardsRepeatsLabel = UILabel()
-        сardsRepeatsLabel.text = "Повторов каждого слова: "
+        сardsRepeatsLabel.textColor = UIColor.appColor(.text_black_white)
+        сardsRepeatsLabel.text = "Количество повторов"
         сardsRepeatsLabel.textAlignment = .left
         return сardsRepeatsLabel
     }()
@@ -58,6 +63,7 @@ final class CardsConfigurationView: UIView {
     fileprivate var countRepeatsLabel : UILabel = {
         let countRepeatsLabel = UILabel()
         let count = CardsSettings.сardsRepeats as Int
+        countRepeatsLabel.textColor = UIColor.appColor(.text_black_white)
         countRepeatsLabel.text = String(count)
         countRepeatsLabel.textAlignment = .center
         return countRepeatsLabel
@@ -120,6 +126,8 @@ final class CardsConfigurationView: UIView {
     
     // MARK:- Setup layout
     fileprivate func setupLayout() {
+        self.backgroundColor = UIColor.appColor(.white_lightgray)
+//        self.backgroundColor = .white
         self.layer.cornerRadius = 23
     }
     
@@ -163,17 +171,19 @@ final class CardsConfigurationView: UIView {
     
     fileprivate func setupOverallStackview() {
         let view1 = UIView()
+//        view1.backgroundColor = .green
         let view2 = UIView()
-        let view3 = UIView()
+//        let view3 = UIView()
+//        view2.backgroundColor = .yellow
         
-        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view1, secondLineStackView, view2, thirdLineStackView, view3])
+        overallStackView = UIStackView(arrangedSubviews: [firstLineStackView, view1, secondLineStackView, view2, thirdLineStackView])
         overallStackView.spacing = 10
         overallStackView.axis = .vertical
         overallStackView.distribution = .fillProportionally
         
         self.addSubview(overallStackView)
         
-        overallStackView.fillSuperview(padding: .init(top: 30, left: 20, bottom: 100, right: 15))
+        overallStackView.fillSuperview(padding: .init(top: 30, left: 20, bottom: 355, right: 15))
     }
     
     fileprivate func setupAnchors() {
@@ -181,7 +191,7 @@ final class CardsConfigurationView: UIView {
         countCardsLabel.translatesAutoresizingMaskIntoConstraints = false
         minusCardsCountButton.translatesAutoresizingMaskIntoConstraints = false
         
-        plusCardsCountButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
+        plusCardsCountButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         countCardsLabel.rightAnchor.constraint(equalTo: plusCardsCountButton.leftAnchor, constant: -10).isActive = true
         minusCardsCountButton.rightAnchor.constraint(equalTo: countCardsLabel.leftAnchor, constant: -10).isActive = true
         plusCardsCountButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
@@ -195,7 +205,7 @@ final class CardsConfigurationView: UIView {
         plusCardsRepeatsButton.translatesAutoresizingMaskIntoConstraints = false
         minusCardsRepeatsButton.translatesAutoresizingMaskIntoConstraints = false
         
-        plusCardsRepeatsButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30).isActive = true
+        plusCardsRepeatsButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
         countRepeatsLabel.rightAnchor.constraint(equalTo: plusCardsCountButton.leftAnchor, constant: -10).isActive = true
         minusCardsRepeatsButton.rightAnchor.constraint(equalTo: countCardsLabel.leftAnchor, constant: -10).isActive = true
         
@@ -212,6 +222,7 @@ final class CardsConfigurationView: UIView {
         
         thirdLineStackView.translatesAutoresizingMaskIntoConstraints = false
         thirdLineStackView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        thirdLineStackView.topAnchor.constraint(equalTo: secondLineStackView.bottomAnchor, constant: -10)
     }
     
     // MARK:- Setup Targets For Buttons
@@ -257,7 +268,7 @@ final class CardsConfigurationView: UIView {
     }
     
     @objc func resetProgress(sender: UIButton) {
-        // TODO: :)
+        CoreDataManager.shared.resetStatisticSentences(category: self.category)
     }
     
     required init?(coder: NSCoder) {

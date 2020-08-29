@@ -1,14 +1,8 @@
-//
-//  SettingsViewController.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
-class SettingsViewController: UIViewController {
+class CardSettingsViewController: UIViewController {
+    
+    public var category: Category?
     
     var keyWindow: UIWindow? {
         didSet {
@@ -22,21 +16,21 @@ class SettingsViewController: UIViewController {
         }
     }
     
-    var delegate: SettingsViewDelegate?
+    fileprivate let height: CGFloat = 250
     
-    fileprivate let height: CGFloat = 200
-    
-    fileprivate let settingsView = SettingsView()
+    fileprivate let settingsView = CardsSettingsView()
     
     fileprivate let blackoutView: UIView = {
         let bv = UIView()
-        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        bv.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        //        bv.backgroundColor = UIColor(white: 0, alpha: 0.5)
         bv.alpha = 0
         return bv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        settingsView.category = category
         setupGestures()
     }
     
@@ -61,11 +55,11 @@ class SettingsViewController: UIViewController {
             self.blackoutView.alpha = 0
             self.settingsView.frame = CGRect(x: 0, y: window.frame.height, width: self.settingsView.frame.width, height: self.settingsView.frame.height)
             
+            
         }, completion: { (_) in
             self.blackoutView.isUserInteractionEnabled = false
             self.settingsView.isHidden = true
         })
-        delegate?.settingsViewWillDisappear()
     }
     
     fileprivate func setInitialPosition() {
@@ -80,7 +74,7 @@ class SettingsViewController: UIViewController {
     fileprivate func setupGestures() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hide))
         blackoutView.addGestureRecognizer(tapGesture)
-
+        
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePan))
         settingsView.addGestureRecognizer(panGesture)
     }
@@ -119,7 +113,7 @@ class SettingsViewController: UIViewController {
         if shouldHide {
             hide()
         } else {
-            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
                 
                 // Sometimes it also does not work because of the same issue
                 // self.settingsView.transform = .identity

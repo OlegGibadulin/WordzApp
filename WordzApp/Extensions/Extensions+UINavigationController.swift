@@ -13,7 +13,7 @@ extension UINavigationController {
     func transparentNavigationBar() {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.barStyle = .black
+        // navigationController?.navigationBar.barStyle = .black
     }
     
 }

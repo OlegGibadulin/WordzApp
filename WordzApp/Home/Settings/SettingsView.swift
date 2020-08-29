@@ -53,7 +53,7 @@ class SettingsView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         
         addSubview(topBar)
         topBar.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true

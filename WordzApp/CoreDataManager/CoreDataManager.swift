@@ -81,6 +81,62 @@ struct CoreDataManager {
         }
     }
     
+    func learnSentences(sentences: [Sentence]) {
+        let context = persistentContainer.viewContext
+        
+        sentences.forEach {(sentence) in
+            if sentence.learned < 6 {
+                sentence.learned += 1
+            }
+        }
+        
+        do {
+            try context.save()
+        } catch let editErr {
+            print("Failed to edit sentence:", editErr)
+        }
+    }
+    
+    func resetStatisticSentences(sentences: [Sentence]) {
+        let context = persistentContainer.viewContext
+        
+        sentences.forEach { (sentence) in
+            sentence.learned = 0
+            sentence.isLearned = false
+        }
+        
+        do {
+            try context.save()
+        } catch let editErr {
+            print("Failed to edit sentence:", editErr)
+        }
+    }
+    
+    func resetStatisticSentences(category: Category?) {
+        let context = persistentContainer.viewContext
+        
+        guard let categorySentences = category?.sentences?.allObjects as? [Sentence] else { return }
+        
+        categorySentences.forEach { (sentence) in
+            sentence.learned = 0
+            sentence.isLearned = false
+        }
+        
+        do {
+            try context.save()
+        } catch let editErr {
+            print("Failed to edit sentence:", editErr)
+        }
+    }
+    
+    func addFavouriteSentence(text: String, translation: [String]) -> Bool {
+        guard let category = CoreDataManager.shared.fetchCategory(title: Storage.shared.favouritesTitle) else {
+            return false
+        }
+        CoreDataManager.shared.addSentence(text: text, translation: translation, category: category)
+        return true
+    }
+    
     func favouriteSentence(sentence: Sentence) {
         let context = persistentContainer.viewContext
         

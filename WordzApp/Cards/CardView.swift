@@ -8,6 +8,15 @@
 
 import UIKit
 
+func toWordModel(sentence: Sentence) -> Word {
+    guard let text = sentence.text, let translates = sentence.translation else  {
+        return Word(word: "word", translate: ["слово"])
+    }
+    
+    let word = Word(word: text, translate: translates)
+    return word
+}
+
 final class CardView: UIView {
     static private let threshold: CGFloat = 100
     
@@ -16,7 +25,12 @@ final class CardView: UIView {
     private var isOpen = true
     private var textLabel: UILabel!
     private var wordSelfCard: Word!
+    private var sentence: Sentence!
     private var view: CardInteractionController!
+    
+    public var Sentence: Sentence {
+        sentence
+    }
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,15 +48,18 @@ final class CardView: UIView {
         addGestureRecognizer(singleTapGesture)
     }
     
-    required convenience init(frame: CGRect, word: Word, view: CardInteractionController) {
+    required convenience init(frame: CGRect, sentence: Sentence, view: CardInteractionController) {
         self.init(frame: frame)
         
-        self.wordSelfCard = word
+        self.sentence = sentence
+        self.wordSelfCard = toWordModel(sentence: sentence)
         self.view = view
+        
+        print("\(sentence.text) \(sentence.translation) \(sentence.learned) \(sentence.level)")
     }
     
     fileprivate func setupLayout() {
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         self.layer.cornerRadius = 23
         self.clipsToBounds = false
     }
@@ -59,7 +76,7 @@ final class CardView: UIView {
         textLabel.textColor = .white
         textLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
         textLabel.textAlignment = .center
-        textLabel.numberOfLines = 3
+        textLabel.numberOfLines = 5
         textLabel.textColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.allowsDefaultTighteningForTruncation = true
@@ -140,7 +157,9 @@ final class CardView: UIView {
     public func showAnotherTranslation() {
         if isOpen {
             isOpen = false
-            textLabel.text = wordSelfCard.translate
+            
+            textLabel.text = wordSelfCard.toStringTranslate
+//            textLabel.text = wordSelfCard.translate
             UIView.transition(with: self, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         } else {
             isOpen = true

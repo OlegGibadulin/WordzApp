@@ -94,6 +94,31 @@ extension CoreDataManager {
         }
     }
     
+    func addSentence(text: String, translation: [String]) {
+        let context = persistentContainer.viewContext
+        
+        let level = NSEntityDescription.insertNewObject(forEntityName: "Level", into: context) as! Level
+        level.setValue("Избранное", forKey: "title")
+        level.setValue(Calendar.current.today(), forKey: "uploadDate")
+        
+        let sentence = NSEntityDescription.insertNewObject(forEntityName: "Sentence", into: context) as! Sentence
+        
+        sentence.level = level
+        
+        sentence.setValue(text, forKey: "text")
+        sentence.setValue(translation, forKey: "translation")
+        sentence.setValue(false, forKey: "isLearned")
+        sentence.setValue(false, forKey: "isFavourite")
+        sentence.setValue(0, forKey: "learned")
+        sentence.setValue(Calendar.current.today(), forKey: "date")
+        
+        do {
+            try context.save()
+        } catch let saveErr {
+            print("Failed to save sentence: ", saveErr)
+        }
+    }
+    
     func fetchSentences(level: Level?) -> [Sentence] {
         guard let levelSentences = level?.sentences?.allObjects as? [Sentence] else { return [] }
         

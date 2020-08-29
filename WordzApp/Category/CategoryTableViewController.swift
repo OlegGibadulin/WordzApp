@@ -15,17 +15,22 @@ class CategoryTableViewController: UITableViewController {
     
     var category: Category?
     
-    private var sentences = [Sentence]()
+    public var sentences = [Sentence]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        
         fetchSentences()
         setupLayout()
         setupEmptyState()
+        
+    }
+    
+    func updateData() {
+        fetchSentences()
+        self.tableView.reloadData()
     }
     
     fileprivate func fetchSentences() {
@@ -39,8 +44,10 @@ class CategoryTableViewController: UITableViewController {
     }
     
     fileprivate func setupLayout() {
-        tableView.backgroundColor = .white
-        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.appColor(.white_lightgray)
+        let view = UIView()
+        view.backgroundColor = UIColor.appColor(.white_lightgray)
+        tableView.tableFooterView = view
         tableView.allowsSelection = false
     }
     
@@ -55,6 +62,8 @@ class CategoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! CategoryTableViewCell
         
+        cell.textLabel?.textColor = UIColor.appColor(.text_black_white)
+        cell.backgroundColor = UIColor.appColor(.white_lightgray)
         cell.sentence = sentences[indexPath.row]
 
         return cell
