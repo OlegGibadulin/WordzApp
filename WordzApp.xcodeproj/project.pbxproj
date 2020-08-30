@@ -11,6 +11,7 @@
 		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
 		7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748C1F924F7F08D007939CF /* StatisticCollector.swift */; };
 		774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 774AB98F24F41963006EA997 /* loading_animation_dark.json */; };
+		77589CFD24FC1841003B08D3 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77589CFC24FC1841003B08D3 /* House.swift */; };
 		776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C28CC24F40D5D00556AE2 /* SchemeColor.swift */; };
 		777251AC24EEA69100A8697D /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777251AB24EEA69100A8697D /* CardSettingsViewController.swift */; };
 		7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20B24EC030000555343 /* CardsUserDefaults.swift */; };
@@ -78,6 +79,7 @@
 		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		7748C1F924F7F08D007939CF /* StatisticCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCollector.swift; sourceTree = "<group>"; };
 		774AB98F24F41963006EA997 /* loading_animation_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation_dark.json; sourceTree = "<group>"; };
+		77589CFC24FC1841003B08D3 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		776C28CC24F40D5D00556AE2 /* SchemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeColor.swift; sourceTree = "<group>"; };
 		777251AB24EEA69100A8697D /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
 		7785D20B24EC030000555343 /* CardsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsUserDefaults.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 		C4348EEB24DF4DB400102967 /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
+				77589CFC24FC1841003B08D3 /* House.swift */,
 				C47EF66724E9203C006F5971 /* Architecture.swift */,
 			);
 			path = Sentences;
@@ -548,6 +551,7 @@
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */,
+				77589CFD24FC1841003B08D3 /* House.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,

@@ -18,6 +18,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
             let secondColor = category?.secondColor as! UIColor
             
             gradientLayer.colors = [firstColor.cgColor, secondColor.cgColor]
+            gradientLayer.startPoint = .init(x: 0, y: 0.5)
+            gradientLayer.endPoint = .init(x: 1, y: 0.5)
             gradientLayer.locations = [0, 1]
         }
     }
@@ -44,7 +46,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         layer.addSublayer(gradientLayer)
         
         addSubview(titleLabel)
-        let titleBottomPadding = frame.height / 12
+        let titleBottomPadding = frame.height / 6
         titleLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 0, bottom: titleBottomPadding, right: 0))
     }
     
