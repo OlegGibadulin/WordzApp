@@ -37,9 +37,14 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }()
     
     fileprivate lazy var homeBackgroundHeaderView = HomeBackgroundHeaderView(frame: self.view.frame)
+    
+    override func loadView() {
+        super.loadView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupLayout()
         setupNavigationController()
     }
