@@ -18,6 +18,7 @@
 		7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20B24EC030000555343 /* CardsUserDefaults.swift */; };
 		7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */; };
 		7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20F24EC039800555343 /* AddFavouriteWordView.swift */; };
+		77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC885924FD7D4900629BC8 /* BodyParts.swift */; };
 		77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DD303824EC01A8004C93B0 /* CardLoadingView.swift */; };
 		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
 		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
@@ -87,6 +88,7 @@
 		7785D20B24EC030000555343 /* CardsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsUserDefaults.swift; sourceTree = "<group>"; };
 		7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+AddFavouriteWord.swift"; sourceTree = "<group>"; };
 		7785D20F24EC039800555343 /* AddFavouriteWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteWordView.swift; sourceTree = "<group>"; };
+		77AC885924FD7D4900629BC8 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
 		77DD303824EC01A8004C93B0 /* CardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoadingView.swift; sourceTree = "<group>"; };
 		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				C47EF66724E9203C006F5971 /* Architecture.swift */,
 				77341E0624FCEDD900CD9F43 /* Emotion.swift */,
 				77589CFC24FC1841003B08D3 /* House.swift */,
+				77AC885924FD7D4900629BC8 /* BodyParts.swift */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 			files = (
 				C438ABDB24CEE8550043D234 /* Extensions+Calendar.swift in Sources */,
 				C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */,
+				77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */,
 				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
 				C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */,
