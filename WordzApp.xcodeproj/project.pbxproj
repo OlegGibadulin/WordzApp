@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77341E0624FCEDD900CD9F43 /* Emotion.swift */; };
 		773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F32E224D01B1A006C8482 /* CardResultView.swift */; };
 		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
 		7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748C1F924F7F08D007939CF /* StatisticCollector.swift */; };
@@ -75,6 +76,7 @@
 
 /* Begin PBXFileReference section */
 		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
+		77341E0624FCEDD900CD9F43 /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		773F32E224D01B1A006C8482 /* CardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultView.swift; sourceTree = "<group>"; };
 		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		7748C1F924F7F08D007939CF /* StatisticCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCollector.swift; sourceTree = "<group>"; };
@@ -274,8 +276,9 @@
 		C4348EEB24DF4DB400102967 /* Sentences */ = {
 			isa = PBXGroup;
 			children = (
-				77589CFC24FC1841003B08D3 /* House.swift */,
 				C47EF66724E9203C006F5971 /* Architecture.swift */,
+				77341E0624FCEDD900CD9F43 /* Emotion.swift */,
+				77589CFC24FC1841003B08D3 /* House.swift */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
+				77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */,
 				7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
