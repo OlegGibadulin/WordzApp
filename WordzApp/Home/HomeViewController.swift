@@ -50,7 +50,7 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }
     
     fileprivate func setupLayout() {
-        view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        view.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         
         view.addSubview(homeBackgroundHeaderView)
         

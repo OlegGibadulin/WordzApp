@@ -94,7 +94,7 @@
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C401EA8D24BB580E00FB116F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		C41F63A624B472560051FD7B /* WordzApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WordzApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41F63A624B472560051FD7B /* Wordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C41F63B024B472560051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,7 +212,7 @@
 		C41F63A724B472560051FD7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C41F63A624B472560051FD7B /* WordzApp.app */,
+				C41F63A624B472560051FD7B /* Wordz.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -409,7 +409,7 @@
 				C4F2215424F946EA009D0947 /* SwiftyStoreKit */,
 			);
 			productName = WordzApp;
-			productReference = C41F63A624B472560051FD7B /* WordzApp.app */;
+			productReference = C41F63A624B472560051FD7B /* Wordz.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -725,7 +725,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codeweb.WordzApp;
-				PRODUCT_NAME = WordzApp;
+				PRODUCT_NAME = Wordz;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -747,7 +747,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = codeweb.WordzApp;
-				PRODUCT_NAME = WordzApp;
+				PRODUCT_NAME = Wordz;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
