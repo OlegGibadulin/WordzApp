@@ -37,15 +37,20 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }()
     
     fileprivate lazy var homeBackgroundHeaderView = HomeBackgroundHeaderView(frame: self.view.frame)
+    
+    override func loadView() {
+        super.loadView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupLayout()
         setupNavigationController()
     }
     
     fileprivate func setupLayout() {
-        view.backgroundColor = #colorLiteral(red: 0.9058823529, green: 0.9490196078, blue: 0.9137254902, alpha: 1)
+        view.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         
         view.addSubview(homeBackgroundHeaderView)
         
