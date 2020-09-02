@@ -14,11 +14,12 @@ class CategoryViewController: UIViewController {
     internal var popup: AddFavouriteWordView!
     
     let addButton : UIButton = {
-        let addButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 35))
+        let addButton = UIButton(frame: CGRect(x: 0, y: 0, width: 35, height: 35))
         addButton.setBlueStyle()
         addButton.backgroundColor = .blue
         addButton.layer.cornerRadius = 8
-        addButton.setTitle("Add", for: .normal)
+        addButton.setImage(#imageLiteral(resourceName: "plus").withRenderingMode(.alwaysTemplate), for: .normal)
+        addButton.tintColor = .white
         addButton.setTitleColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), for: .highlighted)
         return addButton
     }()
@@ -102,13 +103,13 @@ class CategoryViewController: UIViewController {
         } else {
             let title = navigationItem.title
             if title == Storage.shared.favouritesTitle && sentencesInTableViewCount < 5 {
-                presentAlert(title: "Информация", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
+                presentAlert(title: "Добавьте больше слов", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
             } else {
                 let additionalAction = UIAlertAction(title: "Сбросить", style: .destructive) { (alert) in
                     CoreDataManager.shared.resetStatisticSentences(category: self.category)
                     print("Сброс статистики")
                 }
-                presentAlert(title: "Информация", text: "Поздравляем! Вы выучили почти все слова из выбранной категории\nВы можете сбросить статистику по словам из данной категории, чтобы вы могли повторить снова", additionalAction: additionalAction)
+                presentAlert(title: "Поздравляем!", text: "Вы выучили почти все слова из выбранной категории\n\nВы можете сбросить статистику, чтобы начать заново", additionalAction: additionalAction)
             }
         }
     }

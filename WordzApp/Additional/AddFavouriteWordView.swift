@@ -24,7 +24,7 @@ final class AddFavouriteWordView: UIView {
         let addButton = UIButton()
         addButton.isEnabled = false
         addButton.translatesAutoresizingMaskIntoConstraints = false
-        addButton.setTitle("Add", for: .normal)
+        addButton.setTitle("Добавить", for: .normal)
         addButton.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
         addButton.setTitleColor(.white, for: .normal)
         addButton.setTitleColor(#colorLiteral(red: 0.01960784314, green: 0, blue: 0.5370023545, alpha: 1), for: .highlighted)
@@ -35,7 +35,7 @@ final class AddFavouriteWordView: UIView {
         let cancelButton = UIButton()
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         cancelButton.backgroundColor = UIColor.appColor(.button_white_lightgray)
-        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.setTitle("Отменить", for: .normal)
         cancelButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         cancelButton.setTitleColor(#colorLiteral(red: 0.4800369955, green: 0.4956656678, blue: 1, alpha: 1), for: .highlighted)
         return cancelButton
@@ -192,7 +192,7 @@ final class AddFavouriteWordView: UIView {
             let translation = [translateTextField.text!]
             
             if CoreDataManager.shared.addFavouriteSentence(text: word, translation: translation) == false {
-                showAlert(title: "Не удалось добавить слово", message: "Непрафильный формат ввода")
+                showAlert(title: "Не удалось добавить слово", message: "Неправильный формат ввода")
             }
         }
         delegate?.handleDismissal()
