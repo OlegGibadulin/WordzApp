@@ -15,9 +15,9 @@ struct Storage {
     // MARK: - Levels
     
     let levels = [
-        LevelStorage(title: "Начинающий", sentences: Architecture),
-        LevelStorage(title: "Средний", sentences: Architecture),
-        LevelStorage(title: "Продвинутый", sentences: Architecture),
+        LevelStorage(title: "Начинающий", sentences: Beginner),
+        LevelStorage(title: "Средний", sentences: nil), // Intermediate
+        LevelStorage(title: "Продвинутый", sentences: nil), // Advanced
     ]
     
     // MARK: - Categories

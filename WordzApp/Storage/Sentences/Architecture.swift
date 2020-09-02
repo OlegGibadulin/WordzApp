@@ -8,7 +8,7 @@
 
 import Foundation
 
-let Architecture: [String:[String]] = [
+let Architecture: [String: [String]] = [
     "ability": ["способность"],
     "access": ["доступ", "проход"],
     "adapt": ["приспосабливать"],

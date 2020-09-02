@@ -1,54 +1,14 @@
-let Words: [String:[String]] = [
-    "rash": ["сыпь"],
-    "interminable": ["бесконечный"],
-    "lumber": ["пиломатериалы"],
-    "imbibe": ["впитывать"],
-    "recollect": ["вспоминать"],
-    "resent": ["негодовать"],
-    "harsh": ["суровый"],
-    "feeble": ["слабый"],
-    "juvenile": ["несовершеннолетний"],
-    "grasp": ["понять"],
-    "riddle": ["загадка"],
-    "accuse": ["обвинять"],
-    "refuge": ["убежище"],
-    "burrow": ["нора"],
-    "skid": ["занос"],
-    "hasty": ["поспешный"],
-    "bloom": ["цвести"],
-    "flee": ["бежать"],
-    "futile": ["бесполезный"],
-    "concede": ["уступать"],
-    "vouch": ["ручаться"],
-    "notorious": ["пресловутый"],
-    "spouse": ["супруга"],
-    "abhor": ["питать отвращение"],
-    "abduct": ["похищать"],
-    "abrupt": ["резкий"],
-    "absolve": ["освобождать"],
-    "acclaim": ["признание"],
-    "abolish": ["отменять"],
-    "enhance": ["повышать"],
-    "wise": ["мудрый"],
-    "thaw": ["оттепель"],
-    "implement": ["осуществлять"],
-    "tease": ["дразнить"],
-    "adapt": ["адаптировать"],
-    "dwell": ["обитать"],
-    "incentive": ["стимул"],
-    "saucy": ["дерзкий"],
-    "naughty": ["непослушный"],
-    "brittle": ["хрупкий"],
-    "ferocious": ["свирепый"],
-    "subsidiary": ["дочерняя компания"],
-    "ragged": ["рваный"],
-    "wag": ["шутник"],
-    "convenient": ["удобный"],
-    "celebrated": ["знаменитый"],
-    "frail": ["хрупкий"],
-    "refine": ["совершенствовать"],
-    "conform": ["соответствовать"],
-    "abate": ["уменьшить"],
+//
+//  Advanced.swift
+//  WordzApp
+//
+//  Created by Mac-HOME on 02.09.2020.
+//  Copyright © 2020 Mac-HOME. All rights reserved.
+//
+
+import Foundation
+
+let Advanced: [String: [String]] = [
     "rash": ["сыпь"],
     "interminable": ["бесконечный"],
     "lumber": ["пиломатериалы"],
