@@ -65,6 +65,7 @@ extension CategoryViewController: PopUpDelegate {
             self.transparentView.removeFromSuperview()
             self.popup.removeFromSuperview()
             self.categoryTableViewController.updateData()
+            self.categoryTableViewController.reloadEmptyState()
             self.checkEmptyTableView()
         }
     }

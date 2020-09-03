@@ -17,8 +17,10 @@ class TodayCardView: UIView {
                 
                 var translations = ""
                 sentence.translation?.forEach({ (translation) in
-                     translations += translation + "\n"
+                     translations += translation + ", "
                 })
+                translations.remove(at: translations.index(before: translations.endIndex))
+                translations.remove(at: translations.index(before: translations.endIndex))
                 translationLabel.text = translations
                 
                 barsStackView.arrangedSubviews.forEach { (bsv) in
@@ -58,7 +60,7 @@ class TodayCardView: UIView {
         sl.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         sl.textAlignment = .center
         sl.numberOfLines = 3
-        sl.minimumScaleFactor = 0.3
+        sl.minimumScaleFactor = 0.7
         sl.adjustsFontSizeToFitWidth = true
         return sl
     }()
@@ -67,8 +69,8 @@ class TodayCardView: UIView {
         let tl = UILabel()
         tl.font = UIFont.systemFont(ofSize: 20, weight: .light)
         tl.textAlignment = .center
-        tl.numberOfLines = 3
-        tl.minimumScaleFactor = 0.3
+        tl.numberOfLines = 5
+        tl.minimumScaleFactor = 0.7
         tl.adjustsFontSizeToFitWidth = true
         return tl
     }()
@@ -110,8 +112,10 @@ class TodayCardView: UIView {
             
             var translations = ""
             sentence.translation?.forEach({ (translation) in
-                 translations += translation + "\n"
+                 translations += translation + ", "
             })
+            translations.remove(at: translations.index(before: translations.endIndex))
+            translations.remove(at: translations.index(before: translations.endIndex))
             translationLabel.text = translations
             
             barsStackView.arrangedSubviews.forEach { (v) in
