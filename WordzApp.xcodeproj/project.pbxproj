@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		77009FFE2500F92300E8F83E /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77009FFD2500F92300E8F83E /* Tools.swift */; };
+		7700A0002500F92A00E8F83E /* Sport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77009FFF2500F92A00E8F83E /* Sport.swift */; };
+		7700A0022500F93200E8F83E /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0012500F93200E8F83E /* Drinks.swift */; };
+		7700A0042500FB3000E8F83E /* Animals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0032500FB3000E8F83E /* Animals.swift */; };
+		7700A0062500FB4100E8F83E /* Land.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0052500FB4100E8F83E /* Land.swift */; };
+		7700A0082500FB5400E8F83E /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0072500FB5400E8F83E /* Clothes.swift */; };
+		7700A00A2500FCF600E8F83E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0092500FCF600E8F83E /* Colors.swift */; };
+		7700A00C2500FD0100E8F83E /* Jobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A00B2500FD0100E8F83E /* Jobs.swift */; };
+		7700A00E2500FD0C00E8F83E /* Marketing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A00D2500FD0B00E8F83E /* Marketing.swift */; };
 		77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77341E0624FCEDD900CD9F43 /* Emotion.swift */; };
 		773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F32E224D01B1A006C8482 /* CardResultView.swift */; };
 		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
@@ -77,6 +86,15 @@
 
 /* Begin PBXFileReference section */
 		4C629AF4A5F8A24D7137CA8B /* Pods-WordzApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.release.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.release.xcconfig"; sourceTree = "<group>"; };
+		77009FFD2500F92300E8F83E /* Tools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		77009FFF2500F92A00E8F83E /* Sport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sport.swift; sourceTree = "<group>"; };
+		7700A0012500F93200E8F83E /* Drinks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
+		7700A0032500FB3000E8F83E /* Animals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animals.swift; sourceTree = "<group>"; };
+		7700A0052500FB4100E8F83E /* Land.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Land.swift; sourceTree = "<group>"; };
+		7700A0072500FB5400E8F83E /* Clothes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
+		7700A0092500FCF600E8F83E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		7700A00B2500FD0100E8F83E /* Jobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jobs.swift; sourceTree = "<group>"; };
+		7700A00D2500FD0B00E8F83E /* Marketing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marketing.swift; sourceTree = "<group>"; };
 		77341E0624FCEDD900CD9F43 /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		773F32E224D01B1A006C8482 /* CardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultView.swift; sourceTree = "<group>"; };
 		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
@@ -282,6 +300,15 @@
 				77341E0624FCEDD900CD9F43 /* Emotion.swift */,
 				77589CFC24FC1841003B08D3 /* House.swift */,
 				77AC885924FD7D4900629BC8 /* BodyParts.swift */,
+				7700A0052500FB4100E8F83E /* Land.swift */,
+				7700A0072500FB5400E8F83E /* Clothes.swift */,
+				7700A0032500FB3000E8F83E /* Animals.swift */,
+				77009FFD2500F92300E8F83E /* Tools.swift */,
+				7700A0012500F93200E8F83E /* Drinks.swift */,
+				77009FFF2500F92A00E8F83E /* Sport.swift */,
+				7700A0092500FCF600E8F83E /* Colors.swift */,
+				7700A00B2500FD0100E8F83E /* Jobs.swift */,
+				7700A00D2500FD0B00E8F83E /* Marketing.swift */,
 			);
 			path = Sentences;
 			sourceTree = "<group>";
@@ -529,6 +556,7 @@
 				C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */,
 				7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */,
 				C4348EED24DF4E9F00102967 /* Storage+Sentence.swift in Sources */,
+				77009FFE2500F92300E8F83E /* Tools.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
 				C4F2216624FAB236009D0947 /* HomeViewController.swift in Sources */,
@@ -540,28 +568,36 @@
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
 				77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */,
 				7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */,
+				7700A0062500FB4100E8F83E /* Land.swift in Sources */,
+				7700A00C2500FD0100E8F83E /* Jobs.swift in Sources */,
 				C4F37F3A24B5051600D7807D /* CategoryCollectionViewCell.swift in Sources */,
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
 				C4348EEA24DF4C8600102967 /* Storage+Level.swift in Sources */,
 				C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */,
 				C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */,
+				7700A0082500FB5400E8F83E /* Clothes.swift in Sources */,
 				C4C3461824CB41120030D8C3 /* CoreDataManager+Category.swift in Sources */,
 				7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */,
 				C47EF66824E9203C006F5971 /* Architecture.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
+				7700A00E2500FD0C00E8F83E /* Marketing.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */,
 				C4F2216A24FAB473009D0947 /* TodayCardsViewController.swift in Sources */,
 				C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */,
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
 				C4F2216824FAB23F009D0947 /* HomeBackgroundHeaderView.swift in Sources */,
+				7700A0042500FB3000E8F83E /* Animals.swift in Sources */,
 				C4F2216024F99345009D0947 /* ProVersionPurchaseViewController.swift in Sources */,
+				7700A0002500F92A00E8F83E /* Sport.swift in Sources */,
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
+				7700A0022500F93200E8F83E /* Drinks.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */,
 				77589CFD24FC1841003B08D3 /* House.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
+				7700A00A2500FCF600E8F83E /* Colors.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
 				C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */,
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,
