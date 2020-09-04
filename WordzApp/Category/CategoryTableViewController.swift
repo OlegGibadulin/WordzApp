@@ -34,9 +34,15 @@ class CategoryTableViewController: UITableViewController {
     }
     
     fileprivate func fetchSentences() {
+        guard let title = category?.title else { return }
+        
+        // Check for upload into CoreData
+        if title != Storage.shared.favouritesTitle && CoreDataManager.shared.isEmpty(category: category) {
+            Storage.shared.uploadSentences(category: category)
+        }
+        
         sentences = CoreDataManager.shared.fetchSentences(category: category)
         
-        guard let title = category?.title else { return }
         if title == Storage.shared.favouritesTitle {
             sentences.reverse()
             return

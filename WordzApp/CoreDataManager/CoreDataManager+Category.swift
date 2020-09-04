@@ -102,6 +102,11 @@ extension CoreDataManager {
         }
     }
     
+    func isEmpty(category: Category?) -> Bool {
+        guard let categorySentences = category?.sentences?.allObjects as? [Sentence] else { return true }
+        return categorySentences.count == 0
+    }
+    
     func fetchSentences(category: Category?) -> [Sentence] {
         guard var categorySentences = category?.sentences?.allObjects as? [Sentence] else { return [] }
         

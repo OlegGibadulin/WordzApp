@@ -42,7 +42,7 @@ class TodayCardView: UIView {
     }
     
     func updateFavoriteState() {
-        if let sentences = sentences {
+        if let sentences = sentences, sentences.count != 0 {
             let sentence = sentences[cardInd]
             toFavouritesButton.isSelected = sentence.isFavourite
         }

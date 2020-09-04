@@ -34,8 +34,6 @@ extension Storage {
     mutating fileprivate func uploadsCategories(categories: [CategoryStorage]) {
         categories.forEach { (category) in
             CoreDataManager.shared.addCategory(title: category.title, firstColor: category.firstColor, secondColor: category.secondColor, isHidden: category.isHidden)
-            
-            uploadSentences(categoryTitle: category.title, sentences: category.sentences)
         }
     }
     
@@ -45,6 +43,18 @@ extension Storage {
             deleteSentences(category: category)
             CoreDataManager.shared.deleteCategory(category: category)
         }
+    }
+    
+    mutating func uploadSentences(category: Category?) {
+        guard let category = category else { return }
+        
+        // Search category storage by title
+        let categoryStorage = self.categories.filter { (categoryStorage) -> Bool in
+            return categoryStorage.title == category.title
+        }.first
+        
+        guard let uploadedCategory = categoryStorage else { return }
+        uploadSentences(category: category, sentences: uploadedCategory.sentences)
     }
     
 }

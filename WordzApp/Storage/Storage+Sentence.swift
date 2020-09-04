@@ -18,8 +18,8 @@ extension Storage {
         }
     }
     
-    func uploadSentences(categoryTitle: String, sentences: [String:[String]]?) {
-        guard let category = CoreDataManager.shared.fetchCategory(title: categoryTitle), let sentences = sentences else { return }
+    func uploadSentences(category: Category?, sentences: [String:[String]]?) {
+        guard let category = category, let sentences = sentences else { return }
         
         sentences.forEach { (sentence) in
             CoreDataManager.shared.addSentence(text: sentence.key, translation: sentence.value, category: category)

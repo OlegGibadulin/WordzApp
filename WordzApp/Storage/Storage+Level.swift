@@ -18,8 +18,6 @@ extension Storage {
     func uploadLevels() {
         levels.forEach { (level) in
             CoreDataManager.shared.addLevel(title: level.title)
-            
-            uploadSentences(levelTitle: level.title, sentences: level.sentences)
         }
     }
     
@@ -30,5 +28,9 @@ extension Storage {
             CoreDataManager.shared.deleteLevel(level: level)
         }
     }
+    
+//    func uploadSentences(level: Level) {
+//        uploadSentences(levelTitle: level.title, sentences: level.sentences)
+//    }
     
 }

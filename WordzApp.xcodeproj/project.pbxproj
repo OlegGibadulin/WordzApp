@@ -353,11 +353,11 @@
 		C47585BA24C844D3008199E2 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				C4A72C1D2502FBB200E1EAF0 /* AddFavouriteWord */,
 				C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */,
 				C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */,
 				C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */,
 				C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */,
-				7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -381,6 +381,14 @@
 				C4A72C1925003D0200E1EAF0 /* Advanced.swift */,
 			);
 			path = Levels;
+			sourceTree = "<group>";
+		};
+		C4A72C1D2502FBB200E1EAF0 /* AddFavouriteWord */ = {
+			isa = PBXGroup;
+			children = (
+				7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */,
+			);
+			path = AddFavouriteWord;
 			sourceTree = "<group>";
 		};
 		C4C3461624CB40D90030D8C3 /* CoreDataManager */ = {
