@@ -19,9 +19,11 @@ target 'WordzApp' do
   # Collection view cells aligment
   pod 'CollectionViewCenteredFlowLayout'
   pod 'DGCollectionViewLeftAlignFlowLayout'
-  pod 'lottie-ios'
 
-  # For empty table view
+  # Empty table view
   pod 'UIEmptyState'
+
+  # Animations
+  pod 'lottie-ios'
 
 end

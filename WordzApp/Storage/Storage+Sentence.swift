@@ -10,8 +10,8 @@ import Foundation
 
 extension Storage {
     
-    func uploadSentences(levelTitle: String, sentences: [String:[String]]?) {
-        guard let level = CoreDataManager.shared.fetchLevel(title: levelTitle), let sentences = sentences else { return }
+    func uploadSentences(level: Level?, sentences: [String:[String]]?) {
+        guard let level = level, let sentences = sentences else { return }
         
         sentences.forEach { (sentence) in
             CoreDataManager.shared.addSentence(text: sentence.key, translation: sentence.value, level: level)

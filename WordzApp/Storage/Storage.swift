@@ -16,9 +16,12 @@ struct Storage {
     
     let levels = [
         LevelStorage(title: "Начинающий", sentences: Beginner),
-        LevelStorage(title: "Средний", sentences: nil), // Intermediate
-        LevelStorage(title: "Продвинутый", sentences: nil), // Advanced
+        LevelStorage(title: "Средний", sentences: Intermediate),
+        LevelStorage(title: "Продвинутый", sentences: Advanced),
     ]
+    
+    // TODO: Make it via UserDefaults if it will be needed for future settings
+    let everydaySentencesCount = 10
     
     // MARK: - Categories
     

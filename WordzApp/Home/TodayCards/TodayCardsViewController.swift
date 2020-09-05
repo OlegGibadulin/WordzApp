@@ -63,7 +63,11 @@ class TodayCardsViewController: UIViewController {
             CoreDataManager.shared.updateDate(level: level)
 
             // Get new set of sentences
-            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: 10]
+            if CoreDataManager.shared.isNeedToUpdate(level: level) {
+                // Upload sentences into CoreData level
+                Storage.shared.uploadSentences(level: level)
+            }
+            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: Storage.shared.everydaySentencesCount]
 
             // Add new sentences to category for current level
             newSentences.forEach { (sentence) in

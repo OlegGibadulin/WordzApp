@@ -119,6 +119,11 @@ extension CoreDataManager {
         }
     }
     
+    func isNeedToUpdate(level: Level?) -> Bool {
+        let sentences = fetchNotLearnedSentences(level: level)
+        return sentences.count < Storage.shared.everydaySentencesCount
+    }
+    
     func fetchSentences(level: Level?) -> [Sentence] {
         guard let levelSentences = level?.sentences?.allObjects as? [Sentence] else { return [] }
         
