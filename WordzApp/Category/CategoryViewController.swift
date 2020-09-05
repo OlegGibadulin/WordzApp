@@ -29,6 +29,7 @@ class CategoryViewController: UIViewController {
     internal lazy var categoryTableViewController: CategoryTableViewController = {
         let ctvc = CategoryTableViewController()
         ctvc.category = self.category
+        ctvc.delegate = self
         return ctvc
     }()
     

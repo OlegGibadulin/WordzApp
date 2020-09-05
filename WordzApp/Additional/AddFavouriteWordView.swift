@@ -12,6 +12,7 @@ import CoreData
 protocol PopUpDelegate {
     func handleDismissal()
     func showAlert(alert: UIAlertController)
+    func updateToCardsButton()
 }
 
 final class AddFavouriteWordView: UIView {

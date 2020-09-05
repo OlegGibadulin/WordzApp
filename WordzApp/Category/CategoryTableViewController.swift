@@ -14,6 +14,7 @@ private let cellIdentifier = "CategoryCellId"
 class CategoryTableViewController: UITableViewController {
     
     var category: Category?
+    var delegate: PopUpDelegate?
     
     public var sentences = [Sentence]()
 
@@ -28,6 +29,7 @@ class CategoryTableViewController: UITableViewController {
             self.tableView.reloadData()
             self.setupEmptyState()
             self.reloadEmptyState()
+            self.delegate?.updateToCardsButton()
         }
         
         setupLayout()

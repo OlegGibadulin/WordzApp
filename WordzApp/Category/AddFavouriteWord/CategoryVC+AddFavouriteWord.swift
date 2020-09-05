@@ -78,4 +78,8 @@ extension CategoryViewController: PopUpDelegate {
     func showAlert(alert: UIAlertController) {
         present(alert, animated: true, completion: nil)
     }
+    
+    func updateToCardsButton() {
+        self.checkEmptyTableView()
+    }
 }

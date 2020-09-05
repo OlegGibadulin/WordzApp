@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         // MARK: uncomment this if you want to reset data in CoreData
-        let defaults = UserDefaults.standard
-        defaults.set(false, forKey: "isFilledCoreData")
+//        let defaults = UserDefaults.standard
+//        defaults.set(false, forKey: "isFilledCoreData")
         
         fillCoreData()
         
