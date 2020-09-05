@@ -19,13 +19,18 @@ class CategoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // registeration
         tableView.register(CategoryTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
-        fetchSentences()
-        setupLayout()
-        setupEmptyState()
         
+        startActivityIndicator()
+        DispatchQueue.main.asyncAfter(deadline: .now()) {
+            self.fetchSentences()
+            self.stopActivityIndicator()
+            self.tableView.reloadData()
+            self.setupEmptyState()
+            self.reloadEmptyState()
+        }
+        
+        setupLayout()
     }
     
     func updateData() {
@@ -106,5 +111,36 @@ class CategoryTableViewController: UITableViewController {
         let configuration = UISwipeActionsConfiguration(actions: [deleteAction])
         configuration.performsFirstActionWithFullSwipe = true
         return configuration
+    }
+    
+    // MARK: - Activity indicator
+    
+    fileprivate lazy var activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        ai.style = .large
+        ai.center = self.view.center
+        ai.backgroundColor = .white
+        ai.hidesWhenStopped = true
+        return ai
+    }()
+    
+    fileprivate lazy var loadingView: UIView = {
+        let lv = UIView(frame: CGRect(x: 0, y: 0, width: 80, height: 80))
+        lv.center = self.view.center
+        lv.backgroundColor = UIColor(white: 0.3, alpha: 0.5)
+        lv.layer.cornerRadius = 10
+        lv.clipsToBounds = true
+        return lv
+    }()
+    
+    fileprivate func startActivityIndicator() {
+        view.addSubview(activityIndicator)
+        view.addSubview(loadingView)
+        activityIndicator.startAnimating()
+    }
+    
+    fileprivate func stopActivityIndicator() {
+        loadingView.isHidden = true
+        activityIndicator.stopAnimating()
     }
 }
