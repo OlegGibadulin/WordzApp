@@ -12,9 +12,15 @@ class TodayCardView: UIView {
     
     var sentences: [Sentence]? {
         didSet {
+            barsStackView.arrangedSubviews.forEach { (bsv) in
+                barsStackView.removeArrangedSubview(bsv)
+            }
+            
             if let sentence = sentences!.first {
+                // Sentence label
                 sentenceLabel.text = sentence.text
                 
+                // Translation label
                 var translations = ""
                 sentence.translation?.forEach({ (translation) in
                      translations += translation + ", "
@@ -23,10 +29,7 @@ class TodayCardView: UIView {
                 translations.remove(at: translations.index(before: translations.endIndex))
                 translationLabel.text = translations
                 
-                barsStackView.arrangedSubviews.forEach { (bsv) in
-                    barsStackView.removeArrangedSubview(bsv)
-                }
-                
+                // Top bar
                 (0..<sentences!.count).forEach { (_) in
                     let barView = UIView()
                     barView.backgroundColor = barDeselectedColor
@@ -36,7 +39,14 @@ class TodayCardView: UIView {
                 }
                 barsStackView.arrangedSubviews.first?.backgroundColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
                 
+                // Favorite button
+                toFavouritesButton.isHidden = false
                 toFavouritesButton.isSelected = sentence.isFavourite
+            } else {
+                // There are not more sentences for this level of todays cards
+                toFavouritesButton.isHidden = true
+                sentenceLabel.text = "Вы выучили все слова выбранного уровня сложности 🥳"
+                translationLabel.text = ""
             }
         }
     }
