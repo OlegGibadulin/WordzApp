@@ -58,6 +58,7 @@ class BenefitsTableViewCell: UITableViewCell {
         benefitStackView.axis = .vertical
         benefitStackView.distribution = .fill
         benefitStackView.spacing = 4
+        backgroundColor = UIColor.appColor(.white_lightgray)
 
         addSubview(benefitStackView)
         benefitStackView.anchor(top: topAnchor, leading: checkImageView.trailingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 12, bottom: 32, right: 0))

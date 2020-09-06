@@ -50,7 +50,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     fileprivate func setupLayout() {
         layer.cornerRadius = 10
         clipsToBounds = true
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         
         let overallStackView = UIStackView(arrangedSubviews: [titleLabel, benefitsTableView, makePurchaseButton])
         overallStackView.axis = .vertical

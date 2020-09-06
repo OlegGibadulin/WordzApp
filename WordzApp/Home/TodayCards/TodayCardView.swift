@@ -89,7 +89,7 @@ class TodayCardView: UIView {
         let tfb = UIButton()
         tfb.setImage(UIImage(named: "star")?.withRenderingMode(.alwaysTemplate), for: .normal)
         tfb.setImage(UIImage(named: "star_filled")?.withRenderingMode(.alwaysTemplate), for: .selected)
-        tfb.tintColor = .darkBlue
+        tfb.tintColor = UIColor.appColor(.text_black_white)
         tfb.translatesAutoresizingMaskIntoConstraints = false
         tfb.heightAnchor.constraint(equalToConstant: 30).isActive = true
         tfb.widthAnchor.constraint(equalToConstant: 30).isActive = true
@@ -105,7 +105,7 @@ class TodayCardView: UIView {
         CoreDataManager.shared.favouriteSentence(sentence: sentence)
     }
     
-    fileprivate let barDeselectedColor = UIColor(white: 0, alpha: 0.1)
+    fileprivate let barDeselectedColor = UIColor.appColor(.text_darkgray_lightgray)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -171,7 +171,7 @@ class TodayCardView: UIView {
     fileprivate func setupLayout() {
         layer.cornerRadius = 23
         clipsToBounds = true
-        backgroundColor = .white
+        backgroundColor = UIColor.appColor(.white_lightgray)
         
         setupBarsStackView()
         

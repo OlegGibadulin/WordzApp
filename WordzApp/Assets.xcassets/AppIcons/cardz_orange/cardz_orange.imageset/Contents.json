@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "plusIcon.png",
+      "filename" : "cardz_orange.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "plusIcon@2x.png",
+      "filename" : "cardz_orange@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "plusIcon@3x.png",
+      "filename" : "cardz_orange@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
