@@ -26,4 +26,7 @@ target 'WordzApp' do
   # Animations
   pod 'lottie-ios'
 
+  # Ads
+  pod 'Google-Mobile-Ads-SDK'
+
 end

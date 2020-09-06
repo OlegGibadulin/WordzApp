@@ -5,6 +5,8 @@
 //  Created by Mac-HOME on 07.07.2020.
 //  Copyright © 2020 Mac-HOME. All rights reserved.
 //
+// APP  ID: ca-app-pub-5331338247155415~2793561058
+// Unit ID: ca-app-pub-5331338247155415/3531927651
 
 import UIKit
 

@@ -1,4 +1,5 @@
 import UIKit
+import GoogleMobileAds
 
 protocol CardInteractionController: class {
     func enableSwipeButtons(isEnabled enabled: Bool)
@@ -7,12 +8,15 @@ protocol CardInteractionController: class {
 }
 
 final class CardsViewController: UIViewController {
+    var bannerView: GADBannerView!
+    
     // MARK:- Outlets
     public var category: Category?
     
     public var sentences = [Sentence]()
     public var learnedSentences = [Sentence]()
     
+    private var adStackView: UIStackView!
     private var tmp1StackView: UIStackView!
     private var cardContentStackView: UIStackView!
     private var cardButtonsStackView: UIStackView!
@@ -97,13 +101,28 @@ final class CardsViewController: UIViewController {
         
         setupLayout()
         setupNavigationBar()
+        setupAd()
         setupStackViews()
+        
     }
     
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         fillCards()
+    }
+    
+    private func setupAd() {
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        // REAL AD BANNER
+        bannerView.adUnitID = "ca-app-pub-5331338247155415/3531927651"
+        
+        // TEST AD
+//        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        bannerView.delegate = self
+        self.view.addSubview(bannerView)
     }
     
     //MARK:- Fill Cards Logic
@@ -260,8 +279,16 @@ final class CardsViewController: UIViewController {
     }
     
     private func setupAnchors() {
+        print()
         tmp1StackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
-        cardContentStackView.heightAnchor.constraint(equalToConstant: 460).isActive = true
+        if UIScreen.main.bounds.height < 700 {
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        } else if UIScreen.main.bounds.height > 870 {
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        } else {
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        }
+        
         cardButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
         cardButtonsStackView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         
@@ -270,7 +297,14 @@ final class CardsViewController: UIViewController {
         }
         
         tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
-        cardsStackView.bringSubviewToFront(cardContentStackView)
+//        cardsStackView.bringSubviewToFront(cardContentStackView)
+        cardsStackView.bringSubviewToFront(bannerView)
+        
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 320).isActive = true
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     // MARK:- Selectors
@@ -361,5 +395,14 @@ extension CardsViewController: CardInteractionController {
         }
         circle1.isHidden = true
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CardsViewController: GADBannerViewDelegate {
+    func adViewDidReceiveAd(_ bannerView: GADBannerView) {
+        print("recevied ad")
+    }
+    func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
+        print(error)
     }
 }
