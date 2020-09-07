@@ -120,8 +120,8 @@ final class CardsViewController: UIViewController {
         // TEST AD
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
         bannerView.rootViewController = self
-        bannerView.load(GADRequest())
         bannerView.delegate = self
+        bannerView.load(GADRequest())
         self.view.addSubview(bannerView)
     }
     
@@ -297,8 +297,8 @@ final class CardsViewController: UIViewController {
         }
         
         tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
-//        cardsStackView.bringSubviewToFront(cardContentStackView)
         cardsStackView.bringSubviewToFront(bannerView)
+        cardsStackView.bringSubviewToFront(cardContentStackView)
         
         bannerView.translatesAutoresizingMaskIntoConstraints = false
         bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
