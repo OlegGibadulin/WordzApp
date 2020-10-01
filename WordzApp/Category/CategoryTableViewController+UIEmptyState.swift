@@ -10,7 +10,7 @@ import UIEmptyState
 
 // It can be reaplaced by footer implementation
 extension CategoryTableViewController: UIEmptyStateDelegate, UIEmptyStateDataSource {
-    
+
     var emptyStateImage: UIImage? {
         return #imageLiteral(resourceName: "empty_state")
     }

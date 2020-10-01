@@ -101,7 +101,9 @@ final class CardsViewController: UIViewController {
         
         setupLayout()
         setupNavigationBar()
-        setupAd()
+        if (Purchases.fullVersion == false) {
+            setupAd()
+        }
         setupStackViews()
         
     }
@@ -123,6 +125,12 @@ final class CardsViewController: UIViewController {
         bannerView.delegate = self
         bannerView.load(GADRequest())
         self.view.addSubview(bannerView)
+        
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
+        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        bannerView.widthAnchor.constraint(equalToConstant: 320).isActive = true
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     //MARK:- Fill Cards Logic
@@ -297,14 +305,7 @@ final class CardsViewController: UIViewController {
         }
         
         tmp2StackView.heightAnchor.constraint(equalTo: tmp1StackView.heightAnchor, multiplier: 1.35).isActive = true
-        cardsStackView.bringSubviewToFront(bannerView)
         cardsStackView.bringSubviewToFront(cardContentStackView)
-        
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        bannerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 2).isActive = true
-        bannerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        bannerView.widthAnchor.constraint(equalToConstant: 320).isActive = true
-        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     // MARK:- Selectors

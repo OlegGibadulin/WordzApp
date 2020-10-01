@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyStoreKit
+import StoreKit
 
 private let cellIdentifier = "BenefitCellId"
 
@@ -14,7 +16,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     
     fileprivate let titleLabel: UILabel = {
         let tl = UILabel()
-        let attributedText = NSMutableAttributedString(string: "WORDZ PRO", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .light)])
+        let attributedText = NSMutableAttributedString(string: "WORDZ FULL", attributes: [.font: UIFont.systemFont(ofSize: 20, weight: .light)])
         tl.attributedText = attributedText
         tl.textAlignment = .center
         return tl
@@ -22,13 +24,18 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     
     fileprivate let makePurchaseButton: UIButton = {
         let mpb = UIButton()
-        mpb.backgroundColor = .darkGreen
         mpb.layer.cornerRadius = 10
         mpb.clipsToBounds = true
         
-        let attributedTitle = NSMutableAttributedString(string: "Получить PRO Версию", attributes: [.font: UIFont.systemFont(ofSize: 14, weight: .medium)])
-        attributedTitle.append(NSMutableAttributedString(string: "\n199,00 ₽", attributes: [.font: UIFont.systemFont(ofSize: 10, weight: .light)]))
+        let white = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let attributedTitle = NSMutableAttributedString(string: "Получить полную версию", attributes: [NSAttributedString.Key.foregroundColor: white, .font: UIFont.systemFont(ofSize: 14, weight: .medium)])
+        attributedTitle.append(NSMutableAttributedString(string: "\n29,00 ₽", attributes: [NSAttributedString.Key.foregroundColor: white, .font: UIFont.systemFont(ofSize: 10, weight: .light)]))
+        
+        let attributedTitleHighlited = NSMutableAttributedString(string: "Получить полную версию", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, .font: UIFont.systemFont(ofSize: 14, weight: .medium)])
+        attributedTitleHighlited.append(NSMutableAttributedString(string: "\n29,00 ₽", attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray, .font: UIFont.systemFont(ofSize: 10, weight: .light)]))
+        
         mpb.setAttributedTitle(attributedTitle, for: .normal)
+        mpb.setAttributedTitle(attributedTitleHighlited, for: .highlighted)
         mpb.titleLabel?.numberOfLines = 2
         mpb.titleLabel?.textAlignment = .center
         
@@ -36,6 +43,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
         mpb.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
         mpb.addTarget(self, action: #selector(handleMakePurchaseButtonTapped), for: .touchUpInside)
+        mpb.backgroundColor = .blue
         return mpb
     }()
     
@@ -60,10 +68,30 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
         overallStackView.fillSuperview(padding: .init(top: 20, left: .sideMargin, bottom: 20, right: .sideMargin))
     }
     
+    let inAppPurchaseId = "com.Revolvetra.Wordz.RemoveAd"
+    
     @objc fileprivate func handleMakePurchaseButtonTapped() {
-        let purchacesViewController = PurchasesViewController()
+        //IAPService.shared.getProducts()
+        IAPService.shared.purchase(product: .removeAd)
+//        let purchacesViewController = PurchasesViewController()
         // TODO: I dont know which method I should call
-        purchacesViewController.purchase(.ProVersion)
+//        purchacesViewController.purchase(.RemoveAds)
+        
+        
+        
+//        SwiftyStoreKit.retrieveProductsInfo([inAppPurchaseId]) { result in
+//            if let product = result.retrievedProducts.first {
+//                let priceString = product.localizedPrice!
+//                print("Product: \(product.localizedDescription), price: \(priceString)")
+//            }
+//            else if let invalidProductId = result.invalidProductIDs.first {
+//                print("Invalid product identifier: \(invalidProductId)")
+//            }
+//            else {
+//                print("Error: \(result.error)")
+//            }
+//        }
+        
     }
     
     // MARK: - Benefits table
@@ -81,8 +109,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     }()
     
     fileprivate let benefits: [Benefit] = [
-        Benefit(title: "Собственные слова", description: "Добавляйте свои слова в Избранное и учите их по карточкам"),
-        Benefit(title: "Доступ ко всем подборкам", description: "Учите те слова, которые вам точно пригодятся, с нашими тематическими подборками слов"),
+        Benefit(title: "Отключение рекламы", description: "Вам больше не будут высвечиваться рекламные предложения"),
         Benefit(title: "Продвинутый уровень", description: "Испытайте себя на самом сложном уровне \"Продвинутый\""),
         Benefit(title: "Тем более...", description: "Приобретая сейчас, вы получаете всю будущую функциональность PRO версии бесплатно"),
     ]

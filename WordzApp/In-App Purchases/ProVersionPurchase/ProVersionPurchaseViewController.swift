@@ -15,8 +15,8 @@ class ProVersionPurchaseViewController: UIViewController {
             guard let window = keyWindow else { return }
             
             let width = window.frame.width - 2 * x
-            let height = window.frame.height - 2 * y
-            purchaseView.frame = CGRect(x: x, y: -height, width: width, height: height)
+            let height = window.frame.height - 5 * y
+            purchaseView.frame = CGRect(x: x, y: y, width: width, height: height)
             blackoutView.frame = window.frame
             
             window.addSubview(blackoutView)
@@ -38,13 +38,16 @@ class ProVersionPurchaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IAPService.shared.getProducts()
+        print(UserDefaults.standard.bool(forKey: "isFullVersion"))
+        print()
     }
     
     func show() {
         UIView.animate(withDuration: 0.1) {
             self.blackoutView.alpha = 1
             // top to bottom
-            self.purchaseView.frame = CGRect(x: self.x, y: self.y, width: self.purchaseView.frame.width, height: self.purchaseView.frame.height)
+            self.purchaseView.frame = CGRect(x: self.x, y: self.view.frame.height/2 - self.purchaseView.frame.height/2, width: self.purchaseView.frame.width, height: self.purchaseView.frame.height)
         }
     }
     

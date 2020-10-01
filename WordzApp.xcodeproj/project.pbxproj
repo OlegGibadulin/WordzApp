@@ -16,8 +16,11 @@
 		7700A00A2500FCF600E8F83E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A0092500FCF600E8F83E /* Colors.swift */; };
 		7700A00C2500FD0100E8F83E /* Jobs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A00B2500FD0100E8F83E /* Jobs.swift */; };
 		7700A00E2500FD0C00E8F83E /* Marketing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7700A00D2500FD0B00E8F83E /* Marketing.swift */; };
+		77040A2A25179597007C5431 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77040A2925179597007C5431 /* StoreKit.framework */; };
 		77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77341E0624FCEDD900CD9F43 /* Emotion.swift */; };
 		773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773F32E224D01B1A006C8482 /* CardResultView.swift */; };
+		77421B50252090160096873C /* IAPProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77421B4F252090160096873C /* IAPProducts.swift */; };
+		77421B552520909E0096873C /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77421B542520909E0096873C /* IAPService.swift */; };
 		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
 		7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748C1F924F7F08D007939CF /* StatisticCollector.swift */; };
 		774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 774AB98F24F41963006EA997 /* loading_animation_dark.json */; };
@@ -28,6 +31,9 @@
 		7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */; };
 		7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20F24EC039800555343 /* AddFavouriteWordView.swift */; };
 		77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC885924FD7D4900629BC8 /* BodyParts.swift */; };
+		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
+		77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067D9250B64A60025F987 /* LaunchScreenController.swift */; };
+		77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067DB250B64C10025F987 /* LaunchScreenView.swift */; };
 		77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77DD303824EC01A8004C93B0 /* CardLoadingView.swift */; };
 		77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6B24B6021300F15519 /* CardsViewController.swift */; };
 		77F02D6E24B639E600F15519 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77F02D6D24B639E600F15519 /* Word.swift */; };
@@ -70,10 +76,7 @@
 		C4DCD05F24D9DA92008CB85F /* Extensions+UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */; };
 		C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */; };
 		C4E85D7B24C88DD600D2B708 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */; };
-		C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215124F6B924009D0947 /* PurchasesViewController.swift */; };
 		C4F2215524F946EA009D0947 /* SwiftyStoreKit in Frameworks */ = {isa = PBXBuildFile; productRef = C4F2215424F946EA009D0947 /* SwiftyStoreKit */; };
-		C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */; };
-		C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */; };
 		C4F2215C24F96494009D0947 /* ProVersionPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215B24F96494009D0947 /* ProVersionPurchaseView.swift */; };
 		C4F2216024F99345009D0947 /* ProVersionPurchaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2215F24F99345009D0947 /* ProVersionPurchaseViewController.swift */; };
 		C4F2216224F9AF60009D0947 /* BenefitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F2216124F9AF60009D0947 /* BenefitsTableViewCell.swift */; };
@@ -98,8 +101,11 @@
 		7700A0092500FCF600E8F83E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		7700A00B2500FD0100E8F83E /* Jobs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Jobs.swift; sourceTree = "<group>"; };
 		7700A00D2500FD0B00E8F83E /* Marketing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marketing.swift; sourceTree = "<group>"; };
+		77040A2925179597007C5431 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		77341E0624FCEDD900CD9F43 /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		773F32E224D01B1A006C8482 /* CardResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultView.swift; sourceTree = "<group>"; };
+		77421B4F252090160096873C /* IAPProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProducts.swift; sourceTree = "<group>"; };
+		77421B542520909E0096873C /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		7748C1F924F7F08D007939CF /* StatisticCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCollector.swift; sourceTree = "<group>"; };
 		774AB98F24F41963006EA997 /* loading_animation_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation_dark.json; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 		7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+AddFavouriteWord.swift"; sourceTree = "<group>"; };
 		7785D20F24EC039800555343 /* AddFavouriteWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteWordView.swift; sourceTree = "<group>"; };
 		77AC885924FD7D4900629BC8 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
+		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
+		77C067D9250B64A60025F987 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
+		77C067DB250B64C10025F987 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		77DD303824EC01A8004C93B0 /* CardLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardLoadingView.swift; sourceTree = "<group>"; };
 		77F02D6B24B6021300F15519 /* CardsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsViewController.swift; sourceTree = "<group>"; };
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
@@ -155,9 +164,6 @@
 		C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Extensions+UIImage.swift"; sourceTree = "<group>"; };
 		C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C4E85D7A24C88DD600D2B708 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		C4F2215124F6B924009D0947 /* PurchasesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesViewController.swift; sourceTree = "<group>"; };
-		C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkActivityIndicatorManager.swift; sourceTree = "<group>"; };
-		C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PurchasesViewController+Alert.swift"; sourceTree = "<group>"; };
 		C4F2215B24F96494009D0947 /* ProVersionPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVersionPurchaseView.swift; sourceTree = "<group>"; };
 		C4F2215F24F99345009D0947 /* ProVersionPurchaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProVersionPurchaseViewController.swift; sourceTree = "<group>"; };
 		C4F2216124F9AF60009D0947 /* BenefitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BenefitsTableViewCell.swift; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77040A2A25179597007C5431 /* StoreKit.framework in Frameworks */,
 				C7FBF5881BE7900F01175F49 /* Pods_WordzApp.framework in Frameworks */,
 				C4F2215524F946EA009D0947 /* SwiftyStoreKit in Frameworks */,
 			);
@@ -191,6 +198,15 @@
 				777251AB24EEA69100A8697D /* CardSettingsViewController.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		77C067DD250B64C70025F987 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				77C067D9250B64A60025F987 /* LaunchScreenController.swift */,
+				77C067DB250B64C10025F987 /* LaunchScreenView.swift */,
+			);
+			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		8731AAD67B7AA4F0907CFC77 /* Pods */ = {
@@ -343,6 +359,7 @@
 			children = (
 				C4306DA224DDBAC300223561 /* Settings */,
 				C4C44EDC24CB20260026EF92 /* TodayCards */,
+				77C067DD250B64C70025F987 /* LaunchScreen */,
 				C41362C924DF335D0008CCD8 /* Categories */,
 				C4F2216724FAB23F009D0947 /* HomeBackgroundHeaderView.swift */,
 				C4F2216524FAB236009D0947 /* HomeViewController.swift */,
@@ -413,10 +430,10 @@
 		C4F2215024F6B81B009D0947 /* In-App Purchases */ = {
 			isa = PBXGroup;
 			children = (
+				77421B4F252090160096873C /* IAPProducts.swift */,
+				77421B542520909E0096873C /* IAPService.swift */,
 				C4F2215A24F9643B009D0947 /* ProVersionPurchase */,
-				C4F2215624F960D7009D0947 /* NetworkActivityIndicatorManager.swift */,
-				C4F2215824F9613E009D0947 /* PurchasesViewController+Alert.swift */,
-				C4F2215124F6B924009D0947 /* PurchasesViewController.swift */,
+				77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */,
 			);
 			path = "In-App Purchases";
 			sourceTree = "<group>";
@@ -434,6 +451,7 @@
 		DB2EB97E4D77C5FDA01BB6D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77040A2925179597007C5431 /* StoreKit.framework */,
 				CC287A4A4EE90E11FECA748D /* Pods_WordzApp.framework */,
 			);
 			name = Frameworks;
@@ -567,7 +585,9 @@
 				C4A72C1C25003D1500E1EAF0 /* Intermediate.swift in Sources */,
 				C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */,
 				C4A72C1A25003D0300E1EAF0 /* Advanced.swift in Sources */,
+				77421B50252090160096873C /* IAPProducts.swift in Sources */,
 				77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */,
+				77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */,
 				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
 				C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */,
 				C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */,
@@ -590,7 +610,6 @@
 				C438ABDD24CFFDBC0043D234 /* CardsSettingsView.swift in Sources */,
 				C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
-				C4F2215924F9613E009D0947 /* PurchasesViewController+Alert.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
 				77341E0724FCEDD900CD9F43 /* Emotion.swift in Sources */,
@@ -602,7 +621,6 @@
 				C4F37F3824B5048500D7807D /* CategoryCollectionViewController.swift in Sources */,
 				C4348EEA24DF4C8600102967 /* Storage+Level.swift in Sources */,
 				C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */,
-				C4F2215724F960D7009D0947 /* NetworkActivityIndicatorManager.swift in Sources */,
 				7700A0082500FB5400E8F83E /* Clothes.swift in Sources */,
 				C4C3461824CB41120030D8C3 /* CoreDataManager+Category.swift in Sources */,
 				7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */,
@@ -610,6 +628,7 @@
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				7700A00E2500FD0C00E8F83E /* Marketing.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
+				77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */,
 				776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */,
 				C4F2216A24FAB473009D0947 /* TodayCardsViewController.swift in Sources */,
 				C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */,
@@ -621,11 +640,12 @@
 				C481AEC124B4BFC200F2FC7B /* HomeCollectionViewCell.swift in Sources */,
 				7700A0022500F93200E8F83E /* Drinks.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
-				C4F2215224F6B924009D0947 /* PurchasesViewController.swift in Sources */,
 				77589CFD24FC1841003B08D3 /* House.swift in Sources */,
+				77421B552520909E0096873C /* IAPService.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
 				7700A00A2500FCF600E8F83E /* Colors.swift in Sources */,
+				77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
 				C438ABD724CECEDA0043D234 /* Extensions+Array.swift in Sources */,
 				C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */,
@@ -780,16 +800,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65KXLC634U;
+				DEVELOPMENT_TEAM = X92LK22555;
 				INFOPLIST_FILE = WordzApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = codeweb.WordzApp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Учить английский - Wordz";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -803,14 +826,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65KXLC634U;
+				DEVELOPMENT_TEAM = X92LK22555;
 				INFOPLIST_FILE = WordzApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = codeweb.WordzApp;
+				MARKETING_VERSION = 1.1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Учить английский - Wordz";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController {
     
     var delegate: SettingsViewDelegate?
     
-    fileprivate let height: CGFloat = 200
+    fileprivate let height: CGFloat = 250
     
     fileprivate let settingsView = SettingsView()
     

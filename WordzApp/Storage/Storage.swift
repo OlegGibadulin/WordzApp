@@ -42,7 +42,7 @@ struct Storage {
         CategoryStorage(title: "Местность", firstColor: #colorLiteral(red: 0.7803921569, green: 0.2156862745, blue: 0.9647058824, alpha: 1), secondColor: #colorLiteral(red: 0.5490196078, green: 0.2274509804, blue: 0.8980392157, alpha: 1), sentences: Land),
         CategoryStorage(title: "Животные", firstColor: #colorLiteral(red: 0.9231296182, green: 0.8337054253, blue: 0.4173160195, alpha: 1), secondColor: #colorLiteral(red: 0.9490196078, green: 0.6705882353, blue: 0.3803921569, alpha: 1), sentences: Animals),
         CategoryStorage(title: "Цвета", firstColor: #colorLiteral(red: 0.9215686275, green: 0.3725490196, blue: 0.2431372549, alpha: 1), secondColor: #colorLiteral(red: 0.8901960784, green: 0.6078431373, blue: 0.2392156863, alpha: 1), sentences: Colors),
-        CategoryStorage(title: "Работы", firstColor: #colorLiteral(red: 0.2980392157, green: 0.8478753273, blue: 0.6823529412, alpha: 1), secondColor: #colorLiteral(red: 0.3647058824, green: 0.7882352941, blue: 0.6784313725, alpha: 1), sentences: Jobs),
+        CategoryStorage(title: "Работа", firstColor: #colorLiteral(red: 0.2980392157, green: 0.8478753273, blue: 0.6823529412, alpha: 1), secondColor: #colorLiteral(red: 0.3647058824, green: 0.7882352941, blue: 0.6784313725, alpha: 1), sentences: Jobs),
         CategoryStorage(title: "Маркетинг", firstColor: #colorLiteral(red: 0.9215686275, green: 0.3529411765, blue: 0.2078431373, alpha: 1), secondColor: #colorLiteral(red: 0.9411764706, green: 0.5843137255, blue: 0.4392156863, alpha: 1), sentences: Marketing)
     ]
     
