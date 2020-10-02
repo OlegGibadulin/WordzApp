@@ -36,9 +36,6 @@ final class CardLoadingView: UIView {
         animationView.play()
         self.addSubview(animationView)
         startLoading()
-        if traitCollection.userInterfaceStyle == .dark {
-            print("kek")
-        }
     }
     
     fileprivate func setupImage() {

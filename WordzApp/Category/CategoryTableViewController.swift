@@ -17,6 +17,8 @@ class CategoryTableViewController: UITableViewController {
     var delegate: PopUpDelegate?
     
     public var sentences = [Sentence]()
+    
+    private var emptyView = EmptyView(frame: CGRect.zero)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,17 +29,56 @@ class CategoryTableViewController: UITableViewController {
             self.fetchSentences()
             self.stopActivityIndicator()
             self.tableView.reloadData()
-            self.setupEmptyState()
-            self.reloadEmptyState()
+//            self.setupEmptyState()
+//            self.reloadEmptyState()
+            self.setupEmptyView()
+            self.checkIsEmpty()
             self.delegate?.updateToCardsButton()
         }
         
         setupLayout()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     func updateData() {
         fetchSentences()
         self.tableView.reloadData()
+        checkIsEmpty()
+    }
+    
+    func setupEmptyView() {
+        emptyView.frame = view.bounds
+        self.view.addSubview(emptyView)
+    }
+    
+    func checkIsEmpty() {
+        if (sentences.count < 1) {
+            showEmptyView(isNeedToShow: true)
+        } else {
+            showEmptyView(isNeedToShow: false)
+        }
+    }
+    
+    func showEmptyView(isNeedToShow: Bool) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut) {
+            if (isNeedToShow == true) {
+                self.emptyView.alpha = 1
+            } else {
+                self.emptyView.alpha = 0
+            }
+        } completion: { (_) in
+            if (isNeedToShow == true) {
+                self.emptyView.isHidden = false
+            } else {
+                self.emptyView.isHidden = true
+            }
+            self.emptyView.playAnimation()
+        }
     }
     
     fileprivate func fetchSentences() {
@@ -105,7 +146,8 @@ class CategoryTableViewController: UITableViewController {
             // delete from CoreData
             CoreDataManager.shared.deleteFavoriteSentence(sentence: sentence)
             
-            self.reloadEmptyState()
+            self.checkIsEmpty()
+//            self.reloadEmptyState()
             complete(true)
         }
         deleteAction.backgroundColor = .lightRed
