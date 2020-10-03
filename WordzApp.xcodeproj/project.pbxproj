@@ -27,10 +27,13 @@
 		77589CFD24FC1841003B08D3 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77589CFC24FC1841003B08D3 /* House.swift */; };
 		776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C28CC24F40D5D00556AE2 /* SchemeColor.swift */; };
 		777251AC24EEA69100A8697D /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777251AB24EEA69100A8697D /* CardSettingsViewController.swift */; };
+		7775DE2D2528952000668157 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 7775DE2C2528952000668157 /* empty.json */; };
 		7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20B24EC030000555343 /* CardsUserDefaults.swift */; };
 		7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */; };
 		7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20F24EC039800555343 /* AddFavouriteWordView.swift */; };
+		779B04F72527788C001E44DE /* Etensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B04F62527788C001E44DE /* Etensions+UIButton.swift */; };
 		77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC885924FD7D4900629BC8 /* BodyParts.swift */; };
+		77AE2759252765C800BD231D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE2758252765C800BD231D /* EmptyView.swift */; };
 		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
 		77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067D9250B64A60025F987 /* LaunchScreenController.swift */; };
 		77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067DB250B64C10025F987 /* LaunchScreenView.swift */; };
@@ -48,7 +51,6 @@
 		C41F63C924B4A68C0051FD7B /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63C824B4A68C0051FD7B /* UserProfileView.swift */; };
 		C41F63CB24B4A69B0051FD7B /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41F63CA24B4A69B0051FD7B /* CardView.swift */; };
 		C42EBA4A24B717B100F20BB5 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EBA4924B717B100F20BB5 /* Sentence.swift */; };
-		C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */; };
 		C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */; };
 		C4306DA624DDBDF100223561 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306DA524DDBDF100223561 /* SettingsView.swift */; };
 		C4306DA824DDF2F100223561 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4306DA724DDF2F100223561 /* SettingsViewController.swift */; };
@@ -62,7 +64,6 @@
 		C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */; };
 		C448E6FE24BDB3880057881D /* Extensions+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */; };
 		C448E70024BDDBA40057881D /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */; };
-		C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */; };
 		C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C473ECD024B85C4B00895008 /* TodayCardView.swift */; };
 		C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C47585BC24C84AE5008199E2 /* WordzAppModels.xcdatamodeld */; };
 		C47EF66824E9203C006F5971 /* Architecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EF66724E9203C006F5971 /* Architecture.swift */; };
@@ -112,10 +113,13 @@
 		77589CFC24FC1841003B08D3 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		776C28CC24F40D5D00556AE2 /* SchemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeColor.swift; sourceTree = "<group>"; };
 		777251AB24EEA69100A8697D /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
+		7775DE2C2528952000668157 /* empty.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 		7785D20B24EC030000555343 /* CardsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsUserDefaults.swift; sourceTree = "<group>"; };
 		7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+AddFavouriteWord.swift"; sourceTree = "<group>"; };
 		7785D20F24EC039800555343 /* AddFavouriteWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteWordView.swift; sourceTree = "<group>"; };
+		779B04F62527788C001E44DE /* Etensions+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Etensions+UIButton.swift"; path = "../../../../../.Trash/Etensions+UIButton.swift"; sourceTree = "<group>"; };
 		77AC885924FD7D4900629BC8 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
+		77AE2758252765C800BD231D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
 		77C067D9250B64A60025F987 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		77C067DB250B64C10025F987 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -124,7 +128,7 @@
 		77F02D6D24B639E600F15519 /* Word.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		A308E6FBFD2F7A104FEAF4F4 /* Pods-WordzApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordzApp.debug.xcconfig"; path = "Target Support Files/Pods-WordzApp/Pods-WordzApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C401EA8D24BB580E00FB116F /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
-		C41F63A624B472560051FD7B /* Учить английский - Wordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Учить английский - Wordz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C41F63A624B472560051FD7B /* Learn English Wordz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Learn English Wordz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C41F63A924B472560051FD7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C41F63AB24B472560051FD7B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C41F63B024B472560051FD7B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,7 +140,6 @@
 		C41F63C824B4A68C0051FD7B /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C41F63CA24B4A69B0051FD7B /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		C42EBA4924B717B100F20BB5 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
-		C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Etensions+UIButton.swift"; sourceTree = "<group>"; };
 		C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+CGFloat.swift"; sourceTree = "<group>"; };
 		C4306DA524DDBDF100223561 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C4306DA724DDF2F100223561 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -150,7 +153,6 @@
 		C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
 		C448E6FD24BDB3880057881D /* Extensions+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIColor.swift"; sourceTree = "<group>"; };
 		C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
-		C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryTableViewController+UIEmptyState.swift"; sourceTree = "<group>"; };
 		C473ECD024B85C4B00895008 /* TodayCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayCardView.swift; sourceTree = "<group>"; };
 		C47585BD24C84AE5008199E2 /* WordzAppModels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WordzAppModels.xcdatamodel; sourceTree = "<group>"; };
 		C47EF66724E9203C006F5971 /* Architecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Architecture.swift; sourceTree = "<group>"; };
@@ -252,7 +254,7 @@
 		C41F63A724B472560051FD7B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C41F63A624B472560051FD7B /* Учить английский - Wordz.app */,
+				C41F63A624B472560051FD7B /* Learn English Wordz.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,6 +264,7 @@
 			children = (
 				7746EBEE24F4F52800084A2F /* loading_animation.json */,
 				774AB98F24F41963006EA997 /* loading_animation_dark.json */,
+				7775DE2C2528952000668157 /* empty.json */,
 				C41F63C324B4996C0051FD7B /* Extensions */,
 				C41F63A924B472560051FD7B /* AppDelegate.swift */,
 				C41F63AB24B472560051FD7B /* SceneDelegate.swift */,
@@ -289,8 +292,8 @@
 				C438ABD624CECEDA0043D234 /* Extensions+Array.swift */,
 				C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */,
 				C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */,
-				C4306D9D24DD7EB900223561 /* Etensions+UIButton.swift */,
 				C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */,
+				779B04F62527788C001E44DE /* Etensions+UIButton.swift */,
 				C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */,
 			);
 			path = Extensions;
@@ -371,8 +374,8 @@
 			isa = PBXGroup;
 			children = (
 				C4A72C1D2502FBB200E1EAF0 /* AddFavouriteWord */,
+				77AE2758252765C800BD231D /* EmptyView.swift */,
 				C448E6FF24BDDBA40057881D /* CategoryTableViewCell.swift */,
-				C4660C3024C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift */,
 				C448E6FB24BDB1E70057881D /* CategoryTableViewController.swift */,
 				C4E85D7824C8610F00D2B708 /* CategoryViewController.swift */,
 			);
@@ -479,7 +482,7 @@
 				C4F2215424F946EA009D0947 /* SwiftyStoreKit */,
 			);
 			productName = WordzApp;
-			productReference = C41F63A624B472560051FD7B /* Учить английский - Wordz.app */;
+			productReference = C41F63A624B472560051FD7B /* Learn English Wordz.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -525,6 +528,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41F63B624B472570051FD7B /* LaunchScreen.storyboard in Resources */,
+				7775DE2D2528952000668157 /* empty.json in Resources */,
 				C41F63B324B472570051FD7B /* Assets.xcassets in Resources */,
 				C41F63B124B472560051FD7B /* Main.storyboard in Resources */,
 				774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */,
@@ -608,7 +612,6 @@
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
 				C4F2216624FAB236009D0947 /* HomeViewController.swift in Sources */,
 				C438ABDD24CFFDBC0043D234 /* CardsSettingsView.swift in Sources */,
-				C4660C3124C999FC00658073 /* CategoryTableViewController+UIEmptyState.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
 				C4E85D7924C8610F00D2B708 /* CategoryViewController.swift in Sources */,
@@ -627,11 +630,11 @@
 				C47EF66824E9203C006F5971 /* Architecture.swift in Sources */,
 				C41F63AA24B472560051FD7B /* AppDelegate.swift in Sources */,
 				7700A00E2500FD0C00E8F83E /* Marketing.swift in Sources */,
+				77AE2759252765C800BD231D /* EmptyView.swift in Sources */,
 				77F02D6C24B6021300F15519 /* CardsViewController.swift in Sources */,
 				77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */,
 				776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */,
 				C4F2216A24FAB473009D0947 /* TodayCardsViewController.swift in Sources */,
-				C4306D9E24DD7EB900223561 /* Etensions+UIButton.swift in Sources */,
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
 				C4F2216824FAB23F009D0947 /* HomeBackgroundHeaderView.swift in Sources */,
 				7700A0042500FB3000E8F83E /* Animals.swift in Sources */,
@@ -644,6 +647,7 @@
 				77421B552520909E0096873C /* IAPService.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
+				779B04F72527788C001E44DE /* Etensions+UIButton.swift in Sources */,
 				7700A00A2500FCF600E8F83E /* Colors.swift in Sources */,
 				77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
@@ -809,13 +813,13 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
-				PRODUCT_NAME = "Учить английский - Wordz";
+				PRODUCT_NAME = "Learn English Wordz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -833,11 +837,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
-				PRODUCT_NAME = "Учить английский - Wordz";
+				PRODUCT_NAME = "Learn English Wordz";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
