@@ -11,12 +11,13 @@
 </p>
 
 <p align="center">
-  <img class = "qr-code" src = "img/qr-code.jpg" width = 250px height = 250>
+  <img class = "wordz" src = "img/wordz.png" width = 250px height = 250>
 </p>
 
 <p align="center">
-  <img class = "wordz" src = "img/wordz.png" width = 250px height = 250>
+  <img class = "qr-code" src = "img/qr-code.jpg" width = 250px height = 250>
 </p>
+
 
 <p align="center">
   <img class = "black" src = "img/black.png" >
