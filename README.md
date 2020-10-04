@@ -4,6 +4,6 @@
 </p>
 
 
-### Служба поддержки: revolvetra-help@mail.ru
+### Служба поддержки: revolvetra.help@gmail.com
 
 ### [Privacy Policy](https://oleggibadulin.github.io/WordzApp/privacy_policy.html)
