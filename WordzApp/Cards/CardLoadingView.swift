@@ -14,7 +14,6 @@ final class CardLoadingView: UIView {
     
     fileprivate func setupLayout() {
         backgroundColor = UIColor.appColor(.white_lightgray)
-//        self.layer.cornerRadius = 23
     }
     
     fileprivate func setupAnimationView() {

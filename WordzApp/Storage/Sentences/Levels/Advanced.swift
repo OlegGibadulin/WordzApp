@@ -1,11 +1,3 @@
-//
-//  Advanced.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 02.09.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import Foundation
 
 let Advanced: [[String: [String]]] = [

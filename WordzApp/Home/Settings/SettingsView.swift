@@ -1,11 +1,3 @@
-//
-//  SettingsView.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 class SettingsView: UIView {
@@ -43,6 +35,19 @@ class SettingsView: UIView {
         return tb
     }()
     
+    fileprivate let restoreButton: UIButton = {
+       let rab = UIButton()
+        rab.layer.cornerRadius = 8
+        rab.setTitle("Восстановление покупок", for: .normal)
+        rab.setTitleColor(#colorLiteral(red: 0.2479351461, green: 0.3350306749, blue: 1, alpha: 1), for: .normal)
+        rab.setTitleColor(#colorLiteral(red: 0.1432796419, green: 0.1963309944, blue: 0.6008853316, alpha: 1), for: .highlighted)
+        rab.backgroundColor = .clear
+        rab.contentHorizontalAlignment = .left
+        rab.titleLabel?.textAlignment = .left
+        rab.translatesAutoresizingMaskIntoConstraints = false
+        return rab
+    }()
+    
     fileprivate let removeAdsButton: UIButton = {
        let rab = UIButton()
         rab.layer.cornerRadius = 8
@@ -50,6 +55,7 @@ class SettingsView: UIView {
         rab.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
         rab.setTitleColor(#colorLiteral(red: 0.2479351461, green: 0.3350306749, blue: 1, alpha: 1), for: .highlighted)
         rab.backgroundColor = #colorLiteral(red: 0.01960784314, green: 0, blue: 1, alpha: 1)
+        rab.translatesAutoresizingMaskIntoConstraints = false
         return rab
     }()
     
@@ -70,7 +76,7 @@ class SettingsView: UIView {
         topBar.topAnchor.constraint(equalTo: topAnchor, constant: 7).isActive = true
         topBar.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         
-        let overallStackView = UIStackView(arrangedSubviews: [infoLabel, segmentedControl, removeAdsButton, UIView()])
+        let overallStackView = UIStackView(arrangedSubviews: [infoLabel, segmentedControl, removeAdsButton, restoreButton, UIView()])
         overallStackView.axis = .vertical
         overallStackView.distribution = .fill
         overallStackView.spacing = 20
@@ -78,10 +84,26 @@ class SettingsView: UIView {
         addSubview(overallStackView)
         overallStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, trailing: trailingAnchor, padding: .init(top: 40, left: .sideMargin, bottom: 0, right: .sideMargin))
         
+        restoreButton.heightAnchor.constraint(equalToConstant: 29).isActive = true
+//        restoreButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        removeAdsButton.heightAnchor.constraint(equalToConstant: 29).isActive = true
+        
+        restoreButton.addTarget(self, action: #selector(restorePurchases), for: .touchUpInside)
         removeAdsButton.addTarget(self, action: #selector(handlePurchase), for: .touchUpInside)
-        if (Purchases.fullVersion == true) {
+        changeStateButtons(isFullVersion: Purchases.fullVersion)
+    }
+    
+    fileprivate func changeStateButtons(isFullVersion: Bool) {
+        if (isFullVersion) {
             removeAdsButton.isEnabled = false
             removeAdsButton.isHidden = true
+//            restoreButton.isEnabled = true
+//            restoreButton.isHidden = false
+        } else {
+            removeAdsButton.isEnabled = true
+            removeAdsButton.isHidden = false
+//            restoreButton.isEnabled = false
+//            restoreButton.isHidden = true
         }
     }
     
@@ -95,6 +117,10 @@ class SettingsView: UIView {
         let defaults = UserDefaults.standard
         return defaults.integer(forKey: "LevelIndex")
     }()
+    
+    @objc fileprivate func restorePurchases() {
+        IAPService.shared.restore()
+    }
     
     @objc fileprivate func handlePurchase() {
         purchaseViewController.show()

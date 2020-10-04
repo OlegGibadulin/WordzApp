@@ -1,11 +1,3 @@
-//
-//  CardView.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 func toWordModel(sentence: Sentence) -> Word {

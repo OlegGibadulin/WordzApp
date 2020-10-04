@@ -1,11 +1,3 @@
-//
-//  CoreDataManager+Level.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 24.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import CoreData
 
 extension CoreDataManager {

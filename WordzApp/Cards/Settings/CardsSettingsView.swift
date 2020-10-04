@@ -1,11 +1,3 @@
-//
-//  CardsConfigurationView.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 17.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 final class CardsSettingsView: UIView {

@@ -1,11 +1,3 @@
-//
-//  LaunchScreenController.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 11.09.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 class LaunchScreenController: UIViewController {

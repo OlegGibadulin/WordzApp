@@ -1,11 +1,3 @@
-//
-//  PurchasesUserDefaults.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 01.10.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import Foundation
 
 class Purchases {

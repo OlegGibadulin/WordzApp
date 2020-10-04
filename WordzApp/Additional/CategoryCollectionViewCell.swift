@@ -1,11 +1,3 @@
-//
-//  CategoryCollectionViewCell.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
@@ -26,9 +18,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         let sl = UILabel()
         sl.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         sl.numberOfLines = 0
-//        sl.numberOfLines = 2
-//        sl.minimumScaleFactor = 0.7
-//        sl.adjustsFontSizeToFitWidth = true
         return sl
     }()
     

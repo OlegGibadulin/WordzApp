@@ -1,11 +1,3 @@
-//
-//  SettingsViewController.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 class SettingsViewController: UIViewController {
@@ -37,6 +29,7 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        IAPService.shared.getProducts()
         setupGestures()
     }
     
@@ -120,10 +113,6 @@ class SettingsViewController: UIViewController {
             hide()
         } else {
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
-                
-                // Sometimes it also does not work because of the same issue
-                // self.settingsView.transform = .identity
-                // So this is the same solution
                 self.setInitialPosition()
                 
             }, completion: nil)

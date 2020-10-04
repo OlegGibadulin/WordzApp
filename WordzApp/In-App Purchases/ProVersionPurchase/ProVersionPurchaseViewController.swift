@@ -1,11 +1,3 @@
-//
-//  ProVersionPurchaseViewController.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 28.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 class ProVersionPurchaseViewController: UIViewController {
@@ -39,8 +31,6 @@ class ProVersionPurchaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         IAPService.shared.getProducts()
-        print(UserDefaults.standard.bool(forKey: "isFullVersion"))
-        print()
     }
     
     func show() {

@@ -1,11 +1,3 @@
-//
-//  benefitsTableViewCell.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 29.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 struct Benefit {

@@ -1,11 +1,3 @@
-//
-//  HomeBackgroundHeaderView.swift
-//  HomeBackgroundHeaderView
-//
-//  Created by Антон Тимонин on 17.08.2020.
-//  Copyright © 2020 Антон Тимонин. All rights reserved.
-//
-
 import UIKit
 
 class HomeBackgroundHeaderView: UIView {

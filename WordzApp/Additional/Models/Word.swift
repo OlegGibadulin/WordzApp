@@ -1,19 +1,9 @@
-//
-//  Word.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 08.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import Foundation
 
 struct Word: Equatable {
     let word: String
     let translate: [String]
     
-    
-//    func toStringTranslate() -> String
     var toStringTranslate: String {
         get {
             var text = ""

@@ -1,11 +1,3 @@
-//
-//  ProVersionPurchaseView.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 28.08.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 import SwiftyStoreKit
 import StoreKit
@@ -71,26 +63,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     let inAppPurchaseId = "com.Revolvetra.Wordz.RemoveAd"
     
     @objc fileprivate func handleMakePurchaseButtonTapped() {
-        //IAPService.shared.getProducts()
         IAPService.shared.purchase(product: .removeAd)
-//        let purchacesViewController = PurchasesViewController()
-        // TODO: I dont know which method I should call
-//        purchacesViewController.purchase(.RemoveAds)
-        
-        
-        
-//        SwiftyStoreKit.retrieveProductsInfo([inAppPurchaseId]) { result in
-//            if let product = result.retrievedProducts.first {
-//                let priceString = product.localizedPrice!
-//                print("Product: \(product.localizedDescription), price: \(priceString)")
-//            }
-//            else if let invalidProductId = result.invalidProductIDs.first {
-//                print("Invalid product identifier: \(invalidProductId)")
-//            }
-//            else {
-//                print("Error: \(result.error)")
-//            }
-//        }
         
     }
     

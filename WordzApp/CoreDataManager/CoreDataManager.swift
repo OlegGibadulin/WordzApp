@@ -1,11 +1,3 @@
-//
-//  CoreDataManager.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 22.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 import CoreData
 

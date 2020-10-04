@@ -1,11 +1,3 @@
-//
-//  ResultCardView.swift
-//  WordzApp
-//
-//  Created by Антон Тимонин on 28.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 
 final class CardResultView: UIView {

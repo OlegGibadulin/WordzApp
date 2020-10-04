@@ -1,18 +1,9 @@
-//
-//  HomeCollectionViewController.swift
-//  WordzApp
-//
-//  Created by Mac-HOME on 07.07.2020.
-//  Copyright © 2020 Mac-HOME. All rights reserved.
-//
-
 import UIKit
 import CollectionViewCenteredFlowLayout
 
 private let cellIdentifier = "HomeCellId"
 
 class HomeCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
-    
     // If this controller is used into another controller
     var rootViewController: UIViewController?
     
