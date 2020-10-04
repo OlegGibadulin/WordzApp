@@ -4,27 +4,24 @@
   </h1>
 </p>
 
-### iOS приложение
+<p align = "center">
+  <h3>
+    iOS приложение
+  </h3>
+</p>
 
-<div class="col">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-7">
-                            <p align="center">
-                                <img class = "wordz" src = "img/wordz.png" width = 250px height = 250>
-                            </p>
-                        </div>
-                        <div class="col-5">
-                            <img class = "qr-code" src = "img/qr-code.jpg" width = 250px height = 250>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <p align="center">
-                    <img class = "black" src = "img/black.png" >
-                </p>
-            </div>
+<p align="center">
+  <img class = "qr-code" src = "img/qr-code.jpg" width = 250px height = 250>
+</p>
+
+<p align="center">
+  <img class = "wordz" src = "img/wordz.png" width = 250px height = 250>
+</p>
+
+<p align="center">
+  <img class = "black" src = "img/black.png" >
+</p>
+
 
 Служба поддержки: revolvetra-help@mail.ru
 
