@@ -57,13 +57,13 @@ class CategoryTableViewController: UITableViewController {
     }
     
     func showEmptyView(isNeedToShow: Bool) {
-        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut) {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             if (isNeedToShow == true) {
                 self.emptyView.alpha = 1
             } else {
                 self.emptyView.alpha = 0
             }
-        } completion: { (_) in
+        }) { (_) in
             if (isNeedToShow == true) {
                 self.emptyView.isHidden = false
             } else {
