@@ -53,15 +53,21 @@ class TodayCardsViewController: UIViewController {
 
             // Update upload date
             CoreDataManager.shared.updateDate(level: level)
-
-            // Get new set of sentences
+            
+            // Check if needed to upload new sentence from storage
             if CoreDataManager.shared.isNeedToUpdate(level: level) {
                 // Upload sentences into CoreData level
                 Storage.shared.uploadSentences(level: level)
             }
-            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: Storage.shared.everydaySentencesCount]
 
-            // Add new sentences to category for current level
+            // Get new set of sentences
+            let newSentences = CoreDataManager.shared.fetchNotLearnedSentences(level: level)[randomPick: Storage.shared.everydaySentencesCount]
+            
+            // Delete sentences from hidden category for current level
+            sentences.forEach { (sentence) in
+                CoreDataManager.shared.deleteSentence(sentence: sentence)
+            }
+            // Add new sentences to hidden category for current level
             newSentences.forEach { (sentence) in
                 guard let text = sentence.text, let translation = sentence.translation else { return }
                 
