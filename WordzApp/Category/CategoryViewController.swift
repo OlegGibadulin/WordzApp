@@ -47,6 +47,11 @@ class CategoryViewController: UIViewController {
         setupNavigationController()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        categoryTableViewController.tableView.reloadData()
+    }
+    
     @objc fileprivate func handleToCards() {
         print("\(StatisticCollector.swipesToLeft!) \(StatisticCollector.swipesToRight!) \(StatisticCollector.totalSwipes!)")
         let cardViewController = CardsViewController()
@@ -99,7 +104,9 @@ class CategoryViewController: UIViewController {
                 presentAlert(title: "Добавьте больше слов", text: "Вы не можете начать изучение избранных слов, если их количество меньше 5", additionalAction: nil)
             } else {
                 let additionalAction = UIAlertAction(title: "Сбросить", style: .destructive) { (alert) in
-                    CoreDataManager.shared.resetStatisticSentences(category: self.category)
+                    CoreDataManager.shared.resetStatisticSentences(category: self.category) {
+                        self.categoryTableViewController.tableView.reloadData()
+                    }
                     print("Сброс статистики")
                 }
                 presentAlert(title: "Поздравляем!", text: "Вы выучили почти все слова из выбранной категории\n\nВы можете сбросить статистику, чтобы начать заново", additionalAction: additionalAction)
@@ -170,6 +177,6 @@ class CategoryViewController: UIViewController {
         if let addAction = additionalAction {
             alert.addAction(addAction)
         }
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true)
     }
 }

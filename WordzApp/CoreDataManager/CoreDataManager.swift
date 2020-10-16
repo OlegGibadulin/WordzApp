@@ -104,7 +104,7 @@ struct CoreDataManager {
         }
     }
     
-    func resetStatisticSentences(category: Category?) {
+    func resetStatisticSentences(category: Category?, completion: (()->())?) {
         let context = persistentContainer.viewContext
         
         guard let categorySentences = category?.sentences?.allObjects as? [Sentence] else { return }
@@ -116,6 +116,8 @@ struct CoreDataManager {
         
         do {
             try context.save()
+            guard let compl = completion else { return }
+            compl()
         } catch let editErr {
             print("Failed to edit sentence:", editErr)
         }
