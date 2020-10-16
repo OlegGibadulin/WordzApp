@@ -104,7 +104,7 @@ final class CardsViewController: UIViewController {
         
         setupStackViews()
         if (Purchases.fullVersion == false) {
-            //setupAd()
+            setupAd()
         }
         
     }
@@ -165,8 +165,6 @@ final class CardsViewController: UIViewController {
             cardsView[cardsView.count - 2].isHidden = false
             cardsView.last?.isUserInteractionEnabled = true
         }
-        
-        cardsView[cardsView.count-2].backgroundColor = #colorLiteral(red: 0.9684353471, green: 0.9614343047, blue: 0.9737952352, alpha: 1)
         
         performActionWithLoadingView(isNeedToShow: false)
     }
