@@ -71,6 +71,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     
     fileprivate let benefitsTableView: UITableView = {
         let btv = UITableView()
+        btv.backgroundColor = UIColor.appColor(.white_lightgray)
         btv.register(BenefitsTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
         btv.tableFooterView = UIView()
         btv.allowsSelection = false
@@ -84,7 +85,7 @@ class ProVersionPurchaseView: UIView, UITableViewDelegate, UITableViewDataSource
     fileprivate let benefits: [Benefit] = [
         Benefit(title: "Отключение рекламы", description: "Вам больше не будут высвечиваться рекламные предложения"),
         Benefit(title: "Продвинутый уровень", description: "Испытайте себя на самом сложном уровне \"Продвинутый\""),
-        Benefit(title: "Тем более...", description: "Приобретая сейчас, вы получаете всю будущую функциональность PRO версии бесплатно"),
+        Benefit(title: "Обновления", description: "С новыми обновлениями для вас будут доступны все фишки полной версии приложения")
     ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

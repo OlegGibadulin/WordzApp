@@ -111,7 +111,12 @@ class CategoryTableViewController: UITableViewController {
         cell.textLabel?.textColor = UIColor.appColor(.text_black_white)
         cell.backgroundColor = UIColor.appColor(.white_lightgray)
         cell.sentence = sentences[indexPath.row]
-
+        if (sentences[indexPath.row].learned >= CardsSettings.сardsRepeats) {
+            cell.showImage(isNeedToShow: true)
+        } else {
+            cell.showImage(isNeedToShow: false)
+        }
+        
         return cell
     }
     

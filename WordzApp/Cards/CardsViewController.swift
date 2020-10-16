@@ -101,10 +101,11 @@ final class CardsViewController: UIViewController {
         
         setupLayout()
         setupNavigationBar()
-        if (Purchases.fullVersion == false) {
-            setupAd()
-        }
+        
         setupStackViews()
+        if (Purchases.fullVersion == false) {
+            //setupAd()
+        }
         
     }
     
@@ -164,6 +165,8 @@ final class CardsViewController: UIViewController {
             cardsView[cardsView.count - 2].isHidden = false
             cardsView.last?.isUserInteractionEnabled = true
         }
+        
+        cardsView[cardsView.count-2].backgroundColor = #colorLiteral(red: 0.9684353471, green: 0.9614343047, blue: 0.9737952352, alpha: 1)
         
         performActionWithLoadingView(isNeedToShow: false)
     }
@@ -406,9 +409,6 @@ extension CardsViewController: GADBannerViewDelegate {
         print("recevied ad")
     }
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print(error.localizedDescription)
-        print(error.localizedFailureReason)
-        print(error.localizedRecoverySuggestion)
         print(error.localizedDescription)
     }
 }

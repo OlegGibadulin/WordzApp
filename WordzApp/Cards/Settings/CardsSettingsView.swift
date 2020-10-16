@@ -260,7 +260,7 @@ final class CardsSettingsView: UIView {
     }
     
     @objc func resetProgress(sender: UIButton) {
-        CoreDataManager.shared.resetStatisticSentences(category: self.category)
+        CoreDataManager.shared.resetStatisticSentences(category: category, completion: nil)
     }
     
     required init?(coder: NSCoder) {
