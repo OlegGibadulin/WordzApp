@@ -7,3 +7,5 @@
 ### Служба поддержки: revolvetra.help@gmail.com
 
 ### [Privacy Policy](https://oleggibadulin.github.io/WordzApp/privacy_policy.html)
+
+### [AdSense](https://oleggibadulin.github.io/WordzApp/adsense.html)
