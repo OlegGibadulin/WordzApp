@@ -24,6 +24,7 @@
 		7746EBEF24F4F52800084A2F /* loading_animation.json in Resources */ = {isa = PBXBuildFile; fileRef = 7746EBEE24F4F52800084A2F /* loading_animation.json */; };
 		7748C1FA24F7F08D007939CF /* StatisticCollector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7748C1F924F7F08D007939CF /* StatisticCollector.swift */; };
 		774AB99024F41964006EA997 /* loading_animation_dark.json in Resources */ = {isa = PBXBuildFile; fileRef = 774AB98F24F41963006EA997 /* loading_animation_dark.json */; };
+		7754286D2534DE43001E9A5F /* Extensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7754286C2534DE43001E9A5F /* Extensions+UIButton.swift */; };
 		77589CFD24FC1841003B08D3 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77589CFC24FC1841003B08D3 /* House.swift */; };
 		776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 776C28CC24F40D5D00556AE2 /* SchemeColor.swift */; };
 		777251AC24EEA69100A8697D /* CardSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 777251AB24EEA69100A8697D /* CardSettingsViewController.swift */; };
@@ -31,7 +32,6 @@
 		7785D20C24EC030000555343 /* CardsUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20B24EC030000555343 /* CardsUserDefaults.swift */; };
 		7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */; };
 		7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20F24EC039800555343 /* AddFavouriteWordView.swift */; };
-		779B04F72527788C001E44DE /* Etensions+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 779B04F62527788C001E44DE /* Etensions+UIButton.swift */; };
 		77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC885924FD7D4900629BC8 /* BodyParts.swift */; };
 		77AE2759252765C800BD231D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE2758252765C800BD231D /* EmptyView.swift */; };
 		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
@@ -108,6 +108,7 @@
 		7746EBEE24F4F52800084A2F /* loading_animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation.json; sourceTree = "<group>"; };
 		7748C1F924F7F08D007939CF /* StatisticCollector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCollector.swift; sourceTree = "<group>"; };
 		774AB98F24F41963006EA997 /* loading_animation_dark.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading_animation_dark.json; sourceTree = "<group>"; };
+		7754286C2534DE43001E9A5F /* Extensions+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIButton.swift"; sourceTree = "<group>"; };
 		77589CFC24FC1841003B08D3 /* House.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		776C28CC24F40D5D00556AE2 /* SchemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchemeColor.swift; sourceTree = "<group>"; };
 		777251AB24EEA69100A8697D /* CardSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSettingsViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		7785D20B24EC030000555343 /* CardsUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsUserDefaults.swift; sourceTree = "<group>"; };
 		7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+AddFavouriteWord.swift"; sourceTree = "<group>"; };
 		7785D20F24EC039800555343 /* AddFavouriteWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteWordView.swift; sourceTree = "<group>"; };
-		779B04F62527788C001E44DE /* Etensions+UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Etensions+UIButton.swift"; path = "../../../../../.Trash/Etensions+UIButton.swift"; sourceTree = "<group>"; };
 		77AC885924FD7D4900629BC8 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
 		77AE2758252765C800BD231D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
@@ -289,8 +289,8 @@
 				C438ABDA24CEE8550043D234 /* Extensions+Calendar.swift */,
 				C4DCD05E24D9DA92008CB85F /* Extensions+UIImage.swift */,
 				C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */,
-				779B04F62527788C001E44DE /* Etensions+UIButton.swift */,
 				C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */,
+				7754286C2534DE43001E9A5F /* Extensions+UIButton.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -604,6 +604,7 @@
 				77009FFE2500F92300E8F83E /* Tools.swift in Sources */,
 				C448E6FC24BDB1E70057881D /* CategoryTableViewController.swift in Sources */,
 				C41F63C524B4996C0051FD7B /* Extensions+UIView.swift in Sources */,
+				7754286D2534DE43001E9A5F /* Extensions+UIButton.swift in Sources */,
 				C4F2216624FAB236009D0947 /* HomeViewController.swift in Sources */,
 				C438ABDD24CFFDBC0043D234 /* CardsSettingsView.swift in Sources */,
 				77DD303924EC01A8004C93B0 /* CardLoadingView.swift in Sources */,
@@ -640,7 +641,6 @@
 				77421B552520909E0096873C /* IAPService.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
-				779B04F72527788C001E44DE /* Etensions+UIButton.swift in Sources */,
 				7700A00A2500FCF600E8F83E /* Colors.swift in Sources */,
 				77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */,
 				C47585BE24C84AE5008199E2 /* WordzAppModels.xcdatamodeld in Sources */,
@@ -726,7 +726,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -780,7 +780,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -800,7 +800,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92LK22555;
 				INFOPLIST_FILE = WordzApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,7 +824,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X92LK22555;
 				INFOPLIST_FILE = WordzApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -119,11 +119,13 @@ final class CardsViewController: UIViewController {
         // REAL AD BANNER
         bannerView.adUnitID = "ca-app-pub-5331338247155415/3531927651"
         
+        
         // TEST AD
 //        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.load(GADRequest())
         bannerView.rootViewController = self
         bannerView.delegate = self
-        bannerView.load(GADRequest())
+        
         self.view.addSubview(bannerView)
         
         bannerView.translatesAutoresizingMaskIntoConstraints = false
@@ -404,6 +406,9 @@ extension CardsViewController: GADBannerViewDelegate {
         print("recevied ad")
     }
     func adView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: GADRequestError) {
-        print(error)
+        print(error.localizedDescription)
+        print(error.localizedFailureReason)
+        print(error.localizedRecoverySuggestion)
+        print(error.localizedDescription)
     }
 }
