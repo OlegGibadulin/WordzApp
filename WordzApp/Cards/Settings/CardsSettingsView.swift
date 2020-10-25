@@ -1,8 +1,15 @@
 import UIKit
 
+protocol AlertDelegate: class {
+    func showInfoAlert(title: String, message: String)
+    func presentAlert(title: String, message: String, nameAction: String, completion: (() -> Void)?)
+}
+
 final class CardsSettingsView: UIView {
     
     public var category: Category?
+    
+    public var delegate: AlertDelegate?
     
     // MARK:- Line 1 variables
     fileprivate var firstLineStackView: UIStackView!
@@ -260,7 +267,10 @@ final class CardsSettingsView: UIView {
     }
     
     @objc func resetProgress(sender: UIButton) {
-        CoreDataManager.shared.resetStatisticSentences(category: category, completion: nil)
+        guard let delegate = delegate else { return }
+        delegate.presentAlert(title: "Предупреждение", message: "Вы точно хотите сбросить статистку слов текущей категории?", nameAction: "Сбросить") {
+            CoreDataManager.shared.resetStatisticSentences(category: self.category, completion: nil)
+        }
     }
     
     required init?(coder: NSCoder) {

@@ -33,6 +33,7 @@
 		7785D20E24EC034400555343 /* CategoryVC+AddFavouriteWord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */; };
 		7785D21024EC039800555343 /* AddFavouriteWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7785D20F24EC039800555343 /* AddFavouriteWordView.swift */; };
 		77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AC885924FD7D4900629BC8 /* BodyParts.swift */; };
+		77AD09D025446BA4009B0367 /* Extensions+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */; };
 		77AE2759252765C800BD231D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE2758252765C800BD231D /* EmptyView.swift */; };
 		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
 		77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067D9250B64A60025F987 /* LaunchScreenController.swift */; };
@@ -118,6 +119,7 @@
 		7785D20D24EC034400555343 /* CategoryVC+AddFavouriteWord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+AddFavouriteWord.swift"; sourceTree = "<group>"; };
 		7785D20F24EC039800555343 /* AddFavouriteWordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFavouriteWordView.swift; sourceTree = "<group>"; };
 		77AC885924FD7D4900629BC8 /* BodyParts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyParts.swift; sourceTree = "<group>"; };
+		77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIAlertController.swift"; sourceTree = "<group>"; };
 		77AE2758252765C800BD231D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
 		77C067D9250B64A60025F987 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				C4306D9F24DD869600223561 /* Extensions+CGFloat.swift */,
 				C47EF66B24E9712F006F5971 /* Extensions+UINavigationController.swift */,
 				7754286C2534DE43001E9A5F /* Extensions+UIButton.swift */,
+				77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -642,6 +645,7 @@
 				7700A0022500F93200E8F83E /* Drinks.swift in Sources */,
 				C4306DA024DD869600223561 /* Extensions+CGFloat.swift in Sources */,
 				77589CFD24FC1841003B08D3 /* House.swift in Sources */,
+				77AD09D025446BA4009B0367 /* Extensions+UIAlertController.swift in Sources */,
 				77421B552520909E0096873C /* IAPService.swift in Sources */,
 				773F32E324D01B1A006C8482 /* CardResultView.swift in Sources */,
 				C47EF66C24E9712F006F5971 /* Extensions+UINavigationController.swift in Sources */,
@@ -809,7 +813,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -833,7 +837,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				SWIFT_VERSION = 5.0;

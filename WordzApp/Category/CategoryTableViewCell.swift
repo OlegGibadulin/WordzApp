@@ -44,16 +44,16 @@ class CategoryTableViewCell: UITableViewCell {
         addSubview(overallStackView)
         overallStackView.fillSuperview(padding: .init(top: 16, left: 24, bottom: 16, right: 16))
         
-        guard let image = UIImage(named: "learnedIndicator") else { return }
         
-        setupImageView(image: image)
-        self.indicatorImageView?.alpha = 0
+        
+        setupImageView()
+        //self.indicatorImageView?.alpha = 1
     }
     
     var indicatorImageView: UIImageView?
     
-    func setupImageView(image: UIImage) {
-        indicatorImageView = UIImageView(image: image)
+    func setupImageView() {
+        indicatorImageView = UIImageView()
         guard let indicatorImageView = indicatorImageView else { return }
         indicatorImageView.contentMode = .scaleAspectFit
         indicatorImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -64,16 +64,18 @@ class CategoryTableViewCell: UITableViewCell {
         indicatorImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
     }
     
-    func showImage(isNeedToShow: Bool) {
-        if (isNeedToShow == true) {
+    func showFilledIndicator(isNeedToFill: Bool) {
+        if (isNeedToFill == true) {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut) {
-                self.indicatorImageView?.alpha = 1
+                guard let image = UIImage(named: "learnedIndicator") else { return }
+                self.indicatorImageView?.image = image
             } completion: { (_) in
                 
             }
         } else {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut) {
-                self.indicatorImageView?.alpha = 0
+                guard let image = UIImage(named: "notLearnedIndicator") else { return }
+                self.indicatorImageView?.image = image
             } completion: { (_) in
                 
             }

@@ -3,6 +3,7 @@ import UIKit
 class CardSettingsViewController: UIViewController {
     
     public var category: Category?
+    private var initialCountCardsInPack: Int?
     
     var keyWindow: UIWindow? {
         didSet {
@@ -30,6 +31,8 @@ class CardSettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initialCountCardsInPack = CardsSettings.сardsInPack as Int
+        settingsView.delegate = self
         settingsView.category = category
         setupGestures()
     }
@@ -60,6 +63,13 @@ class CardSettingsViewController: UIViewController {
             self.blackoutView.isUserInteractionEnabled = false
             self.settingsView.isHidden = true
         })
+        
+        let nowCardsInPack = CardsSettings.сardsInPack as Int
+        guard let countCardsInPack = initialCountCardsInPack else { return }
+        if (countCardsInPack != nowCardsInPack) {
+            showInfoAlert(title: "Изменения", message: "Ваши изменения вступят в силу в следующей сессии игры со смахиванием карточек")
+            initialCountCardsInPack = nowCardsInPack
+        }
     }
     
     fileprivate func setInitialPosition() {
@@ -123,5 +133,30 @@ class CardSettingsViewController: UIViewController {
             }, completion: nil)
         }
     }
+}
+
+extension CardSettingsViewController: AlertDelegate {
+    func showInfoAlert(title: String, message: String) {
+        
+        let action = UIAlertAction(title: "Хорошо", style: .default, handler: nil)
+        
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(action)
+        let windows = UIApplication.shared.windows
+        let lastWindow = windows.last
+        lastWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
     
+    
+    public func presentAlert(title: String, message: String, nameAction: String, completion: (() -> Void)? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.withAction(UIAlertAction(title: "Закрыть", style: .cancel))
+        alert.withAction(UIAlertAction(title: nameAction, style: .destructive, handler: { (_) in
+            guard let completion = completion else { return }
+            completion()
+        }))
+        let windows = UIApplication.shared.windows
+        let lastWindow = windows.last
+        lastWindow?.rootViewController?.present(alert, animated: true, completion: nil)
+    }
 }
