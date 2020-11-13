@@ -10,7 +10,7 @@ func toWordModel(sentence: Sentence) -> Word {
 }
 
 final class CardView: UIView {
-    static private let threshold: CGFloat = 100
+    static private let threshold: CGFloat = 50
     
     private var initialWidth: CGFloat = 0
     private var initialHeight: CGFloat = 0
@@ -23,6 +23,15 @@ final class CardView: UIView {
     public var Sentence: Sentence {
         sentence
     }
+    
+    fileprivate var starButton: UIButton = {
+        let sb = UIButton()
+        sb.translatesAutoresizingMaskIntoConstraints = false
+        sb.backgroundColor = .clear
+        return sb
+    }()
+    
+    fileprivate var isStarred: Bool = false
     
     private override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,14 +55,23 @@ final class CardView: UIView {
         self.sentence = sentence
         self.wordSelfCard = toWordModel(sentence: sentence)
         self.view = view
-        
-        print("\(sentence.text) \(sentence.translation) \(sentence.learned) \(sentence.level)")
     }
     
     fileprivate func setupLayout() {
         backgroundColor = UIColor.appColor(.white_lightgray)
         self.layer.cornerRadius = 23
         self.clipsToBounds = false
+        
+    }
+    
+    private func setupStarButton() {
+        changeStateButton(true)
+        starButton.addTarget(self, action: #selector(handleStar(sender:)), for: .touchUpInside)
+        self.addSubview(starButton)
+        starButton.topAnchor.constraint(equalTo: self.topAnchor, constant: 24).isActive = true
+        starButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -24).isActive = true
+        starButton.widthAnchor.constraint(equalToConstant: 27).isActive = true
+        starButton.heightAnchor.constraint(equalToConstant: 27).isActive = true
     }
     
     public func setupLayerShadow() {
@@ -82,9 +100,36 @@ final class CardView: UIView {
         textLabel.layer.shadowOpacity = 0.4
         textLabel.layer.shadowOffset = CGSize(width: 0, height: 3)
         self.addSubview(textLabel)
+        setupStarButton()
     }
     
-    @objc fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
+    @objc
+    fileprivate func handleStar(sender: UIButton) {
+        if isStarred {
+            changeStateButton(isStarred)
+        } else {
+            changeStateButton(isStarred)
+        }
+        
+        isStarred = isStarred ? false: true
+    }
+    
+    private func changeStateButton(_ isFilled: Bool) {
+        if isFilled {
+            guard let emptyImage = UIImage(named: "blueStarEmpty") else { return }
+            starButton.setImage(emptyImage, for: .normal)
+            guard let filledImage = UIImage(named: "blueStarFilled") else { return }
+            starButton.setImage(filledImage, for: [.highlighted])
+        } else {
+            guard let emptyImage = UIImage(named: "blueStarFilled") else { return }
+            starButton.setImage(emptyImage, for: .normal)
+            guard let filledImage = UIImage(named: "blueStarEmpty") else { return }
+            starButton.setImage(filledImage, for: [.highlighted])
+        }
+    }
+    
+    @objc
+    fileprivate func handlePan(gesture: UIPanGestureRecognizer) {
         switch gesture.state {
         case .changed:
             view.enableSwipeButtons(isEnabled: false)
@@ -120,26 +165,36 @@ final class CardView: UIView {
                             } else if (self.view != nil && translationDirection <= 0) {
                                 self.view.updateSwipedCard(isFamilarWordSwiped: false)
                             }
+                            if self.isStarred {
+                                if let text = self.sentence.text, let translate = self.sentence.translation {
+                                    CoreDataManager.shared.addFavouriteSentence(text: text, translation: translate)
+                                }
+                            }
                             self.frame = CGRect(x: 1000 * translationDirection, y: 0, width: self.initialWidth, height: self.initialHeight)
                         } else {
                             self.transform = .identity
                         }
-        }, completion: { (_) in
-            self.transform = .identity
-            if shouldDismissedCard {
-                self.removeFromSuperview()
-            }
-        })
+                       }, completion: { (_) in
+                        self.transform = .identity
+                        if shouldDismissedCard {
+                            self.removeFromSuperview()
+                        }
+                       })
     }
     
     public func swipeCard(IfPositiveNumberThenSwipeRightElseLeft translationDirection: CGFloat) {
+        if isStarred {
+            if let text = sentence.text, let translate = sentence.translation {
+                CoreDataManager.shared.addFavouriteSentence(text: text, translation: translate)
+            }
+        }
         UIView.animate(withDuration: 2, delay: 0, usingSpringWithDamping: 0.6,
                        initialSpringVelocity: 5, options: .curveEaseOut, animations: {
                         self.frame = CGRect(x: 800 * translationDirection, y: 0, width: self.initialWidth, height: self.initialHeight)
-        }, completion: { (_) in
-            self.transform = .identity
-            self.removeFromSuperview()
-        })
+                       }, completion: { (_) in
+                        self.transform = .identity
+                        self.removeFromSuperview()
+                       })
     }
     
     @objc fileprivate func handleOneTapPan(gesture: UIPanGestureRecognizer) {
@@ -151,7 +206,7 @@ final class CardView: UIView {
             isOpen = false
             
             textLabel.text = wordSelfCard.toStringTranslate
-//            textLabel.text = wordSelfCard.translate
+            //            textLabel.text = wordSelfCard.translate
             UIView.transition(with: self, duration: 0.3, options: .transitionFlipFromRight, animations: nil, completion: nil)
         } else {
             isOpen = true

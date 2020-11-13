@@ -73,7 +73,7 @@ final class CardsViewController: UIViewController {
         swipeRightButton.titleLabel?.numberOfLines = 2
         swipeRightButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
         swipeRightButton.setTitleColor(#colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1), for: .highlighted)
-        swipeRightButton.backgroundColor = UIColor.appColor(.button_white_lightgray)
+        swipeRightButton.backgroundColor = UIColor.appColor(.white_lightgray)
         swipeRightButton.clipsToBounds = false
         swipeRightButton.translatesAutoresizingMaskIntoConstraints = false
         swipeRightButton.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
