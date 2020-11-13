@@ -7,10 +7,18 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     // If this controller is used into another controller
     var rootViewController: UIViewController?
     
+    var menuInteraction : UIContextMenuInteraction!
+    
     fileprivate var categories = [Category]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        menuInteraction = UIContextMenuInteraction(delegate: self)
+        
+        if traitCollection.forceTouchCapability == UIForceTouchCapability.available {
+            UIContextMenuInteraction(delegate: self)
+        }
         
         // Register cells
         collectionView!.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
@@ -23,6 +31,7 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
     fileprivate func setupLayout() {
         collectionView.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         collectionView.collectionViewLayout = CollectionViewCenteredFlowLayout()
+        collectionView.showsVerticalScrollIndicator = false
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
@@ -68,8 +77,22 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! HomeCollectionViewCell
         
         cell.category = categories[indexPath.row]
+        
+        let menuInteraction = UIContextMenuInteraction(delegate: self)
+        cell.addInteraction(menuInteraction)
     
         return cell
     }
 
+}
+
+extension HomeCollectionViewController: UIContextMenuInteractionDelegate {
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (suggestedAction) -> UIMenu? in
+//            let action1 = UIAction(title: "KeK") {(_) in
+//                print("action")
+//            }
+            return UIMenu(title: "", children: [])
+        }
+    }
 }
