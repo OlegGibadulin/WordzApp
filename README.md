@@ -8,4 +8,4 @@
 
 ### [Privacy Policy](https://oleggibadulin.github.io/WordzApp/privacy_policy.html)
 
-### [Privacy Policy](https://oleggibadulin.github.io/WordzApp/app-ads.txt)
+### [App ads](https://oleggibadulin.github.io/WordzApp/app-ads.txt)
