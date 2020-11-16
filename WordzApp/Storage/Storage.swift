@@ -36,7 +36,7 @@ struct Storage {
         CategoryStorage(title: "Цвета", firstColor: #colorLiteral(red: 0.9215686275, green: 0.3725490196, blue: 0.2431372549, alpha: 1), secondColor: #colorLiteral(red: 0.8901960784, green: 0.6078431373, blue: 0.2392156863, alpha: 1), sentences: Colors),
         CategoryStorage(title: "Работа", firstColor: #colorLiteral(red: 0.2980392157, green: 0.8478753273, blue: 0.6823529412, alpha: 1), secondColor: #colorLiteral(red: 0.3647058824, green: 0.7882352941, blue: 0.6784313725, alpha: 1), sentences: Jobs),
         CategoryStorage(title: "Маркетинг", firstColor: #colorLiteral(red: 0.9215686275, green: 0.3529411765, blue: 0.2078431373, alpha: 1), secondColor: #colorLiteral(red: 0.9411764706, green: 0.5843137255, blue: 0.4392156863, alpha: 1), sentences: Marketing),
-        CategoryStorage(title: "Индивидуальность", firstColor: #colorLiteral(red: 0.6286907792, green: 0.8819136024, blue: 0.7345480323, alpha: 1), secondColor: #colorLiteral(red: 0.3058823529, green: 0.631372549, blue: 0.9725490196, alpha: 1), sentences: Personality)
+        CategoryStorage(title: "Индивид", firstColor: #colorLiteral(red: 0.6286907792, green: 0.8819136024, blue: 0.7345480323, alpha: 1), secondColor: #colorLiteral(red: 0.3058823529, green: 0.631372549, blue: 0.9725490196, alpha: 1), sentences: Personality)
     ]
     
     let levelsTitle = [

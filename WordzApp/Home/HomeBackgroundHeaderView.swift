@@ -38,17 +38,17 @@ class HomeBackgroundHeaderView: UIView {
         let circle3Radius = self.frame.width * 0.89
         circle3.layer.cornerRadius = circle3Radius / 2
         
-        let image = UIImage(named: "wordz_gray")
-        let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        let image = UIImage(named: "wordz_gray")
+//        let imageView = UIImageView(image: image)
+//        imageView.contentMode = .scaleAspectFit
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         
         self.addSubview(circle1)
         self.addSubview(circle2)
 //        self.addSubview(circle3)
         
-        self.addSubview(imageView)
+//        self.addSubview(imageView)
         
         self.layer.cornerRadius = 23
         self.layer.shadowColor = #colorLiteral(red: 0.3647058824, green: 0.4156862745, blue: 0.9764705882, alpha: 1)
@@ -71,11 +71,11 @@ class HomeBackgroundHeaderView: UIView {
 //        circle3.topAnchor.constraint(equalTo: circle2.bottomAnchor, constant: 17.5).isActive = true
 //        circle3.leftAnchor.constraint(equalTo: self.rightAnchor, constant: customViewWidth * (-0.32)).isActive = true
         
-        imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3).isActive = true
-        imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3).isActive = true
-        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
-//        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: customViewHeight * (-0.3)).isActive = true
-        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
+//        imageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.3).isActive = true
+//        imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.3).isActive = true
+//        imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15).isActive = true
+////        imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: customViewHeight * (-0.3)).isActive = true
+//        imageView.topAnchor.constraint(equalTo: topAnchor, constant: 40).isActive = true
     }
     
     required init?(coder: NSCoder) {
