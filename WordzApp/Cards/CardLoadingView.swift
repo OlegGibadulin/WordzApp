@@ -19,7 +19,7 @@ final class CardLoadingView: UIView {
     fileprivate func setupAnimationView() {
         let width: CGFloat = self.frame.width
         let height: CGFloat = self.frame.height
-        let activitySide: CGFloat = width / 1.15
+        let activitySide: CGFloat = width / 1.5
         
         if (traitCollection.userInterfaceStyle == .dark) {
             animationView = .init(name: "loading_animation_dark")
@@ -27,7 +27,7 @@ final class CardLoadingView: UIView {
             animationView = .init(name: "loading_animation")
         }
         
-        animationView.frame = CGRect(x: (width - activitySide) / 2 , y: (height - activitySide) / 2.25, width: activitySide, height: activitySide)
+        animationView.frame = CGRect(x: (width - activitySide) / 2 , y: (height - activitySide) / 2, width: activitySide, height: activitySide)
         animationView.contentMode = .scaleAspectFit
         animationView.backgroundColor = UIColor.appColor(.white_lightgray)
         animationView.loopMode = .loop
