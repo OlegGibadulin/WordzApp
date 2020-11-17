@@ -344,14 +344,13 @@ final class CardsViewController: UIViewController {
     private let screenSize = UIScreen.main.bounds.size
 }
 
-
 // MARK:- CardInteractionController Protocol Realization
 extension CardsViewController: CardInteractionController {
     internal func enableSwipeButtons(isEnabled enabled: Bool) {
-        backButton.isEnabled = enabled
-        settingsButton.isEnabled = enabled
-        swipeLeftButton.isEnabled = enabled
-        swipeRightButton.isEnabled = enabled
+        backButton.isUserInteractionEnabled = enabled
+        settingsButton.isUserInteractionEnabled = enabled
+        swipeLeftButton.isUserInteractionEnabled = enabled
+        swipeRightButton.isUserInteractionEnabled = enabled
     }
     
     internal func updateSwipedCard(isFamilarWordSwiped: Bool) {
