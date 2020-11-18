@@ -7,7 +7,7 @@ protocol SettingsViewDelegate {
 class HomeViewController: UIViewController, SettingsViewDelegate {
     
     // MARK:- Properties
-    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height * 1.005)
+    lazy var contentViewSize = CGSize(width: self.view.frame.width, height: self.view.frame.height * 1.1)
     
     lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()

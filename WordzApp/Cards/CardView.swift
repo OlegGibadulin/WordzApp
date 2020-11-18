@@ -27,6 +27,7 @@ final class CardView: UIView {
     fileprivate var starButton: UIButton = {
         let sb = UIButton()
         sb.translatesAutoresizingMaskIntoConstraints = false
+        sb.tintColor = UIColor.appColor(.buttonText_blue_white)
         sb.backgroundColor = .clear
         return sb
     }()
@@ -87,7 +88,7 @@ final class CardView: UIView {
         textLabel.font = UIFont.systemFont(ofSize: 44, weight: .semibold)
         textLabel.textAlignment = .center
         textLabel.numberOfLines = 5
-        textLabel.textColor = #colorLiteral(red: 0.368627451, green: 0.4196078431, blue: 0.9803921569, alpha: 1)
+        textLabel.textColor = UIColor.appColor(.purple)
         textLabel.adjustsFontSizeToFitWidth = true
         textLabel.allowsDefaultTighteningForTruncation = true
         
@@ -116,15 +117,15 @@ final class CardView: UIView {
     
     private func changeStateButton(_ isFilled: Bool) {
         if isFilled {
-            guard let emptyImage = UIImage(named: "blueStarEmpty") else { return }
-            starButton.setImage(emptyImage, for: .normal)
-            guard let filledImage = UIImage(named: "blueStarFilled") else { return }
-            starButton.setImage(filledImage, for: [.highlighted])
+            guard let empty = UIImage(named: "blueStarEmpty")?.withRenderingMode(.alwaysTemplate) else { return }
+            starButton.setImage(empty, for: .normal)
+            guard let filled = UIImage(named: "blueStarFilled")?.withRenderingMode(.alwaysTemplate) else { return }
+            starButton.setImage(filled, for: [.highlighted])
         } else {
-            guard let emptyImage = UIImage(named: "blueStarFilled") else { return }
-            starButton.setImage(emptyImage, for: .normal)
-            guard let filledImage = UIImage(named: "blueStarEmpty") else { return }
-            starButton.setImage(filledImage, for: [.highlighted])
+            guard let filled = UIImage(named: "blueStarFilled")?.withRenderingMode(.alwaysTemplate) else { return }
+            starButton.setImage(filled, for: .normal)
+            guard let empty = UIImage(named: "blueStarEmpty")?.withRenderingMode(.alwaysTemplate) else { return }
+            starButton.setImage(empty, for: [.highlighted])
         }
     }
     
