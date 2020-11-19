@@ -104,7 +104,7 @@ class TodayCardView: UIView {
     fileprivate let nextButton: UIButton = {
         let tfb = UIButton()
         tfb.titleLabel?.font = UIFont.systemFont(ofSize: 23)
-        tfb.setTitleColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), for: .normal)
+        tfb.setTitleColor(UIColor.appColor(.button_white_x2lighthray), for: .normal)
         tfb.setTitleColor(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), for: .highlighted)
         tfb.setTitle("Next", for: .normal)
         tfb.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.09411764706, blue: 1, alpha: 1)
@@ -222,7 +222,7 @@ class TodayCardView: UIView {
             subview.layer.removeAllAnimations()
         })
         
-        let translation: CGFloat = 1000
+        let translation: CGFloat = -1000
         
         UIView.animate(withDuration: 0.1) {
             self.sentenceLabel.transform = CGAffineTransform(translationX: translation, y: 0)
@@ -238,7 +238,7 @@ class TodayCardView: UIView {
             subview.layer.removeAllAnimations()
         })
         
-        let translation: CGFloat = -1000
+        let translation: CGFloat = 1000
         
         UIView.animate(withDuration: 0.1) {
             self.sentenceLabel.transform = CGAffineTransform(translationX: translation, y: 0)

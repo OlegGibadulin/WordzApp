@@ -11,6 +11,7 @@ enum AssetsColor : String {
     case text_darkgrayX2_lightgray
     case lightblue_darkblue
     case text_black_lightgray
+    case button_white_x2lighthray
     case text_lightgray
     case white_black
     case red
