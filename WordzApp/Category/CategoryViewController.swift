@@ -32,10 +32,12 @@ class CategoryViewController: UIViewController {
     internal let toCardsButton: UIButton = {
         let tcb = UIButton(type: .system)
         tcb.setRedStyle()
+        tcb.setTitleColor(.black, for: .highlighted)
+        
         tcb.setTitle("Учить слова", for: .normal)
         tcb.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .medium)
         tcb.tintColor = .white
-        tcb.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        tcb.heightAnchor.constraint(equalToConstant: 44).isActive = true
         tcb.addTarget(self, action: #selector(handleToCards), for: .touchUpInside)
         return tcb
     }()
@@ -122,7 +124,7 @@ class CategoryViewController: UIViewController {
         tableView.anchor(top: safeArea.topAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor)
         
         view.addSubview(toCardsButton)
-        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 64, bottom: 16, right: 64))
+        toCardsButton.anchor(top: nil, leading: view.leadingAnchor, bottom: safeArea.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 33, bottom: 16, right: 33))
         
 //        updateToCardsButton(isHidden: false)
         if categoryTableViewController.tableView.visibleCells.isEmpty {
