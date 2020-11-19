@@ -109,6 +109,8 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }
     
     fileprivate func layoutScrollView() {
+        resizeScrollView()
+        
         wordzLogoView.anchor(top: containerView.topAnchor,
                              leading: containerView.leadingAnchor,
                              bottom: nil, trailing: nil,
@@ -134,6 +136,25 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
                              trailing: containerView.trailingAnchor,
                              padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0),
                              size: .init(width: 0, height: 1000))
+        
+        
+    }
+    
+    fileprivate func resizeScrollView() {
+        var newHeight: CGFloat = 20 + 30 + 30 + 20
+        newHeight += wordzLogoView.frame.height
+        newHeight += todayCardsView.frame.height
+        newHeight += cardzLogoView.frame.height
+        newHeight += collectionView.frame.height
+        
+        let screenFrame = self.view.frame
+        if screenFrame.height != 0 {
+            var num = screenFrame.height * (newHeight / screenFrame.height)
+            contentViewSize = CGSize(width: screenFrame.width, height: num )
+            containerView.frame.size = CGSize(width: screenFrame.width, height: num )
+        }
+        
+//        scrollView.contentSize = contentViewSize
     }
     
     // MARK:- Delegate SettingsView

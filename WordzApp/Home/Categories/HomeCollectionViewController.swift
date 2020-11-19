@@ -28,8 +28,6 @@ class HomeCollectionViewController: UICollectionViewController, UICollectionView
         setupLayout()
     }
     
-    
-    
     fileprivate func setupLayout() {
 //        collectionView.backgroundColor = UIColor.appColor(.lightyellow_darkgray)
         collectionView.backgroundColor = .clear
