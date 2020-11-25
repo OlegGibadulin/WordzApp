@@ -36,6 +36,7 @@
 		77AD09D025446BA4009B0367 /* Extensions+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */; };
 		77AE2759252765C800BD231D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE2758252765C800BD231D /* EmptyView.swift */; };
 		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
+		77BE60F3256EF3CD002A8C89 /* TeachUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE60F2256EF3CD002A8C89 /* TeachUserDefaults.swift */; };
 		77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067D9250B64A60025F987 /* LaunchScreenController.swift */; };
 		77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067DB250B64C10025F987 /* LaunchScreenView.swift */; };
 		77D08418253A3FEA000A9D2B /* Personality.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D08417253A3FEA000A9D2B /* Personality.swift */; };
@@ -122,6 +123,7 @@
 		77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIAlertController.swift"; sourceTree = "<group>"; };
 		77AE2758252765C800BD231D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
+		77BE60F2256EF3CD002A8C89 /* TeachUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachUserDefaults.swift; sourceTree = "<group>"; };
 		77C067D9250B64A60025F987 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		77C067DB250B64C10025F987 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		77D08417253A3FEA000A9D2B /* Personality.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Personality.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 		C47585BB24C844E1008199E2 /* Cards */ = {
 			isa = PBXGroup;
 			children = (
+				77BE60F2256EF3CD002A8C89 /* TeachUserDefaults.swift */,
 				777251AD24EEA69600A8697D /* Settings */,
 				C41F63CA24B4A69B0051FD7B /* CardView.swift */,
 				77F02D6B24B6021300F15519 /* CardsViewController.swift */,
@@ -590,6 +593,7 @@
 				C473ECD124B85C4B00895008 /* TodayCardView.swift in Sources */,
 				C4A72C1A25003D0300E1EAF0 /* Advanced.swift in Sources */,
 				77421B50252090160096873C /* IAPProducts.swift in Sources */,
+				77BE60F3256EF3CD002A8C89 /* TeachUserDefaults.swift in Sources */,
 				77AC885A24FD7D4900629BC8 /* BodyParts.swift in Sources */,
 				77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */,
 				C438ABD924CEE4BC0043D234 /* Storage.swift in Sources */,
@@ -813,7 +817,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -837,7 +841,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				SWIFT_VERSION = 5.0;
