@@ -52,7 +52,8 @@ final class CardResultView: UIView {
     
     fileprivate func setupLayout() {
         backgroundColor = UIColor.appColor(.white_lightgray)
-        self.roundCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 23)
+        self.layer.cornerRadius = 23
+//        self.roundCorners([.layerMaxXMinYCorner, .layerMinXMinYCorner], radius: 23)
     }
     
     public func setupLayerShadow() {

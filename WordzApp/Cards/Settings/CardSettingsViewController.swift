@@ -39,7 +39,7 @@ class CardSettingsViewController: UIViewController {
     
     func show() {
         self.settingsView.isHidden = false
-        self.blackoutView.isUserInteractionEnabled = true
+        self.changeInteractable(isUserInteractionEnabled: false)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
@@ -47,12 +47,13 @@ class CardSettingsViewController: UIViewController {
             self.setInitialPosition()
             
         }, completion: { (_) in
-            
+            self.changeInteractable(isUserInteractionEnabled: true)
         })
     }
     
     @objc fileprivate func hide() {
         guard let window = keyWindow else { return }
+        self.changeInteractable(isUserInteractionEnabled: false)
         
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
@@ -61,7 +62,6 @@ class CardSettingsViewController: UIViewController {
             
             
         }, completion: { (_) in
-            self.blackoutView.isUserInteractionEnabled = false
             self.settingsView.isHidden = true
         })
         
@@ -71,6 +71,11 @@ class CardSettingsViewController: UIViewController {
             showInfoAlert(title: "Изменения", message: "Ваши изменения вступят в силу в следующей сессии игры со смахиванием карточек")
             initialCountCardsInPack = nowCardsInPack
         }
+    }
+    
+    private func changeInteractable(isUserInteractionEnabled: Bool) {
+        self.blackoutView.isUserInteractionEnabled = isUserInteractionEnabled
+        self.settingsView.isUserInteractionEnabled = isUserInteractionEnabled
     }
     
     fileprivate func setInitialPosition() {

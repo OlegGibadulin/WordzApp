@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
     
     func show() {
         self.settingsView.isHidden = false
-        self.blackoutView.isUserInteractionEnabled = true
+        changeInteractable(isUserInteractionEnabled: false)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
@@ -43,13 +43,14 @@ class SettingsViewController: UIViewController {
             self.setInitialPosition()
             
         }, completion: { (_) in
-            
+//            self.changeInteractable(isUserInteractionEnabled: true)
         })
+        changeInteractable(isUserInteractionEnabled: true)
     }
     
     @objc fileprivate func hide() {
         guard let window = keyWindow else { return }
-        blackoutView.isUserInteractionEnabled = false
+        changeInteractable(isUserInteractionEnabled: false)
         
         UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
@@ -57,10 +58,15 @@ class SettingsViewController: UIViewController {
             self.settingsView.frame = CGRect(x: 0, y: window.frame.height, width: self.settingsView.frame.width, height: self.settingsView.frame.height)
             
         }, completion: { (_) in
-//            self.blackoutView.isUserInteractionEnabled = false
             self.settingsView.isHidden = true
         })
+        changeInteractable(isUserInteractionEnabled: false)
         delegate?.settingsViewWillDisappear()
+    }
+    
+    private func changeInteractable(isUserInteractionEnabled: Bool) {
+        self.blackoutView.isUserInteractionEnabled = isUserInteractionEnabled
+        self.settingsView.isUserInteractionEnabled = isUserInteractionEnabled
     }
     
     fileprivate func setInitialPosition() {

@@ -7,6 +7,7 @@ protocol CardInteractionController: class {
     func returnBack()
 }
 
+// MARK:- Global Refactor
 final class CardsViewController: UIViewController {
     var bannerView: GADBannerView!
     
@@ -51,7 +52,7 @@ final class CardsViewController: UIViewController {
     
     private let swipeLeftButton: UIButton = {
         let swipeLeftButton = UIButton()
-        swipeLeftButton.roundCorners([.layerMinXMaxYCorner], radius: 23)
+        swipeLeftButton.roundCorners([.layerMinXMaxYCorner, .layerMinXMinYCorner], radius: 23)
         swipeLeftButton.setTitle("Я не знаю\nэто слово", for: .normal)
         swipeLeftButton.titleLabel?.numberOfLines = 2
         swipeLeftButton.setTitleColor(UIColor.appColor(.button_white_x2lighthray), for: .normal)
@@ -63,12 +64,25 @@ final class CardsViewController: UIViewController {
         swipeLeftButton.layer.shadowRadius = 5
         swipeLeftButton.layer.shadowOpacity = 0.2
         swipeLeftButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        swipeLeftButton.titleLabel?.textAlignment = .center
+        
+        let right = UIImage(named: "leftSwipeArrow")?.withRenderingMode(.alwaysTemplate)
+        let imgView = UIImageView(image: right)
+        imgView.tintColor = UIColor.appColor(.button_white_x2lighthray)
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        
+        swipeLeftButton.addSubview(imgView)
+        
+        imgView.heightAnchor.constraint(equalToConstant: 27).isActive = true
+        imgView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        imgView.centerYAnchor.constraint(equalTo: swipeLeftButton.centerYAnchor).isActive = true
+        imgView.rightAnchor.constraint(equalTo: swipeLeftButton.rightAnchor, constant: -12).isActive = true
         return swipeLeftButton
     }()
     
     private let swipeRightButton: UIButton = {
         let swipeRightButton = UIButton()
-        swipeRightButton.roundCorners([.layerMaxXMaxYCorner], radius: 23)
+        swipeRightButton.roundCorners([.layerMaxXMaxYCorner, .layerMaxXMinYCorner], radius: 23)
         swipeRightButton.setTitle("Я знаю\nэто слово", for: .normal)
         swipeRightButton.titleLabel?.numberOfLines = 2
         swipeRightButton.setTitleColor(UIColor.appColor(.buttonText_blue_white), for: .normal)
@@ -80,6 +94,19 @@ final class CardsViewController: UIViewController {
         swipeRightButton.layer.shadowRadius = 5
         swipeRightButton.layer.shadowOpacity = 0.2
         swipeRightButton.layer.shadowOffset = CGSize(width: 0, height: 5)
+        swipeRightButton.titleLabel?.textAlignment = .center
+        let right = UIImage(named: "rightSwipeArrow")?.withRenderingMode(.alwaysTemplate)
+        let imgView = UIImageView(image: right)
+        imgView.tintColor = UIColor.appColor(.buttonText_blue_white)
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        
+        swipeRightButton.addSubview(imgView)
+        
+        imgView.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        imgView.widthAnchor.constraint(equalToConstant: 28).isActive = true
+        imgView.centerYAnchor.constraint(equalTo: swipeRightButton.centerYAnchor).isActive = true
+        imgView.leftAnchor.constraint(equalTo: swipeRightButton.leftAnchor, constant: 12).isActive = true
+        
         return swipeRightButton
     }()
     
@@ -106,12 +133,27 @@ final class CardsViewController: UIViewController {
         if (Purchases.fullVersion == false) {
             setupAd()
         }
-        
     }
     
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        // MARK:- TODO Add refactor
+        if TeachUserDefaults.showSwipeAlerts < 2 {
+            TeachUserDefaults.addTeachSwipes()
+            
+            let action = UIAlertAction(title: "Хорошо", style: .default, handler: nil)
+            let alert = UIAlertController(title: "Свайпайте карточки", message: "Вы можете свайпать карточки вправо и влево. А также можете нажимать на кнопки, которые находятся ниже карточек со словами", preferredStyle: .alert)
+            alert.addAction(action)
+            let queue = DispatchQueue(label: "Alert")
+            queue.asyncAfter(wallDeadline: .now() + .seconds(1)) {
+                DispatchQueue.main.async {
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        }
+//        TeachUserDefaults.showSwipeAlerts = 0
         fillCards()
     }
     
@@ -141,6 +183,10 @@ final class CardsViewController: UIViewController {
         let frame = cardContentStackView.frame
         
         oneCardView = CardResultView(frame: frame, view: self)
+        oneCardView.layer.shadowColor = UIColor.appColor(.buttonShadow_purple_darkpurple_alpha)?.cgColor
+        oneCardView.layer.shadowRadius = 3
+        oneCardView.layer.shadowOpacity = 0.5
+        oneCardView.layer.shadowOffset = CGSize(width: 0, height: 2)
         cardContentStackView.addSubview(oneCardView)
         oneCardView.finishButton.isEnabled = false
         
@@ -275,7 +321,12 @@ final class CardsViewController: UIViewController {
         tmp1StackView = UIStackView(arrangedSubviews: [UIView()])
         tmp2StackView = UIStackView(arrangedSubviews: [UIView()])
         
-        cardsStackView = UIStackView(arrangedSubviews: [cardContentStackView, cardButtonsStackView])
+        let tmpView = UIView()
+        tmpView.translatesAutoresizingMaskIntoConstraints = false
+        
+        cardsStackView = UIStackView(arrangedSubviews: [cardContentStackView, tmpView, cardButtonsStackView])
+        
+        tmpView.heightAnchor.constraint(equalToConstant: 10).isActive = true
         cardsStackView.translatesAutoresizingMaskIntoConstraints = false
         cardsStackView.axis = .vertical
         
@@ -293,11 +344,11 @@ final class CardsViewController: UIViewController {
         print()
         tmp1StackView.topAnchor.constraint(equalTo: view.safeTopAnchor, constant: 0).isActive = true
         if UIScreen.main.bounds.height < 700 {
-            cardContentStackView.heightAnchor.constraint(equalToConstant: 400).isActive = true
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 390).isActive = true
         } else if UIScreen.main.bounds.height > 870 {
-            cardContentStackView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 490).isActive = true
         } else {
-            cardContentStackView.heightAnchor.constraint(equalToConstant: 450).isActive = true
+            cardContentStackView.heightAnchor.constraint(equalToConstant: 440).isActive = true
         }
         
         cardButtonsStackView.translatesAutoresizingMaskIntoConstraints = false
