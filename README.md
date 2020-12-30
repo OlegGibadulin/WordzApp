@@ -6,6 +6,6 @@
 
 ### Служба поддержки: revolvetra.help@gmail.com
 
-### [Privacy Policy](https://oleggibadulin.github.io/WordzApp/privacy_policy.html)
+### Политика конфидециальности:  [Privacy Policy](https://oleggibadulin.github.io/WordzApp/privacy_policy.html)
 
-### [App ads](https://oleggibadulin.github.io/WordzApp/app-ads.txt)
+### Рекламный идентификатор: [App ads](https://oleggibadulin.github.io/WordzApp/app-ads.txt)
