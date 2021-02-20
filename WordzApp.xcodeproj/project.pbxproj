@@ -36,6 +36,7 @@
 		77AD09D025446BA4009B0367 /* Extensions+UIAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */; };
 		77AE2759252765C800BD231D /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AE2758252765C800BD231D /* EmptyView.swift */; };
 		77B3A9B52525C43B00D8D59C /* PurchasesUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */; };
+		77BD7D1D25E11E8D00811BDF /* HeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BD7D1C25E11E8D00811BDF /* HeaderCollectionViewCell.swift */; };
 		77BE60F3256EF3CD002A8C89 /* TeachUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE60F2256EF3CD002A8C89 /* TeachUserDefaults.swift */; };
 		77C067DA250B64A60025F987 /* LaunchScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067D9250B64A60025F987 /* LaunchScreenController.swift */; };
 		77C067DC250B64C10025F987 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77C067DB250B64C10025F987 /* LaunchScreenView.swift */; };
@@ -123,6 +124,7 @@
 		77AD09CF25446BA4009B0367 /* Extensions+UIAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIAlertController.swift"; sourceTree = "<group>"; };
 		77AE2758252765C800BD231D /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		77B3A9B42525C43B00D8D59C /* PurchasesUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesUserDefaults.swift; sourceTree = "<group>"; };
+		77BD7D1C25E11E8D00811BDF /* HeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		77BE60F2256EF3CD002A8C89 /* TeachUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachUserDefaults.swift; sourceTree = "<group>"; };
 		77C067D9250B64A60025F987 /* LaunchScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenController.swift; sourceTree = "<group>"; };
 		77C067DB250B64C10025F987 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -237,8 +239,9 @@
 		C41362C924DF335D0008CCD8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
 				C41F63BD24B485FB0051FD7B /* HomeCollectionViewController.swift */,
+				C481AEC024B4BFC200F2FC7B /* HomeCollectionViewCell.swift */,
+				77BD7D1C25E11E8D00811BDF /* HeaderCollectionViewCell.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				776C28CD24F40D5D00556AE2 /* SchemeColor.swift in Sources */,
 				C4F2216A24FAB473009D0947 /* TodayCardsViewController.swift in Sources */,
 				C4C3461A24CB41640030D8C3 /* CoreDataManager+Level.swift in Sources */,
+				77BD7D1D25E11E8D00811BDF /* HeaderCollectionViewCell.swift in Sources */,
 				C4F2216824FAB23F009D0947 /* HomeBackgroundHeaderView.swift in Sources */,
 				7700A0042500FB3000E8F83E /* Animals.swift in Sources */,
 				C4F2216024F99345009D0947 /* ProVersionPurchaseViewController.swift in Sources */,
@@ -817,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -841,7 +845,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Revolvetra.Wordz;
 				PRODUCT_NAME = "Learn English Wordz";
 				SWIFT_VERSION = 5.0;

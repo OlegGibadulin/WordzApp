@@ -23,14 +23,6 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
         return v
     }()
     
-    fileprivate let todayCardsViewController: TodayCardsViewController = {
-        let tcvc = TodayCardsViewController()
-        tcvc.view.translatesAutoresizingMaskIntoConstraints = false
-        return tcvc
-    }()
-    
-    fileprivate lazy var todayCardsView: TodayCardView = self.todayCardsViewController.view! as! TodayCardView
-    
     fileprivate lazy var homeCollectionViewController: HomeCollectionViewController = {
         let layout = UICollectionViewFlowLayout()
         let hcvc = HomeCollectionViewController(collectionViewLayout: layout)
@@ -70,7 +62,7 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        todayCardsView.updateFavoriteState()
+//        todayCardsView.updateFavoriteState()
     }
     
     //MARK:- ViewDidLayoutSubviews
@@ -97,10 +89,10 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }
     
     fileprivate func setupContainerView() {
-        containerView.addSubview(wordzLogoView)
-        containerView.addSubview(cardzLogoView)
-        containerView.addSubview(todayCardsView)
-        containerView.addSubview(collectionView)
+//        containerView.addSubview(wordzLogoView)
+//        containerView.addSubview(cardzLogoView)
+//        containerView.addSubview(todayCardsView)
+        view.addSubview(collectionView)
     }
     
     //MARK:- Layout
@@ -109,57 +101,54 @@ class HomeViewController: UIViewController, SettingsViewDelegate {
     }
     
     fileprivate func layoutScrollView() {
-        resizeScrollView()
         
-        wordzLogoView.anchor(top: containerView.topAnchor,
-                             leading: containerView.leadingAnchor,
-                             bottom: nil, trailing: nil,
-                             padding: UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0),
-                             size: .init(width: 120, height: 30))
-        
-        todayCardsView.anchor(top: wordzLogoView.bottomAnchor,
-                             leading: containerView.leadingAnchor,
-                             bottom: nil,
-                             trailing: containerView.trailingAnchor,
-                             padding: UIEdgeInsets(top: 20, left: 25, bottom: 0, right: 20),
-                             size: .init(width: 0, height: .todayCardHeight))
-        
-        cardzLogoView.anchor(top: todayCardsView.bottomAnchor,
-                             leading: containerView.leadingAnchor,
-                             bottom: nil, trailing: nil,
-                             padding: UIEdgeInsets(top: 30, left: 25, bottom: 0, right: 0),
-                             size: .init(width: 120, height: 30))
-        
-        collectionView.anchor(top: cardzLogoView.bottomAnchor,
-                             leading: containerView.leadingAnchor,
-                             bottom: nil,
-                             trailing: containerView.trailingAnchor,
+//        wordzLogoView.anchor(top: containerView.topAnchor,
+//                             leading: containerView.leadingAnchor,
+//                             bottom: nil, trailing: nil,
+//                             padding: UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0),
+//                             size: .init(width: 120, height: 30))
+//
+//        todayCardsView.anchor(top: wordzLogoView.bottomAnchor,
+//                             leading: containerView.leadingAnchor,
+//                             bottom: nil,
+//                             trailing: containerView.trailingAnchor,
+//                             padding: UIEdgeInsets(top: 20, left: 25, bottom: 0, right: 20),
+//                             size: .init(width: 0, height: .todayCardHeight))
+//
+//        cardzLogoView.anchor(top: todayCardsView.bottomAnchor,
+//                             leading: containerView.leadingAnchor,
+//                             bottom: nil, trailing: nil,
+//                             padding: UIEdgeInsets(top: 30, left: 25, bottom: 0, right: 0),
+//                             size: .init(width: 120, height: 30))
+//
+        collectionView.anchor(top: view.topAnchor,
+                             leading: view.leadingAnchor,
+                             bottom: view.bottomAnchor,
+                             trailing: view.trailingAnchor,
                              padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0),
                              size: .init(width: 0, height: 1000))
-        
-        
     }
     
     fileprivate func resizeScrollView() {
-        var newHeight: CGFloat = 20 + 30 + 30 + 20
-        newHeight += wordzLogoView.frame.height
-        newHeight += todayCardsView.frame.height
-        newHeight += cardzLogoView.frame.height
-        newHeight += collectionView.frame.height
-        
-        let screenFrame = self.view.frame
-        if screenFrame.height != 0 {
-            var num = screenFrame.height * (newHeight / screenFrame.height)
-            contentViewSize = CGSize(width: screenFrame.width, height: num )
-            containerView.frame.size = CGSize(width: screenFrame.width, height: num )
-        }
+//        var newHeight: CGFloat = 20 + 30 + 30 + 20
+//        newHeight += wordzLogoView.frame.height
+//        newHeight += todayCardsView.frame.height
+//        newHeight += cardzLogoView.frame.height
+//        newHeight += collectionView.frame.height
+//
+//        let screenFrame = self.view.frame
+//        if screenFrame.height != 0 {
+//            var num = screenFrame.height * (newHeight / screenFrame.height)
+//            contentViewSize = CGSize(width: screenFrame.width, height: num )
+//            containerView.frame.size = CGSize(width: screenFrame.width, height: num )
+//        }
         
 //        scrollView.contentSize = contentViewSize
     }
     
     // MARK:- Delegate SettingsView
     func settingsViewWillDisappear() {
-        todayCardsViewController.updateTodaySentences()
+//        todayCardsViewController.updateTodaySentences()
     }
     
     // MARK: Setup NavigationController

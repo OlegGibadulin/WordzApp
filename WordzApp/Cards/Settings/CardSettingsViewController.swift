@@ -39,7 +39,7 @@ class CardSettingsViewController: UIViewController {
     
     func show() {
         self.settingsView.isHidden = false
-        self.changeInteractable(isUserInteractionEnabled: false)
+        self.changeInteractable(isUserInteractionEnabled: true)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             

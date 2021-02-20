@@ -29,19 +29,12 @@ class TodayCardsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTodaySentences()
-        
-        setupInteractions()
     }
     
     func updateTodaySentences() {
         if levelTitle != prevLevelTitle {
             fetchTodaySentences()
         }
-    }
-    
-    func setupInteractions() {
-        let menuInteraction = UIContextMenuInteraction(delegate: self)
-        view.addInteraction(menuInteraction)
     }
     
     fileprivate func fetchTodaySentences() {
@@ -110,13 +103,3 @@ class TodayCardsViewController: UIViewController {
 
 }
 
-extension TodayCardsViewController: UIContextMenuInteractionDelegate {
-    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
-        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { (suggestedAction) -> UIMenu? in
-//            let action1 = UIAction(title: "KeK") {(_) in
-//                print("action")
-//            }
-            return UIMenu(title: "", children: [])
-        }
-    }
-}

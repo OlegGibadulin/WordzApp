@@ -2,6 +2,8 @@ import UIKit
 
 class HomeCollectionViewCell: UICollectionViewCell {
     
+    public static let identifier = "HomeCollectionViewCell"
+    
     var category: Category! {
         didSet {
             titleLabel.text = category.title

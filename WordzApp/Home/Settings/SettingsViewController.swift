@@ -35,7 +35,7 @@ class SettingsViewController: UIViewController {
     
     func show() {
         self.settingsView.isHidden = false
-        changeInteractable(isUserInteractionEnabled: false)
+        changeInteractable(isUserInteractionEnabled: true)
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.1, options: .curveEaseOut, animations: {
             
